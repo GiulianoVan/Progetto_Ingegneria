@@ -17,8 +17,8 @@ import java.sql.SQLException;
 public class DBConnect {
 
     private static Connection con;
-    private static  String user = "cognomen1";
-    private static String password = "pippo";
+    private static  String user = "Marcello";
+    private static String password = "progettoing";
     private static String url = "jdbc:mysql://localhost/em17?useSSL=false&serverTimezone=Europe/Rome";
 
    

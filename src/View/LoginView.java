@@ -58,6 +58,7 @@ public class LoginView extends javax.swing.JFrame implements Observer{
         AccediButton.setBackground(new java.awt.Color(86, 170, 255));
         AccediButton.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
         AccediButton.setText("Accedi");
+        AccediButton.setActionCommand("ACCEDI");
         AccediButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AccediButtonActionPerformed(evt);
@@ -68,6 +69,7 @@ public class LoginView extends javax.swing.JFrame implements Observer{
         ExitButton.setBackground(new java.awt.Color(86, 170, 255));
         ExitButton.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
         ExitButton.setText("Exit");
+        ExitButton.setActionCommand("EXIT");
         getContentPane().add(ExitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 100, 30));
         getContentPane().add(PasswordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 160, 30));
 

@@ -14,7 +14,7 @@ import java.sql.*;
  *
  * @author Pirozzi
  */
-public class ImpAmministratore implements AmministratoreDao {
+public class ImpAdminDao implements AmministratoreDao {
     
     private Connection con;
     private PreparedStatement ps;

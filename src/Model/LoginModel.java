@@ -6,7 +6,7 @@
 package Model;
 
 import Main.StartProject;
-import DB.DAO.ImpAmministratore;
+import DB.DAO.ImpAdminDao;
 import java.util.Observable;
 
 /**
@@ -20,7 +20,7 @@ public class LoginModel extends Observable{
     private String DbUser;
     private String DbPassword;
     private Admin amministratore;
-    private ImpAmministratore adminDAO;
+    private ImpAdminDao adminDAO;
     
     public LoginModel()
     {
@@ -61,7 +61,7 @@ public class LoginModel extends Observable{
     
     public void setValueAmminnistratore(String user, String password)
     {
-        adminDAO = new ImpAmministratore();
+        adminDAO = new ImpAdminDao();
         amministratore = adminDAO.searchbyUserAndPassword(user, password);
         int x=0;       
         if(this.amministratore != null)

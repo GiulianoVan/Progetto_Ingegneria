@@ -25,7 +25,8 @@ public class CreateEventView extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         eventInfoLabel = new javax.swing.JLabel();
         textPlaceCreateEvent = new javax.swing.JTextField();
@@ -33,10 +34,10 @@ public class CreateEventView extends javax.swing.JFrame {
         textCodeCreateEvent = new javax.swing.JTextField();
         textPriceCreateEvent = new javax.swing.JTextField();
         comboTypeCreateEvent = new javax.swing.JComboBox<>();
-        dateCreateEvent = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptionCreateEvent = new javax.swing.JTextArea();
         buttonCreateEvent = new javax.swing.JButton();
+        dateCreateEvent = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,7 +69,6 @@ public class CreateEventView extends javax.swing.JFrame {
         comboTypeCreateEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         comboTypeCreateEvent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type Event...", "Sport", "Cinema", "Teatro", "Concerto", "Museo" }));
         getContentPane().add(comboTypeCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, 30));
-        getContentPane().add(dateCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 140, 30));
 
         descriptionCreateEvent.setColumns(20);
         descriptionCreateEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
@@ -82,6 +82,7 @@ public class CreateEventView extends javax.swing.JFrame {
         buttonCreateEvent.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         buttonCreateEvent.setText("CREATE");
         getContentPane().add(buttonCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, 40));
+        getContentPane().add(dateCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 140, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

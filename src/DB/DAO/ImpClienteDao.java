@@ -6,7 +6,7 @@
 package DB.DAO;
 
 import DB.DAO.ClienteDao;
-import Model.clientModel;
+import Model.ClientModel;
 import java.util.List;
 
 /**
@@ -23,15 +23,15 @@ public class ImpClienteDao implements ClienteDao{
     }
 
     @Override
-    public List<clientModel> searchByEtà(int età) {
-        List<clientModel> clienti = null;
+    public List<ClientModel> searchByEtà(int età) {
+        List<ClientModel> clienti = null;
         //codice
         return clienti;
     }
 
     @Override
-    public List<clientModel> searchByBigliettiAcquistati(int n) {
-         List<clientModel> clienti = null;
+    public List<ClientModel> searchByBigliettiAcquistati(int n) {
+         List<ClientModel> clienti = null;
         //codice
          return clienti;
     }
