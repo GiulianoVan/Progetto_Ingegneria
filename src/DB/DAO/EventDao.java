@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public interface EventDao
 {
-    public Set<Event> searchEvent();
+    public Set<Event> searchEvent(String evtName);
     public Event advancedSearchEvent();
     public void createEvent();
     public void updateEvent();
