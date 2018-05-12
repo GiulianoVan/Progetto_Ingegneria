@@ -6,12 +6,15 @@
 package View;
 
 import Controller.GeneralController;
+import java.util.Observable;
+import java.util.Observer;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author giuli
  */
-public class EventView extends javax.swing.JFrame {
+public class EventView extends javax.swing.JFrame implements Observer {
 
     String event;
     /**
@@ -26,8 +29,6 @@ public class EventView extends javax.swing.JFrame {
         event = textSearchEvent.getText();
         return event;
     }
-   
-    
     
     
     /**
@@ -37,17 +38,16 @@ public class EventView extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        textSearchEvent = new javax.swing.JTextField();
-        buttonAdvSearch = new javax.swing.JButton();
-        buttonCreateEvent = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableSearchEvent = new javax.swing.JTable();
+        buttonAdvSearch = new javax.swing.JButton();
         buttonOkSearchEvent = new javax.swing.JButton();
+        textSearchEvent = new javax.swing.JTextField();
+        buttonCreateEvent = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         comboTypeEventSearch = new javax.swing.JComboBox<>();
         textCodeEventSearch = new javax.swing.JTextField();
@@ -64,75 +64,61 @@ public class EventView extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        textSearchEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
-        textSearchEvent.setForeground(new java.awt.Color(153, 153, 153));
-        textSearchEvent.setText("Search Events Here...");
-        textSearchEvent.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
-                textSearchEventMouseClicked(evt);
-            }
-        });
-        textSearchEvent.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                textSearchEventActionPerformed(evt);
-            }
-        });
-        textSearchEvent.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
-                textSearchEventKeyPressed(evt);
-            }
-        });
-        jPanel1.add(textSearchEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 130, 30));
-
-        buttonAdvSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
-        buttonAdvSearch.setText("Advanced Search");
-        buttonAdvSearch.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                buttonAdvSearchActionPerformed(evt);
-            }
-        });
-        jPanel1.add(buttonAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, 30));
-
-        buttonCreateEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
-        buttonCreateEvent.setText("Create Event");
-        jPanel1.add(buttonCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 120, 30));
-
         tableSearchEvent.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Name", "Type", "Date", "Places Available", "Code Event", "Price", "Description"
             }
-        )
-        {
-            boolean[] canEdit = new boolean []
-            {
+        ) {
+            boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex)
-            {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(tableSearchEvent);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 570, 240));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 560, 280));
+
+        buttonAdvSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
+        buttonAdvSearch.setText("Advanced Search");
+        buttonAdvSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAdvSearchActionPerformed(evt);
+            }
+        });
+        jPanel1.add(buttonAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, 30));
 
         buttonOkSearchEvent.setText("Ok");
-        buttonOkSearchEvent.setActionCommand("searchPress");
-        jPanel1.add(buttonOkSearchEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 50, 30));
+        jPanel1.add(buttonOkSearchEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 30, 30));
+
+        textSearchEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
+        textSearchEvent.setForeground(new java.awt.Color(153, 153, 153));
+        textSearchEvent.setText("Search Events Here...");
+        textSearchEvent.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                textSearchEventMouseClicked(evt);
+            }
+        });
+        textSearchEvent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSearchEventActionPerformed(evt);
+            }
+        });
+        textSearchEvent.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textSearchEventKeyPressed(evt);
+            }
+        });
+        jPanel1.add(textSearchEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 30));
+
+        buttonCreateEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
+        buttonCreateEvent.setText("Create Event");
+        jPanel1.add(buttonCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 120, 30));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -149,15 +135,15 @@ public class EventView extends javax.swing.JFrame {
         textNameEventSearch.setForeground(new java.awt.Color(153, 153, 153));
         textNameEventSearch.setText("Name Event");
         jPanel2.add(textNameEventSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 150, 30));
-        jPanel2.add(buttonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 50, 40));
+        jPanel2.add(buttonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 30, 30));
         jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 150, 30));
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 50, 40));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 30, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 550, 90));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 540, 90));
 
         jTabbedPane2.addTab("Events", jPanel1);
 
-        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 630, 360));
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -200,4 +186,18 @@ public class EventView extends javax.swing.JFrame {
     private javax.swing.JTextField textNameEventSearch;
     private javax.swing.JTextField textSearchEvent;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable o, Object risultato) {
+        Integer errore = (Integer) risultato;
+            if(errore == 0)
+            {
+              JOptionPane.showMessageDialog(this, "Connessione fallita. Credenziali  errate.\nRiprovare.", "ERRORE", JOptionPane.ERROR_MESSAGE);
+            }
+            else
+            {
+                //SETVISIBILE TRUE HOME.
+                this.dispose();    
+            }
+    }
 }

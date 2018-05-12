@@ -4,6 +4,7 @@ package Main;
 import Runner.RunMVCLogin;
 import View.*;
 import Model.*;
+import Runner.RunMVCEvents;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,6 +22,7 @@ public class StartProject {
     public StartProject()
     {
        RunMVCLogin log = new RunMVCLogin();
+       RunMVCEvents evt = new RunMVCEvents();
     }
     /**
      * @param args the command line arguments

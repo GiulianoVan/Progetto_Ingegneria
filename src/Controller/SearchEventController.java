@@ -5,8 +5,10 @@
  */
 package Controller;
 
+
 import Model.EventModel;
 import View.EventView;
+import View.LoginView;
 import java.awt.event.ActionEvent;
 
 /**
@@ -27,6 +29,16 @@ public class SearchEventController extends GeneralController
             String nameEvent = evtView.getEventNameText();
             
         }
+    }
+    
+    public void setModel(EventModel nuovo)
+    {
+        evtModel = nuovo;
+        
+    }
+    public void setView(EventView nuovo)
+    {
+        evtView = nuovo;
     }
     
 }

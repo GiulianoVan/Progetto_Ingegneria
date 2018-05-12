@@ -41,7 +41,10 @@ public class ImpEventDao implements EventDao{
             
             while(rs.next())
             {
+                System.out.println(rs.getString(1));
                 events.add((Event) rs.getObject(rs.getRow()));
+                // COSì NON VA BENE PERCHè rs NON CONTIENTE UN EVENTO
+                // CREDO CHE DOBBIAMO CREARE UN NUOVO OGGETTO EVENTO OGNI VOLTA CON GLI ATTRIBUTI PRESI DA rs
             }
             rs.close();
             ps.close();   
@@ -51,7 +54,7 @@ public class ImpEventDao implements EventDao{
         {
             System.out.println("Errore"); //dettagliare errore
         }
-        
+        System.out.println(events);
         return events;
     }
 
