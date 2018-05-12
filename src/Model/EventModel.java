@@ -32,7 +32,7 @@ public class EventModel extends Observable{
     // metodi che il controller chiama per inserimento, cancellazione ecc...
     // ricerca su database
     
-    public void notifySearchName(String eventName) throws SQLException
+    public void notifySearchName(String eventName)
     {
         evtDao = new ImpEventDao();
         events = evtDao.searchEvent(eventName);

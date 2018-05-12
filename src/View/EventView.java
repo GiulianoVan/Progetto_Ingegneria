@@ -95,6 +95,7 @@ public class EventView extends javax.swing.JFrame implements Observer {
 
         buttonOkSearchEvent.setText("Ok");
         jPanel1.add(buttonOkSearchEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 30, 30));
+		buttonOkSearchEvent.setActionCommand("searchPress");
 
         textSearchEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textSearchEvent.setForeground(new java.awt.Color(153, 153, 153));
@@ -192,7 +193,7 @@ public class EventView extends javax.swing.JFrame implements Observer {
         Integer errore = (Integer) risultato;
             if(errore == 0)
             {
-              JOptionPane.showMessageDialog(this, "Connessione fallita. Credenziali  errate.\nRiprovare.", "ERRORE", JOptionPane.ERROR_MESSAGE);
+              JOptionPane.showMessageDialog(this, "evento", "ERRORE", JOptionPane.ERROR_MESSAGE);
             }
             else
             {

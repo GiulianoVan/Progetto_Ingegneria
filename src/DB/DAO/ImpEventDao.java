@@ -5,6 +5,7 @@
  */
 package DB.DAO;
 
+import DB.Database.DBConnect;
 import Model.Admin;
 import Model.Event;
 import View.EventView;
@@ -30,6 +31,7 @@ public class ImpEventDao implements EventDao{
     @Override
     public Set<Event> searchEvent(String evtName)
     {
+        con = DBConnect.getConnection();
         String query="SELECT * FROM EVENTO WHERE TITOLO=?";
         Set<Event> events = new HashSet();
         try
@@ -41,8 +43,8 @@ public class ImpEventDao implements EventDao{
             
             while(rs.next())
             {
-                System.out.println(rs.getString(1));
-                events.add((Event) rs.getObject(rs.getRow()));
+                System.out.println(rs.getString(2)); // PRENDO LA COLONNA DEL TITOLO
+                //events.add((Event) rs.getObject(rs.getRow()));
                 // COSì NON VA BENE PERCHè rs NON CONTIENTE UN EVENTO
                 // CREDO CHE DOBBIAMO CREARE UN NUOVO OGGETTO EVENTO OGNI VOLTA CON GLI ATTRIBUTI PRESI DA rs
             }
