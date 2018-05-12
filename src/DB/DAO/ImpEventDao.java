@@ -27,7 +27,7 @@ public class ImpEventDao implements EventDao{
     @Override
     public Set<Event> searchEvent()
     {
-        String query="";
+        String query="SELECT * FROM EVENT";
         String eventName = 
         
     }
