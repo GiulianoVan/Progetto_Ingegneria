@@ -17,6 +17,10 @@ public class EventView extends javax.swing.JFrame {
     public EventView() {
         initComponents();
     }
+    
+    
+    
+    ciao
 
     /**
      * This method is called from within the constructor to initialize the form.
