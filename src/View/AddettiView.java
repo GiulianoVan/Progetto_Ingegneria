@@ -180,11 +180,12 @@ public class AddettiView extends javax.swing.JFrame implements Observer{
         
        
             TabellaAddetto.setModel((MyDefaultTableModel) arg);
+           /*
             TableColumnModel x = TabellaAddetto.getColumnModel();
             TableColumn y = x.getColumn(7);
             TabellaAddetto.removeColumn(y);
             System.out.println(TabellaAddetto.getValueAt(0,7));
-            
+            */
     }
     
     public void setActionControllerButton(GeneralController nuovo)
