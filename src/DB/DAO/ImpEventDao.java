@@ -32,7 +32,7 @@ public class ImpEventDao implements EventDao{
     public Set<Event> searchEvent(String evtName)
     {
         con = DBConnect.getConnection();
-        String query="SELECT * FROM EVENTO WHERE TITOLO=?";
+        String query="SELECT * FROM EVENTO WHERE TITOLO=?;";
         Set<Event> events = new HashSet();
         try
         {
@@ -54,15 +54,40 @@ public class ImpEventDao implements EventDao{
         }
         catch(SQLException x)
         {
-            System.out.println("Errore"); //dettagliare errore
+            System.out.println("Errore query. Impossibile  trovare l'evento."); //dettagliare errore
         }
         System.out.println(events);
         return events;
     }
 
     @Override
-    public Event advancedSearchEvent() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Event advancedSearchEvent(String evtName, String codEvt, String dateEvt, String typeEvt) 
+    {
+        con = DBConnect.getConnection();
+        String query = "SELECT * FROM EVENTO WHERE TITOLO = ? AND IDEVENTO = ? AND DATA = ? AND EVENTOTYPE = ?;";
+        try
+        {
+            ps = con.prepareStatement(query);
+            
+            ps.setString(1, evtName);
+            ps.setString(2, codEvt);
+            ps.setString(3, dateEvt);
+            ps.setString(4, typeEvt);
+            
+            rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                
+            }
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (SQLException ex)
+        {
+            System.out.println("Errore query. Impossibile  trovare l'evento.");
+            System.err.println(ex);
+        }
     }
 
     @Override
