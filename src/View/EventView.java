@@ -21,7 +21,9 @@ public class EventView extends javax.swing.JFrame implements Observer {
      * Creates new form EventView
      */
     public EventView() {
+        
         initComponents();
+        jPanelAdvSearch.setVisible(false);
     }
     
     public String getEventNameText()
@@ -48,13 +50,13 @@ public class EventView extends javax.swing.JFrame implements Observer {
         buttonOkSearchEvent = new javax.swing.JButton();
         textSearchEvent = new javax.swing.JTextField();
         buttonCreateEvent = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelAdvSearch = new javax.swing.JPanel();
         comboTypeEventSearch = new javax.swing.JComboBox<>();
         textCodeEventSearch = new javax.swing.JTextField();
         textNameEventSearch = new javax.swing.JTextField();
         buttonSearch = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jButton2 = new javax.swing.JButton();
+        buttonUndoSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,7 +97,6 @@ public class EventView extends javax.swing.JFrame implements Observer {
 
         buttonOkSearchEvent.setText("Ok");
         jPanel1.add(buttonOkSearchEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 30, 30));
-		buttonOkSearchEvent.setActionCommand("searchPress");
 
         textSearchEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textSearchEvent.setForeground(new java.awt.Color(153, 153, 153));
@@ -121,26 +122,32 @@ public class EventView extends javax.swing.JFrame implements Observer {
         buttonCreateEvent.setText("Create Event");
         jPanel1.add(buttonCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 120, 30));
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelAdvSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comboTypeEventSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         comboTypeEventSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type Event...", "Sport", "Cinema", "Teatro", "Concerto", "Museo" }));
-        jPanel2.add(comboTypeEventSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, 30));
+        jPanelAdvSearch.add(comboTypeEventSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, 30));
 
         textCodeEventSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textCodeEventSearch.setForeground(new java.awt.Color(153, 153, 153));
         textCodeEventSearch.setText("Code Event");
-        jPanel2.add(textCodeEventSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 150, 30));
+        jPanelAdvSearch.add(textCodeEventSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 150, 30));
 
         textNameEventSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textNameEventSearch.setForeground(new java.awt.Color(153, 153, 153));
         textNameEventSearch.setText("Name Event");
-        jPanel2.add(textNameEventSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 150, 30));
-        jPanel2.add(buttonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 30, 30));
-        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 150, 30));
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 30, 30));
+        jPanelAdvSearch.add(textNameEventSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 150, 30));
+        jPanelAdvSearch.add(buttonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 30, 30));
+        jPanelAdvSearch.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 150, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 540, 90));
+        buttonUndoSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUndoSearchActionPerformed(evt);
+            }
+        });
+        jPanelAdvSearch.add(buttonUndoSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 30, 30));
+
+        jPanel1.add(jPanelAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 540, 90));
 
         jTabbedPane2.addTab("Events", jPanel1);
 
@@ -154,7 +161,11 @@ public class EventView extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_textSearchEventActionPerformed
 
     private void buttonAdvSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdvSearchActionPerformed
-        // TODO add your handling code here:
+        textSearchEvent.setVisible(false);
+        buttonAdvSearch.setVisible(false);
+        buttonCreateEvent.setVisible(false);
+        buttonOkSearchEvent.setVisible(false);
+        jPanelAdvSearch.setVisible(true);
     }//GEN-LAST:event_buttonAdvSearchActionPerformed
 
     private void textSearchEventMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textSearchEventMouseClicked
@@ -164,6 +175,14 @@ public class EventView extends javax.swing.JFrame implements Observer {
     private void textSearchEventKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textSearchEventKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_textSearchEventKeyPressed
+
+    private void buttonUndoSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUndoSearchActionPerformed
+        textSearchEvent.setVisible(true);
+        buttonAdvSearch.setVisible(true);
+        buttonCreateEvent.setVisible(true);
+        buttonOkSearchEvent.setVisible(true);
+        jPanelAdvSearch.setVisible(false);
+    }//GEN-LAST:event_buttonUndoSearchActionPerformed
 
     public void setControllerButtonOkSearchEvent(GeneralController nuovo)
     {
@@ -175,11 +194,11 @@ public class EventView extends javax.swing.JFrame implements Observer {
     private javax.swing.JButton buttonCreateEvent;
     private javax.swing.JButton buttonOkSearchEvent;
     private javax.swing.JButton buttonSearch;
+    private javax.swing.JButton buttonUndoSearch;
     private javax.swing.JComboBox<String> comboTypeEventSearch;
-    private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanelAdvSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable tableSearchEvent;
