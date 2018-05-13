@@ -133,11 +133,12 @@ import javax.swing.table.TableColumnModel;
      */
 	public void hideColumn(int modelColumn)
 	{
-                //RESTITUISCE LA 
+                //ESEGUE UN MAPPING TRA L'INDICE DELLA COLONNA NELLA VIEW E QUELLA NEL MODELL.E RESTITUISCE L'INDICE ESATTO
 		int viewColumn = table.convertColumnIndexToView( modelColumn );
-
+                
 		if (viewColumn != -1)
 		{
+                        //GETCOLUMN() RESTITUISCE IL MODELLO DELLA COLONNA
 			TableColumn column = tcm.getColumn(viewColumn);
 			hideColumn(column);
                         
@@ -154,11 +155,16 @@ import javax.swing.table.TableColumnModel;
 	public void hideColumn(Object columnName)
 	{
 		if (columnName == null) return;
-
+                
+                /*
+                    TCM CONTIENE TT LE INFORMAZIONI SULLE COLONNE. è DI TIPO  TABLECOLUMNMODEL.
+                */
+                //PER OGNI COLONNA NEL MODELLO
 		for (int i = 0; i < tcm.getColumnCount(); i++)
 		{
+                        //ASSEGNA ALLA SINGOLA COLONNA ,UNA COLONNA DEL TABLECOLUMNMODEL
 			TableColumn column = tcm.getColumn( i );
-
+                        //SE IL RIFERIMENTO DELLA COLONNA E UGUALE A QUELLO PASSATO NELLA CHIAMATA
 			if (columnName.equals(column.getHeaderValue()))
 			{
 				hideColumn(column);

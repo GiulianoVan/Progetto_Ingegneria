@@ -24,6 +24,7 @@ public class ModelColumn extends TableColumn {
  {
      super();
      table = tab;
+     columnModel = tab.getColumnModel();
  }
      
  /**
@@ -34,15 +35,24 @@ public class ModelColumn extends TableColumn {
      */
 	public void hideColumn(int modelColumn)
 	{
-                //RESTITUISCE LA 
-		int viewColumn = table.convertColumnIndexToView( modelColumn );
-
+                
+		int viewColumn = table.convertColumnIndexToView(modelColumn);
+                System.out.println(viewColumn);
 		if (viewColumn != -1)
 		{
-			TableColumn column = columnModel.getColumn(viewColumn);
-			hideColumn(column);
-                        
-                        
+                    TableColumn column=columnModel.getColumn(viewColumn);
+                    for(int i = 0;i<columnModel.getColumnCount();++i)
+                    {
+                        System.out.println(i);
+                    }
+                    table.removeColumn(column);
+                    
+                    System.out.println(table.getModel().getValueAt(0,viewColumn));
+                    
+                    for(int i = 0;i<columnModel.getColumnCount();++i)
+                    {
+                        System.out.println(i);
+                    }
 		}
 	}
 	
@@ -80,8 +90,7 @@ public class ModelColumn extends TableColumn {
 		if (columnModel.getColumnCount() == 1) return;
 
 		//  Ignore changes to the TableColumnModel made by the TableColumnManager
-
-		columnModel.removeColumn( column );
+		columnModel.removeColumn(column);
 	}
 
     /**

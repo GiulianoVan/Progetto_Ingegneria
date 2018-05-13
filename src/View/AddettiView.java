@@ -6,6 +6,7 @@
 package View;
 
 import Controller.GeneralController;
+import Model.ModelColumn;
 import Model.MyDefaultTableModel;
 import Model.TableColumnManager;
 import java.awt.PopupMenu;
@@ -180,12 +181,9 @@ public class AddettiView extends javax.swing.JFrame implements Observer{
         
        
             TabellaAddetto.setModel((MyDefaultTableModel) arg);
-           /*
-            TableColumnModel x = TabellaAddetto.getColumnModel();
-            TableColumn y = x.getColumn(7);
-            TabellaAddetto.removeColumn(y);
-            System.out.println(TabellaAddetto.getValueAt(0,7));
-            */
+            ModelColumn x = new ModelColumn(TabellaAddetto);
+            x.hideColumn(7);
+            
     }
     
     public void setActionControllerButton(GeneralController nuovo)
