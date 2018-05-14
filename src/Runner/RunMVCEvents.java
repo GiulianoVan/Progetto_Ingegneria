@@ -5,6 +5,7 @@
  */
 package Runner;
 
+import Controller.ControllerXXXX;
 import Controller.SearchEventController;
 import Model.EventModel;
 import View.EventView;
@@ -17,13 +18,16 @@ public class RunMVCEvents {
     
     public RunMVCEvents()
     {
+       
         EventModel evtModel = new EventModel();
         EventView evtView = new EventView();
         evtModel.addObserver(evtView);
-        SearchEventController evtControl = new SearchEventController();
+        //SearchEventController evtControl = new SearchEventController();
+        ControllerXXXX evtControl = new ControllerXXXX();
         evtControl.setModel(evtModel);
         evtControl.setView(evtView);
-        evtView.setControllerButtonOkSearchEvent(evtControl);
+        //evtView.setControllerButtonOkSearchEvent(evtControl);
+        evtView.setController(evtControl);
         evtView.setVisible(true);
     }
     

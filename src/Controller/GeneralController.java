@@ -7,15 +7,15 @@ package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 /**
  *
  * @author Pirozzi
  */
-public abstract class GeneralController implements ActionListener,KeyListener {
+public abstract class GeneralController implements ActionListener,KeyListener,MouseListener{
 
     @Override
     public void actionPerformed(ActionEvent e){};
@@ -43,15 +43,4 @@ public abstract class GeneralController implements ActionListener,KeyListener {
              return parolechiavi;
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-    }
 }

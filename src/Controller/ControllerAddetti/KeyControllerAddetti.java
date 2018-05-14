@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller.ControllerAddetti.AddettoTableController;
+package Controller.ControllerAddetti;
 
-import Model.AddettiModel;
+import Model.Addetto.AddettiModel;
 import View.AddettiView;
 import java.awt.event.KeyAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
 
@@ -20,7 +18,7 @@ import javax.swing.JOptionPane;
 /*
     KEY ADAPTET IMPLEMENTA KEY LISTENER.QUINDI ADDETTOTABLECONTROLLER è  UN LISTENER
 */
-public class KeyTableController extends KeyAdapter{ 
+public class KeyControllerAddetti extends KeyAdapter{ 
     
     AddettiModel addettimod;
     AddettiView  addettiview;
@@ -29,7 +27,7 @@ public class KeyTableController extends KeyAdapter{
      public void keyReleased(java.awt.event.KeyEvent evt) 
     {
                 
-                if(evt.getKeyChar() == '\t' || evt.getKeyChar()=='\n')
+                if( evt.getKeyChar()=='\t')
                 {
                   int scelta=JOptionPane.showOptionDialog(addettiview,"Vuoi modificare il campo selezionato?","Richiesta",JOptionPane.YES_OPTION,JOptionPane.INFORMATION_MESSAGE,null,new String[]{"Modifica","Annulla"},null);
                 }

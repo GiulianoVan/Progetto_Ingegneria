@@ -6,6 +6,7 @@
 package Model;
 
 
+import Model.Addetto.Addetto;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class MyDefaultTableModel<T>  extends DefaultTableModel {
    
-    TableColumnManager tmp;
+    
     private int row = -1;
     private int column=-1;
     
@@ -35,7 +36,7 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
                return true;
 
            }
-           return false;
+           return true;
     }
 
     public void setRowEditable(int row)

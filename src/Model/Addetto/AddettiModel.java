@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Model.Addetto;
 
 import DB.DAO.ImpAddettoDao;
+import Model.MyDefaultTableModel;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Set;
@@ -23,7 +24,7 @@ public class AddettiModel extends Observable {
                 
     public void doSearch(ArrayList<String> parole)
     {
-       
+        
         addetti = addettodao.getAddettiParolaChiave(parole);
         
         setChanged();

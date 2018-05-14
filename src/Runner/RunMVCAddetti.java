@@ -5,10 +5,11 @@
  */
 package Runner;
 
-import Controller.ControllerAddetti.AddettoButtonController;
-import Controller.ControllerAddetti.AddettoTableController.KeyTableController;
-import Controller.ControllerAddetti.ControllerTextAddetti;
-import Model.AddettiModel;
+import Controller.ControllerAddetti.KeyControllerAddetti;
+import Controller.ControllerAddetti.ControllerButtonAddetto;
+import Controller.ControllerAddetti.ControllerTextAddetto;
+import Controller.GeneralController;
+import Model.Addetto.AddettiModel;
 import View.AddettiView;
 import javax.swing.SwingUtilities;
 
@@ -33,19 +34,19 @@ public class RunMVCAddetti {
         //model registra un osservatore
         model.addObserver(viewAddetti);
         //controller button della vista
-        AddettoButtonController controller = new AddettoButtonController();
+        ControllerButtonAddetto controller = new ControllerButtonAddetto();
         //registro model e view al controller
         controller.setModel(model);
         controller.setView(viewAddetti);
         //registro controller al view
         viewAddetti.setActionControllerButton(controller);
         //creo controller per la tabella e lo registro alla view
-        KeyTableController controllerTab = new KeyTableController();
+        KeyControllerAddetti controllerTab = new KeyControllerAddetti();
         controllerTab.setModel(model);
         controllerTab.setView(viewAddetti);
         viewAddetti.setControllerKeyTable(controllerTab);
         //credo controller per la Jtext e le registro ai model ed al controller
-        ControllerTextAddetti controllerText = new ControllerTextAddetti();
+        ControllerTextAddetto controllerText = new ControllerTextAddetto();
         controllerText.setModel(model);
         controllerText.setView(viewAddetti);
         viewAddetti.setControllerText(controllerText);

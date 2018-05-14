@@ -8,7 +8,10 @@ package View;
 import Controller.GeneralController;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -24,6 +27,8 @@ public class EventView extends javax.swing.JFrame implements Observer {
         
         initComponents();
         jPanelAdvSearch.setVisible(false);
+        buttonAdvSearch.setActionCommand("PROVA");
+        
     }
     
     public String getEventNameText()
@@ -177,16 +182,63 @@ public class EventView extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_textSearchEventKeyPressed
 
     private void buttonUndoSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUndoSearchActionPerformed
+       /*
         textSearchEvent.setVisible(true);
         buttonAdvSearch.setVisible(true);
         buttonCreateEvent.setVisible(true);
         buttonOkSearchEvent.setVisible(true);
         jPanelAdvSearch.setVisible(false);
+        */
     }//GEN-LAST:event_buttonUndoSearchActionPerformed
 
     public void setControllerButtonOkSearchEvent(GeneralController nuovo)
     {
         buttonOkSearchEvent.addActionListener(nuovo);
+    }
+
+    public JButton getButtonAdvSearch() {
+        return buttonAdvSearch;
+    }
+
+    public void setButtonAdvSearch(JButton buttonAdvSearch) {
+        this.buttonAdvSearch = buttonAdvSearch;
+    }
+
+    public JButton getButtonCreateEvent() {
+        return buttonCreateEvent;
+    }
+
+    public void setButtonCreateEvent(JButton buttonCreateEvent) {
+        this.buttonCreateEvent = buttonCreateEvent;
+    }
+
+    public JButton getButtonOkSearchEvent() {
+        return buttonOkSearchEvent;
+    }
+
+    public void setButtonOkSearchEvent(JButton buttonOkSearchEvent) {
+        this.buttonOkSearchEvent = buttonOkSearchEvent;
+    }
+    
+    public void setController(GeneralController contr)
+     {
+         buttonAdvSearch.addActionListener(contr);
+    }
+
+    public JPanel getjPanelAdvSearch() {
+        return jPanelAdvSearch;
+    }
+
+    public void setjPanelAdvSearch(JPanel jPanelAdvSearch) {
+        this.jPanelAdvSearch = jPanelAdvSearch;
+    }
+
+    public JTextField getTextSearchEvent() {
+        return textSearchEvent;
+    }
+
+    public void setTextSearchEvent(JTextField textSearchEvent) {
+        this.textSearchEvent = textSearchEvent;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

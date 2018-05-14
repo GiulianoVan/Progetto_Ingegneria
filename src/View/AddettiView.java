@@ -6,21 +6,12 @@
 package View;
 
 import Controller.GeneralController;
-import Model.ModelColumn;
 import Model.MyDefaultTableModel;
-import Model.TableColumnManager;
-import java.awt.PopupMenu;
-
-import java.awt.event.FocusAdapter;
 import java.awt.event.KeyAdapter;
+import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-import javax.swing.table.TableModel;
+
 
 
 /**
@@ -38,18 +29,17 @@ public class AddettiView extends javax.swing.JFrame implements Observer{
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private TableColumnManager colManager;
     
     public AddettiView() {
         initComponents();
-        colManager = new TableColumnManager(TabellaAddetto);
-        
     }
 
     public String getCercaText()
     {
         return CercaText.getText();
     }
+ 
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -179,10 +169,13 @@ public class AddettiView extends javax.swing.JFrame implements Observer{
     @Override
     public void update(Observable o, Object arg) {
         
-       
+    
+        
             TabellaAddetto.setModel((MyDefaultTableModel) arg);
-            ModelColumn x = new ModelColumn(TabellaAddetto);
-            x.hideColumn(7);
+            //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
+            TabellaAddetto.removeColumn(TabellaAddetto.getColumnModel().getColumn(7));
+            
+            //SUCCESSIVAMENTE SARA ANCORA PRESENTE NEL MODELLO.TabellaAddetto.getModel().getValueAt()
             
     }
     
@@ -199,9 +192,9 @@ public class AddettiView extends javax.swing.JFrame implements Observer{
     /**
      * @param args the command line arguments
      */
-    public void  setControllerText(GeneralController contr)
+    public void  setControllerText(KeyListener control)
     {
-        CercaText.addKeyListener(contr);
+        CercaText.addKeyListener(control);
           
     }
 
