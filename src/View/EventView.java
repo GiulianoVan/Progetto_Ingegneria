@@ -27,7 +27,8 @@ public class EventView extends javax.swing.JFrame implements Observer {
         
         initComponents();
         jPanelAdvSearch.setVisible(false);
-        buttonAdvSearch.setActionCommand("PROVA");
+        buttonAdvSearch.setActionCommand("ADVSEARCH");
+        buttonUndoSearch.setActionCommand("BACKSEARCH");
         
     }
     
@@ -220,9 +221,11 @@ public class EventView extends javax.swing.JFrame implements Observer {
         this.buttonOkSearchEvent = buttonOkSearchEvent;
     }
     
-    public void setController(GeneralController contr)
+    public void setControllerEvent(GeneralController contr)
      {
          buttonAdvSearch.addActionListener(contr);
+         buttonUndoSearch.addActionListener(contr);
+         
     }
 
     public JPanel getjPanelAdvSearch() {

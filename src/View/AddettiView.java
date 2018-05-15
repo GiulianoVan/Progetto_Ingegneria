@@ -11,6 +11,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.text.Keymap;
 
 
 
@@ -32,6 +33,8 @@ public class AddettiView extends javax.swing.JFrame implements Observer{
     
     public AddettiView() {
         initComponents();
+        Keymap x = new Keymap();
+        CercaText.setKeymap(map);
     }
 
     public String getCercaText()

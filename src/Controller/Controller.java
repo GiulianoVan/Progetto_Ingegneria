@@ -15,14 +15,14 @@ import java.awt.event.MouseEvent;
  *
  * @author Pirozzi
  */
-public class ControllerXXXX extends GeneralController{
+public class Controller extends GeneralController{
 
-    EventView x;
+    EventView view;
     EventModel model;
     
     public void setView(EventView y)
     {
-        x=y;
+        view=y;
     }
    
     public void setModel(EventModel x)
@@ -42,19 +42,34 @@ public class ControllerXXXX extends GeneralController{
         */
         //SE il comando si chiama CREA ADDETTO fai questo
         String action = e.getActionCommand();
-        if(action.equals("PROVA"))
+        if(action.equals("ADVSEARCH"))
         {
-            x.getButtonAdvSearch().setVisible(false);
-            x.getButtonCreateEvent().setVisible(false);
-            x.getTextSearchEvent().setVisible(false);
-            x.getjPanelAdvSearch().setVisible(true);
-            x.getButtonOkSearchEvent().setVisible(false);
+            view.getButtonAdvSearch().setVisible(false);
+            view.getButtonCreateEvent().setVisible(false);
+            view.getTextSearchEvent().setVisible(false);
+            view.getjPanelAdvSearch().setVisible(true);
+            view.getButtonOkSearchEvent().setVisible(false);
         }
-    
+        else if(action.equals("searchPress"))
+        {
+            String nameEvent = view.getEventNameText();
+            
+            model.notifySearchName(nameEvent);
+        }
+        else if(action.equals("BACKSEARCH"))
+        {
+        
+        view.getTextSearchEvent().setVisible(true);
+        view.getButtonAdvSearch().setVisible(true);
+        view.getButtonCreateEvent().setVisible(true);
+        view.getButtonOkSearchEvent().setVisible(true);
+        view.getjPanelAdvSearch().setVisible(false);
+       }
     };
     
     @Override
     public void keyTyped(KeyEvent e) {
+        
     }
 
     @Override
@@ -63,6 +78,9 @@ public class ControllerXXXX extends GeneralController{
 
     @Override
     public void keyReleased(KeyEvent e) {
+        e.getID();
+        if(e.getKeyCode() == KeyEvent.VK_ENTER)
+        System.out.println(e.paramString());
     }
 
     @Override

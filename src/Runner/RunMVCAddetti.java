@@ -46,10 +46,10 @@ public class RunMVCAddetti {
         controllerTab.setView(viewAddetti);
         viewAddetti.setControllerKeyTable(controllerTab);
         //credo controller per la Jtext e le registro ai model ed al controller
-        ControllerTextAddetto controllerText = new ControllerTextAddetto();
-        controllerText.setModel(model);
-        controllerText.setView(viewAddetti);
-        viewAddetti.setControllerText(controllerText);
+       // ControllerTextAddetto controllerText = new ControllerTextAddetto();
+       // controllerText.setModel(model);
+        // controllerText.setView(viewAddetti);
+       //  viewAddetti.setControllerText(controllerText);
         //visualizzo view
         viewAddetti.setVisible(true);
          
