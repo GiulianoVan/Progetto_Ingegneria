@@ -21,6 +21,7 @@ public class Controller extends GeneralController{
 
     GeneralPanel view;
     EventModel model;
+    //CIAO
     
     public void setView(GeneralPanel y)
     {
