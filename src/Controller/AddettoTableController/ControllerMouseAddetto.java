@@ -46,6 +46,7 @@ public class ControllerMouseAddetto extends MouseAdapter{
             tab.setRowEditable(riga);
             tab.setColumnEditable(col);
             tab.isCellEditable(riga,col);
+            
         }
        
     }

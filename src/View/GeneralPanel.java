@@ -252,7 +252,24 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     public void update(Observable o, Object arg) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    public void changeAdvGeneral()
+    {
+            getButtonAdvGeneral().setVisible(false);
+            getButtonCreateGeneral().setVisible(false);
+            getTextSearchGeneral().setVisible(false);
+            getButtonOkSearchGeneral().setVisible(false);
+            getjPanelAdvSearch().setVisible(true);
+    }
+    
+    public void backNormalSearch()
+    {
+            getButtonAdvGeneral().setVisible(true);
+            getButtonCreateGeneral().setVisible(true);
+            getTextSearchGeneral().setVisible(true);
+            getButtonOkSearchGeneral().setVisible(true);
+            getjPanelAdvSearch().setVisible(false);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdvGeneral;
     private javax.swing.JButton buttonBackSearchGeneral;

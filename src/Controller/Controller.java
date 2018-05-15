@@ -56,20 +56,13 @@ public class Controller extends GeneralController{
         
         if(action.equals("ADVSEARCH"))
         {
-            view.getButtonAdvGeneral().setVisible(false);
-            view.getButtonCreateGeneral().setVisible(false);
-            view.getTextSearchGeneral().setVisible(false);
-            view.getButtonOkSearchGeneral().setVisible(false);
-            view.getjPanelAdvSearch().setVisible(true);
+            view.changeAdvGeneral();
+            
         }
         else if(action.equals("BACKSEARCH"))
         {
-            view.getButtonAdvGeneral().setVisible(true);
-            view.getButtonCreateGeneral().setVisible(true);
-            view.getTextSearchGeneral().setVisible(true);
-            view.getButtonOkSearchGeneral().setVisible(true);
-            view.getjPanelAdvSearch().setVisible(false);
-       }
+            view.backNormalSearch();
+        }
     };
 
     @Override
