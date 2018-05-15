@@ -7,7 +7,6 @@ package JavaBean;
 
 import java.util.Observable;
 import java.util.Date;
-import java.util.Objects;
 
 /**
  *
@@ -206,55 +205,5 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
     notifyObservers(this.date_born);
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 41 * hash + Objects.hashCode(this.username);
-        hash = 41 * hash + Objects.hashCode(this.password);
-        hash = 41 * hash + Objects.hashCode(this.name);
-        hash = 41 * hash + Objects.hashCode(this.surname);
-        hash = 41 * hash + Objects.hashCode(this.email);
-        hash = 41 * hash + Objects.hashCode(this.tax_code);
-        hash = 41 * hash + Objects.hashCode(this.phone);
-        hash = 41 * hash + Objects.hashCode(this.date_born);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Customer other = (Customer) obj;
-        if (!Objects.equals(this.username, other.username)) {
-            return false;
-        }
-        if (!Objects.equals(this.password, other.password)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.surname, other.surname)) {
-            return false;
-        }
-        if (!Objects.equals(this.email, other.email)) {
-            return false;
-        }
-        if (!Objects.equals(this.tax_code, other.tax_code)) {
-            return false;
-        }
-        if (!Objects.equals(this.phone, other.phone)) {
-            return false;
-        }
-        return Objects.equals(this.date_born, other.date_born);
-    }
-
+    
 }
-
