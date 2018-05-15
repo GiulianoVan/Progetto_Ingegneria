@@ -40,7 +40,7 @@ public class Controller extends GeneralController{
 
         //SE il comando si chiama CREA ADDETTO fai questo
         String action = e.getActionCommand();
-        System.out.println(e.getActionCommand());
+        
         if(model instanceof EventModel)
         {
             // controlli Eventi
@@ -53,7 +53,7 @@ public class Controller extends GeneralController{
         {
             // controlli Clienti
         }
-        System.out.println("PROVA");
+        
         if(action.equals("ADVSEARCH"))
         {
             view.getButtonAdvGeneral().setVisible(false);

@@ -40,6 +40,9 @@ public class AddettiPanel extends GeneralPanel{
         jPanelAdvSearch = getjPanelAdvSearch();
         buttonOkSearchGeneral = getButtonOkSearchGeneral();
         buttonCreateGeneral = getButtonCreateGeneral();
+        dateGeneral = getDateGeneral();
+        comboTypeGeneralSearch = getComboTypeGeneralSearch();
+        
         
         buttonCreateGeneral.setVisible(false);
         dateGeneral.setVisible(false);

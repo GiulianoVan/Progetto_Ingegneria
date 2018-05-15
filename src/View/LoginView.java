@@ -6,6 +6,7 @@
 package View;
 
 import Controller.GeneralController;
+import Controller.LoginButtonController;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JOptionPane;
@@ -127,11 +128,11 @@ public class LoginView extends javax.swing.JFrame implements Observer{
             }
     }
     
-    public void setControllerAccediButton(GeneralController nuovo)
+    public void setControllerAccediButton(LoginButtonController nuovo)
     {
         AccediButton.addActionListener(nuovo);
     }
-    public void setControllerExitButton(GeneralController nuovo)
+    public void setControllerExitButton(LoginButtonController nuovo)
     {
         ExitButton.addActionListener(nuovo);
     }

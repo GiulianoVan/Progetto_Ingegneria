@@ -18,7 +18,7 @@ public class RunMVCLogin {
     public RunMVCLogin()
     {
         LoginModel loginmod = new LoginModel();
-        LoginView  loginview = new LoginView();
+        LoginView loginview = new LoginView();
         loginmod.addObserver(loginview);
         LoginButtonController controlLogin = new LoginButtonController();
         controlLogin.setModel(loginmod);
