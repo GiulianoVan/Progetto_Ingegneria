@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  * @author Pirozzi
  */
-public abstract class GeneralController implements ActionListener{
+public abstract class GeneralController implements ActionListener,KeyListener,MouseListener{
 
 
     @Override
