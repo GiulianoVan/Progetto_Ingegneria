@@ -7,8 +7,6 @@ package Controller;
 
 import Model.EventModel;
 import View.EventView;
-import View.GeneralPanel;
-import View.GeneralView;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -17,14 +15,14 @@ import java.awt.event.MouseEvent;
  *
  * @author Pirozzi
  */
-public class Controller extends GeneralController{
+public class ControllerXXXX extends GeneralController{
 
-    GeneralPanel view;
+    EventView x;
     EventModel model;
     
-    public void setView(GeneralPanel y)
+    public void setView(EventView y)
     {
-        view=y;
+        x=y;
     }
    
     public void setModel(EventModel x)
@@ -35,37 +33,29 @@ public class Controller extends GeneralController{
      @Override
     public void actionPerformed(ActionEvent e){
     
-        /*
-        textSearchEvent.setVisible(false);
-        buttonAdvSearch.setVisible(false);
-        buttonCreateEvent.setVisible(false);
-        buttonOkSearchEvent.setVisible(false);
-        jPanelAdvSearch.setVisible(true);
-        */
         //SE il comando si chiama CREA ADDETTO fai questo
         String action = e.getActionCommand();
-        if(action.equals("ADVSEARCH"))
+        if(action.equals("ADVS"))
         {
-            view.getButtonAdvGeneral().setVisible(false);
-            view.getButtonCreateGeneral().setVisible(false);
-            view.getTextSearchGeneral().setVisible(false);
-            view.getButtonOkSearchGeneral().setVisible(false);
-            view.getjPanelAdvSearch().setVisible(true);
+            x.getButtonAdvSearch().setVisible(false);
+            x.getButtonCreateEvent().setVisible(false);
+            x.getTextSearchEvent().setVisible(false);
+            x.getjPanelAdvSearch().setVisible(true);
+            x.getButtonOkSearchEvent().setVisible(false);
         }
-        else if(action.equals("BACKSEARCH"))
+        else if(action.equals("BACKS"))
         {
-        
-        view.getButtonAdvGeneral().setVisible(true);
-        view.getButtonCreateGeneral().setVisible(true);
-        view.getTextSearchGeneral().setVisible(true);
-        view.getButtonOkSearchGeneral().setVisible(true);
-        view.getjPanelAdvSearch().setVisible(false);
-       }
+            x.getButtonAdvSearch().setVisible(true);
+            x.getButtonCreateEvent().setVisible(true);
+            x.getTextSearchEvent().setVisible(true);
+            x.getjPanelAdvSearch().setVisible(false);
+            x.getButtonOkSearchEvent().setVisible(true);
+        }
+    
     };
     
     @Override
     public void keyTyped(KeyEvent e) {
-        
     }
 
     @Override
@@ -74,9 +64,6 @@ public class Controller extends GeneralController{
 
     @Override
     public void keyReleased(KeyEvent e) {
-        e.getID();
-        if(e.getKeyCode() == KeyEvent.VK_ENTER)
-        System.out.println(e.paramString());
     }
 
     @Override

@@ -144,6 +144,11 @@ public class EventView extends javax.swing.JFrame implements Observer {
 
         comboTypeEventSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         comboTypeEventSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type Event...", "Sport", "Cinema", "Teatro", "Concerto", "Museo" }));
+        comboTypeEventSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTypeEventSearchActionPerformed(evt);
+            }
+        });
         jPanelAdvSearch.add(comboTypeEventSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, 30));
 
         textCodeEventSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
@@ -239,6 +244,10 @@ public class EventView extends javax.swing.JFrame implements Observer {
     private void buttonUndoSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUndoSearchActionPerformed
        
     }//GEN-LAST:event_buttonUndoSearchActionPerformed
+
+    private void comboTypeEventSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTypeEventSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboTypeEventSearchActionPerformed
 
     public JButton getButtonUndoSearch() {
         return buttonUndoSearch;

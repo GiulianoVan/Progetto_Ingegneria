@@ -8,7 +8,10 @@ package Runner;
 import Controller.Controller;
 import Controller.SearchEventController;
 import Model.EventModel;
+import View.EventPanel;
 import View.EventView;
+import View.GeneralPanel;
+import View.GeneralView;
 
 /**
  *
@@ -20,15 +23,18 @@ public class RunMVCEvents {
     {
        
         EventModel evtModel = new EventModel();
-        EventView evtView = new EventView();
+        //EventView evtView = new EventView();
+        GeneralPanel evtView = new GeneralPanel();
+        GeneralView genView = new GeneralView();
         evtModel.addObserver(evtView);
         //SearchEventController evtControl = new SearchEventController();
         Controller evtControl = new Controller();
         evtControl.setModel(evtModel);
         evtControl.setView(evtView);
         //evtView.setControllerButtonOkSearchEvent(evtControl);
-        evtView.setControllerEvents(evtControl);
-        evtView.setVisible(true);
+        evtView.setControllerGeneral(evtControl);
+        //genView.add(evtView);
+        genView.setVisible(true);
     }
     
 }
