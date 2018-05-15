@@ -33,22 +33,23 @@ public class ControllerXXXX extends GeneralController{
      @Override
     public void actionPerformed(ActionEvent e){
     
-        /*
-        textSearchEvent.setVisible(false);
-        buttonAdvSearch.setVisible(false);
-        buttonCreateEvent.setVisible(false);
-        buttonOkSearchEvent.setVisible(false);
-        jPanelAdvSearch.setVisible(true);
-        */
         //SE il comando si chiama CREA ADDETTO fai questo
         String action = e.getActionCommand();
-        if(action.equals("PROVA"))
+        if(action.equals("ADVS"))
         {
             x.getButtonAdvSearch().setVisible(false);
             x.getButtonCreateEvent().setVisible(false);
             x.getTextSearchEvent().setVisible(false);
             x.getjPanelAdvSearch().setVisible(true);
             x.getButtonOkSearchEvent().setVisible(false);
+        }
+        else if(action.equals("BACKS"))
+        {
+            x.getButtonAdvSearch().setVisible(true);
+            x.getButtonCreateEvent().setVisible(true);
+            x.getTextSearchEvent().setVisible(true);
+            x.getjPanelAdvSearch().setVisible(false);
+            x.getButtonOkSearchEvent().setVisible(true);
         }
     
     };

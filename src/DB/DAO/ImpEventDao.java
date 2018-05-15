@@ -88,6 +88,7 @@ public class ImpEventDao implements EventDao{
             System.out.println("Errore query. Impossibile  trovare l'evento.");
             System.err.println(ex);
         }
+        return null;
     }
 
     @Override
