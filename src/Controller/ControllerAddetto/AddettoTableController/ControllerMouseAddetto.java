@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller.AddettoTableController;
+package Controller.ControllerAddetto.AddettoTableController;
 
 import Model.Addetto.AddettiModel;
 import Model.MyDefaultTableModel;

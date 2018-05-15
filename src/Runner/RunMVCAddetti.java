@@ -5,7 +5,7 @@
  */
 package Runner;
 
-import Controller.AddettoTableController.ControllerMouseAddetto;
+import Controller.ControllerAddetto.AddettoTableController.ControllerMouseAddetto;
 import Controller.ControllerAddetto.KeyControllerAddetti;
 import Controller.ControllerAddetto.ControllerButtonAddetto;
 import Controller.ControllerAddetto.ControllerTextAddetto;
