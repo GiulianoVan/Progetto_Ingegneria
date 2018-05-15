@@ -27,7 +27,7 @@ public class RunMVCEvents {
         evtControl.setModel(evtModel);
         evtControl.setView(evtView);
         //evtView.setControllerButtonOkSearchEvent(evtControl);
-        evtView.setControllerEvent(evtControl);
+        evtView.setControllerEvents(evtControl);
         evtView.setVisible(true);
     }
     

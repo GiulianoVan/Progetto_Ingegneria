@@ -33,8 +33,7 @@ public class AddettiView extends javax.swing.JFrame implements Observer{
     
     public AddettiView() {
         initComponents();
-        Keymap x = new Keymap();
-        CercaText.setKeymap(map);
+        
     }
 
     public String getCercaText()

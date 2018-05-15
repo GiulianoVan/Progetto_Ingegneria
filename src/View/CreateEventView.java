@@ -25,9 +25,10 @@ public class CreateEventView extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        dateCreateEvent = new com.toedter.calendar.JDateChooser();
         eventInfoLabel = new javax.swing.JLabel();
         textPlaceCreateEvent = new javax.swing.JTextField();
         textNameCreateEvent = new javax.swing.JTextField();
@@ -37,38 +38,40 @@ public class CreateEventView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptionCreateEvent = new javax.swing.JTextArea();
         buttonCreateEvent = new javax.swing.JButton();
-        dateCreateEvent = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(dateCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 140, 30));
+
         eventInfoLabel.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
         eventInfoLabel.setText("Event Info");
-        getContentPane().add(eventInfoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 120, 40));
+        jPanel1.add(eventInfoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 120, 40));
 
         textPlaceCreateEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textPlaceCreateEvent.setForeground(new java.awt.Color(153, 153, 153));
         textPlaceCreateEvent.setText("Place Event");
-        getContentPane().add(textPlaceCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 140, 30));
+        jPanel1.add(textPlaceCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 140, 30));
 
         textNameCreateEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textNameCreateEvent.setForeground(new java.awt.Color(153, 153, 153));
         textNameCreateEvent.setText("Name Event");
-        getContentPane().add(textNameCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 140, 30));
+        jPanel1.add(textNameCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 140, 30));
 
         textCodeCreateEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textCodeCreateEvent.setForeground(new java.awt.Color(153, 153, 153));
         textCodeCreateEvent.setText("Code Event");
-        getContentPane().add(textCodeCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 140, 30));
+        jPanel1.add(textCodeCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 140, 30));
 
         textPriceCreateEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textPriceCreateEvent.setForeground(new java.awt.Color(153, 153, 153));
         textPriceCreateEvent.setText("Price Event");
-        getContentPane().add(textPriceCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 140, 30));
+        jPanel1.add(textPriceCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 140, 30));
 
         comboTypeCreateEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         comboTypeCreateEvent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type Event...", "Sport", "Cinema", "Teatro", "Concerto", "Museo" }));
-        getContentPane().add(comboTypeCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, 30));
+        jPanel1.add(comboTypeCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, 30));
 
         descriptionCreateEvent.setColumns(20);
         descriptionCreateEvent.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
@@ -77,12 +80,13 @@ public class CreateEventView extends javax.swing.JFrame {
         descriptionCreateEvent.setText("Description");
         jScrollPane1.setViewportView(descriptionCreateEvent);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 410, 120));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 410, 120));
 
         buttonCreateEvent.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         buttonCreateEvent.setText("CREATE");
-        getContentPane().add(buttonCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, 40));
-        getContentPane().add(dateCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 140, 30));
+        jPanel1.add(buttonCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -95,6 +99,7 @@ public class CreateEventView extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dateCreateEvent;
     private javax.swing.JTextArea descriptionCreateEvent;
     private javax.swing.JLabel eventInfoLabel;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField textCodeCreateEvent;
     private javax.swing.JTextField textNameCreateEvent;
