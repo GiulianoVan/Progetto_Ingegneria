@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
  *
  * @author Pirozzi
  */
-public class LoginButtonController extends GeneralController {
+public class LoginButtonController implements ActionListener {
     
     private LoginModel modLog;
     private LoginView viewLog;

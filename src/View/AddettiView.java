@@ -5,12 +5,15 @@
  */
 package View;
 
+import Controller.ControllerAddetto.ControllerButtonAddetto;
 import Controller.GeneralController;
 import Model.MyDefaultTableModel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.JTable;
 import javax.swing.text.Keymap;
 
 
@@ -36,6 +39,10 @@ public class AddettiView extends javax.swing.JFrame implements Observer{
         
     }
 
+    public JTable getTabellaAddetto() {
+        return TabellaAddetto;
+    }
+    
     public String getCercaText()
     {
         return CercaText.getText();
@@ -181,7 +188,7 @@ public class AddettiView extends javax.swing.JFrame implements Observer{
             
     }
     
-    public void setActionControllerButton(GeneralController nuovo)
+    public void setActionControllerButton(ControllerButtonAddetto nuovo)
     {
         SearchButton.addActionListener(nuovo);
     }
@@ -190,7 +197,11 @@ public class AddettiView extends javax.swing.JFrame implements Observer{
     {
         TabellaAddetto.addKeyListener(nuovo);
     }
-        
+     
+    public void setControllerMouse(MouseAdapter nuovo)
+    {
+        TabellaAddetto.addMouseListener(nuovo);
+    }
     /**
      * @param args the command line arguments
      */
@@ -200,6 +211,9 @@ public class AddettiView extends javax.swing.JFrame implements Observer{
           
     }
 
-
+  public void SetEditable(int row,int col)
+  {
+      
+  }
  
 }
