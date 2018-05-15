@@ -20,7 +20,11 @@ import javax.swing.JTextField;
 public class EventView extends javax.swing.JFrame implements Observer {
 
     String event;
+<<<<<<< HEAD
     //ciao
+=======
+    //pippo
+>>>>>>> a4801efb886539cf5714a9ffbc93dde9cd16f28f
     /**
      * Creates new form EventView
      */
