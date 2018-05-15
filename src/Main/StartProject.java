@@ -22,7 +22,7 @@ public class StartProject {
     public StartProject()
     {
        RunMVCLogin log = new RunMVCLogin();
-       RunMVCEvents evt = new RunMVCEvents();
+       RunMVCEvents evt = new RunMVCEvents();      
     }
     /**
      * @param args the command line arguments
@@ -34,7 +34,9 @@ public class StartProject {
                 @Override
                  public void run()
             {
+               GeneralView genView = new GeneralView();
                StartProject home = new StartProject();
+               genView.setVisible(true);
             }
         });
     }

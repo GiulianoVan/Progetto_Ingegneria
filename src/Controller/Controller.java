@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import Model.Addetto.AddettiModel;
+import Model.CustomerModel;
 import Model.EventModel;
 import View.EventView;
 import View.GeneralPanel;
@@ -12,6 +14,7 @@ import View.GeneralView;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.util.Observable;
 
 /**
  *
@@ -20,31 +23,37 @@ import java.awt.event.MouseEvent;
 public class Controller extends GeneralController{
 
     GeneralPanel view;
-    EventModel model;
-    //CIAO
+    Observable model;
     
     public void setView(GeneralPanel y)
     {
-        view=y;
+        view = y;
     }
    
-    public void setModel(EventModel x)
+    public void setModel(Observable x)
     {
-        model = x;
+        model = x;    
     }
     
      @Override
     public void actionPerformed(ActionEvent e){
-    
-        /*
-        textSearchEvent.setVisible(false);
-        buttonAdvSearch.setVisible(false);
-        buttonCreateEvent.setVisible(false);
-        buttonOkSearchEvent.setVisible(false);
-        jPanelAdvSearch.setVisible(true);
-        */
+
         //SE il comando si chiama CREA ADDETTO fai questo
         String action = e.getActionCommand();
+        System.out.println(e.getActionCommand());
+        if(model instanceof EventModel)
+        {
+            // controlli Eventi
+        }
+        else if(model instanceof AddettiModel)
+        {
+            // controlli Addetti
+        }
+        else
+        {
+            // controlli Clienti
+        }
+        System.out.println("PROVA");
         if(action.equals("ADVSEARCH"))
         {
             view.getButtonAdvGeneral().setVisible(false);
@@ -55,49 +64,12 @@ public class Controller extends GeneralController{
         }
         else if(action.equals("BACKSEARCH"))
         {
-        
-        view.getButtonAdvGeneral().setVisible(true);
-        view.getButtonCreateGeneral().setVisible(true);
-        view.getTextSearchGeneral().setVisible(true);
-        view.getButtonOkSearchGeneral().setVisible(true);
-        view.getjPanelAdvSearch().setVisible(false);
+            view.getButtonAdvGeneral().setVisible(true);
+            view.getButtonCreateGeneral().setVisible(true);
+            view.getTextSearchGeneral().setVisible(true);
+            view.getButtonOkSearchGeneral().setVisible(true);
+            view.getjPanelAdvSearch().setVisible(false);
        }
     };
-    
-    @Override
-    public void keyTyped(KeyEvent e) {
-        
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        e.getID();
-        if(e.getKeyCode() == KeyEvent.VK_ENTER)
-        System.out.println(e.paramString());
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {        
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-    }
-    
+   
 }

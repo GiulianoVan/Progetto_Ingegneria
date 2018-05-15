@@ -9,7 +9,7 @@ package Model;
  *
  * @author Pirozzi
  */
-public class ClientModel {
+public class CustomerModel {
   private String nome;
   private String cognome;
   private String cf;

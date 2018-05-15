@@ -5,7 +5,7 @@
  */
 package DB.DAO;
 
-import Model.ClientModel;
+import Model.CustomerModel;
 import java.util.List;
 
 /**
@@ -16,8 +16,8 @@ import java.util.List;
 public interface ClienteDao {
     
     public int delete(String CF);
-    public List<ClientModel> searchByEtà(int età);
-    public List<ClientModel> searchByBigliettiAcquistati(int n);
+    public List<CustomerModel> searchByEtà(int età);
+    public List<CustomerModel> searchByBigliettiAcquistati(int n);
     
     //public int delete(clientModel x);
     

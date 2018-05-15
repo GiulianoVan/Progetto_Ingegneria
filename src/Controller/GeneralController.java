@@ -15,10 +15,11 @@ import java.util.ArrayList;
  *
  * @author Pirozzi
  */
-public abstract class GeneralController implements ActionListener,KeyListener,MouseListener{
+public abstract class GeneralController implements ActionListener{
+
 
     @Override
-    public void actionPerformed(ActionEvent e){};
+    public abstract void actionPerformed(ActionEvent e);
  
     //ESTRATTORE DI PAROLE CHIAVI.
     public  ArrayList<String> EstraiParoleChiavi(String testo)

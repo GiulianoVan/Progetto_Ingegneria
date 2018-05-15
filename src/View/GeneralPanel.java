@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.Controller;
 import Controller.GeneralController;
 import com.toedter.calendar.JDateChooser;
 import java.util.Observable;
@@ -79,11 +80,6 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         add(buttonOkSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 40, 30));
 
         buttonAdvGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
-        buttonAdvGeneral.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAdvGeneralActionPerformed(evt);
-            }
-        });
         add(buttonAdvGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 130, 30));
 
         buttonCreateGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
@@ -120,12 +116,6 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         jPanelAdvSearch.add(textNameGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 150, 30));
         jPanelAdvSearch.add(buttonOkAdvSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 30, 30));
         jPanelAdvSearch.add(dateGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 150, 30));
-
-        buttonBackSearchGeneral.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonBackSearchGeneralActionPerformed(evt);
-            }
-        });
         jPanelAdvSearch.add(buttonBackSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 30, 30));
 
         add(jPanelAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 540, 90));
@@ -142,14 +132,6 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     private void textSearchGeneralKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textSearchGeneralKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_textSearchGeneralKeyPressed
-
-    private void buttonAdvGeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdvGeneralActionPerformed
-
-    }//GEN-LAST:event_buttonAdvGeneralActionPerformed
-
-    private void buttonBackSearchGeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackSearchGeneralActionPerformed
-
-    }//GEN-LAST:event_buttonBackSearchGeneralActionPerformed
 
     private void buttonCreateGeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateGeneralActionPerformed
         // TODO add your handling code here:
@@ -266,7 +248,10 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         buttonAdvGeneral.addActionListener(contr);
     }
     
-    
+    @Override
+    public void update(Observable o, Object arg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdvGeneral;
@@ -284,8 +269,4 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     private javax.swing.JTextField textSearchGeneral;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void update(Observable o, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

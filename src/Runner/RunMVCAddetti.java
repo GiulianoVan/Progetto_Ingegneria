@@ -20,10 +20,9 @@ import javax.swing.SwingUtilities;
 public class RunMVCAddetti {
     
     
-   // public void startMVCAddetti()
-    //{
-      public static void main(String []args)
-      {
+   public void startMVCAddetti()
+   {
+
       Runnable target = new Runnable() {
       @Override
         public void run() {
@@ -52,10 +51,8 @@ public class RunMVCAddetti {
        //  viewAddetti.setControllerText(controllerText);
         //visualizzo view
         viewAddetti.setVisible(true);
-         
       }
     };
        SwingUtilities.invokeLater(target);  
-   // }
    }
 }

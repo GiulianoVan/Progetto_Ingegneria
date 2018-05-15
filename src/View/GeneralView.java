@@ -6,6 +6,7 @@
 package View;
 
 
+import Runner.RunMVCEvents;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JOptionPane;
@@ -24,8 +25,8 @@ public class GeneralView extends javax.swing.JFrame implements Observer {
     public GeneralView() {
         
         initComponents();
-        //jTabbedMenu.setComponentAt(0, new EventPanel())
-        
+        RunMVCEvents runEvents = new RunMVCEvents();
+        jTabbedMenu.add("Events",runEvents.getEvtView());
     }
     
     /**
@@ -45,8 +46,6 @@ public class GeneralView extends javax.swing.JFrame implements Observer {
         jTabbedMenu.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         jTabbedMenu.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         getContentPane().add(jTabbedMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 400));
-		
-		jTabbedMenu.add("Events", new EventPanel());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
