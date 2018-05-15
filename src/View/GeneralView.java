@@ -7,6 +7,7 @@ package View;
 
 
 import Runner.RunMVCEvents;
+import Runner.TempRunMVCAddetti;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JOptionPane;
@@ -26,7 +27,9 @@ public class GeneralView extends javax.swing.JFrame implements Observer {
         
         initComponents();
         RunMVCEvents runEvents = new RunMVCEvents();
+        TempRunMVCAddetti runSecurity = new TempRunMVCAddetti();
         jTabbedMenu.add("Events",runEvents.getEvtView());
+        jTabbedMenu.add("Security",runSecurity.getAddView());
     }
     
     /**
