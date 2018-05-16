@@ -15,6 +15,7 @@ import java.util.Objects;
  */
 public class Customer extends Observable{
     
+    private String idCustomer;
     private String username;
     private String password;
     private String name;
@@ -26,6 +27,7 @@ public class Customer extends Observable{
     
     /**
      *
+     * @param idCustomer
      * @param username
      * @param password
      * @param name
@@ -35,8 +37,9 @@ public class Customer extends Observable{
      * @param phone
      * @param date_born
      */
-    public Customer(String username,String password,String name,String surname,String email,String tax_code,String phone,Date date_born)
+    public Customer(String idCustomer,String username,String password,String name,String surname,String email,String tax_code,String phone,Date date_born)
     {
+        this.idCustomer = idCustomer;
         this.username = username;
         this.password = password;
         this.name = name;
