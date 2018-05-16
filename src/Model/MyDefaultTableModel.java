@@ -6,6 +6,7 @@
 package Model;
 
 
+import JavaBean.Customer;
 import Model.Addetto.Addetto;
 import java.util.Set;
 import javax.swing.event.TableModelListener;
@@ -61,22 +62,43 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
         this.row = -1;
         this.column=-1;
     }
-     public  MyDefaultTableModel createModelBySet(Set<Addetto> addetti)
+    
+    public  MyDefaultTableModel createModelBySetAddetto(Set<Addetto> addetti)
     {
        MyDefaultTableModel mod = new MyDefaultTableModel();
        //SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,LIVELLO 
        
        mod.addColumn("NOME");
        mod.addColumn("COGNOME");
-       mod.addColumn("CF");
+       mod.addColumn("COD. FISCALE");
        mod.addColumn("EMAIL");
-       mod.addColumn("TEL");
+       mod.addColumn("TELEFONO");
        mod.addColumn("STIPENDIO");
        mod.addColumn("LIVELLO");
        mod.addColumn("ID");
        for(Addetto add : addetti)
        {
            mod.addRow(new String[]{add.getNome(),add.getCognome(),add.getCf(),add.getEmail(),add.getTel(),add.getStipendio().toString(),add.getLivello().toString(),add.getId()});
+       }   
+        
+        return mod; 
+    }
+    
+    public  MyDefaultTableModel createModelBySetCustomer(Set<Customer> customer)
+    {
+       MyDefaultTableModel mod = new MyDefaultTableModel();
+       //SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,LIVELLO 
+              
+       mod.addColumn("USERNAME");
+       mod.addColumn("NOME");
+       mod.addColumn("COGNOME");
+       mod.addColumn("COD. FISCALE");
+       mod.addColumn("EMAIL");
+       mod.addColumn("TELEFONO");
+       mod.addColumn("ID");
+       for(Customer add : customer)
+       {
+           mod.addRow(new String[]{add.getUsername(),add.getName(),add.getSurname(),add.getEmail(),add.getTax_code(),add.getPhone(),add.getDate_born().toString(),add.getIdCustomer()});
        }   
         
         return mod; 

@@ -30,9 +30,8 @@ public class CustomerModel extends Observable {
         
         customer = customerdao.getCustomerParolaChiave(parole);
         
-        
         setChanged();
-        notifyObservers(tab.createModelBySet(customer));
+        notifyObservers(tab.createModelBySetCustomer(customer));
     }
     public void doUpdate(String new_value,String attribute_to_change,String id)
     {
