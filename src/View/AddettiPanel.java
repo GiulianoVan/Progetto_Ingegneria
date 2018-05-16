@@ -6,7 +6,12 @@
 package View;
 
 import Controller.ControllerAddetto.ControllerButtonAddetto;
-import Controller.ControllerAddetto.ControllerTextAddetto;
+import Controller.ControllerAddetto.ControllerKeyAddetto;
+import Model.MyDefaultTableModel;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
+import java.util.Observable;
 
 /**
  *
@@ -66,23 +71,42 @@ public class AddettiPanel extends GeneralPanel{
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-
+            @Override
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
             
         });
-        
+    }
     
     
-        public void SetControllerButton(ControllerButtonAddetto controller)
+        public void SetControllerButton(ActionListener controller)
         {
             buttonOkSearchAddetto.addActionListener(controller);
         }
-        public void SetControllerText(ControllerTextAddetto controller)
+        public void SetControllerKeyText(KeyListener controller)
         {
             textSearchAddetto.addKeyListener(controller);
         }
+        public void SetControllerKeyTable(KeyListener controller)
+        {
+            tableSearchAddetto.addKeyListener(controller);
+        }
+        
+        public void setControllerMouseTable(MouseListener controller)
+        {
+            
+            tableSearchAddetto.addMouseListener(controller);
+        }
+        
+    @Override
+    public void update(Observable o, Object arg) {
+        
+        tableSearchAddetto.setModel((MyDefaultTableModel) arg);
+            //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
+        tableSearchAddetto.removeColumn(tableSearchAddetto.getColumnModel().getColumn(7));
+            //SUCCESSIVAMENTE SARA ANCORA PRESENTE NEL MODELLO.TabellaAddetto.getModel().getValueAt()
+    }
                 
-                
+       
 }

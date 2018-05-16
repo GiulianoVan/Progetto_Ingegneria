@@ -15,7 +15,7 @@ import java.awt.event.MouseEvent;
  *
  * @author Pirozzi
  */
-public class ControllerMouseAddetto extends MouseAdapter{
+public class ControllerMouseTableAddetto extends MouseAdapter{
 
     AddettiModel model;
     AddettiView view;

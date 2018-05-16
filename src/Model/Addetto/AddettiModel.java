@@ -19,7 +19,6 @@ import javax.swing.table.DefaultTableModel;
 public class AddettiModel extends Observable {
    
     public Set<Addetto>addetti;
-    DefaultTableModel table ;
     private ImpAddettoDao addettodao = new ImpAddettoDao();
                 
     public void doSearch(ArrayList<String> parole)

@@ -7,13 +7,13 @@ package Controller.ControllerAddetto;
  */
 
 
-import Controller.GeneralController;
+
 import Model.Addetto.AddettiModel;
+import View.AddettiPanel;
 import View.AddettiView;
+import View.GeneralPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -28,7 +28,7 @@ public class ControllerButtonAddetto implements ActionListener
     In pratica posso passargli delle cose + generali.-> dichiarare un model abstract e una view Abstract
     
     */
-    AddettiView view;
+    GeneralPanel view;
     AddettiModel model;
     
     @Override
@@ -37,7 +37,7 @@ public class ControllerButtonAddetto implements ActionListener
         String action = e.getActionCommand();
         if(action.equals("CERCA"))
         {
-            if(view.getCercaText().trim().length() == 0)
+            if(view.getTextSearchGeneral().getText().trim().length() == 0)
             {
               JOptionPane.showMessageDialog(view, "Impossibile cercare senza nessun valore.\nRiprovare inserendo un valore nel campo apposito.", "ERRORE", JOptionPane.ERROR_MESSAGE);
 
@@ -45,7 +45,7 @@ public class ControllerButtonAddetto implements ActionListener
             else
             {
                    ArrayList<String> parolechiavi;
-                   String testo = view.getCercaText();
+                   String testo = view.getTextSearchGeneral().getText();
                    parolechiavi = EstraiParoleChiavi(testo);
                    model.doSearch(parolechiavi);      
             }
@@ -55,7 +55,8 @@ public class ControllerButtonAddetto implements ActionListener
       {
         model = nuovo;
       }
-    public void setView(AddettiView nuovo)
+   
+    public void setView(GeneralPanel nuovo)
       {
         view = nuovo;
       }

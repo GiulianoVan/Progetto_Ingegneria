@@ -16,13 +16,9 @@ import java.util.Observable;
  */
 public class ControllerMouseGeneral extends MouseAdapter{
     //dichiarate model e view
-<<<<<<< HEAD
- 
-=======
     GeneralPanel view;
     Observable model; 
 
->>>>>>> 220f19357cbe6d5a5fa0301d6283bfa997ffe69a
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println("ciao");

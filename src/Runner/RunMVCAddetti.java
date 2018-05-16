@@ -5,13 +5,16 @@
  */
 package Runner;
 
-import Controller.ControllerAddetto.AddettoTableController.ControllerMouseAddetto;
+import Controller.ControllerAddetto.AddettoTableController.ControllerKeyTable;
+import Controller.ControllerAddetto.AddettoTableController.ControllerMouseTableAddetto;
 import Controller.ControllerAddetto.KeyControllerAddetti;
 import Controller.ControllerAddetto.ControllerButtonAddetto;
-import Controller.ControllerAddetto.ControllerTextAddetto;
+import Controller.ControllerAddetto.ControllerKeyAddetto;
 import Controller.GeneralController;
 import Model.Addetto.AddettiModel;
+import View.AddettiPanel;
 import View.AddettiView;
+import View.GeneralPanel;
 import javax.swing.SwingUtilities;
 
 /**
@@ -20,35 +23,35 @@ import javax.swing.SwingUtilities;
  */
 public class RunMVCAddetti {
     
+    AddettiModel model;
+    AddettiPanel view;
+   public void startMVCAddetti()
+   {
     
-//   public void startMVCAddetti()
-  // {
-    public static void main(String[] args)
-    {
       Runnable target = new Runnable() {
       @Override
         public void run() {
         // creo model
-        AddettiModel model = new AddettiModel();
+         model = new AddettiModel();
         // creo le view passando il model
-        AddettiView viewAddetti = new AddettiView();
+         view = new AddettiPanel();
         //model registra un osservatore
-        model.addObserver(viewAddetti);
+        model.addObserver(view);
         ControllerButtonAddetto controllerButton = new ControllerButtonAddetto();
         controllerButton.setModel(model);
-        controllerButton.setView(viewAddetti);
-        viewAddetti.setActionControllerButton(controllerButton);
+        controllerButton.setView(view);
+        view.SetControllerButton(controllerButton);
         //creo controllerButton per la tabella e lo registro alla view
-        KeyControllerAddetti controllerTab = new KeyControllerAddetti();
+        ControllerKeyTable controllerTab = new ControllerKeyTable();
         controllerTab.setModel(model);
-        controllerTab.setView(viewAddetti);
-        viewAddetti.setControllerKeyTable(controllerTab);
-        ControllerMouseAddetto controllerMouse = new ControllerMouseAddetto();
+        controllerTab.setView(view);
+        view.SetControllerKeyTable(controllerTab);
+        ControllerMouseTableAddetto controllerMouse = new ControllerMouseTableAddetto();
         controllerMouse.setModel(model);
-        controllerMouse.setView(viewAddetti);
-        viewAddetti.setControllerMouse(controllerMouse); 
+        controllerMouse.setView(view);
+        view.setControllerMouseTable(controllerMouse); 
         //creo controllerButton per la Jtext e le registro ai model ed al controllerButton
-        ControllerTextAddetto controllerText = new ControllerTextAddetto();
+        ControllerKeyAddetto controllerText = new ControllerKeyAddetto();
         controllerText.setModel(model);
         controllerText.setView(viewAddetti);
         viewAddetti.setControllerText(controllerText);

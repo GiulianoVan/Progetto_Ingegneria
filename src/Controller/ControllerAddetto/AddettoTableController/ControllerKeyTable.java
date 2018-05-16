@@ -8,6 +8,7 @@ package Controller.ControllerAddetto.AddettoTableController;
 
 import Model.Addetto.AddettiModel;
 import View.AddettiView;
+import View.GeneralPanel;
 import java.awt.event.KeyAdapter;
 import javax.swing.JOptionPane;
 
@@ -22,7 +23,7 @@ import javax.swing.JOptionPane;
 public class ControllerKeyTable extends KeyAdapter{ 
     
     AddettiModel model;
-    AddettiView  view;
+    GeneralPanel  view;
     
     @Override
      public void keyReleased(java.awt.event.KeyEvent evt) 
@@ -48,7 +49,7 @@ public class ControllerKeyTable extends KeyAdapter{
         this.model = addetto;
     }
     
-    public void setView(AddettiView view)
+    public void setView(GeneralPanel view)
     {
        this.view =view;
     }

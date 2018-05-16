@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author Pirozzi
  */
-public class ControllerTextAddetto extends KeyAdapter{
+public class ControllerKeyAddetto extends KeyAdapter{
     
     AddettiView view;
     AddettiModel model;
