@@ -17,7 +17,6 @@ public class Customer extends Observable{
     
     private String idCustomer;
     private String username;
-    private String password;
     private String name;
     private String surname;
     private String email;
@@ -29,7 +28,6 @@ public class Customer extends Observable{
      *
      * @param idCustomer
      * @param username
-     * @param password
      * @param name
      * @param surname
      * @param email
@@ -37,11 +35,10 @@ public class Customer extends Observable{
      * @param phone
      * @param date_born
      */
-    public Customer(String idCustomer,String username,String password,String name,String surname,String email,String tax_code,String phone,Date date_born)
+    public Customer(String idCustomer,String username,String name,String surname,String email,String tax_code,String phone,Date date_born)
     {
         this.idCustomer = idCustomer;
         this.username = username;
-        this.password = password;
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -77,22 +74,8 @@ public class Customer extends Observable{
     public void setUsername(String username) {
         this.username = username;
     }
-    
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
 	
-	/**
+    /**
      * @return the name
      */
     public String getName() {
@@ -120,7 +103,7 @@ public class Customer extends Observable{
         this.surname = surname;
     }
 
-	/**
+    /**
      * @return the email
      */
     public String getEmail() {
@@ -134,7 +117,7 @@ public class Customer extends Observable{
         this.email = email;
     }
 
-	/**
+    /**
      * @return the tax_code
      */
     public String getTax_code() {
@@ -148,7 +131,7 @@ public class Customer extends Observable{
         this.tax_code = tax_code;
     }
 
-	/**
+    /**
      * @return the phone
      */
     public String getPhone() {
@@ -185,12 +168,6 @@ public void setValoreUsername(String username) { //NOTIFICA AGLI OSSERVATORI(VIE
     this.username = username;
     setChanged();
     notifyObservers(this.username);
-    }
-	
-public void setValorePassword(String password) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI password
-    this.password = password;
-    setChanged();
-    notifyObservers(this.password);
     }
 	
 public void setValoreName(String name) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI name
@@ -232,15 +209,14 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 83 * hash + Objects.hashCode(this.idCustomer);
-        hash = 83 * hash + Objects.hashCode(this.username);
-        hash = 83 * hash + Objects.hashCode(this.password);
-        hash = 83 * hash + Objects.hashCode(this.name);
-        hash = 83 * hash + Objects.hashCode(this.surname);
-        hash = 83 * hash + Objects.hashCode(this.email);
-        hash = 83 * hash + Objects.hashCode(this.tax_code);
-        hash = 83 * hash + Objects.hashCode(this.phone);
-        hash = 83 * hash + Objects.hashCode(this.date_born);
+        hash = 97 * hash + Objects.hashCode(this.idCustomer);
+        hash = 97 * hash + Objects.hashCode(this.username);
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + Objects.hashCode(this.surname);
+        hash = 97 * hash + Objects.hashCode(this.email);
+        hash = 97 * hash + Objects.hashCode(this.tax_code);
+        hash = 97 * hash + Objects.hashCode(this.phone);
+        hash = 97 * hash + Objects.hashCode(this.date_born);
         return hash;
     }
 
@@ -262,9 +238,6 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
         if (!Objects.equals(this.username, other.username)) {
             return false;
         }
-        if (!Objects.equals(this.password, other.password)) {
-            return false;
-        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -282,8 +255,6 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
         }
         return Objects.equals(this.date_born, other.date_born);
     }
-
-
-
 }
 
+    

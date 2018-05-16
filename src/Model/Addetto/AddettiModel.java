@@ -27,11 +27,11 @@ public class AddettiModel extends Observable {
         addetti = addettodao.getAddettiParolaChiave(parole);
         
         setChanged();
-        notifyObservers(tab.createModelBySet(addetti));
+        notifyObservers(tab.createModelBySetAddetto(addetti));
     }
-    public void doUpdate(String text,String campo,String id)
+    public void doUpdate(String new_value,String attribute_to_change,String id)
     {
-        addettodao.updateAddetto(text,campo,id);
+        addettodao.updateAddetto(new_value,attribute_to_change,id);
     }
     
     
