@@ -105,14 +105,13 @@ public class ImplAddettoDao implements AddettoDao {
     public int updateAddetto(String new_value,String attribute_to_change,String id) {
         
         String sql = "UPDATE ADDSICUREZZA SET "+attribute_to_change+ " = ? WHERE IDADDETTO = ?;";
-
         int executeUpdate = 0;
         try 
         {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             
-            //SETTO TT I ? CON I VALORI DINAMICAMENTE. 
+            //SETTO TUTTI I ? CON I VALORI DINAMICAMENTE. 
               ps.setString(1,new_value.toUpperCase());
               ps.setString(2,id.toUpperCase());
               executeUpdate = ps.executeUpdate();
