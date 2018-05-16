@@ -5,6 +5,7 @@
  */
 package Runner;
 
+import Controller.ControllerAddetto.AddettoTableController.ControllerFocusTableAddetto;
 import Controller.ControllerAddetto.AddettoTableController.ControllerKeyTable;
 import ControllerGeneral.ControllerGeneralButton;
 import Controller.ControllerAddetto.AddettoTableController.ControllerMouseTableAddetto;
@@ -27,7 +28,8 @@ public class RunMVCAddetti {
     ControllerMouseTableAddetto controllerMouse;
     ControllerKeyAddetto controllerText;
     ControllerGeneralButton x;
-            
+    ControllerFocusTableAddetto controllerFocus;
+    
     public AddettiModel getModel() {
         return model;
     }
@@ -58,10 +60,16 @@ public class RunMVCAddetti {
         controllerButton.setView(view);
         view.SetControllerButton(controllerButton);
         //creo controllerButton per la tabella e lo registro alla view
+        
         controllerTab = new ControllerKeyTable();
         controllerTab.setModel(model);
         controllerTab.setView(view);
         view.SetControllerKeyTable(controllerTab);
+        
+        controllerFocus = new ControllerFocusTableAddetto();
+        controllerFocus.setModel(model);
+        controllerFocus.setView(view);
+        view.setControllerFocusTable(controllerFocus);
         controllerMouse = new ControllerMouseTableAddetto();
         controllerMouse.setModel(model);
         controllerMouse.setView(view);
@@ -73,8 +81,9 @@ public class RunMVCAddetti {
         view.SetControllerKeyText(controllerText);
         x = new ControllerGeneralButton();
         x.setView(view);
+        x.setModel(model);
         view.setControllerGeneralButton(x);
-   
+        
         
         //visualizzo view
       }

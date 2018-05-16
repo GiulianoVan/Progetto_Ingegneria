@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.ControllerAddetto.AddettoTableController.ControllerFocusTableAddetto;
 import ControllerAddetto.ControllerButtonAddetto;
 import ControllerAddetto.ControllerKeyAddetto;
 import Model.MyDefaultTableModel;
@@ -111,9 +112,13 @@ public class AddettiPanel extends GeneralPanel{
             //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
         tableSearchAddetto.removeColumn(tableSearchAddetto.getColumnModel().getColumn(7));
             //SUCCESSIVAMENTE SARA ANCORA PRESENTE NEL MODELLO.TabellaAddetto.getModel().getValueAt()
+        
     }
-               
-    
+
+    public void setControllerFocusTable(ControllerFocusTableAddetto controllerFocus) {
+            
+            tableSearchAddetto.addFocusListener(controllerFocus);
+        }
       
                                
 }

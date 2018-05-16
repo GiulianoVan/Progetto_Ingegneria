@@ -8,6 +8,7 @@ package Model;
 
 import Model.Addetto.Addetto;
 import java.util.Set;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -23,6 +24,12 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
     private int column=-1;
     String oldvalue;
  
+    public MyDefaultTableModel()
+    {
+        super();
+        
+    }
+ 
     public String getOldValue()
     {
         return oldvalue;
@@ -34,7 +41,6 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
            {
                
                oldvalue = (String) this.getValueAt(row, column).toString();
-               System.out.println("Entro qua");
                return true;
            }
            return false;
