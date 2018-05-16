@@ -5,7 +5,7 @@
  */
 package Model.Addetto;
 
-import DB.DAO.ImpAddettoDao;
+import DB.DAO.ImplAddettoDao;
 import Model.MyDefaultTableModel;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class AddettiModel extends Observable {
    
     public Set<Addetto>addetti;
-    private ImpAddettoDao addettodao = new ImpAddettoDao();
+    private ImplAddettoDao addettodao = new ImplAddettoDao();
     MyDefaultTableModel<Addetto> tab = new MyDefaultTableModel();      
     public void doSearch(ArrayList<String> parole)
     {
@@ -31,7 +31,7 @@ public class AddettiModel extends Observable {
     }
     public void doUpdate(String text,String campo,String id)
     {
-        addettodao.refreshAddetto(text,campo,id);
+        addettodao.updateAddetto(text,campo,id);
     }
     
     

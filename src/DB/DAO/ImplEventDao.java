@@ -20,7 +20,7 @@ import java.util.Set;
  *
  * @author giuli
  */
-public class ImpEventDao implements EventDao{
+public class ImplEventDao implements EventDao{
     
     private Connection con;
     private PreparedStatement ps;

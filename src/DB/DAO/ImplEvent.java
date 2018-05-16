@@ -9,7 +9,7 @@ package DB.DAO;
  *
  * @author giuli
  */
-public class ImpEvent {
+public class ImplEvent {
     
     //override di tutti i metodi per ricercare, cancellare, modificare
     

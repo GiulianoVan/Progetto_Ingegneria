@@ -5,7 +5,7 @@
  */
 package ControllerLogin;
 
-import DB.DAO.ImpAdminDao;
+import DB.DAO.ImplAdminDao;
 import Model.Admin;
 import Model.LoginModel;
 import View.LoginView;

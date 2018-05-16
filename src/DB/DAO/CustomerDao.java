@@ -17,7 +17,7 @@ import java.util.List;
 public interface CustomerDao {
     
     public int deleteCustomer(Customer customer);
-    public int refreshCustomer(String new_value,String attribute_to_change,String id);
+    public int updateCustomer(String new_value,String attribute_to_change,String id);
     public List<CustomerModel> searchByEta(int eta);
     public List<CustomerModel> searchByBigliettiAcquistati(int n);
     
