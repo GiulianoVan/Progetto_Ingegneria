@@ -77,13 +77,18 @@ public class AddettiPanel extends GeneralPanel{
             }
             
         });
+<<<<<<< HEAD
     }
     
+=======
+    } 
+>>>>>>> c41c2e7b1fcca60396f3ce4de4bdc43f5587eaa4
     
         public void SetControllerButton(ActionListener controller)
         {
             buttonOkSearchAddetto.addActionListener(controller);
         }
+<<<<<<< HEAD
         public void SetControllerKeyText(KeyListener controller)
         {
             textSearchAddetto.addKeyListener(controller);
@@ -109,4 +114,13 @@ public class AddettiPanel extends GeneralPanel{
     }
                 
        
+=======
+              
+        public void SetControllerText(ControllerTextAddetto controller)
+        {
+            textSearchAddetto.addKeyListener(controller);
+        }
+               
+                
+>>>>>>> c41c2e7b1fcca60396f3ce4de4bdc43f5587eaa4
 }
