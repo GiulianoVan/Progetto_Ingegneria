@@ -23,7 +23,7 @@ public class AddettiPanel extends GeneralPanel{
     private com.toedter.calendar.JDateChooser dateGeneral;
     private javax.swing.JPanel jPanelAdvSearch;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableSearchGeneral;
+    private javax.swing.JTable tableSearchAddetto;
     private javax.swing.JTextField textUserGeneralSearch;
     private javax.swing.JTextField textCFGeneralSearch;
     private javax.swing.JTextField textSearchAddetto;
@@ -55,7 +55,25 @@ public class AddettiPanel extends GeneralPanel{
         textSearchAddetto.setText("Insert Name here...");
         textUserGeneralSearch.setText("Insert User here...");
         
-    }
+        tableSearchAddetto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+               
+            },
+            new String [] {
+                "NOME", "COGNOME", "CF", "EMAIL", "TEL", "STIPENDIO", "LIVELLO"
+            }
+         ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+            
+        });
+        
+    
     
         public void SetControllerButton(ControllerButtonAddetto controller)
         {
