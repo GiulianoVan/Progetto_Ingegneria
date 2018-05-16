@@ -103,13 +103,9 @@ public class ImplAddettoDao implements AddettoDao {
 
     @Override
     public int updateAddetto(String new_value,String attribute_to_change,String id) {
-
-<<<<<<< HEAD
         
         String sql = "UPDATE ADDSICUREZZA SET "+attribute_to_change+ " = ? WHERE IDADDETTO = ?;";
-=======
-        String sql = "UPDATE ADDSICUREZZA SET ? = ? WHERE IDADDETTO = ?;";
->>>>>>> 90457815c3f99e1bce319daa75bdf1dfd69022ba
+
         int executeUpdate = 0;
         try 
         {
@@ -123,11 +119,7 @@ public class ImplAddettoDao implements AddettoDao {
               con.close();
               ps.close();
               rs.close();
-<<<<<<< HEAD
-=======
-              if(executeUpdate < 1)
-                System.out.println("Errore!\nCampi inseriti non validi.");
->>>>>>> 90457815c3f99e1bce319daa75bdf1dfd69022ba
+
         }
         catch (SQLException ex) {
             System.out.println("Errore!\nAggiornamento fallito.");
