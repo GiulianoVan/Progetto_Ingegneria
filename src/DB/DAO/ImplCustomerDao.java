@@ -23,11 +23,9 @@ public class ImplCustomerDao implements CustomerDao{
     }
     
     @Override
-    public int refreshCustomer(Customer customer){
-        
-        //fare interrogazione;
-        return 0;
-    };
+    public int refreshCustomer(String new_value, String attribute_to_change, String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
     public List<CustomerModel> searchByEta(int età) {
@@ -42,6 +40,8 @@ public class ImplCustomerDao implements CustomerDao{
         //codice
          return clienti;
     }
+
+
     
     
     

@@ -51,6 +51,20 @@ public class Customer extends Observable{
     }
 
     /**
+     * @return the idCustomer
+     */
+    public String getIdCustomer() {
+        return idCustomer;
+    }
+
+    /**
+     * @param idCustomer the idCustomer to set
+     */
+    public void setIdCustomer(String idCustomer) {
+        this.idCustomer = idCustomer;
+    }
+    
+    /**
      * @return the username
      */
     public String getUsername() {
@@ -161,6 +175,12 @@ public class Customer extends Observable{
         this.date_born = date_born;
     }
     
+public void setValoreIdCustomer(String idCustomer) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI idCustomer
+    this.idCustomer = idCustomer;
+    setChanged();
+    notifyObservers(this.idCustomer);
+    }
+
 public void setValoreUsername(String username) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI username
     this.username = username;
     setChanged();
@@ -212,14 +232,15 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 41 * hash + Objects.hashCode(this.username);
-        hash = 41 * hash + Objects.hashCode(this.password);
-        hash = 41 * hash + Objects.hashCode(this.name);
-        hash = 41 * hash + Objects.hashCode(this.surname);
-        hash = 41 * hash + Objects.hashCode(this.email);
-        hash = 41 * hash + Objects.hashCode(this.tax_code);
-        hash = 41 * hash + Objects.hashCode(this.phone);
-        hash = 41 * hash + Objects.hashCode(this.date_born);
+        hash = 83 * hash + Objects.hashCode(this.idCustomer);
+        hash = 83 * hash + Objects.hashCode(this.username);
+        hash = 83 * hash + Objects.hashCode(this.password);
+        hash = 83 * hash + Objects.hashCode(this.name);
+        hash = 83 * hash + Objects.hashCode(this.surname);
+        hash = 83 * hash + Objects.hashCode(this.email);
+        hash = 83 * hash + Objects.hashCode(this.tax_code);
+        hash = 83 * hash + Objects.hashCode(this.phone);
+        hash = 83 * hash + Objects.hashCode(this.date_born);
         return hash;
     }
 
@@ -235,6 +256,9 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
             return false;
         }
         final Customer other = (Customer) obj;
+        if (!Objects.equals(this.idCustomer, other.idCustomer)) {
+            return false;
+        }
         if (!Objects.equals(this.username, other.username)) {
             return false;
         }
@@ -258,6 +282,8 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
         }
         return Objects.equals(this.date_born, other.date_born);
     }
+
+
 
 }
 
