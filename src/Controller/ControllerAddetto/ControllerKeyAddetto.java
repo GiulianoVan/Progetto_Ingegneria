@@ -27,14 +27,13 @@ public class ControllerKeyAddetto extends KeyAdapter{
     @Override
     public void keyReleased(KeyEvent e) {
         
-            
            if(view.getTextNameGeneralSearch().getText().trim().length()>0)
            {
              if(e.getKeyChar()=='\n')
-            {
-                String testo = view.getTextNameGeneralSearch().getText();
-                ArrayList<String> parole  = EstraiParoleChiavi(testo);
-                model.doSearch(parole);
+            { 
+                String testo = view.getTextSearchGeneral().getText();
+                ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);
+                model.doSearch(parolechiavi);
             }
            }
         

@@ -28,14 +28,6 @@ public class AddettiPanel extends GeneralPanel{
     private javax.swing.JComboBox<String> comboTypeGeneralSearch;
     private com.toedter.calendar.JDateChooser dateGeneral;
     private javax.swing.JPanel jPanelAdvSearch;
-
-    public JTable getTableSearchAddetto() {
-        return tableSearchAddetto;
-    }
-
-    public void setTableSearchAddetto(JTable tableSearchAddetto) {
-        this.tableSearchAddetto = tableSearchAddetto;
-    }
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableSearchAddetto;
     private javax.swing.JTextField textUserGeneralSearch;
@@ -45,7 +37,8 @@ public class AddettiPanel extends GeneralPanel{
     public AddettiPanel()
     {
         super();
-        this.setComponentsPanel(); 
+        this.setComponentsPanel();
+        buttonOkSearchAddetto.setActionCommand("CERCA");
     }
     
     public void setComponentsPanel()

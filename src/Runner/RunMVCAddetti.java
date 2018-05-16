@@ -5,6 +5,7 @@
  */
 package Runner;
 
+import Controller.Controller;
 import Controller.ControllerAddetto.AddettoTableController.ControllerKeyTable;
 import Controller.ControllerAddetto.AddettoTableController.ControllerMouseTableAddetto;
 import Controller.ControllerAddetto.ControllerButtonAddetto;
@@ -28,6 +29,7 @@ public class RunMVCAddetti {
     ControllerKeyTable controllerTab;
     ControllerMouseTableAddetto controllerMouse;
     ControllerKeyAddetto controllerText;
+    Controller x;
             
     public AddettiModel getModel() {
         return model;
@@ -49,10 +51,6 @@ public class RunMVCAddetti {
    public void startMVCAddetti()
    {
     
-      Runnable target = new Runnable() {
-      @Override
-        public void run() {
-        // creo model
          model = new AddettiModel();
         // creo le view passando il model
          view = new AddettiPanel();
@@ -76,9 +74,12 @@ public class RunMVCAddetti {
         controllerText.setModel(model);
         controllerText.setView(view);
         view.SetControllerKeyText(controllerText);
+        x = new Controller();
+        x.setView(view);
+        view.setControllerGeneral(x);
+   
+        
         //visualizzo view
       }
-    };
-       SwingUtilities.invokeLater(target);  
    }
-}
+
