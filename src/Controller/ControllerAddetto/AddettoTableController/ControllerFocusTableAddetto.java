@@ -38,10 +38,10 @@ public class ControllerFocusTableAddetto extends FocusAdapter {
     
     @Override
     public void focusLost(FocusEvent e) {
-        int row;
-        int col;
+        int row = view.getTableSearchGeneral().getSelectedRow();
+        int col = view.getTableSearchGeneral().getSelectedColumn();
         System.out.println("Ev PReso fuori");
-        if(view.getTableSearchGeneral().isCellEditable(0, 0))
+        if(view.getTableSearchGeneral().isCellEditable(row,col))
         {
             System.out.println("Ev PReso dentro");
             int scelta=JOptionPane.showOptionDialog(view,"Vuoi modificare il campo selezionato?","Richiesta",JOptionPane.YES_OPTION,JOptionPane.INFORMATION_MESSAGE,null,new String[]{"Modifica","Annulla"},null);

@@ -105,7 +105,7 @@ public class ImplAddettoDao implements AddettoDao {
     public int updateAddetto(String new_value,String attribute_to_change,String id) {
 
         
-        String sql = "UPDATE ADDSICUREZZA SET ? = ? WHERE IDADDETTO = ?;";
+        String sql = "UPDATE ADDSICUREZZA SET "+attribute_to_change+ " = ? WHERE IDADDETTO = ?;";
         int executeUpdate = 0;
         try 
         {
@@ -114,15 +114,12 @@ public class ImplAddettoDao implements AddettoDao {
             ResultSetMetaData column_name;
             
             //SETTO TT I ? CON I VALORI DINAMICAMENTE. 
-              ps.setString(1,attribute_to_change.toUpperCase());
-              ps.setString(2,new_value.toUpperCase());
-              ps.setString(3,id.toUpperCase());
+              ps.setString(1,new_value.toUpperCase());
+              ps.setString(2,id.toUpperCase());
               executeUpdate = ps.executeUpdate();
               con.close();
               ps.close();
               rs.close();
-              if(executeUpdate < 1)
-                System.out.println("Errore!\nAggiornamento fallito.");
         }
         catch (SQLException ex) {
             System.out.println("Errore!\nCampi inseriti non validi.");

@@ -41,6 +41,7 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
            {
                
                oldvalue = (String) this.getValueAt(row, column).toString();
+               
                return true;
            }
            return false;

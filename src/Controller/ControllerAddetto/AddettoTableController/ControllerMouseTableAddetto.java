@@ -10,6 +10,7 @@ import Model.MyDefaultTableModel;
 import View.AddettiView;
 import View.GeneralPanel;
 import View.GeneralView;
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
@@ -43,6 +44,7 @@ public class ControllerMouseTableAddetto extends MouseAdapter{
         if(e.getClickCount()==1)
         {
           view.setCellEditable();
+          
         }
        
     }
