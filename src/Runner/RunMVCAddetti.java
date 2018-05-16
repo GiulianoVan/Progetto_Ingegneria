@@ -5,16 +5,14 @@
  */
 package Runner;
 
+import Controller.ControllerAddetto.AddettoTableController.ControllerKeyTable;
 import ControllerGeneral.ControllerGeneralButton;
-import AddettoTableController.ControllerKeyTable;
 import Controller.ControllerAddetto.AddettoTableController.ControllerMouseTableAddetto;
 import ControllerAddetto.ControllerButtonAddetto;
 import ControllerAddetto.ControllerKeyAddetto;
 import Model.Addetto.AddettiModel;
 import View.AddettiPanel;
-import View.AddettiView;
-import View.GeneralPanel;
-import javax.swing.SwingUtilities;
+
 
 /**
  *

@@ -31,11 +31,8 @@ public class AddettiModel extends Observable {
     }
     public void doUpdate(String text,String campo,String id)
     {
-        addettodao.aggiornaAddetto(text,campo,id);
+        addettodao.refreshAddetto(text,campo,id);
     }
     
-    public void changeStateoFTable(int row,int col)
-    {
-        tab.isCellEditable(row,col);
-    }
+    
 }

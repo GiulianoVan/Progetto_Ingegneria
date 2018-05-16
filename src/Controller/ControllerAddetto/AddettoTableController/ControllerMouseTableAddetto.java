@@ -12,6 +12,7 @@ import View.GeneralPanel;
 import View.GeneralView;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 
 /**
@@ -39,9 +40,9 @@ public class ControllerMouseTableAddetto extends MouseAdapter{
     
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getClickCount()==2)
+        if(e.getClickCount()==1)
         {
-            model.changeStateoFTable(view.getTableSearchGeneral().getSelectedRow(),view.getTableSearchGeneral().getSelectedColumn());
+          view.setCellEditable();
         }
        
     }

@@ -8,8 +8,6 @@ package Model;
 
 import Model.Addetto.Addetto;
 import java.util.Set;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -23,18 +21,23 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
     
     private int row = -1;
     private int column=-1;
-    
+    String oldvalue;
  
+    public String getOldValue()
+    {
+        return oldvalue;
+    }
      @Override
     public boolean isCellEditable(int row, int column) {
+           
            if(this.row==row && this.column==column)
            {
-               this.row=-1;
-               this.column=-1;
+               
+               oldvalue = (String) this.getValueAt(row, column).toString();
+               System.out.println("Entro qua");
                return true;
-
            }
-           return true;
+           return false;
     }
 
     public void setRowEditable(int row)
@@ -47,7 +50,11 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
         this.column=column;
     }
     
-    
+    public void resetCellEditable()
+    {
+        this.row = -1;
+        this.column=-1;
+    }
      public  MyDefaultTableModel createModelBySet(Set<Addetto> addetti)
     {
        MyDefaultTableModel mod = new MyDefaultTableModel();

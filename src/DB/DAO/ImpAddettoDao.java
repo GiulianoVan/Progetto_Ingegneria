@@ -9,13 +9,9 @@ import DB.Database.DBConnect;
 import Model.Addetto.Addetto;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -108,8 +104,9 @@ public class ImpAddettoDao implements AddettoDao {
     @Override
     public int refreshAddetto(String new_value,String attribute_to_change,String id) {
 
+        
         String sql = "UPDATE ADDSICUREZZA SET ? = ? WHERE IDADDETTO = ?;";
-
+        int executeUpdate = 0;
         try 
         {
             con = DBConnect.getConnection();
@@ -120,20 +117,16 @@ public class ImpAddettoDao implements AddettoDao {
               ps.setString(1,attribute_to_change.toUpperCase());
               ps.setString(2,new_value.toUpperCase());
               ps.setString(3,id.toUpperCase());
-            //EFFETTUO QUERY E LA METTO NEL RESULTSET
-            int executeUpdate = ps.executeUpdate();
-            if(executeUpdate < 1)
+              executeUpdate = ps.executeUpdate();
+              con.close();
+              ps.close();
+              rs.close();
+              if(executeUpdate < 1)
                 System.out.println("Errore!\nAggiornamento fallito.");
-            
-            while(rs.next())
-            {
-                
-                result.add(new Addetto(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getInt(7),rs.getString(8)));
-            }
         }
         catch (SQLException ex) {
             System.out.println("Errore!\nCampi inseriti non validi.");
         }
-        return 1;
+        return executeUpdate;
     }
 }

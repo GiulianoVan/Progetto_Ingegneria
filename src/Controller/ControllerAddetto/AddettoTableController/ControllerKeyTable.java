@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AddettoTableController;
+package Controller.ControllerAddetto.AddettoTableController;
 
 
 import Model.Addetto.AddettiModel;
@@ -28,19 +28,27 @@ public class ControllerKeyTable extends KeyAdapter{
     @Override
      public void keyReleased(java.awt.event.KeyEvent evt) 
     {
+            int row = view.getTableSearchGeneral().getSelectedRow();
+            int col = view.getTableSearchGeneral().getSelectedColumn();
                 
                 if(evt.getKeyChar()=='\n')
                 {
                       int scelta=JOptionPane.showOptionDialog(view,"Vuoi modificare il campo selezionato?","Richiesta",JOptionPane.YES_OPTION,JOptionPane.INFORMATION_MESSAGE,null,new String[]{"Modifica","Annulla"},null);
-                      if(scelta==1)
-                      {
-                          model.doUpdate("Nuovo testo","Campo modificato","Id dell'addetto OR evento OR cliente dacambiare");//STRINGA DA SOSTITUIRE.
+                      
+                      if(scelta==0)
+                      { 
+                          row = view.getTableSearchGeneral().getSelectedRow();
+                          col = view.getTableSearchGeneral().getSelectedColumn();
+                          String text = (String) view.getTableSearchGeneral().getValueAt(row, col);
+                          String field = view.getTableSearchGeneral().getColumnName(col);
+                          String id = (String) view.getTableSearchGeneral().getModel().getValueAt(row,7);//7 PERCHè è LA POSIZIONE DELL'ID.CHE INVISIBILE ALL'INTERNO DELLA JTABLE
+                          model.doUpdate(text,field,id);
                       }
                       else
                       {
-                          //risetta JTable al valore precedente.Come ? 
+                            view.resetValueTable();
                       }
-                
+                      //view.resetCellEditable();
                 }
     }
     

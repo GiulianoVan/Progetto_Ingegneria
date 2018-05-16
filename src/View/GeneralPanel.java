@@ -6,6 +6,7 @@
 package View;
 
 import ControllerGeneral.ControllerGeneralButton;
+import Model.MyDefaultTableModel;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
@@ -150,6 +151,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonCreateGeneralActionPerformed
 
+    
     public JButton getButtonAdvGeneral() {
         return buttonAdvGeneral;
     }
@@ -301,6 +303,36 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
             getButtonOkSearchGeneral().setVisible(true);
             getjPanelAdvSearch().setVisible(false);
     }
+    
+    public void DontUpdateRow() {
+        
+    }
+    
+    public void setCellEditable() {
+         int row = tableSearchGeneral.getSelectedRow();
+         int col = tableSearchGeneral.getSelectedColumn();
+         MyDefaultTableModel mod = (MyDefaultTableModel) tableSearchGeneral.getModel();
+         mod.setRowEditable(row);
+         mod.setColumnEditable(col);
+         mod.isCellEditable(row, col);
+         
+         
+    }
+    public void resetCellEditable()
+    {
+        MyDefaultTableModel mod = (MyDefaultTableModel) tableSearchGeneral.getModel();
+        mod.resetCellEditable();
+    }
+    
+     public void resetValueTable() {
+
+            int row = tableSearchGeneral.getSelectedRow();
+            int col = tableSearchGeneral.getSelectedColumn();
+            MyDefaultTableModel mod = (MyDefaultTableModel) tableSearchGeneral.getModel();
+            tableSearchGeneral.setValueAt((String) mod.getOldValue(), row, col);
+     }  
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdvGeneral;
     private javax.swing.JButton buttonBackSearchGeneral;
@@ -316,5 +348,10 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     private javax.swing.JTextField textNameGeneralSearch;
     private javax.swing.JTextField textSearchGeneral;
     // End of variables declaration//GEN-END:variables
+
+   
+
+
+    
 
 }
