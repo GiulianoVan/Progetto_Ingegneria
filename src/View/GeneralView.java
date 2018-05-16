@@ -6,6 +6,7 @@
 package View;
 
 
+import Runner.RunMVCAddetti;
 import Runner.RunMVCEvents;
 import Runner.TempRunMVCAddetti;
 import java.util.Observable;
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author giuli
  */
-public class GeneralView extends javax.swing.JFrame implements Observer {
+public class GeneralView extends javax.swing.JFrame{
 
     String event;
     /**
@@ -27,9 +28,11 @@ public class GeneralView extends javax.swing.JFrame implements Observer {
         
         initComponents();
         RunMVCEvents runEvents = new RunMVCEvents();
-        TempRunMVCAddetti runSecurity = new TempRunMVCAddetti();
+        RunMVCAddetti runSecurity = new RunMVCAddetti();
+        runSecurity.startMVCAddetti();
         jTabbedMenu.add("Events",runEvents.getEvtView());
-        jTabbedMenu.add("Security",runSecurity.getAddView());
+        jTabbedMenu.add("Security",runSecurity.getView());
+        
     }
     
     /**
@@ -59,17 +62,5 @@ public class GeneralView extends javax.swing.JFrame implements Observer {
     private javax.swing.JTabbedPane jTabbedMenu;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void update(Observable o, Object risultato) {
-        Integer errore = (Integer) risultato;
-            if(errore == 0)
-            {
-              JOptionPane.showMessageDialog(this, "evento", "ERRORE", JOptionPane.ERROR_MESSAGE);
-            }
-            else
-            {
-                //SETVISIBILE TRUE HOME.
-                this.dispose();    
-            }
-    }
+    
 }

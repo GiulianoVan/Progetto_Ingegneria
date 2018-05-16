@@ -8,9 +8,11 @@ package Controller.ControllerAddetto.AddettoTableController;
 import Model.Addetto.AddettiModel;
 import Model.MyDefaultTableModel;
 import View.AddettiView;
+import View.GeneralPanel;
 import View.GeneralView;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.event.TableModelEvent;
 
 /**
  *
@@ -19,7 +21,7 @@ import java.awt.event.MouseEvent;
 public class ControllerMouseTableAddetto extends MouseAdapter{
 
     AddettiModel model;
-    GeneralView view;
+    GeneralPanel view;
 
     public AddettiModel getModel() {
         return model;
@@ -31,7 +33,7 @@ public class ControllerMouseTableAddetto extends MouseAdapter{
 
  
 
-    public void setView(GeneralView view) {
+    public void setView(GeneralPanel view) {
         this.view = view;
     }
     
@@ -39,14 +41,9 @@ public class ControllerMouseTableAddetto extends MouseAdapter{
     public void mouseClicked(MouseEvent e) {
         if(e.getClickCount()==2)
         {
-            int riga = view().getSelectedRow();
-            int col = view.getTabellaAddetto().getSelectedColumn();
-            MyDefaultTableModel tab = (MyDefaultTableModel) view.getTabellaAddetto().getModel();
-            tab.setRowEditable(riga);
-            tab.setColumnEditable(col);
-            tab.isCellEditable(riga,col);
-            
+            model.changeStateoFTable(view.getTableSearchGeneral().getSelectedRow(),view.getTableSearchGeneral().getSelectedColumn());
         }
        
     }
-}
+    
+}    

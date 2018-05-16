@@ -28,6 +28,14 @@ public class AddettiPanel extends GeneralPanel{
     private javax.swing.JComboBox<String> comboTypeGeneralSearch;
     private com.toedter.calendar.JDateChooser dateGeneral;
     private javax.swing.JPanel jPanelAdvSearch;
+
+    public JTable getTableSearchAddetto() {
+        return tableSearchAddetto;
+    }
+
+    public void setTableSearchAddetto(JTable tableSearchAddetto) {
+        this.tableSearchAddetto = tableSearchAddetto;
+    }
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableSearchAddetto;
     private javax.swing.JTextField textUserGeneralSearch;
@@ -37,7 +45,7 @@ public class AddettiPanel extends GeneralPanel{
     public AddettiPanel()
     {
         super();
-        this.setComponentsPanel();
+        this.setComponentsPanel(); 
     }
     
     public void setComponentsPanel()
@@ -51,7 +59,7 @@ public class AddettiPanel extends GeneralPanel{
         buttonCreateGeneral = getButtonCreateGeneral();
         dateGeneral = getDateGeneral();
         comboTypeGeneralSearch = getComboTypeGeneralSearch();
-        
+        tableSearchAddetto = getTableSearchGeneral();
         jPanelAdvSearch.setVisible(false);
         buttonCreateGeneral.setVisible(false);
         dateGeneral.setVisible(false);
@@ -63,7 +71,6 @@ public class AddettiPanel extends GeneralPanel{
         
         tableSearchAddetto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-               
             },
             new String [] {
                 "NOME", "COGNOME", "CF", "EMAIL", "TEL", "STIPENDIO", "LIVELLO"
@@ -84,6 +91,7 @@ public class AddettiPanel extends GeneralPanel{
         public void SetControllerButton(ActionListener controller)
         {
             buttonOkSearchAddetto.addActionListener(controller);
+          
         }
 
         public void SetControllerKeyText(KeyListener controller)
@@ -101,24 +109,11 @@ public class AddettiPanel extends GeneralPanel{
             
             tableSearchAddetto.addMouseListener(controller);
         }
-
-    
-        void changeTable()
-        {
-            int riga = tableSearchAddetto.getSelectedRow();
-            int col = tableSearchAddetto.getSelectedColumn();
-            tableSearcAddetto.getTabellaAddetto().getModel();
-            tab.setRowEditable(riga);
-            tab.setColumnEditable(col);
-            tab.isCellEditable(riga,col);
-            
-        }
         
        
         
     @Override
     public void update(Observable o, Object arg) {
-        
         tableSearchAddetto.setModel((MyDefaultTableModel) arg);
             //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
         tableSearchAddetto.removeColumn(tableSearchAddetto.getColumnModel().getColumn(7));

@@ -7,7 +7,6 @@ package Runner;
 
 import Controller.ControllerAddetto.AddettoTableController.ControllerKeyTable;
 import Controller.ControllerAddetto.AddettoTableController.ControllerMouseTableAddetto;
-import Controller.ControllerAddetto.KeyControllerAddetti;
 import Controller.ControllerAddetto.ControllerButtonAddetto;
 import Controller.ControllerAddetto.ControllerKeyAddetto;
 import Controller.GeneralController;
@@ -25,6 +24,28 @@ public class RunMVCAddetti {
     
     AddettiModel model;
     AddettiPanel view;
+    ControllerButtonAddetto controllerButton;
+    ControllerKeyTable controllerTab;
+    ControllerMouseTableAddetto controllerMouse;
+    ControllerKeyAddetto controllerText;
+            
+    public AddettiModel getModel() {
+        return model;
+    }
+
+    public void setModel(AddettiModel model) {
+        this.model = model;
+    }
+
+    public AddettiPanel getView() {
+        return view;
+    }
+
+    public void setView(AddettiPanel view) {
+        this.view = view;
+    }
+    
+    
    public void startMVCAddetti()
    {
     
@@ -37,26 +58,25 @@ public class RunMVCAddetti {
          view = new AddettiPanel();
         //model registra un osservatore
         model.addObserver(view);
-        ControllerButtonAddetto controllerButton = new ControllerButtonAddetto();
+        controllerButton = new ControllerButtonAddetto();
         controllerButton.setModel(model);
         controllerButton.setView(view);
         view.SetControllerButton(controllerButton);
         //creo controllerButton per la tabella e lo registro alla view
-        ControllerKeyTable controllerTab = new ControllerKeyTable();
+        controllerTab = new ControllerKeyTable();
         controllerTab.setModel(model);
         controllerTab.setView(view);
         view.SetControllerKeyTable(controllerTab);
-        ControllerMouseTableAddetto controllerMouse = new ControllerMouseTableAddetto();
+        controllerMouse = new ControllerMouseTableAddetto();
         controllerMouse.setModel(model);
         controllerMouse.setView(view);
         view.setControllerMouseTable(controllerMouse); 
         //creo controllerButton per la Jtext e le registro ai model ed al controllerButton
-        ControllerKeyAddetto controllerText = new ControllerKeyAddetto();
+        controllerText = new ControllerKeyAddetto();
         controllerText.setModel(model);
-        controllerText.setView(viewAddetti);
-        viewAddetti.setControllerText(controllerText);
+        controllerText.setView(view);
+        view.SetControllerKeyText(controllerText);
         //visualizzo view
-        viewAddetti.setVisible(true);
       }
     };
        SwingUtilities.invokeLater(target);  

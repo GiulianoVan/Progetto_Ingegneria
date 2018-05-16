@@ -8,6 +8,7 @@ package Controller.ControllerAddetto;
 
 import Model.Addetto.AddettiModel;
 import View.AddettiView;
+import View.GeneralPanel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
  */
 public class ControllerKeyAddetto extends KeyAdapter{
     
-    AddettiView view;
+    GeneralPanel view;
     AddettiModel model;
   
  
@@ -27,11 +28,11 @@ public class ControllerKeyAddetto extends KeyAdapter{
     public void keyReleased(KeyEvent e) {
         
             
-           if(view.getCercaText().trim().length()>0)
+           if(view.getTextNameGeneralSearch().getText().trim().length()>0)
            {
              if(e.getKeyChar()=='\n')
             {
-                String testo = view.getCercaText();
+                String testo = view.getTextNameGeneralSearch().getText();
                 ArrayList<String> parole  = EstraiParoleChiavi(testo);
                 model.doSearch(parole);
             }
@@ -44,7 +45,7 @@ public class ControllerKeyAddetto extends KeyAdapter{
         this.model = model;
     }
     
-    public void setView(AddettiView view)
+    public void setView(GeneralPanel view)
     {
         this.view = view;
     }
