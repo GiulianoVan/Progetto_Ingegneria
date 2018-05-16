@@ -72,17 +72,17 @@ public class AddettiPanel extends GeneralPanel{
             }
             
         });
-        
-    
+    } 
     
         public void SetControllerButton(ControllerButtonAddetto controller)
         {
             buttonOkSearchAddetto.addActionListener(controller);
         }
+              
         public void SetControllerText(ControllerTextAddetto controller)
         {
             textSearchAddetto.addKeyListener(controller);
         }
-                
+               
                 
 }
