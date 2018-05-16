@@ -5,7 +5,7 @@
  */
 package Runner;
 
-import Controller.LoginButtonController;
+import ControllerLogin.LoginButtonController;
 import Model.LoginModel;
 import View.LoginView;
 

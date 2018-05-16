@@ -5,8 +5,7 @@
  */
 package View;
 
-import Controller.ControllerAddetto.ControllerButtonAddetto;
-import Controller.GeneralController;
+import ControllerAddetto.ControllerButtonAddetto;
 import Model.MyDefaultTableModel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyListener;

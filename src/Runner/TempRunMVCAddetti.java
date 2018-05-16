@@ -5,7 +5,7 @@
  */
 package Runner;
 
-import Controller.Controller;
+import ControllerGeneral.ControllerGeneralButton;
 import Model.Addetto.AddettiModel;
 import Model.EventModel;
 import View.AddettiPanel;
@@ -19,7 +19,7 @@ public class TempRunMVCAddetti {
    
     private AddettiModel addMod;
     private AddettiPanel addView;
-    private Controller evtControl;
+    private ControllerGeneralButton evtControl;
     
     
     
@@ -32,11 +32,11 @@ public class TempRunMVCAddetti {
         //GeneralView genView = new GeneralView(evtView);
         addMod.addObserver(addView);
         //SearchEventController evtControl = new SearchEventController();
-        evtControl = new Controller();
+        evtControl = new ControllerGeneralButton();
         evtControl.setModel(addMod);
         evtControl.setView(addView);
         //evtView.setControllerButtonOkSearchEvent(evtControl);
-        addView.setControllerGeneral(evtControl);
+        addView.setControllerGeneralButton(evtControl);
         //genView.add(evtView)     
     }
 
@@ -56,11 +56,11 @@ public class TempRunMVCAddetti {
         this.addView = addView;
     }
 
-    public Controller getEvtControl() {
+    public ControllerGeneralButton getEvtControl() {
         return evtControl;
     }
 
-    public void setEvtControl(Controller evtControl) {
+    public void setEvtControl(ControllerGeneralButton evtControl) {
         this.evtControl = evtControl;
     }
     

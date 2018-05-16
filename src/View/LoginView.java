@@ -5,8 +5,7 @@
  */
 package View;
 
-import Controller.GeneralController;
-import Controller.LoginButtonController;
+import ControllerLogin.LoginButtonController;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JOptionPane;

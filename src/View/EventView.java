@@ -5,7 +5,7 @@
  */
 package View;
 
-import Controller.GeneralController;
+import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JButton;
@@ -254,7 +254,7 @@ public class EventView extends javax.swing.JFrame implements Observer {
     }
 
     
-    public void setControllerEvents(GeneralController contr)
+    public void setControllerEvents(ActionListener contr)
     {
         buttonOkSearchEvent.addActionListener(contr);
         buttonUndoSearch.addActionListener(contr);

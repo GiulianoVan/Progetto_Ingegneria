@@ -5,12 +5,11 @@
  */
 package Runner;
 
-import Controller.Controller;
-import Controller.ControllerAddetto.AddettoTableController.ControllerKeyTable;
+import ControllerGeneral.ControllerGeneralButton;
+import AddettoTableController.ControllerKeyTable;
 import Controller.ControllerAddetto.AddettoTableController.ControllerMouseTableAddetto;
-import Controller.ControllerAddetto.ControllerButtonAddetto;
-import Controller.ControllerAddetto.ControllerKeyAddetto;
-import Controller.GeneralController;
+import ControllerAddetto.ControllerButtonAddetto;
+import ControllerAddetto.ControllerKeyAddetto;
 import Model.Addetto.AddettiModel;
 import View.AddettiPanel;
 import View.AddettiView;
@@ -29,7 +28,7 @@ public class RunMVCAddetti {
     ControllerKeyTable controllerTab;
     ControllerMouseTableAddetto controllerMouse;
     ControllerKeyAddetto controllerText;
-    Controller x;
+    ControllerGeneralButton x;
             
     public AddettiModel getModel() {
         return model;
@@ -74,9 +73,9 @@ public class RunMVCAddetti {
         controllerText.setModel(model);
         controllerText.setView(view);
         view.SetControllerKeyText(controllerText);
-        x = new Controller();
+        x = new ControllerGeneralButton();
         x.setView(view);
-        view.setControllerGeneral(x);
+        view.setControllerGeneralButton(x);
    
         
         //visualizzo view

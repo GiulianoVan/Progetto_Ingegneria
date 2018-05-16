@@ -5,9 +5,10 @@
  */
 package View;
 
-import Controller.Controller;
-import Controller.GeneralController;
+import ControllerGeneral.ControllerGeneralButton;
 import com.toedter.calendar.JDateChooser;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseListener;
 import java.util.Observable;
 import java.util.Observer;
@@ -253,7 +254,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         this.textSearchGeneral = textSearchGeneral;
     }
 
-    public void setControllerGeneral(GeneralController contr)
+    public void setControllerGeneralButton(ActionListener contr)
     {
         //buttonOkSearchGeneral.addActionListener(contr);
         buttonBackSearchGeneral.addActionListener(contr);
@@ -264,6 +265,19 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     {
         textSearchGeneral.addMouseListener(m);
     }
+    
+    
+    
+    public void setNameSearch()
+    {
+        textSearchGeneral.setText("Insert Name Here");
+    }
+    
+    public void setFocusController(FocusListener f)
+    {
+        textSearchGeneral.addFocusListener(f);
+    }
+    
     
     @Override
     public void update(Observable o, Object arg) {
