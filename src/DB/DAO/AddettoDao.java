@@ -21,8 +21,7 @@ public interface AddettoDao {
     
     public int aggiungiAddetto(Addetto addetto);
     public int rimuoviAddetto(Addetto addetto);
-    public int aggiornaAddetto(Addetto addetto);
-    public int aggiornaAddetto(String testo,String campo,String id);
+    public int aggiornaAddetto(String nuovo,String campo,String id);//questo
     public Addetto cercaAddettoStipendioMax(double stipendio);
     public List<Addetto> cercaAddettoStipendioMaggioredi(double stipendio);
     public List<Addetto> cercaAddettoStipendioMinidoredi(double stipendio); 

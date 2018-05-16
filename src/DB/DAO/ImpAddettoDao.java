@@ -37,10 +37,7 @@ public class ImpAddettoDao implements AddettoDao {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public int aggiornaAddetto(Addetto addetto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     @Override
     public Addetto cercaAddettoStipendioMax(double stipendio) {
@@ -95,7 +92,7 @@ public class ImpAddettoDao implements AddettoDao {
             }
             //EFFETTUO QUERY E LA METTO NEL RESULTSET
             rs = ps.executeQuery();
-           
+            
             while(rs.next())
             {
             result.add(new Addetto(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getInt(7),rs.getString(8)));

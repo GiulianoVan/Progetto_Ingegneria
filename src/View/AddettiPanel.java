@@ -77,22 +77,19 @@ public class AddettiPanel extends GeneralPanel{
             }
             
         });
-<<<<<<< HEAD
+
     }
-    
-=======
-    } 
->>>>>>> c41c2e7b1fcca60396f3ce4de4bdc43f5587eaa4
     
         public void SetControllerButton(ActionListener controller)
         {
             buttonOkSearchAddetto.addActionListener(controller);
         }
-<<<<<<< HEAD
+
         public void SetControllerKeyText(KeyListener controller)
         {
             textSearchAddetto.addKeyListener(controller);
         }
+    
         public void SetControllerKeyTable(KeyListener controller)
         {
             tableSearchAddetto.addKeyListener(controller);
@@ -104,6 +101,8 @@ public class AddettiPanel extends GeneralPanel{
             tableSearchAddetto.addMouseListener(controller);
         }
         
+       
+        
     @Override
     public void update(Observable o, Object arg) {
         
@@ -112,15 +111,8 @@ public class AddettiPanel extends GeneralPanel{
         tableSearchAddetto.removeColumn(tableSearchAddetto.getColumnModel().getColumn(7));
             //SUCCESSIVAMENTE SARA ANCORA PRESENTE NEL MODELLO.TabellaAddetto.getModel().getValueAt()
     }
-                
-       
-=======
-              
-        public void SetControllerText(ControllerTextAddetto controller)
-        {
-            textSearchAddetto.addKeyListener(controller);
-        }
                
-                
->>>>>>> c41c2e7b1fcca60396f3ce4de4bdc43f5587eaa4
+    
+      
+                               
 }
