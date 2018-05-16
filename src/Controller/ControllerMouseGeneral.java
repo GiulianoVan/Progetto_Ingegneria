@@ -14,7 +14,7 @@ import java.awt.event.MouseEvent;
  */
 public class ControllerMouseGeneral extends MouseAdapter{
     //dichiarate model e view
-
+ 
     @Override
     public void mouseClicked(MouseEvent e) {
         //questoè il controller per i click.

@@ -5,6 +5,9 @@
  */
 package View;
 
+import Controller.ControllerAddetto.ControllerButtonAddetto;
+import Controller.ControllerAddetto.ControllerTextAddetto;
+
 /**
  *
  * @author giuli
@@ -15,7 +18,7 @@ public class AddettiPanel extends GeneralPanel{
     private javax.swing.JButton buttonBackSearchGeneral;
     private javax.swing.JButton buttonCreateGeneral;
     private javax.swing.JButton buttonOkAdvSearchGeneral;
-    private javax.swing.JButton buttonOkSearchGeneral;
+    private javax.swing.JButton buttonOkSearchAddetto;
     private javax.swing.JComboBox<String> comboTypeGeneralSearch;
     private com.toedter.calendar.JDateChooser dateGeneral;
     private javax.swing.JPanel jPanelAdvSearch;
@@ -23,7 +26,7 @@ public class AddettiPanel extends GeneralPanel{
     private javax.swing.JTable tableSearchGeneral;
     private javax.swing.JTextField textUserGeneralSearch;
     private javax.swing.JTextField textCFGeneralSearch;
-    private javax.swing.JTextField textSearchGeneral;
+    private javax.swing.JTextField textSearchAddetto;
     
     public AddettiPanel()
     {
@@ -35,10 +38,10 @@ public class AddettiPanel extends GeneralPanel{
     {
         buttonAdvGeneral = getButtonAdvGeneral();
         textCFGeneralSearch = getTextCodeGeneralSearch();
-        textSearchGeneral = getTextSearchGeneral();
+        textSearchAddetto = getTextSearchGeneral();
         textUserGeneralSearch = getTextNameGeneralSearch();
         jPanelAdvSearch = getjPanelAdvSearch();
-        buttonOkSearchGeneral = getButtonOkSearchGeneral();
+        buttonOkSearchAddetto = getButtonOkSearchGeneral();
         buttonCreateGeneral = getButtonCreateGeneral();
         dateGeneral = getDateGeneral();
         comboTypeGeneralSearch = getComboTypeGeneralSearch();
@@ -49,9 +52,19 @@ public class AddettiPanel extends GeneralPanel{
         comboTypeGeneralSearch.setVisible(false);
         buttonAdvGeneral.setText("Advanced Search");
         textCFGeneralSearch.setText("Insert CF here...");
-        textSearchGeneral.setText("Insert Name here...");
+        textSearchAddetto.setText("Insert Name here...");
         textUserGeneralSearch.setText("Insert User here...");
         
     }
+    
+        public void SetControllerButton(ControllerButtonAddetto controller)
+        {
+            buttonOkSearchAddetto.addActionListener(controller);
+        }
+        public void SetControllerText(ControllerTextAddetto controller)
+        {
+            textSearchAddetto.addKeyListener(controller);
+        }
+                
                 
 }
