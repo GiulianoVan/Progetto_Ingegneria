@@ -83,7 +83,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="120" width="560" height="290"/>
+          <AbsoluteConstraints x="0" y="100" width="570" height="290"/>
         </Constraint>
       </Constraints>
 
@@ -126,7 +126,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="60" width="150" height="30"/>
+              <AbsoluteConstraints x="20" y="50" width="150" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -170,7 +170,7 @@
         <Component class="com.toedter.calendar.JDateChooser" name="dateGeneral">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="210" y="60" width="150" height="30"/>
+              <AbsoluteConstraints x="210" y="50" width="150" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
