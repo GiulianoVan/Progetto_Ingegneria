@@ -6,6 +6,7 @@
 package Runner;
 
 import Controller.Controller;
+import Controller.ControllerMouseGeneral;
 import Controller.SearchEventController;
 import Model.EventModel;
 import View.EventPanel;
@@ -22,6 +23,7 @@ public class RunMVCEvents {
     private EventModel evtModel;
     private EventPanel evtView;
     private Controller evtControl;
+    private ControllerMouseGeneral mouseController;
     
     public RunMVCEvents()
     {
@@ -33,10 +35,15 @@ public class RunMVCEvents {
         evtModel.addObserver(evtView);
         //SearchEventController evtControl = new SearchEventController();
         evtControl = new Controller();
+        mouseController = new ControllerMouseGeneral();
         evtControl.setModel(evtModel);
         evtControl.setView(evtView);
+        mouseController.setView(evtView);
+        mouseController.setModel(evtModel);
         //evtView.setControllerButtonOkSearchEvent(evtControl);
+        evtView.setMouseListener(mouseController);
         evtView.setControllerGeneral(evtControl);
+        
         //genView.add(evtView);
         
     }

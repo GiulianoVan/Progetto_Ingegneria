@@ -262,7 +262,6 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     
     public void setMouseListener(MouseListener m)
     {
-        System.out.println("ciao listener");
         textSearchGeneral.addMouseListener(m);
     }
     

@@ -21,11 +21,22 @@ public class ControllerMouseGeneral extends MouseAdapter{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("ciao");
         if(e.getClickCount()==1)
-            view.getTextSearchGeneral().setText("prova");
+            view.getTextSearchGeneral().setText("");
        
     }
+    
+    public void setView(GeneralPanel panel)
+    {
+        view = panel;
+    }
+    
+    public void setModel(Observable obs)
+    {
+        model = obs;
+    }
+    
+    
     
    
     
