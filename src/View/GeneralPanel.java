@@ -8,6 +8,7 @@ package View;
 import Controller.Controller;
 import Controller.GeneralController;
 import com.toedter.calendar.JDateChooser;
+import java.awt.event.MouseListener;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JButton;
@@ -257,6 +258,12 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         //buttonOkSearchGeneral.addActionListener(contr);
         buttonBackSearchGeneral.addActionListener(contr);
         buttonAdvGeneral.addActionListener(contr);
+    }
+    
+    public void setMouseListener(MouseListener m)
+    {
+        System.out.println("ciao listener");
+        textSearchGeneral.addMouseListener(m);
     }
     
     @Override
