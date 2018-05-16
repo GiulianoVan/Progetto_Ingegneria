@@ -15,6 +15,7 @@ import java.util.Objects;
  */
 public class Customer extends Observable{
     
+    private String idCustomer;
     private String username;
     private String password;
     private String name;
@@ -26,6 +27,7 @@ public class Customer extends Observable{
     
     /**
      *
+     * @param idCustomer
      * @param username
      * @param password
      * @param name
@@ -35,8 +37,9 @@ public class Customer extends Observable{
      * @param phone
      * @param date_born
      */
-    public Customer(String username,String password,String name,String surname,String email,String tax_code,String phone,Date date_born)
+    public Customer(String idCustomer,String username,String password,String name,String surname,String email,String tax_code,String phone,Date date_born)
     {
+        this.idCustomer = idCustomer;
         this.username = username;
         this.password = password;
         this.name = name;
@@ -47,6 +50,20 @@ public class Customer extends Observable{
         this.date_born = date_born;
     }
 
+    /**
+     * @return the idCustomer
+     */
+    public String getIdCustomer() {
+        return idCustomer;
+    }
+
+    /**
+     * @param idCustomer the idCustomer to set
+     */
+    public void setIdCustomer(String idCustomer) {
+        this.idCustomer = idCustomer;
+    }
+    
     /**
      * @return the username
      */
@@ -158,6 +175,12 @@ public class Customer extends Observable{
         this.date_born = date_born;
     }
     
+public void setValoreIdCustomer(String idCustomer) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI idCustomer
+    this.idCustomer = idCustomer;
+    setChanged();
+    notifyObservers(this.idCustomer);
+    }
+
 public void setValoreUsername(String username) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI username
     this.username = username;
     setChanged();
@@ -209,14 +232,15 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 41 * hash + Objects.hashCode(this.username);
-        hash = 41 * hash + Objects.hashCode(this.password);
-        hash = 41 * hash + Objects.hashCode(this.name);
-        hash = 41 * hash + Objects.hashCode(this.surname);
-        hash = 41 * hash + Objects.hashCode(this.email);
-        hash = 41 * hash + Objects.hashCode(this.tax_code);
-        hash = 41 * hash + Objects.hashCode(this.phone);
-        hash = 41 * hash + Objects.hashCode(this.date_born);
+        hash = 83 * hash + Objects.hashCode(this.idCustomer);
+        hash = 83 * hash + Objects.hashCode(this.username);
+        hash = 83 * hash + Objects.hashCode(this.password);
+        hash = 83 * hash + Objects.hashCode(this.name);
+        hash = 83 * hash + Objects.hashCode(this.surname);
+        hash = 83 * hash + Objects.hashCode(this.email);
+        hash = 83 * hash + Objects.hashCode(this.tax_code);
+        hash = 83 * hash + Objects.hashCode(this.phone);
+        hash = 83 * hash + Objects.hashCode(this.date_born);
         return hash;
     }
 
@@ -232,6 +256,9 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
             return false;
         }
         final Customer other = (Customer) obj;
+        if (!Objects.equals(this.idCustomer, other.idCustomer)) {
+            return false;
+        }
         if (!Objects.equals(this.username, other.username)) {
             return false;
         }
@@ -255,6 +282,8 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
         }
         return Objects.equals(this.date_born, other.date_born);
     }
+
+
 
 }
 

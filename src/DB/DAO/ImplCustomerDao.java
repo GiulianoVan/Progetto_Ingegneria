@@ -5,25 +5,30 @@
  */
 package DB.DAO;
 
-import DB.DAO.ClienteDao;
 import Model.CustomerModel;
 import java.util.List;
+import JavaBean.Customer;
 
 /**
  *
- * @author Pirozzi
+ * @author Vincent
  */
-public class ImpClienteDao implements ClienteDao{
+public class ImplCustomerDao implements CustomerDao{
 
     @Override
-    public int delete(String CF) {
+    public int deleteCustomer(Customer customer) {
             
         //fare interrogazione;
         return 0;
     }
+    
+    @Override
+    public int refreshCustomer(String new_value, String attribute_to_change, String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
-    public List<CustomerModel> searchByEtà(int età) {
+    public List<CustomerModel> searchByEta(int età) {
         List<CustomerModel> clienti = null;
         //codice
         return clienti;
@@ -35,6 +40,8 @@ public class ImpClienteDao implements ClienteDao{
         //codice
          return clienti;
     }
+
+
     
     
     
