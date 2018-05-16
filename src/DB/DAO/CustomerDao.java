@@ -24,14 +24,3 @@ public interface CustomerDao {
     //public int delete(clientModel x);
     
 }
-
-
-
-    public int aggiornaAddetto(Addetto addetto);
-    public int aggiornaAddetto(String testo,String campo,String id);
-    public Addetto cercaAddettoStipendioMax(double stipendio);
-    public List<Addetto> cercaAddettoStipendioMaggioredi(double stipendio);
-    public List<Addetto> cercaAddettoStipendioMinidoredi(double stipendio); 
-    public Addetto cercaAddettoNomeCognomeCf(String nome,String cognome,String cf);
-    public List<Addetto> getAllAddetti();
-    public Set<Addetto> getAddettiParolaChiave(ArrayList<String> parola);

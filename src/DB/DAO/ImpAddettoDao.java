@@ -95,23 +95,45 @@ public class ImpAddettoDao implements AddettoDao {
             
             while(rs.next())
             {
-            result.add(new Addetto(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getInt(7),rs.getString(8)));
+                result.add(new Addetto(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getInt(7),rs.getString(8)));
             }
-        
-           
-         
         }
-         catch (SQLException ex) {
-                System.out.println("Errore in getAddettiParolaChiaveDao");
-            } 
+        catch (SQLException ex) {
+            System.out.println("Errore in getAddettiParolaChiaveDao");
+        }
         
         return result;
     }
 
     @Override
-    public int aggiornaAddetto(String testo, String campo,String id) {
+    public int refreshAddetto(String new_value,String attribute_to_change,String id) {
 
-            String sql = "UPDATE ADDSICUREZZA SET "+campo.toUpperCase()+ " = "+testo.toUpperCase()+" WHERE IDADDETTO = "+id;
-            return 1;
-       }
+        String sql = "UPDATE ADDSICUREZZA SET ? = ? WHERE IDADDETTO = ?;";
+
+        try 
+        {
+            con = DBConnect.getConnection();
+            ps = con.prepareStatement(sql);
+            ResultSetMetaData column_name;
+            
+            //SETTO TT I ? CON I VALORI DINAMICAMENTE. 
+              ps.setString(1,attribute_to_change.toUpperCase());
+              ps.setString(2,new_value.toUpperCase());
+              ps.setString(3,id.toUpperCase());
+            //EFFETTUO QUERY E LA METTO NEL RESULTSET
+            int executeUpdate = ps.executeUpdate();
+            if(executeUpdate < 1)
+                System.out.println("Errore!\nAggiornamento fallito.");
+            
+            while(rs.next())
+            {
+                
+                result.add(new Addetto(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getInt(7),rs.getString(8)));
+            }
+        }
+        catch (SQLException ex) {
+            System.out.println("Errore!\nCampi inseriti non validi.");
+        }
+        return 1;
+    }
 }
