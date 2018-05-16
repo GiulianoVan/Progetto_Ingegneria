@@ -40,20 +40,7 @@ public class Controller extends GeneralController{
 
         //SE il comando si chiama CREA ADDETTO fai questo
         String action = e.getActionCommand();
-        
-        if(model instanceof EventModel)
-        {
-            // controlli Eventi
-        }
-        else if(model instanceof AddettiModel)
-        {
-            // controlli Addetti
-        }
-        else
-        {
-            // controlli Clienti
-        }
-        
+    
         if(action.equals("ADVSEARCH"))
         {
             view.changeAdvGeneral();
