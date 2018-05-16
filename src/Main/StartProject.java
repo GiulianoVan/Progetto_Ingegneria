@@ -1,6 +1,7 @@
 package Main;
 
 
+import JavaBean.Admin;
 import Runner.RunMVCLogin;
 import View.*;
 import Model.*;

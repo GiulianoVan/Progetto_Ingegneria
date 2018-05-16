@@ -6,7 +6,7 @@
 package ControllerLogin;
 
 import DB.DAO.ImplAdminDao;
-import Model.Admin;
+import JavaBean.Admin;
 import Model.LoginModel;
 import View.LoginView;
 import java.awt.event.ActionEvent;

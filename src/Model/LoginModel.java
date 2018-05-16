@@ -5,6 +5,7 @@
  */
 package Model;
 
+import JavaBean.Admin;
 import Main.StartProject;
 import DB.DAO.ImplAdminDao;
 import java.util.Observable;

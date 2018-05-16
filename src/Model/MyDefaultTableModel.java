@@ -7,7 +7,7 @@ package Model;
 
 
 import JavaBean.Customer;
-import Model.Addetto.Addetto;
+import JavaBean.Addetto;
 import java.util.Set;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;

@@ -5,7 +5,7 @@
  */
 package DB.DAO;
 
-import Model.Addetto.Addetto;
+import JavaBean.Addetto;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Collection;

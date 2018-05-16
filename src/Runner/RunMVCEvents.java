@@ -5,9 +5,9 @@
  */
 package Runner;
 
+import Controller.ControllerGeneral.ControllerGeneralButton;
 import Controller.ControllerGeneral.ControllerGeneralFocus;
-import ControllerGeneral.ControllerGeneralButton;
-import ControllerGeneral.ControllerMouseGeneral;
+import Controller.ControllerGeneral.ControllerMouseGeneral;
 import Model.EventModel;
 import View.EventPanel;
 import View.EventView;

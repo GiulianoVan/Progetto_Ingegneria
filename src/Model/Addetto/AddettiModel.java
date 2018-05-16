@@ -5,6 +5,7 @@
  */
 package Model.Addetto;
 
+import JavaBean.Addetto;
 import DB.DAO.ImplAddettoDao;
 import Model.MyDefaultTableModel;
 import java.util.ArrayList;

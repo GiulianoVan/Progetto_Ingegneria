@@ -5,6 +5,7 @@
  */
 package Model;
 
+import JavaBean.Event;
 import DB.DAO.ImplEventDao;
 import java.sql.SQLException;
 import java.util.HashSet;

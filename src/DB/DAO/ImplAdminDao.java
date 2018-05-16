@@ -6,7 +6,7 @@
 package DB.DAO;
 
 import DB.Database.DBConnect;
-import Model.Admin;
+import JavaBean.Admin;
 import java.sql.*;
 
 

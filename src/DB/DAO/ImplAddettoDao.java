@@ -6,7 +6,7 @@
 package DB.DAO;
 
 import DB.Database.DBConnect;
-import Model.Addetto.Addetto;
+import JavaBean.Addetto;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
