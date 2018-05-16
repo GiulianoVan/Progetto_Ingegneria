@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.util.Observable;
+import javax.swing.JTable;
 
 /**
  *
@@ -99,6 +100,18 @@ public class AddettiPanel extends GeneralPanel{
         {
             
             tableSearchAddetto.addMouseListener(controller);
+        }
+
+    
+        void changeTable()
+        {
+            int riga = tableSearchAddetto.getSelectedRow();
+            int col = tableSearchAddetto.getSelectedColumn();
+            tableSearcAddetto.getTabellaAddetto().getModel();
+            tab.setRowEditable(riga);
+            tab.setColumnEditable(col);
+            tab.isCellEditable(riga,col);
+            
         }
         
        

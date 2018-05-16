@@ -8,6 +8,7 @@ package Controller.ControllerAddetto.AddettoTableController;
 import Model.Addetto.AddettiModel;
 import Model.MyDefaultTableModel;
 import View.AddettiView;
+import View.GeneralView;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -18,7 +19,7 @@ import java.awt.event.MouseEvent;
 public class ControllerMouseTableAddetto extends MouseAdapter{
 
     AddettiModel model;
-    AddettiView view;
+    GeneralView view;
 
     public AddettiModel getModel() {
         return model;
@@ -28,11 +29,9 @@ public class ControllerMouseTableAddetto extends MouseAdapter{
         this.model = model;
     }
 
-    public AddettiView getView() {
-        return view;
-    }
+ 
 
-    public void setView(AddettiView view) {
+    public void setView(GeneralView view) {
         this.view = view;
     }
     
@@ -40,7 +39,7 @@ public class ControllerMouseTableAddetto extends MouseAdapter{
     public void mouseClicked(MouseEvent e) {
         if(e.getClickCount()==2)
         {
-            int riga = view.getTabellaAddetto().getSelectedRow();
+            int riga = view().getSelectedRow();
             int col = view.getTabellaAddetto().getSelectedColumn();
             MyDefaultTableModel tab = (MyDefaultTableModel) view.getTabellaAddetto().getModel();
             tab.setRowEditable(riga);

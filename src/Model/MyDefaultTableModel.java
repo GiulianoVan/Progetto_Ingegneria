@@ -8,6 +8,8 @@ package Model;
 
 import Model.Addetto.Addetto;
 import java.util.Set;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -22,10 +24,6 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
     private int row = -1;
     private int column=-1;
     
-    public MyDefaultTableModel()
-    {
-        
-    }
  
      @Override
     public boolean isCellEditable(int row, int column) {
@@ -49,7 +47,8 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
         this.column=column;
     }
     
-     public static MyDefaultTableModel createModelBySet(Set<Addetto> addetti)
+    
+     public  MyDefaultTableModel createModelBySet(Set<Addetto> addetti)
     {
        MyDefaultTableModel mod = new MyDefaultTableModel();
        //SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,LIVELLO 
@@ -69,4 +68,6 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
         
         return mod; 
     }
+
+  
 }

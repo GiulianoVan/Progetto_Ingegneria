@@ -20,18 +20,22 @@ public class AddettiModel extends Observable {
    
     public Set<Addetto>addetti;
     private ImpAddettoDao addettodao = new ImpAddettoDao();
-                
+    MyDefaultTableModel<Addetto> tab = new MyDefaultTableModel();      
     public void doSearch(ArrayList<String> parole)
     {
         
         addetti = addettodao.getAddettiParolaChiave(parole);
         
         setChanged();
-        notifyObservers(MyDefaultTableModel.createModelBySet(addetti));
+        notifyObservers(tab.createModelBySet(addetti));
     }
     public void doUpdate(String text,String campo,String id)
     {
         addettodao.aggiornaAddetto(text,campo,id);
     }
     
+    public void changeStateoFTable()
+    {
+        
+    }
 }
