@@ -7,7 +7,9 @@ package DB.DAO;
 
 import JavaBean.Customer;
 import Model.CustomerModel;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -17,6 +19,7 @@ import java.util.List;
 public interface CustomerDao {
     
     public int deleteCustomer(Customer customer);
+    public Set<Customer> getCustomerParolaChiave(ArrayList<String> parole);
     public int updateCustomer(String new_value,String attribute_to_change,String id);
     public List<CustomerModel> searchByEta(int eta);
     public List<CustomerModel> searchByBigliettiAcquistati(int n);

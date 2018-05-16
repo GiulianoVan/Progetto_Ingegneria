@@ -66,7 +66,7 @@ public class ImplAddettoDao implements AddettoDao {
          
          Set<Addetto>result = new HashSet<>();
          String sql = "SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,LIVELLO,IDSICUREZZA FROM ADDSICUREZZA WHERE ";
-        //CREO STRING DINAMICAMENTE AGGIUNGENDO LA STESSA STRING PER QUANTE SONO LE PAROLE CHIAVI
+        //CREO LA STRINGA DINAMICAMENTE AGGIUNGENDO LA STESSA STRINGA PER QUANTE SONO LE PAROLE CHIAVI
         for(String parola : parole)
         {
              sql += "NOME LIKE ? OR COGNOME LIKE ? OR EMAIL LIKE ? OR LIVELLO LIKE ? OR ";
@@ -80,7 +80,7 @@ public class ImplAddettoDao implements AddettoDao {
             ps = con.prepareStatement(sql);
             ResultSetMetaData column_name;
             
-            //SETTO TT I ? CON I VALORI DINAMICAMENTE. 
+            //SETTO TUTTI I ? CON I VALORI DINAMICAMENTE. 
             for(int i = 1;i<=parole.size()*4;++i)
             { 
               int j = (i-1)/4;
@@ -104,14 +104,12 @@ public class ImplAddettoDao implements AddettoDao {
     @Override
     public int updateAddetto(String new_value,String attribute_to_change,String id) {
 
-        
         String sql = "UPDATE ADDSICUREZZA SET ? = ? WHERE IDADDETTO = ?;";
         int executeUpdate = 0;
         try 
         {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
-            ResultSetMetaData column_name;
             
             //SETTO TT I ? CON I VALORI DINAMICAMENTE. 
               ps.setString(1,attribute_to_change.toUpperCase());
@@ -122,10 +120,10 @@ public class ImplAddettoDao implements AddettoDao {
               ps.close();
               rs.close();
               if(executeUpdate < 1)
-                System.out.println("Errore!\nAggiornamento fallito.");
+                System.out.println("Errore!\nCampi inseriti non validi.");
         }
         catch (SQLException ex) {
-            System.out.println("Errore!\nCampi inseriti non validi.");
+            System.out.println("Errore!\nAggiornamento fallito.");
         }
         return executeUpdate;
     }
