@@ -30,10 +30,9 @@ public class ControllerButtonAddetto implements ActionListener
     */
     GeneralPanel view;
     AddettiModel model;
-    
+ 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
         String action = e.getActionCommand();
         if(action.equals("CERCA"))
         {

@@ -34,8 +34,8 @@ public class AddettiModel extends Observable {
         addettodao.aggiornaAddetto(text,campo,id);
     }
     
-    public void changeStateoFTable()
+    public void changeStateoFTable(int row,int col)
     {
-        
+        tab.isCellEditable(row,col);
     }
 }
