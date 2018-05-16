@@ -36,27 +36,27 @@ public class EventPanel extends GeneralPanel {
     
     public void setComponentsPanel() {
         
-    buttonAdvSearch = getButtonOkAdvSearchGeneral();
-    buttonAdvGeneral = getButtonAdvGeneral();
-    buttonCreateEvent = getButtonCreateGeneral();
-    buttonOkSearchEvent = getButtonOkSearchGeneral();
-    buttonBackSearch = getButtonBackSearchGeneral();
-    comboTypeEventSearch = getComboTypeGeneralSearch();
-    jDateChooser1 = getDateGeneral();
-    jPanelAdvSearch = getjPanelAdvSearch();
-    jScrollPane1 = getjScrollPane1();
-    tableSearchEvent = getTableSearchGeneral();
-    textCodeEventSearch = getTextCodeGeneralSearch();
-    textNameEventSearch = getTextNameGeneralSearch();
-    textSearchEvent = getTextSearchGeneral();
-    
-    jPanelAdvSearch.setVisible(false);
-    buttonAdvGeneral.setText("Advanced Search");
-    buttonCreateEvent.setText("Create Event");
-    comboTypeEventSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type Event...", "Sport", "Cinema", "Teatro", "Concerto", "Museo" }));
-    textCodeEventSearch.setText("Insert Code Here...");
-    textNameEventSearch.setText("Insert Name Here...");
-    textSearchEvent.setText("Insert Name Here...");
+        buttonAdvSearch = getButtonOkAdvSearchGeneral();
+        buttonAdvGeneral = getButtonAdvGeneral();
+        buttonCreateEvent = getButtonCreateGeneral();
+        buttonOkSearchEvent = getButtonOkSearchGeneral();
+        buttonBackSearch = getButtonBackSearchGeneral();
+        comboTypeEventSearch = getComboTypeGeneralSearch();
+        jDateChooser1 = getDateGeneral();
+        jPanelAdvSearch = getjPanelAdvSearch();
+        jScrollPane1 = getjScrollPane1();
+        tableSearchEvent = getTableSearchGeneral();
+        textCodeEventSearch = getTextCodeGeneralSearch();
+        textNameEventSearch = getTextNameGeneralSearch();
+        textSearchEvent = getTextSearchGeneral();
+
+        jPanelAdvSearch.setVisible(false);
+        buttonAdvGeneral.setText("Advanced Search");
+        buttonCreateEvent.setText("Create Event");
+        comboTypeEventSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type Event...", "Sport", "Cinema", "Teatro", "Concerto", "Museo" }));
+        textCodeEventSearch.setText("Insert Code Here...");
+        textNameEventSearch.setText("Insert Name Here...");
+        textSearchEvent.setText("Insert Name Here...");
     
     }
     

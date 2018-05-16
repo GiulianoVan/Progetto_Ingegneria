@@ -20,7 +20,6 @@ import javax.swing.JTextField;
 public class EventView extends javax.swing.JFrame implements Observer {
 
     String event;
-    //pippo
     /**
      * Creates new form EventView
      */
