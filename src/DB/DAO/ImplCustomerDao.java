@@ -23,7 +23,7 @@ public class ImplCustomerDao implements CustomerDao{
     }
     
     @Override
-    public int refreshCustomer(String new_value, String attribute_to_change, String id) {
+    public int updateCustomer(String new_value, String attribute_to_change, String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

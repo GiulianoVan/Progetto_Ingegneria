@@ -17,7 +17,7 @@ import java.util.Set;
  *
  * @author Pirozzi
  */
-public class ImpAddettoDao implements AddettoDao {
+public class ImplAddettoDao implements AddettoDao {
 
     Connection con;
     PreparedStatement ps;
@@ -102,7 +102,7 @@ public class ImpAddettoDao implements AddettoDao {
     }
 
     @Override
-    public int refreshAddetto(String new_value,String attribute_to_change,String id) {
+    public int updateAddetto(String new_value,String attribute_to_change,String id) {
 
         
         String sql = "UPDATE ADDSICUREZZA SET ? = ? WHERE IDADDETTO = ?;";

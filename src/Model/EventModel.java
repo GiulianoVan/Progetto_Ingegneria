@@ -5,7 +5,7 @@
  */
 package Model;
 
-import DB.DAO.ImpEventDao;
+import DB.DAO.ImplEventDao;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Observable;
@@ -22,7 +22,7 @@ public class EventModel extends Observable{
     // Set<Event> eventi;
     // ImpEvent evento = new ImpEvent();
     Set<Event> events;
-    ImpEventDao evtDao;
+    ImplEventDao evtDao;
     
     public EventModel()
     {
@@ -34,7 +34,7 @@ public class EventModel extends Observable{
     
     public void notifySearchName(String eventName)
     {
-        evtDao = new ImpEventDao();
+        evtDao = new ImplEventDao();
         events = evtDao.searchEvent(eventName);
         
         System.out.println(events); // stampa tutto il Set...voglio vedere se prende le cose.
