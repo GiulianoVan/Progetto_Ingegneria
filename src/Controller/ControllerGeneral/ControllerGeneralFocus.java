@@ -6,7 +6,6 @@
 package Controller.ControllerGeneral;
 
 import View.GeneralPanel;
-import View.GeneralView;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.util.Observable;

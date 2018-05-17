@@ -17,15 +17,11 @@ public class AddettiViewX extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
-    public AddettiViewX() {
+    public AddettiViewX(){
         initComponents();
         
     }
 
-   
-    
-     
-        
     
     public String getCercaText()
     {

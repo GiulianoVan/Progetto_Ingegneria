@@ -8,7 +8,7 @@ package Runner;
 import Controller.ControllerAddetto.AddettoTableController.ControllerFocusTableAddetto;
 import Controller.ControllerAddetto.AddettoTableController.ControllerKeyTable;
 import Controller.ControllerAddetto.AddettoTableController.ControllerMouseTableAddetto;
-import Controller.ControllerGeneral.ControllerGeneralButton;
+import Controller.ControllerGeneral.ControllerGeneral;
 import ControllerAddetto.ControllerButtonAddetto;
 import ControllerAddetto.ControllerKeyAddetto;
 import GestioneTabella.ControllerTable;
@@ -28,26 +28,9 @@ public class RunMVCAddetti {
     //ControllerKeyTable controllerTab;
    // ControllerMouseTableAddetto controllerMouse;
     ControllerKeyAddetto controllerText;
-    ControllerGeneralButton x;
+    ControllerGeneral controller;
     //ControllerFocusTableAddetto controllerFocus;
     ControllerTable controllerTab ;
-    
-    public AddettiModel getModel() {
-        return addettiModel;
-    }
-
-    public void setModel(AddettiModel model) {
-        this.addettiModel = model;
-    }
-
-    public AddettiPanel getView() {
-        return addettiView;
-    }
-
-    public void setView(AddettiPanel view) {
-        this.addettiView = view;
-    }
-    
     
    public void startMVCAddetti()
    {
@@ -57,6 +40,8 @@ public class RunMVCAddetti {
          addettiView = new AddettiPanel();
         //model registra un osservatore
         addettiModel.addObserver(addettiView);
+        controller = new ControllerGeneral(addettiModel,addettiView);
+        
         controllerButton = new ControllerButtonAddetto();
         controllerButton.setModel(addettiModel);
         controllerButton.setView(addettiView);
@@ -84,13 +69,17 @@ public class RunMVCAddetti {
         controllerText.setModel(addettiModel);
         controllerText.setView(addettiView);
         addettiView.SetControllerKeyText(controllerText);
-        x = new ControllerGeneralButton();
-        x.setView(addettiView);
-        x.setModel(addettiModel);
-        addettiView.setControllerGeneralButton(x);
         
         
         //visualizzo addettiView
       }
+
+    public AddettiPanel getAddettiView() {
+        return addettiView;
+    }
+
+    public void setAddettiView(AddettiPanel addettiView) {
+        this.addettiView = addettiView;
+    }
    }
 

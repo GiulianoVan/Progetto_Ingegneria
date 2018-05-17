@@ -255,32 +255,13 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
 
     public void setTextSearchGeneral(JTextField textSearchGeneral) {
         this.textSearchGeneral = textSearchGeneral;
-    }
-
-    public void setControllerGeneralButton(ActionListener contr)
-    {
-        //buttonOkSearchGeneral.addActionListener(contr);
-        buttonBackSearchGeneral.addActionListener(contr);
-        buttonAdvGeneral.addActionListener(contr);
-    }
-    
-    public void setMouseListener(MouseListener m)
-    {
-        textSearchGeneral.addMouseListener(m);
-    }
-    
-    
+    }   
     
     public void setNameSearch()
     {
         textSearchGeneral.setText("Insert Name Here");
     }
-    
-    public void setFocusController(FocusListener f)
-    {
-        textSearchGeneral.addFocusListener(f);
-    }
-    
+ 
     
     @Override
     public void update(Observable o, Object arg) {

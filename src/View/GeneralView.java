@@ -27,7 +27,7 @@ public class GeneralView extends javax.swing.JFrame{
         RunMVCAddetti runSecurity = new RunMVCAddetti();
         runSecurity.startMVCAddetti();
         jTabbedMenu.add("Events",runEvents.getEvtView());
-        jTabbedMenu.add("Security",runSecurity.getView());
+        jTabbedMenu.add("Security",runSecurity.getAddettiView());
         
     }
     

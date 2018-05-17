@@ -27,6 +27,7 @@ public class ControllerTable implements MouseListener,KeyListener
 {
     GeneralPanel view;
     AddettiModel model; // posso dare addettiModel
+    
     public ControllerTable(AddettiModel model,GeneralPanel view)
     {
         this.model = model;
@@ -53,9 +54,6 @@ public class ControllerTable implements MouseListener,KeyListener
             {   
                 row = view.getTableSearchGeneral().getSelectedRow();
                 column = view.getTableSearchGeneral().getSelectedColumn();
-                model.getTab().setRowEditable(row);
-                model.getTab().setColumnEditable(column);
-                System.out.println(model.getTab().isCellEditable(row, column));
                 MyTableCellRenderer tabRenderer = (MyTableCellRenderer) view.getTableSearchGeneral().getCellRenderer(row, column);         
             }
             else{}
@@ -95,7 +93,7 @@ public class ControllerTable implements MouseListener,KeyListener
         }
         else
         {
-            view.setL
+            
         }
     }
   

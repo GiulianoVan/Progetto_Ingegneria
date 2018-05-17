@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.util.Observable;
+import java.util.Set;
 import javax.swing.JTable;
 
 /**
@@ -104,15 +105,19 @@ public class AddettiPanel extends GeneralPanel{
             tableSearchAddetto.addMouseListener(controller);
         }
         
-       
+     @Override
+    public void setNameSearch()
+    {
+        textSearchAddetto.setText("Insert something Here");
+    }
         
     @Override
     public void update(Observable o, Object arg) {
-        tableSearchAddetto.setModel((MyDefaultTableModel) arg);
+        MyDefaultTableModel tab = new MyDefaultTableModel();
+        tab.createModelBySetAddetto((Set) arg);
+        tableSearchAddetto.setModel(tab);
             //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
-        tableSearchAddetto.removeColumn(tableSearchAddetto.getColumnModel().getColumn(7));
-            //SUCCESSIVAMENTE SARA ANCORA PRESENTE NEL MODELLO.TabellaAddetto.getModel().getValueAt()
-        
+        tableSearchAddetto.removeColumn(tableSearchAddetto.getColumnModel().getColumn(7));       
     }
 
     public void setControllerFocusTable(ControllerFocusTableAddetto controllerFocus) {
@@ -122,3 +127,4 @@ public class AddettiPanel extends GeneralPanel{
       
                                
 }
+

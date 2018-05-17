@@ -7,7 +7,7 @@ package Runner;
 
 import Controller.ControllerCustomer.ControllerButtonCustomer;
 import Controller.ControllerCustomer.ControllerKeyCustomer;
-import Controller.ControllerGeneral.ControllerGeneralButton;
+import Controller.ControllerGeneral.ControllerGeneral;
 import Model.CustomerModel;
 import View.CustomerPanel;
 
@@ -21,36 +21,11 @@ public class RunMVCCustomer {
     private CustomerPanel view;
     private ControllerButtonCustomer controllerButton;
     private ControllerKeyCustomer controllerText;
-    private ControllerKeyTableCustomer controllerTab;
-    private ControllerMouseTableCustomer controllerMouse;
-    private ControllerGeneralButton x;
-    private ControllerFocusTableCustomer controllerFocus;
-    
-    public CustomerModel getModel() {
-        return model;
-    }
+   // private ControllerKeyTableCustomer controllerTab;
+    //private ControllerMouseTableCustomer controllerMouse;
+    private ControllerGeneral controller;
+    //private ControllerFocusTableCustomer controllerFocus;
 
-    /**
-     *
-     * @param model
-     */
-    public void setModel(CustomerModel model) {
-        this.model = model;
-    }
-
-    public CustomerPanel getView() {
-        return view;
-    }
-
-    /**
-     *
-     * @param view
-     */
-    public void setView(CustomerPanel view) {
-        this.view = view;
-    }
-    
-    
    public void startMVCCustomer()
    {
     
@@ -59,9 +34,12 @@ public class RunMVCCustomer {
          view = new CustomerPanel();
         //model registra un osservatore
         model.addObserver(view);
+        controller = new ControllerGeneral(model,view);
+        /*
         controllerButton = new ControllerButtonCustomer();
         controllerButton.setModel(model);
         controllerButton.setView(view);
+       
         view.SetControllerButton(controllerButton);
         //creo controllerButton per la tabella e lo registro alla view
         
@@ -88,8 +66,16 @@ public class RunMVCCustomer {
         x.setModel(model);
         view.setControllerGeneralButton(x);
         
-        
+        */
         //visualizzo view
       }
+
+    public CustomerPanel getView() {
+        return view;
+    }
+
+    public void setView(CustomerPanel view) {
+        this.view = view;
+    }
    }
 

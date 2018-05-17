@@ -21,24 +21,14 @@ public class AddettiModel extends Observable {
    
     public Set<Addetto>addetti;
     private ImplAddettoDao addettodao = new ImplAddettoDao();
-    MyDefaultTableModel<Addetto> tab = new MyDefaultTableModel();
 
-    public MyDefaultTableModel<Addetto> getTab() {
-        return tab;
-    }
-
-    public void setTab(MyDefaultTableModel<Addetto> tab) {
-        this.tab = tab;
-    }
-    
+ 
     public void doSearch(ArrayList<String> parole)
     {
         
-        addetti = addettodao.getAddettiParolaChiave(parole);
-        
-        tab.createModelBySetAddetto(addetti);
+        addetti = addettodao.getAddettiParolaChiave(parole);     
         setChanged();
-        notifyObservers(tab);
+        notifyObservers(addetti);
     }
     public void doUpdate(String new_value,String attribute_to_change,String id)
     {

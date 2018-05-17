@@ -5,14 +5,10 @@
  */
 package Runner;
 
-import Controller.ControllerGeneral.ControllerGeneralButton;
-import Controller.ControllerGeneral.ControllerGeneralFocus;
-import Controller.ControllerGeneral.ControllerMouseGeneral;
+import Controller.ControllerGeneral.ControllerGeneral;
 import Model.EventModel;
 import View.EventPanel;
-import View.EventView;
-import View.GeneralPanel;
-import View.GeneralView;
+
 
 /**
  *
@@ -21,10 +17,19 @@ import View.GeneralView;
 public class RunMVCEvents {
     
     private EventModel evtModel;
+
+    public EventPanel getEvtView() {
+        return evtView;
+    }
+
+    public void setEvtView(EventPanel evtView) {
+        this.evtView = evtView;
+    }
     private EventPanel evtView;
-    private ControllerGeneralButton evtControl;
-    private ControllerMouseGeneral mouseController;
-    private ControllerGeneralFocus focusController;
+    private ControllerGeneral controller;
+    //private ControllerGeneralButton evtControl;
+   // private ControllerMouseGeneral mouseController;
+    //private ControllerGeneralFocus focusController;
     
     public RunMVCEvents()
     {
@@ -32,7 +37,8 @@ public class RunMVCEvents {
         evtModel = new EventModel();
         evtView = new EventPanel();
         evtModel.addObserver(evtView);
-        evtControl = new ControllerGeneralButton();
+        controller = new ControllerGeneral(evtModel,evtView);
+        /*evtControl = new ControllerGeneralButton();
         evtControl.setModel(evtModel);
         evtControl.setView(evtView);
         evtView.setControllerGeneralButton(evtControl);
@@ -44,11 +50,11 @@ public class RunMVCEvents {
         focusController.setView(evtView);
         focusController.setModel(evtModel);
         evtView.setFocusController(focusController);
-        
+        */
 
         
     }
-
+/*
     public EventModel getEvtModel() {
         return evtModel;
     }
@@ -65,14 +71,6 @@ public class RunMVCEvents {
         this.evtView = evtView;
     }
 
-    public ControllerGeneralButton getEvtControl() {
-        return evtControl;
-    }
-
-    public void setEvtControl(ControllerGeneralButton evtControl) {
-        this.evtControl = evtControl;
-    }
-    
-    
+  */  
     
 }
