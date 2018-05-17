@@ -56,10 +56,11 @@ public class AddettiPanel extends GeneralPanel{
         comboTypeGeneralSearch = getComboTypeGeneralSearch();
         tableSearchAddetto = getTableSearchGeneral();
         jPanelAdvSearch.setVisible(false);
-        buttonCreateGeneral.setVisible(false);
+        //buttonCreateGeneral.setVisible(false);
         dateGeneral.setVisible(false);
         comboTypeGeneralSearch.setVisible(false);
         buttonAdvGeneral.setText("Advanced Search");
+        buttonCreateGeneral.setText("Create Security Officer");
         textCFGeneralSearch.setText("Insert CF here...");
         textSearchAddetto.setText("Insert Name here...");
         textUserGeneralSearch.setText("Insert User here...");
@@ -101,15 +102,18 @@ public class AddettiPanel extends GeneralPanel{
         
         public void setControllerMouseTable(MouseListener controller)
         {
-            
             tableSearchAddetto.addMouseListener(controller);
         }
+<<<<<<< HEAD
         
      @Override
     public void setNameSearch()
     {
         textSearchAddetto.setText("Insert something Here");
     }
+=======
+       
+>>>>>>> 0f78e3499ab69c5e108fd2918c78ec1c0e7fe9ae
         
     @Override
     public void update(Observable o, Object arg) {

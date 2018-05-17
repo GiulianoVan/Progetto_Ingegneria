@@ -11,15 +11,18 @@ import Controller.ControllerGeneral.ControllerGeneral;
 import Model.CustomerModel;
 import View.CustomerPanel;
 
+
 /**
  *
  * @author Vincent
  */
 public class RunMVCCustomer {
     
-    private CustomerModel model;
-    private CustomerPanel view;
+    private CustomerModel customerModel;
+    private CustomerPanel customerView;
+    private ControllerGeneralButton customerController;
     private ControllerButtonCustomer controllerButton;
+<<<<<<< HEAD
     private ControllerKeyCustomer controllerText;
    // private ControllerKeyTableCustomer controllerTab;
     //private ControllerMouseTableCustomer controllerMouse;
@@ -42,30 +45,81 @@ public class RunMVCCustomer {
        
         view.SetControllerButton(controllerButton);
         //creo controllerButton per la tabella e lo registro alla view
+=======
+    
+    
+    public CustomerModel getCustomerModel() {
+        return customerModel;
+    }
+
+    public void setCustomerModel(CustomerModel customerModel) {
+        this.customerModel = customerModel;
+    }
+
+    public CustomerPanel getCustomerView() {
+        return customerView;
+    }
+
+    public void setCustomerView(CustomerPanel customerView) {
+        this.customerView = customerView;
+    }
+
+    
+    
+   public void startMVCCustomer()
+   {
+    
+        customerModel = new CustomerModel();
+        // creo le customerView passando il customerModel
+        customerView = new CustomerPanel();
+        //customerModel registra un osservatore
+        customerModel.addObserver(customerView);
+        customerController = new ControllerGeneralButton();
+        customerController.setView(customerView);
+        customerController.setModel(customerModel);
         
-        controllerTab = new ControllerKeyTable();
-        controllerTab.setModel(model);
-        controllerTab.setView(view);
-        view.SetControllerKeyTable(controllerTab);
+        customerView.setControllerGeneralButton(customerController);
+        
+        
+>>>>>>> 0f78e3499ab69c5e108fd2918c78ec1c0e7fe9ae
+        
+        // VINCENZO
+        
+        /*controllerButton = new ControllerButtonCustomer();
+        controllerButton.setModel(customerModel);
+        controllerButton.setView(customerView);*/
+        
+        
+        //customerView.setControllerGeneralButton(controllerButton);
+        //creo controllerButton per la tabella e lo registro alla customerView
+        
+        /*controllerTab = new ControllerKeyTable();
+        controllerTab.setModel(customerModel);
+        controllerTab.setView(customerView);
+        customerView.SetControllerKeyTable(controllerTab);
         
         controllerFocus = new ControllerFocusTableCustomer();
-        controllerFocus.setModel(model);
-        controllerFocus.setView(view);
-        view.setControllerFocusTable(controllerFocus);
+        controllerFocus.setModel(customerModel);
+        controllerFocus.setView(customerView);
+        customerView.setControllerFocusTable(controllerFocus);
         controllerMouse = new ControllerMouseTableCustomer();
-        controllerMouse.setModel(model);
-        controllerMouse.setView(view);
-        view.setControllerMouseTable(controllerMouse); 
-        //creo controllerButton per la Jtext e le registro ai model ed al controllerButton
+        controllerMouse.setModel(customerModel);
+        controllerMouse.setView(customerView);
+        customerView.setControllerMouseTable(controllerMouse); 
+        //creo controllerButton per la Jtext e le registro ai customerModel ed al controllerButton
         controllerText = new ControllerKeyCustomer();
-        controllerText.setModel(model);
-        controllerText.setView(view);
-        view.SetControllerKeyText(controllerText);
+        controllerText.setModel(customerModel);
+        controllerText.setView(customerView);
+        customerView.SetControllerKeyText(controllerText);
         x = new ControllerGeneralButton();
-        x.setView(view);
-        x.setModel(model);
-        view.setControllerGeneralButton(x);
+        x.setView(customerView);
+        x.setModel(customerModel);
+        customerView.setControllerGeneralButton(x);
         
+        
+        //visualizzo customerView*/
+        
+<<<<<<< HEAD
         */
         //visualizzo view
       }
@@ -77,5 +131,9 @@ public class RunMVCCustomer {
     public void setView(CustomerPanel view) {
         this.view = view;
     }
+=======
+        
+>>>>>>> 0f78e3499ab69c5e108fd2918c78ec1c0e7fe9ae
    }
+}
 

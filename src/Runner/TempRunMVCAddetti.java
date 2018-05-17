@@ -5,7 +5,8 @@
  */
 package Runner;
 
-import ControllerGeneral.ControllerGeneralButton;
+
+import Controller.ControllerGeneral.ControllerGeneralButton;
 import Model.Addetto.AddettiModel;
 import Model.EventModel;
 import View.AddettiPanel;
@@ -17,51 +18,51 @@ import View.EventPanel;
  */
 public class TempRunMVCAddetti {
    
-    private AddettiModel addMod;
-    private AddettiPanel addView;
-    private ControllerGeneralButton evtControl;
+    private AddettiModel addettoModel;
+    private AddettiPanel addettoView;
+    private ControllerGeneralButton addettoControl;
     
     
     
     public TempRunMVCAddetti()
     {
        
-        addMod = new AddettiModel();
+        addettoModel = new AddettiModel();
         //EventView evtView = new EventView();
-        addView = new AddettiPanel();
+        addettoView = new AddettiPanel();
         //GeneralView genView = new GeneralView(evtView);
-        addMod.addObserver(addView);
+        addettoModel.addObserver(addettoView);
         //SearchEventController evtControl = new SearchEventController();
-        evtControl = new ControllerGeneralButton();
-        evtControl.setModel(addMod);
-        evtControl.setView(addView);
+        addettoControl = new ControllerGeneralButton();
+        addettoControl.setModel(addettoModel);
+        addettoControl.setView(addettoView);
         //evtView.setControllerButtonOkSearchEvent(evtControl);
-        addView.setControllerGeneralButton(evtControl);
+        addettoView.setControllerGeneralButton(addettoControl);
         //genView.add(evtView)     
     }
 
     public AddettiModel getAddMod() {
-        return addMod;
+        return addettoModel;
     }
 
     public void setAddMod(AddettiModel addMod) {
-        this.addMod = addMod;
+        this.addettoModel = addMod;
     }
 
     public AddettiPanel getAddView() {
-        return addView;
+        return addettoView;
     }
 
     public void setAddView(AddettiPanel addView) {
-        this.addView = addView;
+        this.addettoView = addView;
     }
 
-    public ControllerGeneralButton getEvtControl() {
-        return evtControl;
+    public ControllerGeneralButton getAddControl() {
+        return addettoControl;
     }
 
-    public void setEvtControl(ControllerGeneralButton evtControl) {
-        this.evtControl = evtControl;
+    public void setAddControl(ControllerGeneralButton evtControl) {
+        this.addettoControl = evtControl;
     }
     
     
