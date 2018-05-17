@@ -50,10 +50,21 @@ public class CustomerPanel extends GeneralPanel {
         jPanelAdvSearch.setVisible(false);
         comboTypeEventSearch.setVisible(false);
         buttonCreateEvent.setVisible(false);
+        jDateChooser1.setVisible(false);
         buttonAdvEvent.setText("Advanced Search");
         textCodeEventSearch.setText("Insert Place Here...");
         textNameEventSearch.setText("Insert CF Here...");
         textSearchEvent.setText("Insert Name Here...");
+    }
+    
+    @Override
+    public void backNormalSearch()
+    {
+            getButtonAdvGeneral().setVisible(true);
+            getButtonCreateGeneral().setVisible(false);
+            getTextSearchGeneral().setVisible(true);
+            getButtonOkSearchGeneral().setVisible(true);
+            getjPanelAdvSearch().setVisible(false);
     }
     
     @Override

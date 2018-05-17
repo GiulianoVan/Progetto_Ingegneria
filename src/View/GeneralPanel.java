@@ -61,6 +61,8 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         buttonOkAdvSearchGeneral = new javax.swing.JButton();
         dateGeneral = new com.toedter.calendar.JDateChooser();
         buttonBackSearchGeneral = new javax.swing.JButton();
+        textPlaceGeneral = new javax.swing.JTextField();
+        textCfGeneral = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setOpaque(false);
@@ -130,10 +132,16 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         jPanelAdvSearch.add(dateGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 150, 30));
         jPanelAdvSearch.add(buttonBackSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 30, 30));
 
+        textPlaceGeneral.setText("jTextField1");
+        jPanelAdvSearch.add(textPlaceGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, 30));
+
+        textCfGeneral.setText("jTextField1");
+        jPanelAdvSearch.add(textCfGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 150, 30));
+
         add(jPanelAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 540, 90));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 410));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 410));
     }// </editor-fold>//GEN-END:initComponents
 
     private void textSearchGeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textSearchGeneralMouseClicked
@@ -152,6 +160,23 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonCreateGeneralActionPerformed
 
+    public JTextField getTextCfGeneral() {
+        return textCfGeneral;
+    }
+
+    public void setTextCfGeneral(JTextField textCfGeneral) {
+        this.textCfGeneral = textCfGeneral;
+    }
+
+    public JTextField getTextPlaceGeneral() {
+        return textPlaceGeneral;
+    }
+
+    public void setTextPlaceGeneral(JTextField textPlaceGeneral) {
+        this.textPlaceGeneral = textPlaceGeneral;
+    }
+
+    
     
     public JButton getButtonAdvGeneral() {
         return buttonAdvGeneral;
@@ -344,8 +369,10 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     private javax.swing.JPanel jPanelAdvSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableSearchGeneral;
+    private javax.swing.JTextField textCfGeneral;
     private javax.swing.JTextField textCodeGeneralSearch;
     private javax.swing.JTextField textNameGeneralSearch;
+    private javax.swing.JTextField textPlaceGeneral;
     private javax.swing.JTextField textSearchGeneral;
     // End of variables declaration//GEN-END:variables
 

@@ -26,6 +26,8 @@ public class EventPanel extends GeneralPanel {
     private javax.swing.JTextField textCodeEventSearch;
     private javax.swing.JTextField textNameEventSearch;
     private javax.swing.JTextField textSearchEvent;
+    private javax.swing.JTextField textCfGeneral;
+    private javax.swing.JTextField textPlaceGeneral;
     private javax.swing.JButton buttonAdvEvent;
     
     
@@ -51,7 +53,10 @@ public class EventPanel extends GeneralPanel {
         textCodeEventSearch = getTextCodeGeneralSearch();
         textNameEventSearch = getTextNameGeneralSearch();
         textSearchEvent = getTextSearchGeneral();
+        textCfGeneral = getTextCfGeneral();
+        textPlaceGeneral = getTextPlaceGeneral();
 
+        
         jPanelAdvSearch.setVisible(false);
         buttonAdvEvent.setText("Advanced Search");
         buttonCreateEvent.setText("Create Event");

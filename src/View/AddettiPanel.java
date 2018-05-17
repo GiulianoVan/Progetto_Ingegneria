@@ -101,10 +101,8 @@ public class AddettiPanel extends GeneralPanel{
         
         public void setControllerMouseTable(MouseListener controller)
         {
-            
             tableSearchAddetto.addMouseListener(controller);
         }
-        
        
         
     @Override
