@@ -36,16 +36,6 @@ public class GeneralView extends javax.swing.JFrame{
         setCustomersTabbed(runCustomer);
         setSecurityTabbed(runSecurity);
         
-        /*jTabbedMenu.add("Events",runEvents.getEvtView());
-        jTabbedMenu.add("Customers",runCustomer.getCustomerView());
-        jTabbedMenu.add("Security",runSecurity.getAddettiView());
-        jTabbedMenu.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Picture/popularParty.png")));
-        jTabbedMenu.setIconAt(1, new javax.swing.ImageIcon(getClass().getResource("/Picture/clients.png")));
-        jTabbedMenu.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Picture/securityOfficer.png")));
-        jTabbedMenu.setBackgroundAt(0, new java.awt.Color(255, 222, 177));
-        jTabbedMenu.setBackgroundAt(1, new java.awt.Color(255, 222, 177));
-        jTabbedMenu.setBackgroundAt(2, new java.awt.Color(255, 222, 177));*/
-        
     }
     
     /**
@@ -71,14 +61,14 @@ public class GeneralView extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-public void setEventsTabbed(RunMVCEvents runEvents)
+private void setEventsTabbed(RunMVCEvents runEvents)
 {
     jTabbedMenu.add("Events",runEvents.getEvtView());
     jTabbedMenu.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Picture/popularParty.png")));
     jTabbedMenu.setBackgroundAt(0, new java.awt.Color(255, 222, 177));
 }
 
-public void setCustomersTabbed(RunMVCCustomer runCustomer)
+private void setCustomersTabbed(RunMVCCustomer runCustomer)
 {
     
     jTabbedMenu.add("Customers",runCustomer.getCustomerView());  
@@ -86,7 +76,7 @@ public void setCustomersTabbed(RunMVCCustomer runCustomer)
     jTabbedMenu.setBackgroundAt(1, new java.awt.Color(255, 222, 177));
 }
 
-public void setSecurityTabbed(RunMVCAddetti runSecurity)
+private void setSecurityTabbed(RunMVCAddetti runSecurity)
 {
     jTabbedMenu.add("Security",runSecurity.getAddettiView());
     jTabbedMenu.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Picture/securityOfficer.png")));
