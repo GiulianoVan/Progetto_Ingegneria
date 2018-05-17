@@ -5,12 +5,15 @@
  */
 package Controller.ControllerAddetto.AddettoTableController;
 
+import GestioneTabella.MyTableCellRenderer;
 import Model.Addetto.AddettiModel;
-import Model.MyDefaultTableModel;
+import GestioneTabella.MyDefaultTableModel;
 import View.AddettiView;
 import View.GeneralPanel;
 import View.GeneralView;
 import java.awt.Color;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
@@ -41,12 +44,12 @@ public class ControllerMouseTableAddetto extends MouseAdapter{
     
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getClickCount()==1)
+        if(e.getClickCount()==2)
         {
-          view.setCellEditable();
           
-        }
-       
+        }       
     }
+    
+  
     
 }    

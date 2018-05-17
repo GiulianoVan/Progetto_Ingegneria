@@ -5,7 +5,8 @@
  */
 package View;
 
-import Model.MyDefaultTableModel;
+import GestioneTabella.MyTableCellRenderer;
+import GestioneTabella.MyDefaultTableModel;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
@@ -32,6 +33,8 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         initComponents();
         buttonAdvGeneral.setActionCommand("ADVSEARCH");
         buttonBackSearchGeneral.setActionCommand("BACKSEARCH");
+        tableSearchGeneral.setDefaultRenderer(Object.class,new MyTableCellRenderer());
+        
     }
     
     
@@ -314,13 +317,11 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
          mod.setRowEditable(row);
          mod.setColumnEditable(col);
          mod.isCellEditable(row, col);
-         
-         
     }
     public void resetCellEditable()
     {
         MyDefaultTableModel mod = (MyDefaultTableModel) tableSearchGeneral.getModel();
-        mod.resetCellEditable();
+       // mod.resetCellEditable();
     }
     
      public void resetValueTable() {

@@ -7,7 +7,7 @@ package Model.Addetto;
 
 import JavaBean.Addetto;
 import DB.DAO.ImplAddettoDao;
-import Model.MyDefaultTableModel;
+import GestioneTabella.MyDefaultTableModel;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Set;
@@ -21,14 +21,24 @@ public class AddettiModel extends Observable {
    
     public Set<Addetto>addetti;
     private ImplAddettoDao addettodao = new ImplAddettoDao();
-    MyDefaultTableModel<Addetto> tab = new MyDefaultTableModel();      
+    MyDefaultTableModel<Addetto> tab = new MyDefaultTableModel();
+
+    public MyDefaultTableModel<Addetto> getTab() {
+        return tab;
+    }
+
+    public void setTab(MyDefaultTableModel<Addetto> tab) {
+        this.tab = tab;
+    }
+    
     public void doSearch(ArrayList<String> parole)
     {
         
         addetti = addettodao.getAddettiParolaChiave(parole);
         
+        tab.createModelBySetAddetto(addetti);
         setChanged();
-        notifyObservers(tab.createModelBySetAddetto(addetti));
+        notifyObservers(tab);
     }
     public void doUpdate(String new_value,String attribute_to_change,String id)
     {

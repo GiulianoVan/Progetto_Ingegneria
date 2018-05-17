@@ -11,6 +11,7 @@ import Controller.ControllerAddetto.AddettoTableController.ControllerMouseTableA
 import Controller.ControllerGeneral.ControllerGeneralButton;
 import ControllerAddetto.ControllerButtonAddetto;
 import ControllerAddetto.ControllerKeyAddetto;
+import GestioneTabella.MyTableColumnManager;
 import Model.Addetto.AddettiModel;
 import View.AddettiPanel;
 
@@ -24,11 +25,12 @@ public class RunMVCAddetti {
     AddettiModel model;
     AddettiPanel view;
     ControllerButtonAddetto controllerButton;
-    ControllerKeyTable controllerTab;
-    ControllerMouseTableAddetto controllerMouse;
+    //ControllerKeyTable controllerTab;
+   // ControllerMouseTableAddetto controllerMouse;
     ControllerKeyAddetto controllerText;
     ControllerGeneralButton x;
-    ControllerFocusTableAddetto controllerFocus;
+    //ControllerFocusTableAddetto controllerFocus;
+    MyTableColumnManager controllerTab ;
     
     public AddettiModel getModel() {
         return model;
@@ -60,7 +62,7 @@ public class RunMVCAddetti {
         controllerButton.setView(view);
         view.SetControllerButton(controllerButton);
         //creo controllerButton per la tabella e lo registro alla view
-        
+        /*
         controllerTab = new ControllerKeyTable();
         controllerTab.setModel(model);
         controllerTab.setView(view);
@@ -74,7 +76,10 @@ public class RunMVCAddetti {
         controllerMouse.setModel(model);
         controllerMouse.setView(view);
         view.setControllerMouseTable(controllerMouse); 
+        */
         //creo controllerButton per la Jtext e le registro ai model ed al controllerButton
+        controllerTab = new MyTableColumnManager(model,view);
+        
         controllerText = new ControllerKeyAddetto();
         controllerText.setModel(model);
         controllerText.setView(view);

@@ -8,7 +8,7 @@ package View;
 import Controller.ControllerAddetto.AddettoTableController.ControllerFocusTableAddetto;
 import ControllerAddetto.ControllerButtonAddetto;
 import ControllerAddetto.ControllerKeyAddetto;
-import Model.MyDefaultTableModel;
+import GestioneTabella.MyDefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;

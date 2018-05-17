@@ -5,6 +5,7 @@
  */
 package Model;
 
+import GestioneTabella.MyDefaultTableModel;
 import DB.DAO.ImplCustomerDao;
 import JavaBean.Customer;
 import java.util.ArrayList;

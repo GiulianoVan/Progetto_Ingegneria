@@ -127,6 +127,7 @@ public class AddettiViewX extends javax.swing.JFrame {
 
         CercaText.setText("Scrivi Qualcosa");
         CercaText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        CercaText.setOpaque(true);
         CercaText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 CercaTextKeyReleased(evt);

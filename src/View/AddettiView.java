@@ -6,7 +6,7 @@
 package View;
 
 import ControllerAddetto.ControllerButtonAddetto;
-import Model.MyDefaultTableModel;
+import GestioneTabella.MyDefaultTableModel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
@@ -176,8 +176,6 @@ public class AddettiView extends javax.swing.JFrame implements Observer{
     
     @Override
     public void update(Observable o, Object arg) {
-        
-    
         
             TabellaAddetto.setModel((MyDefaultTableModel) arg);
             //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
