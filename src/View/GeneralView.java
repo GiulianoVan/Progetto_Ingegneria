@@ -9,10 +9,6 @@ package View;
 import Runner.RunMVCAddetti;
 import Runner.RunMVCCustomer;
 import Runner.RunMVCEvents;
-import Runner.TempRunMVCAddetti;
-import java.util.Observable;
-import java.util.Observer;
-import javax.swing.JOptionPane;
 
 
 /**

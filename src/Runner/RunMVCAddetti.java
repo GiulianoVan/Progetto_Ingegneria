@@ -11,7 +11,7 @@ import Controller.ControllerAddetto.AddettoTableController.ControllerMouseTableA
 import Controller.ControllerGeneral.ControllerGeneralButton;
 import ControllerAddetto.ControllerButtonAddetto;
 import ControllerAddetto.ControllerKeyAddetto;
-import GestioneTabella.MyTableColumnManager;
+import GestioneTabella.ControllerTable;
 import Model.Addetto.AddettiModel;
 import View.AddettiPanel;
 
@@ -22,75 +22,75 @@ import View.AddettiPanel;
  */
 public class RunMVCAddetti {
     
-    AddettiModel model;
-    AddettiPanel view;
+    AddettiModel addettiModel;
+    AddettiPanel addettiView;
     ControllerButtonAddetto controllerButton;
     //ControllerKeyTable controllerTab;
    // ControllerMouseTableAddetto controllerMouse;
     ControllerKeyAddetto controllerText;
     ControllerGeneralButton x;
     //ControllerFocusTableAddetto controllerFocus;
-    MyTableColumnManager controllerTab ;
+    ControllerTable controllerTab ;
     
     public AddettiModel getModel() {
-        return model;
+        return addettiModel;
     }
 
     public void setModel(AddettiModel model) {
-        this.model = model;
+        this.addettiModel = model;
     }
 
     public AddettiPanel getView() {
-        return view;
+        return addettiView;
     }
 
     public void setView(AddettiPanel view) {
-        this.view = view;
+        this.addettiView = view;
     }
     
     
    public void startMVCAddetti()
    {
     
-         model = new AddettiModel();
-        // creo le view passando il model
-         view = new AddettiPanel();
+         addettiModel = new AddettiModel();
+        // creo le addettiView passando il addettiModel
+         addettiView = new AddettiPanel();
         //model registra un osservatore
-        model.addObserver(view);
+        addettiModel.addObserver(addettiView);
         controllerButton = new ControllerButtonAddetto();
-        controllerButton.setModel(model);
-        controllerButton.setView(view);
-        view.SetControllerButton(controllerButton);
-        //creo controllerButton per la tabella e lo registro alla view
+        controllerButton.setModel(addettiModel);
+        controllerButton.setView(addettiView);
+        addettiView.SetControllerButton(controllerButton);
+        //creo controllerButton per la tabella e lo registro alla addettiView
         /*
         controllerTab = new ControllerKeyTable();
-        controllerTab.setModel(model);
-        controllerTab.setView(view);
-        view.SetControllerKeyTable(controllerTab);
+        controllerTab.setModel(addettiModel);
+        controllerTab.setView(addettiView);
+        addettiView.SetControllerKeyTable(controllerTab);
         
         controllerFocus = new ControllerFocusTableAddetto();
-        controllerFocus.setModel(model);
-        controllerFocus.setView(view);
-        view.setControllerFocusTable(controllerFocus);
+        controllerFocus.setModel(addettiModel);
+        controllerFocus.setView(addettiView);
+        addettiView.setControllerFocusTable(controllerFocus);
         controllerMouse = new ControllerMouseTableAddetto();
-        controllerMouse.setModel(model);
-        controllerMouse.setView(view);
-        view.setControllerMouseTable(controllerMouse); 
+        controllerMouse.setModel(addettiModel);
+        controllerMouse.setView(addettiView);
+        addettiView.setControllerMouseTable(controllerMouse); 
         */
-        //creo controllerButton per la Jtext e le registro ai model ed al controllerButton
-        controllerTab = new MyTableColumnManager(model,view);
+        //creo controllerButton per la Jtext e le registro ai addettiModel ed al controllerButton
+        controllerTab = new ControllerTable(addettiModel,addettiView);
         
         controllerText = new ControllerKeyAddetto();
-        controllerText.setModel(model);
-        controllerText.setView(view);
-        view.SetControllerKeyText(controllerText);
+        controllerText.setModel(addettiModel);
+        controllerText.setView(addettiView);
+        addettiView.SetControllerKeyText(controllerText);
         x = new ControllerGeneralButton();
-        x.setView(view);
-        x.setModel(model);
-        view.setControllerGeneralButton(x);
+        x.setView(addettiView);
+        x.setModel(addettiModel);
+        addettiView.setControllerGeneralButton(x);
         
         
-        //visualizzo view
+        //visualizzo addettiView
       }
    }
 
