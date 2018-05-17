@@ -23,11 +23,11 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Pirozzi
  */
-public class MyTableColumnManager implements MouseListener,KeyListener
+public class ControllerTable implements MouseListener,KeyListener
 {
     GeneralPanel view;
     AddettiModel model; // posso dare addettiModel
-    public MyTableColumnManager(AddettiModel model,GeneralPanel view)
+    public ControllerTable(AddettiModel model,GeneralPanel view)
     {
         this.model = model;
         this.view= view;
@@ -56,8 +56,7 @@ public class MyTableColumnManager implements MouseListener,KeyListener
                 model.getTab().setRowEditable(row);
                 model.getTab().setColumnEditable(column);
                 System.out.println(model.getTab().isCellEditable(row, column));
-                MyTableCellRenderer tabRenderer = (MyTableCellRenderer) view.getTableSearchGeneral().getCellRenderer(row, column);
-                
+                MyTableCellRenderer tabRenderer = (MyTableCellRenderer) view.getTableSearchGeneral().getCellRenderer(row, column);         
             }
             else{}
     }
@@ -89,6 +88,15 @@ public class MyTableColumnManager implements MouseListener,KeyListener
 
     @Override
     public void keyReleased(KeyEvent e) {
+        
+        if(e.getKeyChar()== '\n')
+        {
+            
+        }
+        else
+        {
+            view.setL
+        }
     }
   
 }

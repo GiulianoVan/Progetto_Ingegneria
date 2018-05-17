@@ -34,6 +34,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         buttonAdvGeneral.setActionCommand("ADVSEARCH");
         buttonBackSearchGeneral.setActionCommand("BACKSEARCH");
         tableSearchGeneral.setDefaultRenderer(Object.class,new MyTableCellRenderer());
+        jScrollPane1.getViewport().setOpaque(false);
         
     }
     
@@ -45,8 +46,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         textSearchGeneral = new javax.swing.JTextField();
         buttonOkSearchGeneral = new javax.swing.JButton();
@@ -61,30 +61,26 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         buttonOkAdvSearchGeneral = new javax.swing.JButton();
         dateGeneral = new com.toedter.calendar.JDateChooser();
         buttonBackSearchGeneral = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(560, 390));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         textSearchGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textSearchGeneral.setForeground(new java.awt.Color(153, 153, 153));
-        textSearchGeneral.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        textSearchGeneral.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 textSearchGeneralMouseClicked(evt);
             }
         });
-        textSearchGeneral.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        textSearchGeneral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textSearchGeneralActionPerformed(evt);
             }
         });
-        textSearchGeneral.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
+        textSearchGeneral.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
                 textSearchGeneralKeyPressed(evt);
             }
         });
@@ -95,29 +91,29 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         add(buttonAdvGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 130, 30));
 
         buttonCreateGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
-        buttonCreateGeneral.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        buttonCreateGeneral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCreateGeneralActionPerformed(evt);
             }
         });
         add(buttonCreateGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 120, 30));
 
+        jScrollPane1.setOpaque(false);
+
         tableSearchGeneral.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
 
             }
         ));
+        tableSearchGeneral.setOpaque(false);
         jScrollPane1.setViewportView(tableSearchGeneral);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 570, 290));
 
+        jPanelAdvSearch.setOpaque(false);
         jPanelAdvSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comboTypeGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
@@ -135,6 +131,9 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         jPanelAdvSearch.add(buttonBackSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 30, 30));
 
         add(jPanelAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 540, 90));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 410));
     }// </editor-fold>//GEN-END:initComponents
 
     private void textSearchGeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textSearchGeneralMouseClicked
@@ -341,6 +340,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     private javax.swing.JButton buttonOkSearchGeneral;
     private javax.swing.JComboBox<String> comboTypeGeneralSearch;
     private com.toedter.calendar.JDateChooser dateGeneral;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelAdvSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableSearchGeneral;

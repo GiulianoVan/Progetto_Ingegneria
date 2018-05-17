@@ -28,7 +28,8 @@ public class MyTableCellRenderer extends JLabel implements TableCellRenderer{
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
        
-       
+        this.setOpaque(false);
+        
         
         if(value != null)
         {
@@ -38,10 +39,7 @@ public class MyTableCellRenderer extends JLabel implements TableCellRenderer{
         {   this.setOpaque(true);
             this.setBackground(new Color(255,200,126));
         }
-        else
-        {
-            this.setBackground(Color.white);
-        }
+       
        if(hasFocus)
        {
            this.setOpaque(true);
