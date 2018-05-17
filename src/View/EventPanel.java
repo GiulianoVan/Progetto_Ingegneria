@@ -62,10 +62,11 @@ public class EventPanel extends GeneralPanel {
     
     }
     
+    
     @Override
     public void setNameSearch()
     {
-        textSearchEvent.setText("Insert Name Here");
+        textSearchEvent.setText("Insert Name Here...");
     }
     
     

@@ -7,6 +7,7 @@ package View;
 
 
 import Runner.RunMVCAddetti;
+import Runner.RunMVCCustomer;
 import Runner.RunMVCEvents;
 import Runner.TempRunMVCAddetti;
 import java.util.Observable;
@@ -29,8 +30,12 @@ public class GeneralView extends javax.swing.JFrame{
         initComponents();
         RunMVCEvents runEvents = new RunMVCEvents();
         RunMVCAddetti runSecurity = new RunMVCAddetti();
+        RunMVCCustomer runCustomer = new RunMVCCustomer();
+        runEvents.startRunMVCEvents();
         runSecurity.startMVCAddetti();
+        runCustomer.startMVCCustomer();
         jTabbedMenu.add("Events",runEvents.getEvtView());
+        jTabbedMenu.add("Customers",runCustomer.getCustomerView());
         jTabbedMenu.add("Security",runSecurity.getView());
         
     }

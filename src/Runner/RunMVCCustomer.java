@@ -11,85 +11,90 @@ import Controller.ControllerGeneral.ControllerGeneralButton;
 import Model.CustomerModel;
 import View.CustomerPanel;
 
+
 /**
  *
  * @author Vincent
  */
 public class RunMVCCustomer {
     
-    private CustomerModel model;
-    private CustomerPanel view;
+    private CustomerModel customerModel;
+    private CustomerPanel customerView;
+    private ControllerGeneralButton customerController;
     private ControllerButtonCustomer controllerButton;
-    private ControllerKeyCustomer controllerText;
-    private ControllerKeyTableCustomer controllerTab;
-    private ControllerMouseTableCustomer controllerMouse;
-    private ControllerGeneralButton x;
-    private ControllerFocusTableCustomer controllerFocus;
     
-    public CustomerModel getModel() {
-        return model;
+    
+    public CustomerModel getCustomerModel() {
+        return customerModel;
     }
 
-    /**
-     *
-     * @param model
-     */
-    public void setModel(CustomerModel model) {
-        this.model = model;
+    public void setCustomerModel(CustomerModel customerModel) {
+        this.customerModel = customerModel;
     }
 
-    public CustomerPanel getView() {
-        return view;
+    public CustomerPanel getCustomerView() {
+        return customerView;
     }
 
-    /**
-     *
-     * @param view
-     */
-    public void setView(CustomerPanel view) {
-        this.view = view;
+    public void setCustomerView(CustomerPanel customerView) {
+        this.customerView = customerView;
     }
+
     
     
    public void startMVCCustomer()
    {
     
-         model = new CustomerModel();
-        // creo le view passando il model
-         view = new CustomerPanel();
-        //model registra un osservatore
-        model.addObserver(view);
-        controllerButton = new ControllerButtonCustomer();
-        controllerButton.setModel(model);
-        controllerButton.setView(view);
-        view.SetControllerButton(controllerButton);
-        //creo controllerButton per la tabella e lo registro alla view
+        customerModel = new CustomerModel();
+        // creo le customerView passando il customerModel
+        customerView = new CustomerPanel();
+        //customerModel registra un osservatore
+        customerModel.addObserver(customerView);
+        customerController = new ControllerGeneralButton();
+        customerController.setView(customerView);
+        customerController.setModel(customerModel);
         
-        controllerTab = new ControllerKeyTable();
-        controllerTab.setModel(model);
-        controllerTab.setView(view);
-        view.SetControllerKeyTable(controllerTab);
+        customerView.setControllerGeneralButton(customerController);
+        
+        
+        
+        // VINCENZO
+        
+        /*controllerButton = new ControllerButtonCustomer();
+        controllerButton.setModel(customerModel);
+        controllerButton.setView(customerView);*/
+        
+        
+        //customerView.setControllerGeneralButton(controllerButton);
+        //creo controllerButton per la tabella e lo registro alla customerView
+        
+        /*controllerTab = new ControllerKeyTable();
+        controllerTab.setModel(customerModel);
+        controllerTab.setView(customerView);
+        customerView.SetControllerKeyTable(controllerTab);
         
         controllerFocus = new ControllerFocusTableCustomer();
-        controllerFocus.setModel(model);
-        controllerFocus.setView(view);
-        view.setControllerFocusTable(controllerFocus);
+        controllerFocus.setModel(customerModel);
+        controllerFocus.setView(customerView);
+        customerView.setControllerFocusTable(controllerFocus);
         controllerMouse = new ControllerMouseTableCustomer();
-        controllerMouse.setModel(model);
-        controllerMouse.setView(view);
-        view.setControllerMouseTable(controllerMouse); 
-        //creo controllerButton per la Jtext e le registro ai model ed al controllerButton
+        controllerMouse.setModel(customerModel);
+        controllerMouse.setView(customerView);
+        customerView.setControllerMouseTable(controllerMouse); 
+        //creo controllerButton per la Jtext e le registro ai customerModel ed al controllerButton
         controllerText = new ControllerKeyCustomer();
-        controllerText.setModel(model);
-        controllerText.setView(view);
-        view.SetControllerKeyText(controllerText);
+        controllerText.setModel(customerModel);
+        controllerText.setView(customerView);
+        customerView.SetControllerKeyText(controllerText);
         x = new ControllerGeneralButton();
-        x.setView(view);
-        x.setModel(model);
-        view.setControllerGeneralButton(x);
+        x.setView(customerView);
+        x.setModel(customerModel);
+        customerView.setControllerGeneralButton(x);
         
         
-        //visualizzo view
-      }
+        //visualizzo customerView*/
+        
+        
    }
+}
 

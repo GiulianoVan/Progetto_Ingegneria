@@ -45,8 +45,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         textSearchGeneral = new javax.swing.JTextField();
         buttonOkSearchGeneral = new javax.swing.JButton();
@@ -67,24 +66,18 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
 
         textSearchGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textSearchGeneral.setForeground(new java.awt.Color(153, 153, 153));
-        textSearchGeneral.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        textSearchGeneral.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 textSearchGeneralMouseClicked(evt);
             }
         });
-        textSearchGeneral.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        textSearchGeneral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textSearchGeneralActionPerformed(evt);
             }
         });
-        textSearchGeneral.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
+        textSearchGeneral.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
                 textSearchGeneralKeyPressed(evt);
             }
         });
@@ -95,22 +88,18 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         add(buttonAdvGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 130, 30));
 
         buttonCreateGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
-        buttonCreateGeneral.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        buttonCreateGeneral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCreateGeneralActionPerformed(evt);
             }
         });
-        add(buttonCreateGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 120, 30));
+        add(buttonCreateGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 150, 30));
 
         tableSearchGeneral.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
 
             }
         ));
@@ -274,7 +263,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     
     public void setNameSearch()
     {
-        textSearchGeneral.setText("Insert Name Here");
+        textSearchGeneral.setText("Insert Name Here...");
     }
     
     public void setFocusController(FocusListener f)

@@ -55,10 +55,11 @@ public class AddettiPanel extends GeneralPanel{
         comboTypeGeneralSearch = getComboTypeGeneralSearch();
         tableSearchAddetto = getTableSearchGeneral();
         jPanelAdvSearch.setVisible(false);
-        buttonCreateGeneral.setVisible(false);
+        //buttonCreateGeneral.setVisible(false);
         dateGeneral.setVisible(false);
         comboTypeGeneralSearch.setVisible(false);
         buttonAdvGeneral.setText("Advanced Search");
+        buttonCreateGeneral.setText("Create Security Officer");
         textCFGeneralSearch.setText("Insert CF here...");
         textSearchAddetto.setText("Insert Name here...");
         textUserGeneralSearch.setText("Insert User here...");

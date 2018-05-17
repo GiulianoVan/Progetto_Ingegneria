@@ -26,7 +26,7 @@ public class RunMVCEvents {
     private ControllerMouseGeneral mouseController;
     private ControllerGeneralFocus focusController;
     
-    public RunMVCEvents()
+    public void startRunMVCEvents()
     {
        
         evtModel = new EventModel();
