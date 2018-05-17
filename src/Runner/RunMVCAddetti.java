@@ -25,12 +25,10 @@ public class RunMVCAddetti {
     AddettiModel addettiModel;
     AddettiPanel addettiView;
     ControllerButtonAddetto controllerButton;
-    //ControllerKeyTable controllerTab;
-   // ControllerMouseTableAddetto controllerMouse;
     ControllerKeyAddetto controllerText;
     ControllerGeneral controller;
-    //ControllerFocusTableAddetto controllerFocus;
-    ControllerTable controllerTab ;
+    ControllerTable controllerTable;
+   
     
    public void startMVCAddetti()
    {
@@ -47,23 +45,8 @@ public class RunMVCAddetti {
         controllerButton.setView(addettiView);
         addettiView.SetControllerButton(controllerButton);
         //creo controllerButton per la tabella e lo registro alla addettiView
-        /*
-        controllerTab = new ControllerKeyTable();
-        controllerTab.setModel(addettiModel);
-        controllerTab.setView(addettiView);
-        addettiView.SetControllerKeyTable(controllerTab);
-        
-        controllerFocus = new ControllerFocusTableAddetto();
-        controllerFocus.setModel(addettiModel);
-        controllerFocus.setView(addettiView);
-        addettiView.setControllerFocusTable(controllerFocus);
-        controllerMouse = new ControllerMouseTableAddetto();
-        controllerMouse.setModel(addettiModel);
-        controllerMouse.setView(addettiView);
-        addettiView.setControllerMouseTable(controllerMouse); 
-        */
         //creo controllerButton per la Jtext e le registro ai addettiModel ed al controllerButton
-        controllerTab = new ControllerTable(addettiModel,addettiView);
+        controllerTable = new ControllerTable(addettiModel,addettiView);
         
         controllerText = new ControllerKeyAddetto();
         controllerText.setModel(addettiModel);

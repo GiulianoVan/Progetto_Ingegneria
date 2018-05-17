@@ -94,16 +94,6 @@ public class AddettiPanel extends GeneralPanel{
         {
             textSearchAddetto.addKeyListener(controller);
         }
-    
-        public void SetControllerKeyTable(KeyListener controller)
-        {
-            tableSearchAddetto.addKeyListener(controller);
-        }
-        
-        public void setControllerMouseTable(MouseListener controller)
-        {
-            tableSearchAddetto.addMouseListener(controller);
-        }
         
      @Override
     public void setNameSearch()
@@ -120,10 +110,6 @@ public class AddettiPanel extends GeneralPanel{
         tableSearchAddetto.removeColumn(tableSearchAddetto.getColumnModel().getColumn(7));       
     }
 
-    public void setControllerFocusTable(ControllerFocusTableAddetto controllerFocus) {
-            
-            tableSearchAddetto.addFocusListener(controllerFocus);
-        }
       
                                
 }
