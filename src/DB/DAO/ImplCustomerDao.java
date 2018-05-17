@@ -76,17 +76,16 @@ public class ImplCustomerDao implements CustomerDao{
     @Override
     public int updateCustomer(String new_value, String attribute_to_change, String id) {
 
-        String sql = "UPDATE CLIENTE SET ? = ? WHERE IDCLIENTE = ?;";
+        String sql = "UPDATE CLIENTE SET "+attribute_to_change+ " = ? WHERE IDCLIENTE = ?;";
         int executeUpdate = 0;
         try 
         {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             
-            //SETTO TT I ? CON I VALORI DINAMICAMENTE. 
-              ps.setString(1,attribute_to_change.toUpperCase());
-              ps.setString(2,new_value.toUpperCase());
-              ps.setString(3,id.toUpperCase());
+            //SETTO TUTTI I ? CON I VALORI DINAMICAMENTE. 
+              ps.setString(1,new_value.toUpperCase());
+              ps.setString(2,id.toUpperCase());
               executeUpdate = ps.executeUpdate();
               con.close();
               ps.close();
