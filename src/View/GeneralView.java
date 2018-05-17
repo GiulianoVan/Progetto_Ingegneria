@@ -32,12 +32,9 @@ public class GeneralView extends javax.swing.JFrame{
         runCustomer.startMVCCustomer();
         
         jTabbedMenu.add("Events",runEvents.getEvtView());
-<<<<<<< HEAD
         jTabbedMenu.add("Security",runSecurity.getAddettiView());
-=======
         jTabbedMenu.add("Customers",runCustomer.getCustomerView());
-        jTabbedMenu.add("Security",runSecurity.getView());
->>>>>>> 0f78e3499ab69c5e108fd2918c78ec1c0e7fe9ae
+
         
     }
     

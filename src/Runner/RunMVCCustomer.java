@@ -5,8 +5,7 @@
  */
 package Runner;
 
-import Controller.ControllerCustomer.ControllerButtonCustomer;
-import Controller.ControllerCustomer.ControllerKeyCustomer;
+
 import Controller.ControllerGeneral.ControllerGeneral;
 import Model.CustomerModel;
 import View.CustomerPanel;
@@ -20,10 +19,6 @@ public class RunMVCCustomer {
     
     private CustomerModel customerModel;
     private CustomerPanel customerView;
-    private ControllerGeneralButton customerController;
-    private ControllerButtonCustomer controllerButton;
-<<<<<<< HEAD
-    private ControllerKeyCustomer controllerText;
    // private ControllerKeyTableCustomer controllerTab;
     //private ControllerMouseTableCustomer controllerMouse;
     private ControllerGeneral controller;
@@ -32,12 +27,12 @@ public class RunMVCCustomer {
    public void startMVCCustomer()
    {
     
-         model = new CustomerModel();
+         customerModel = new CustomerModel();
         // creo le view passando il model
-         view = new CustomerPanel();
+         customerView = new CustomerPanel();
         //model registra un osservatore
-        model.addObserver(view);
-        controller = new ControllerGeneral(model,view);
+        customerModel.addObserver(customerView);
+        controller = new ControllerGeneral(customerModel,customerView);
         /*
         controllerButton = new ControllerButtonCustomer();
         controllerButton.setModel(model);
@@ -118,22 +113,15 @@ public class RunMVCCustomer {
         
         
         //visualizzo customerView*/
-        
-<<<<<<< HEAD
-        */
         //visualizzo view
-      }
-
-    public CustomerPanel getView() {
-        return view;
-    }
-
-    public void setView(CustomerPanel view) {
-        this.view = view;
-    }
-=======
-        
->>>>>>> 0f78e3499ab69c5e108fd2918c78ec1c0e7fe9ae
    }
+
+    public CustomerPanel getCustomerView() {
+        return customerView;
+    }
+
+    public void setCustomerView(CustomerPanel customerView) {
+        this.customerView = customerView;
+    }
 }
 
