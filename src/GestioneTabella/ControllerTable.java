@@ -53,20 +53,20 @@ public class ControllerTable implements MouseListener,KeyListener
         
         int row;
         int column;
-            
+        MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
             if(e.getClickCount()==2)
             {   
                 row = view.getTableSearchGeneral().getSelectedRow();
                 column = view.getTableSearchGeneral().getSelectedColumn();
-                MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
                 tab.setColumnEditable(column);
                 tab.setRowEditable(row);
                 view.getTableSearchGeneral().editCellAt(row, column);
-                
-               // view.getTableSearchGeneral().set
             }
-     
-            else{}
+            else{
+                     tab.setColumnEditable(-1);
+                     tab.setRowEditable(-1);
+
+            }
           
     }
     @Override
