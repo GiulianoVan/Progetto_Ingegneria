@@ -316,19 +316,6 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         
     }
     
-    public void setCellEditable() {
-         int row = tableSearchGeneral.getSelectedRow();
-         int col = tableSearchGeneral.getSelectedColumn();
-         MyDefaultTableModel mod = (MyDefaultTableModel) tableSearchGeneral.getModel();
-         mod.setRowEditable(row);
-         mod.setColumnEditable(col);
-         mod.isCellEditable(row, col);
-    }
-    public void resetCellEditable()
-    {
-        MyDefaultTableModel mod = (MyDefaultTableModel) tableSearchGeneral.getModel();
-       // mod.resetCellEditable();
-    }
     
      public void resetValueTable() {
 

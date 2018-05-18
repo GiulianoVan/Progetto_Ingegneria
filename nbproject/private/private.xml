@@ -2,6 +2,41 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/AddettiPanel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Model/CustomerModel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Controller/ControllerAddetto/AddettoTableController/ControllerKeyTable.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/GestioneTabella/MyTableCellRenderer.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/GeneralView.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/EventPanel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/GeneralPanel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/GestioneTabella/ControllerTable.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/AddettiViewX.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/AddettiView.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Controller/ControllerAddetto/ControllerKeyAddetto.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Controller/ControllerGeneral/ControllerMouseGeneral.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Model/EventModel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Controller/ControllerGeneral/ControllerGeneral.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Runner/RunMVCAddetti.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Runner/RunMVCEvents.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/GestioneTabella/MyDefaultTableModel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Controller/ControllerAddetto/ControllerButtonAddetto.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Controller/ControllerGeneral/ControllerGeneralFocus.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Controller/ControllerAddetto/AddettoTableController/ControllerMouseTableAddetto.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Runner/RunMVCCustomer.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Model/TableColumnManager.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Model/ModelColumn.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/LoginView.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Model/Addetto/AddettiModel.java</file>
+=======
+            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/GeneralView.java</file>
+            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/GeneralPanel.java</file>
+>>>>>>> 62412299bf4625a74215302926bc30d42737b431
+        </group>
+>>>>>>> c8b0adf59d2acb8b62d02300779efab4ab069872
     </open-files>
 </project-private>

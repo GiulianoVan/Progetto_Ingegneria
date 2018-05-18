@@ -7,11 +7,9 @@ package Model.Addetto;
 
 import JavaBean.Addetto;
 import DB.DAO.ImplAddettoDao;
-import GestioneTabella.MyDefaultTableModel;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Set;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *

@@ -37,7 +37,7 @@ public class MyTableCellRenderer extends JLabel implements TableCellRenderer{
         }
         if(isSelected)
         {   this.setOpaque(true);
-            this.setBackground(new Color(255,200,126));
+            this.setBackground(new Color(244,164,96));
         }
        
        if(hasFocus)
