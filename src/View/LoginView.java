@@ -5,7 +5,7 @@
  */
 package View;
 
-import ControllerLogin.LoginButtonController;
+import Controller.ControllerLogin;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JOptionPane;
@@ -127,11 +127,11 @@ public class LoginView extends javax.swing.JFrame implements Observer{
             }
     }
     
-    public void setControllerAccediButton(LoginButtonController nuovo)
+    public void setControllerAccediButton(ControllerLogin nuovo)
     {
         AccediButton.addActionListener(nuovo);
     }
-    public void setControllerExitButton(LoginButtonController nuovo)
+    public void setControllerExitButton(ControllerLogin nuovo)
     {
         ExitButton.addActionListener(nuovo);
     }

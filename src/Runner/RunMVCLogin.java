@@ -5,7 +5,7 @@
  */
 package Runner;
 
-import ControllerLogin.LoginButtonController;
+import Controller.ControllerLogin;
 import Model.LoginModel;
 import View.LoginView;
 
@@ -20,7 +20,7 @@ public class RunMVCLogin {
         LoginModel loginmod = new LoginModel();
         LoginView loginview = new LoginView();
         loginmod.addObserver(loginview);
-        LoginButtonController controlLogin = new LoginButtonController();
+        ControllerLogin controlLogin = new ControllerLogin();
         controlLogin.setModel(loginmod);
         controlLogin.setView(loginview);
         loginview.setControllerAccediButton(controlLogin);

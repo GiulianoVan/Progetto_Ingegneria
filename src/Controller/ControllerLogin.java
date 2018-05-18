@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ControllerLogin;
+package Controller;
 
 import DB.DAO.ImplAdminDao;
 import JavaBean.Admin;
@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
  *
  * @author Pirozzi
  */
-public class LoginButtonController implements ActionListener {
+public class ControllerLogin implements ActionListener {
     
     private LoginModel modLog;
     private LoginView viewLog;
