@@ -22,14 +22,19 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
     
     private  int row;
     private  int column;
-    String oldvalue;
+    private String oldvalue;
+    private int id_column; // l'ultima colonna contiene sempre id.
+
+    public int getId_column() {
+        return id_column;
+    }
+    
     
     public MyDefaultTableModel()
     {
         super();
         row = -1;
         column=-1; 
-        System.out.println("CIAO");
     }
  
     public String getOldValue()
@@ -38,16 +43,12 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
     }
      @Override
     public boolean isCellEditable(int row, int column) {
-           System.out.println("thisRow : "+ this.row+ " thisColumn: "+this.column);
-           System.out.println("RowArg :"+row+" ColumnArg :"+column);
-           System.out.println("ModelloIndirizzo:"+this.toString());
+           
            if(this.row==row && this.column==column)
            {
-               System.out.println("True");
                   return true;
            }
            else{
-           System.out.println("False");
            return false;
            }
     }
@@ -80,13 +81,15 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
        this.addColumn("STIPENDIO");
        this.addColumn("LIVELLO");
        this.addColumn("ID");
+
        for(Addetto add : addetti)
        {
            this.addRow(new String[]{add.getNome(),add.getCognome(),add.getCf(),add.getEmail(),add.getTel(),add.getStipendio().toString(),add.getLivello().toString(),add.getId()});
        }   
-        
+       //setto sempre l'id all'ultima colonna;
+       this.id_column = this.getColumnCount()-1;
     }
-    
+    /*
     public  void createModelBySetCustomer(Set<Customer> customer)
     {
        //SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,LIVELLO 
@@ -102,9 +105,10 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
        {
            this.addRow(new String[]{add.getUsername(),add.getName(),add.getSurname(),add.getEmail(),add.getTax_code(),add.getPhone(),add.getDate_born().toString(),add.getIdCustomer()});
        }   
-        
+       
+       this.id_column = this.getColumnCount();
         
     }
-
+*/
   
 }

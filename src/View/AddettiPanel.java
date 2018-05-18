@@ -107,7 +107,9 @@ public class AddettiPanel extends GeneralPanel{
         tab.createModelBySetAddetto((Set) arg);
         tableSearchAddetto.setModel(tab);
             //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
-        tableSearchAddetto.removeColumn(tableSearchAddetto.getColumnModel().getColumn(7));       
+            //ultimo indice contiene sempre id.
+        int id_column = tab.getId_column();
+        tableSearchAddetto.removeColumn(tableSearchAddetto.getColumnModel().getColumn(id_column));    
     }
 
       

@@ -186,7 +186,7 @@ import javax.swing.table.TableColumnModel;
 		//  Ignore changes to the TableColumnModel made by the TableColumnManager
 
 		tcm.removeColumnModelListener( this );
-		tcm.removeColumn( column );
+		tcm.removeColumn(column);
 		tcm.addColumnModelListener( this );
 	}
 
