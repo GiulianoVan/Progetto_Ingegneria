@@ -113,7 +113,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         tableSearchGeneral.setOpaque(false);
         jScrollPane1.setViewportView(tableSearchGeneral);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 570, 290));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 570, 310));
 
         jPanelAdvSearch.setOpaque(false);
         jPanelAdvSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
