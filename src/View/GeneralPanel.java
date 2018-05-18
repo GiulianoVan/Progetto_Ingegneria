@@ -65,8 +65,9 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         textCfGeneral = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(590, 500));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(560, 390));
+        setPreferredSize(new java.awt.Dimension(590, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         textSearchGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
@@ -113,7 +114,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         tableSearchGeneral.setOpaque(false);
         jScrollPane1.setViewportView(tableSearchGeneral);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 570, 310));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 570, 400));
 
         jPanelAdvSearch.setOpaque(false);
         jPanelAdvSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -141,7 +142,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         add(jPanelAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 540, 90));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 410));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 500));
     }// </editor-fold>//GEN-END:initComponents
 
     private void textSearchGeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textSearchGeneralMouseClicked

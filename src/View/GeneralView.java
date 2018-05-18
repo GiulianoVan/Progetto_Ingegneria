@@ -50,8 +50,8 @@ public class GeneralView extends javax.swing.JFrame{
         jTabbedMenu = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(720, 440));
-        setPreferredSize(new java.awt.Dimension(720, 440));
+        setMinimumSize(new java.awt.Dimension(720, 500));
+        setPreferredSize(new java.awt.Dimension(720, 500));
         setResizable(false);
 
         jTabbedMenu.setTabPlacement(javax.swing.JTabbedPane.LEFT);
