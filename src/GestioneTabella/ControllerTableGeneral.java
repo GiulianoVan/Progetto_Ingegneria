@@ -6,39 +6,25 @@
 package GestioneTabella;
 
 import Model.Addetto.AddettiModel;
-import View.AddettiPanel;
 import View.GeneralPanel;
-import View.GeneralView;
-import java.awt.Color;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.CellEditor;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.TableColumnModelEvent;
-import javax.swing.event.TableColumnModelListener;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import java.util.Observable;
 
 /**
  *
  * @author Pirozzi
  */
-public class ControllerTable implements MouseListener,KeyListener
+public class ControllerTableGeneral implements MouseListener,KeyListener
 {
-    GeneralPanel view;
-    AddettiModel model; // posso dare addettiModel
-
-    public ControllerTable(AddettiModel model,GeneralPanel view)
+    private GeneralPanel view;
+    private Observable model; // posso dare addettiModel
+    protected int row;
+    protected int column;
+    
+    public ControllerTableGeneral(Observable model,GeneralPanel view)
     {
         this.model = model;
         this.view= view;
@@ -49,10 +35,6 @@ public class ControllerTable implements MouseListener,KeyListener
 
     @Override
     public void mouseClicked(MouseEvent e) {
-       
-        
-        int row;
-        int column;
         MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
             if(e.getClickCount()==2)
             {   
@@ -92,36 +74,31 @@ public class ControllerTable implements MouseListener,KeyListener
 
     @Override
     public void keyTyped(KeyEvent e) {
-        
+     
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
+        //mi salvo la riga e la colonna in cui si è generato l'evento.
+        //Cosi se l'invio cambia la riga e la colonna in cui si è verificato,le tengo salvate.
+         row = view.getTableSearchGeneral().getSelectedRow();
+         column = view.getTableSearchGeneral().getSelectedColumn();
+
     }
 
    
     @Override
     public void keyReleased(KeyEvent e) {
-        int row = view.getTableSearchGeneral().getSelectedRow();
-        int column = view.getTableSearchGeneral().getSelectedColumn();
-        boolean editable= view.getTableSearchGeneral().isCellEditable(row, column);
-        if(e.getKeyChar()== '\n' && editable)
+         /*  
+        if(e.getKeyChar()=='\n' && view.getTableSearchGeneral().isCellEditable(row, column)) 
         {
             MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
-            System.out.println("Row : "+row+" Column : "+column);
-            //nell'ultima colonna ci saranno sempre gli id.che sono nascosti.
-           System.out.println(tab.getId_column());
-        //model.doUpdate((String) view.getTableSearchGeneral().getValueAt(row,column).toString(),view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,0).toString());
+            model.doUpdate((String) view.getTableSearchGeneral().getValueAt(row,column).toString(),view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,0).toString());
         }
-        else if(e.getKeyChar()!= '\n' && view.getTableSearchGeneral().isCellEditable(row, column))
+        else
         {
-             view.resetValueTable();
-        }
-        else{}
+            view.resetValueTable(row, column);
+        }*/
     }
-    
-
- 
-
-  
+   
 }

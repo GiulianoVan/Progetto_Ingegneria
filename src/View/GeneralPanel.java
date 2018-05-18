@@ -316,12 +316,11 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     }
     
     
-     public void resetValueTable() {
+     public void resetValueTable(int row,int column) {
 
-            int row = tableSearchGeneral.getSelectedRow();
-            int col = tableSearchGeneral.getSelectedColumn();
+          
             MyDefaultTableModel mod = (MyDefaultTableModel) tableSearchGeneral.getModel();
-            tableSearchGeneral.setValueAt((String) mod.getOldValue(), row, col);
+            tableSearchGeneral.setValueAt((String) mod.getOldValue(), row, column);
      }  
 
     

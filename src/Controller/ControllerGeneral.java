@@ -3,22 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller.ControllerGeneral;
+package Controller;
 
 import View.GeneralPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.Observable;
 
 /**
  *
  * @author Pirozzi
  */
-public class ControllerGeneral implements ActionListener,MouseListener,FocusListener{
+public class ControllerGeneral implements ActionListener,MouseListener,FocusListener,KeyListener{
 
     GeneralPanel view;
     Observable model;
@@ -27,10 +30,10 @@ public class ControllerGeneral implements ActionListener,MouseListener,FocusList
     {
         this.model = model;
         this.view =view;
-        view.getButtonAdvGeneral().addActionListener(this);
-        view.getButtonBackSearchGeneral().addActionListener(this);
-        view.getTextSearchGeneral().addFocusListener(this);
-        view.getTextSearchGeneral().addMouseListener(this);
+        this.view.getButtonAdvGeneral().addActionListener(this);
+        this.view.getButtonBackSearchGeneral().addActionListener(this);
+        this.view.getTextSearchGeneral().addFocusListener(this);
+        this.view.getTextSearchGeneral().addMouseListener(this);
         
     }
  
@@ -86,5 +89,38 @@ public class ControllerGeneral implements ActionListener,MouseListener,FocusList
     public void mouseExited(MouseEvent e) {
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
+
+     public  ArrayList<String> EstraiParoleChiavi(String testo)
+    {
+       
+        ArrayList<String> parolechiavi= new ArrayList<>();
+         
+                   while(testo.contains(" "))
+                   {
+                      if(testo.indexOf(" ")!= 0) //primo carattere non è uno spazio
+                      {
+                          parolechiavi.add(testo.substring(0,testo.indexOf(" ")));//prende sottostringa
+                      }
+                        
+                       testo = testo.substring(testo.indexOf(" ")+1,testo.length()); 
+                      
+                   }
+                  if(testo.trim().length()!=0 )//controllo che l'ultimo carattere non è uno spazio
+                  {
+                      parolechiavi.add(testo);
+                  }//conterrà tutte le parole chiavi
+             return parolechiavi;
+    }
    
 }

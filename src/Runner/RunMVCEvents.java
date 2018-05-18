@@ -5,7 +5,7 @@
  */
 package Runner;
 
-import Controller.ControllerGeneral.ControllerGeneral;
+import Controller.ControllerGeneral;
 import Model.EventModel;
 import View.EventPanel;
 

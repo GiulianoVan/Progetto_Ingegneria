@@ -5,13 +5,9 @@
  */
 package Runner;
 
-import Controller.ControllerAddetto.AddettoTableController.ControllerFocusTableAddetto;
-import Controller.ControllerAddetto.AddettoTableController.ControllerKeyTable;
-import Controller.ControllerAddetto.AddettoTableController.ControllerMouseTableAddetto;
-import Controller.ControllerGeneral.ControllerGeneral;
-import ControllerAddetto.ControllerButtonAddetto;
-import ControllerAddetto.ControllerKeyAddetto;
-import GestioneTabella.ControllerTable;
+
+import Controller.ControllerAddetto;
+import GestioneTabella.ControllerTableAddetto;
 import Model.Addetto.AddettiModel;
 import View.AddettiPanel;
 
@@ -24,10 +20,8 @@ public class RunMVCAddetti {
     
     AddettiModel addettiModel;
     AddettiPanel addettiView;
-    ControllerButtonAddetto controllerButton;
-    ControllerKeyAddetto controllerText;
-    ControllerGeneral controller;
-    ControllerTable controllerTable;
+    ControllerAddetto controller;
+    ControllerTableAddetto controllerTable;
    
     
    public void startMVCAddetti()
@@ -38,20 +32,10 @@ public class RunMVCAddetti {
          addettiView = new AddettiPanel();
         //model registra un osservatore
         addettiModel.addObserver(addettiView);
-        controller = new ControllerGeneral(addettiModel,addettiView);
+        controller = new ControllerAddetto(addettiModel,addettiView);
+        controllerTable = new ControllerTableAddetto(addettiModel,addettiView);
         
-        controllerButton = new ControllerButtonAddetto();
-        controllerButton.setModel(addettiModel);
-        controllerButton.setView(addettiView);
-        addettiView.SetControllerButton(controllerButton);
-        //creo controllerButton per la tabella e lo registro alla addettiView
-        //creo controllerButton per la Jtext e le registro ai addettiModel ed al controllerButton
-        controllerTable = new ControllerTable(addettiModel,addettiView);
         
-        controllerText = new ControllerKeyAddetto();
-        controllerText.setModel(addettiModel);
-        controllerText.setView(addettiView);
-        addettiView.SetControllerKeyText(controllerText);
         
         
         //visualizzo addettiView

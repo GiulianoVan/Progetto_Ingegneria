@@ -6,7 +6,7 @@
 package Runner;
 
 
-import Controller.ControllerGeneral.ControllerGeneral;
+import Controller.ControllerGeneral;
 import Model.CustomerModel;
 import View.CustomerPanel;
 
