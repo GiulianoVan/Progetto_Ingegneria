@@ -23,6 +23,7 @@ public class ControllerTableGeneral implements MouseListener,KeyListener
     private Observable model; // posso dare addettiModel
     protected int row;
     protected int column;
+    protected String oldvalue;
     
     public ControllerTableGeneral(Observable model,GeneralPanel view)
     {
@@ -38,16 +39,24 @@ public class ControllerTableGeneral implements MouseListener,KeyListener
         MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
             if(e.getClickCount()==2)
             {   
+                //SE CLICCO DUE VOLTE.MI SALVO I VALORI DELLA RIGA E COLONNA SELEZIONATA E LA RENDO EDITABILE
                 row = view.getTableSearchGeneral().getSelectedRow();
                 column = view.getTableSearchGeneral().getSelectedColumn();
                 tab.setColumnEditable(column);
                 tab.setRowEditable(row);
                 view.getTableSearchGeneral().editCellAt(row, column);
+                oldvalue=(String) tab.getValueAt(row, column);
             }
             else{
+                    //SE PREMO UNA VOLTA SU UNA CELLA,E NON HO PREMUTO INVIO PER FARE L'UPDATE.
+                    //RITORNO AL VECCHIO VALORE.
+                    //ROW = -1 E COL = -1 PERCHè SE ENTRO QUI,NON HO PIU LA CELLA EDITABILE.
+                    if(row != -1 && column != -1)
+                       view.resetValueTable(row, column, oldvalue);
                      tab.setColumnEditable(-1);
                      tab.setRowEditable(-1);
-
+                     row = -1;
+                     column=-1;
             }
           
     }
@@ -81,8 +90,8 @@ public class ControllerTableGeneral implements MouseListener,KeyListener
     public void keyPressed(KeyEvent e) {
         //mi salvo la riga e la colonna in cui si è generato l'evento.
         //Cosi se l'invio cambia la riga e la colonna in cui si è verificato,le tengo salvate.
-         row = view.getTableSearchGeneral().getSelectedRow();
-         column = view.getTableSearchGeneral().getSelectedColumn();
+         //row = view.getTableSearchGeneral().getSelectedRow();
+         //column = view.getTableSearchGeneral().getSelectedColumn();
 
     }
 

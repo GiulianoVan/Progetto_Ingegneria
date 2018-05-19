@@ -37,16 +37,12 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
         column=-1; 
     }
  
-    public String getOldValue()
-    {
-        return oldvalue;
-    }
+    
      @Override
     public boolean isCellEditable(int row, int column) {
            
            if(this.row==row && this.column==column)
            {
-                  this.oldvalue = (String) this.getValueAt(row, column);
                   return true;
            }
            else{

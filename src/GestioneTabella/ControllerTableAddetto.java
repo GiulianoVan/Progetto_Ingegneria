@@ -30,33 +30,47 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
 
     @Override
     public void keyReleased(KeyEvent e) { //DA FARE . NON VA BENE.
-       /*
+       
         MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
-
+        System.out.println(view.getTableSearchGeneral().isCellEditable(row, column));
+        System.out.println(row);
+               System.out.println(view.getTableSearchGeneral().getSelectedRow());
+               System.out.println(column);
+               System.out.println(view.getTableSearchGeneral().getSelectedColumn());
+        //SE PREMO INVIO E LA CELLA è EDITABILE.FAI UPDATE
+        //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
         if(e.getKeyChar()=='\n' && view.getTableSearchGeneral().isCellEditable(row, column)) 
         {
-            model.doUpdate((String) view.getTableSearchGeneral().getValueAt(row,column).toString(),view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,0).toString());
             tab.setColumnEditable(-1);
             tab.setRowEditable(-1);
+            String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
+            value= value.replace(",",".");
+            view.getTableSearchGeneral().setValueAt(value, row, column);
+            model.doUpdate(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
+            row = -1;
+            column=-1;
         }
         else
         {
             
-            
-            //se si è cambiata cella,senza premere invio,ma un altro tasto
-            //devo risettare la vecchia cella al vecchio valore,ma solo quando quella abbandonata è editabile.    
-            if(view.getTableSearchGeneral().isCellEditable(row,column));
+           //se non premo invio,RESETTO LA CELLA AL VALORE PRECEDENTE
+            //ROW = -1 E COL = -1 PERCHè UNA VOLTA QUI NON HO PIU LA CELLA EDITABILE
+            if(view.getTableSearchGeneral().getSelectedRow() != row || view.getTableSearchGeneral().getSelectedColumn() != column)
             {  
-               tab.setColumnEditable(-1);
-               tab.setRowEditable(-1);
-               view.resetValueTable(row, column);
+                tab.setColumnEditable(-1);
+                tab.setRowEditable(-1);
+               System.out.println("NOUPDATE");
+               if(row!= -1 && column != -1)
+                  view.resetValueTable(row, column,oldvalue);
+               row = -1;
+               column = -1;
             }
             //sto cambiando casella senza invio,quindi setto la cella cliccata nuovamente non editabile.
             
             
         }
           //ho confermato update o ho abbandonato la,quindi setto la cella cliccata nuovamente non editabile.
-            */
+            
     }
     
 }

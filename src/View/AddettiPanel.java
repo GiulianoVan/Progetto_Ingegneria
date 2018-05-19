@@ -57,7 +57,7 @@ public class AddettiPanel extends GeneralPanel{
         buttonAdvGeneral.setText("Advanced Search");
         buttonCreateGeneral.setText("Create Security Officer");
         textCFGeneralSearch.setText("Insert CF here...");
-        textSearchAddetto.setText("Insert Name here...");
+        textSearchAddetto.setText("Insert Something here...");
         textUserGeneralSearch.setText("Insert User here...");
         
         tableSearchAddetto.setModel(new javax.swing.table.DefaultTableModel(
@@ -93,7 +93,7 @@ public class AddettiPanel extends GeneralPanel{
      @Override
     public void setNameSearch()
     {
-        textSearchAddetto.setText("Insert something Here");
+        textSearchAddetto.setText("Insert something here..");
     }
         
     @Override
