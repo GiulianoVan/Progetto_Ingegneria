@@ -21,8 +21,8 @@ public class ControllerTableGeneral implements MouseListener,KeyListener
 {
     private GeneralPanel view;
     private Observable model; // posso dare addettiModel
-    protected int row;
-    protected int column;
+    protected int row=-1;
+    protected int column=-1;
     protected String oldvalue;
     
     public ControllerTableGeneral(Observable model,GeneralPanel view)
@@ -45,7 +45,7 @@ public class ControllerTableGeneral implements MouseListener,KeyListener
                 tab.setColumnEditable(column);
                 tab.setRowEditable(row);
                 view.getTableSearchGeneral().editCellAt(row, column);
-                oldvalue=(String) tab.getValueAt(row, column);
+                oldvalue=tab.getValueAt(row, column).toString();
             }
             else{
                     //SE PREMO UNA VOLTA SU UNA CELLA,E NON HO PREMUTO INVIO PER FARE L'UPDATE.
@@ -88,10 +88,7 @@ public class ControllerTableGeneral implements MouseListener,KeyListener
 
     @Override
     public void keyPressed(KeyEvent e) {
-        //mi salvo la riga e la colonna in cui si è generato l'evento.
-        //Cosi se l'invio cambia la riga e la colonna in cui si è verificato,le tengo salvate.
-         //row = view.getTableSearchGeneral().getSelectedRow();
-         //column = view.getTableSearchGeneral().getSelectedColumn();
+       
 
     }
 

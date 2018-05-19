@@ -105,7 +105,7 @@ public class ImplAddettoDao implements AddettoDao {
     public int updateAddetto(String new_value,String attribute_to_change,String id) {
         
        // String sql = "UPDATE ADDSICUREZZA SET "+attribute_to_change+ " = ? WHERE IDADDETTO = ?;";
-        String sql = "UPDATE ADDSICUREZZA SET "+attribute_to_change+ " = " +new_value+" WHERE IDSICUREZZA = ?;";
+        String sql = "UPDATE ADDSICUREZZA SET "+attribute_to_change+ " = '"+ new_value+"' WHERE IDSICUREZZA = ?;";
         int executeUpdate = 0;
         try 
         {
@@ -115,6 +115,7 @@ public class ImplAddettoDao implements AddettoDao {
             //SETTO TUTTI I ? CON I VALORI DINAMICAMENTE. 
               //ps.setString(1,new_value.toUpperCase());
             
+              
               ps.setString(1,id.toUpperCase());
               System.out.println(sql);
               executeUpdate = ps.executeUpdate();

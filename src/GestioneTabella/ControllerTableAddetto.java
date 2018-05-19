@@ -32,11 +32,6 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
     public void keyReleased(KeyEvent e) { //DA FARE . NON VA BENE.
        
         MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
-        System.out.println(view.getTableSearchGeneral().isCellEditable(row, column));
-        System.out.println(row);
-               System.out.println(view.getTableSearchGeneral().getSelectedRow());
-               System.out.println(column);
-               System.out.println(view.getTableSearchGeneral().getSelectedColumn());
         //SE PREMO INVIO E LA CELLA è EDITABILE.FAI UPDATE
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
         if(e.getKeyChar()=='\n' && view.getTableSearchGeneral().isCellEditable(row, column)) 
@@ -44,6 +39,8 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
             tab.setColumnEditable(-1);
             tab.setRowEditable(-1);
             String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
+            if(!view.getTableSearchGeneral().getColumnName(column).equals("EMAIL"))
+                value = value.toUpperCase();
             value= value.replace(",",".");
             view.getTableSearchGeneral().setValueAt(value, row, column);
             model.doUpdate(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
@@ -59,7 +56,6 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
             {  
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);
-               System.out.println("NOUPDATE");
                if(row!= -1 && column != -1)
                   view.resetValueTable(row, column,oldvalue);
                row = -1;
