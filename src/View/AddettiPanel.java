@@ -30,12 +30,15 @@ public class AddettiPanel extends GeneralPanel{
     private javax.swing.JTextField textUserGeneralSearch;
     private javax.swing.JTextField textCFGeneralSearch;
     private javax.swing.JTextField textSearchAddetto;
+    private javax.swing.JButton buttonBackCreateSecurity;
     
     public AddettiPanel()
     {
         super();
         this.setComponentsPanel();
         buttonOkSearchAddetto.setActionCommand("CERCA");
+        buttonBackCreateSecurity.setText("BACK SECURITY");
+        buttonBackCreateSecurity.setActionCommand("BACKSECURITY");
     }
     
     public void setComponentsPanel()
@@ -59,6 +62,8 @@ public class AddettiPanel extends GeneralPanel{
         textCFGeneralSearch.setText("Insert CF here...");
         textSearchAddetto.setText("Insert Something here...");
         textUserGeneralSearch.setText("Insert User here...");
+        buttonBackCreateSecurity = getButtonBackCreate();
+        
         
         tableSearchAddetto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

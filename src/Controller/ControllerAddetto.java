@@ -53,6 +53,26 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
                    model.doSearch(parolechiavi);      
             }
         }
+        else if(action.equals("CREATE"))
+        {
+            //view.getjPanelAdvSearch().setVisible(false);
+            view.getjScrollPane1().setVisible(false);
+            view.getButtonAdvGeneral().setVisible(false);
+            view.getButtonCreateGeneral().setVisible(false);
+            view.getTextSearchGeneral().setVisible(false);
+            view.getButtonOkSearchGeneral().setVisible(false);
+            view.getCreatePanel().setVisible(true);
+        }
+        else if(action.equals("BACKSECURITY"))
+        {
+            //view.getjPanelAdvSearch().setVisible(false);
+            view.getjScrollPane1().setVisible(true);
+            view.getButtonAdvGeneral().setVisible(true);
+            view.getButtonCreateGeneral().setVisible(true);
+            view.getTextSearchGeneral().setVisible(true);
+            view.getButtonOkSearchGeneral().setVisible(true);
+            view.getCreatePanel().setVisible(false);
+        }
     }
     @Override
     public void keyTyped(KeyEvent e) {

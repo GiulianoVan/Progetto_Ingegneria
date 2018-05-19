@@ -6,15 +6,12 @@
 package View;
 
 import GestioneTabella.MyTableCellRenderer;
-import GestioneTabella.MyDefaultTableModel;
 import com.toedter.calendar.JDateChooser;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusListener;
-import java.awt.event.MouseListener;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -33,6 +30,8 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         initComponents();
         buttonAdvGeneral.setActionCommand("ADVSEARCH");
         buttonBackSearchGeneral.setActionCommand("BACKSEARCH");
+        buttonCreateGeneral.setActionCommand("CREATE");
+        createPanel.setVisible(false);
         tableSearchGeneral.setDefaultRenderer(Object.class,new MyTableCellRenderer());
         jScrollPane1.getViewport().setOpaque(false);
         
@@ -63,11 +62,22 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         buttonBackSearchGeneral = new javax.swing.JButton();
         textPlaceGeneral = new javax.swing.JTextField();
         textCfGeneral = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        createPanel = new javax.swing.JPanel();
+        textSurnameCreate = new javax.swing.JTextField();
+        textCFCreate = new javax.swing.JTextField();
+        textEmailCreate = new javax.swing.JTextField();
+        textNumberCreate = new javax.swing.JTextField();
+        textSalaryCreate = new javax.swing.JTextField();
+        textUsernameCreate = new javax.swing.JTextField();
+        textPasswordCreate = new javax.swing.JTextField();
+        textNameSecurityCreate = new javax.swing.JTextField();
+        buttonCreate = new javax.swing.JButton();
+        buttonBackCreate = new javax.swing.JButton();
+        SfondoGeneralPanel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(590, 500));
+        setMinimumSize(new java.awt.Dimension(590, 600));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(590, 500));
+        setPreferredSize(new java.awt.Dimension(590, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         textSearchGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
@@ -102,6 +112,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         add(buttonCreateGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 150, 30));
 
         jScrollPane1.setOpaque(false);
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(452, 600));
 
         tableSearchGeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -114,7 +125,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         tableSearchGeneral.setOpaque(false);
         jScrollPane1.setViewportView(tableSearchGeneral);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 570, 400));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 570, 600));
 
         jPanelAdvSearch.setOpaque(false);
         jPanelAdvSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -141,8 +152,56 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
 
         add(jPanelAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 540, 90));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 500));
+        createPanel.setOpaque(false);
+        createPanel.setPreferredSize(new java.awt.Dimension(590, 600));
+        createPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        textSurnameCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textSurnameCreate.setText("Insert Surname Here");
+        createPanel.add(textSurnameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 150, 30));
+
+        textCFCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textCFCreate.setText("Insert CF Here");
+        createPanel.add(textCFCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 150, 30));
+
+        textEmailCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textEmailCreate.setText("Insert Email Here");
+        textEmailCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textEmailCreateActionPerformed(evt);
+            }
+        });
+        createPanel.add(textEmailCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 150, 30));
+
+        textNumberCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textNumberCreate.setText("Insert Telephon Number Here");
+        createPanel.add(textNumberCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 150, 30));
+
+        textSalaryCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textSalaryCreate.setText("Insert Salary Here");
+        createPanel.add(textSalaryCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 150, 30));
+
+        textUsernameCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textUsernameCreate.setText("Insert Username Here");
+        createPanel.add(textUsernameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 150, 30));
+
+        textPasswordCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textPasswordCreate.setText("Insert Password Here");
+        createPanel.add(textPasswordCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 150, 30));
+
+        textNameSecurityCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textNameSecurityCreate.setText("Insert Name Here");
+        createPanel.add(textNameSecurityCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 150, 30));
+
+        buttonCreate.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
+        buttonCreate.setText("CREATE!");
+        createPanel.add(buttonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, 50));
+        createPanel.add(buttonBackCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, 200, 40));
+
+        add(createPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 600));
+
+        SfondoGeneralPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
+        add(SfondoGeneralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 600));
     }// </editor-fold>//GEN-END:initComponents
 
     private void textSearchGeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textSearchGeneralMouseClicked
@@ -161,6 +220,10 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonCreateGeneralActionPerformed
 
+    private void textEmailCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailCreateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textEmailCreateActionPerformed
+
     public JTextField getTextCfGeneral() {
         return textCfGeneral;
     }
@@ -177,7 +240,9 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         this.textPlaceGeneral = textPlaceGeneral;
     }
 
-    
+    public JPanel getCreatePanel() {
+        return createPanel;
+    }
     
     public JButton getButtonAdvGeneral() {
         return buttonAdvGeneral;
@@ -213,6 +278,94 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
 
     public JButton getButtonOkSearchGeneral() {
         return buttonOkSearchGeneral;
+    }
+
+    public JButton getButtonBackCreate() {
+        return buttonBackCreate;
+    }
+
+    public void setButtonBackCreate(JButton buttonBackCreateSecurity) {
+        this.buttonBackCreate = buttonBackCreateSecurity;
+    }
+
+    public JButton getButtonCreateSecurity() {
+        return buttonCreate;
+    }
+
+    public void setButtonCreateSecurity(JButton buttonCreateSecurity) {
+        this.buttonCreate = buttonCreateSecurity;
+    }
+
+    public JLabel getjLabel1() {
+        return SfondoGeneralPanel;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.SfondoGeneralPanel = jLabel1;
+    }
+
+    public JTextField getTextCFCreate() {
+        return textCFCreate;
+    }
+
+    public void setTextCFCreate(JTextField textCFCreate) {
+        this.textCFCreate = textCFCreate;
+    }
+
+    public JTextField getTextEmailCreate() {
+        return textEmailCreate;
+    }
+
+    public void setTextEmailCreate(JTextField textEmailCreate) {
+        this.textEmailCreate = textEmailCreate;
+    }
+
+    public JTextField getTextNameSecurityCreate() {
+        return textNameSecurityCreate;
+    }
+
+    public void setTextNameSecurityCreate(JTextField textNameSecurityCreate) {
+        this.textNameSecurityCreate = textNameSecurityCreate;
+    }
+
+    public JTextField getTextNumberCreate() {
+        return textNumberCreate;
+    }
+
+    public void setTextNumberCreate(JTextField textNumberCreate) {
+        this.textNumberCreate = textNumberCreate;
+    }
+
+    public JTextField getTextPasswordCreate() {
+        return textPasswordCreate;
+    }
+
+    public void setTextPasswordCreate(JTextField textPasswordCreate) {
+        this.textPasswordCreate = textPasswordCreate;
+    }
+
+    public JTextField getTextSalaryCreate() {
+        return textSalaryCreate;
+    }
+
+    public void setTextSalaryCreate(JTextField textSalaryCreate) {
+        this.textSalaryCreate = textSalaryCreate;
+    }
+
+    public JTextField getTextSurnameCreate() {
+        return textSurnameCreate;
+    }
+
+    public void setTextSurnameCreate(JTextField textSurnameCreate) {
+        this.textSurnameCreate = textSurnameCreate;
+    }
+
+    public JTextField getTextUsernameCreate() {
+        return textUsernameCreate;
+    }
+
+    public void setTextUsernameCreate(JTextField textUsernameCreate) {
+        this.textUsernameCreate = textUsernameCreate;
     }
 
     public void setButtonOkSearchGeneral(JButton buttonOkSearchGeneral) {
@@ -324,22 +477,33 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SfondoGeneralPanel;
     private javax.swing.JButton buttonAdvGeneral;
+    private javax.swing.JButton buttonBackCreate;
     private javax.swing.JButton buttonBackSearchGeneral;
+    private javax.swing.JButton buttonCreate;
     private javax.swing.JButton buttonCreateGeneral;
     private javax.swing.JButton buttonOkAdvSearchGeneral;
     private javax.swing.JButton buttonOkSearchGeneral;
     private javax.swing.JComboBox<String> comboTypeGeneralSearch;
+    private javax.swing.JPanel createPanel;
     private com.toedter.calendar.JDateChooser dateGeneral;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelAdvSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableSearchGeneral;
+    private javax.swing.JTextField textCFCreate;
     private javax.swing.JTextField textCfGeneral;
     private javax.swing.JTextField textCodeGeneralSearch;
+    private javax.swing.JTextField textEmailCreate;
     private javax.swing.JTextField textNameGeneralSearch;
+    private javax.swing.JTextField textNameSecurityCreate;
+    private javax.swing.JTextField textNumberCreate;
+    private javax.swing.JTextField textPasswordCreate;
     private javax.swing.JTextField textPlaceGeneral;
+    private javax.swing.JTextField textSalaryCreate;
     private javax.swing.JTextField textSearchGeneral;
+    private javax.swing.JTextField textSurnameCreate;
+    private javax.swing.JTextField textUsernameCreate;
     // End of variables declaration//GEN-END:variables
 
    

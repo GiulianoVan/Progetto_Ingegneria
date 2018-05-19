@@ -23,6 +23,15 @@ public class ControllerLogin implements ActionListener {
     private LoginModel modLog;
     private LoginView viewLog;
     
+    public ControllerLogin(LoginModel model, LoginView view)
+    {
+        modLog = model;
+        viewLog = view;
+        viewLog.getAccediButton().addActionListener(this);
+        viewLog.getExitButton().addActionListener(this);
+    }
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
@@ -30,7 +39,7 @@ public class ControllerLogin implements ActionListener {
         {
             String user = viewLog.getUsernameText();
             String password = viewLog.getPasswordText();
-            modLog.setValueAmminnistratore(user,password);   
+            modLog.setValueAmminnistratore(user,password);  
         }
         else
         {

@@ -8,6 +8,7 @@ package View;
 import Controller.ControllerLogin;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -122,19 +123,21 @@ public class LoginView extends javax.swing.JFrame implements Observer{
             }
             else
             {
-                //SETVISIBILE TRUE HOME.
-                this.dispose();    
+                this.dispose();
+                GeneralView home = new GeneralView();
+                home.setVisible(true);
             }
     }
+
+    public JButton getAccediButton() {
+        return AccediButton;
+    }
+
+    public JButton getExitButton() {
+        return ExitButton;
+    }
     
-    public void setControllerAccediButton(ControllerLogin nuovo)
-    {
-        AccediButton.addActionListener(nuovo);
-    }
-    public void setControllerExitButton(ControllerLogin nuovo)
-    {
-        ExitButton.addActionListener(nuovo);
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AccediButton;

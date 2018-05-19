@@ -34,6 +34,8 @@ public class ControllerGeneral implements ActionListener,MouseListener,FocusList
         this.view.getButtonBackSearchGeneral().addActionListener(this);
         this.view.getTextSearchGeneral().addFocusListener(this);
         this.view.getTextSearchGeneral().addMouseListener(this);
+        this.view.getButtonCreateGeneral().addActionListener(this);
+        this.view.getButtonBackCreate().addActionListener(this);
         
     }
  

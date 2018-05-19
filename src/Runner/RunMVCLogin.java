@@ -15,17 +15,12 @@ import View.LoginView;
  */
 public class RunMVCLogin {
     
-    public RunMVCLogin()
+    public void startRunMVCLogin()
     {
         LoginModel loginmod = new LoginModel();
         LoginView loginview = new LoginView();
         loginmod.addObserver(loginview);
-        ControllerLogin controlLogin = new ControllerLogin();
-        controlLogin.setModel(loginmod);
-        controlLogin.setView(loginview);
-        loginview.setControllerAccediButton(controlLogin);
-        loginview.setControllerExitButton(controlLogin);
+        ControllerLogin controlLogin = new ControllerLogin(loginmod, loginview);
         loginview.setVisible(true);
-        
     }
 }
