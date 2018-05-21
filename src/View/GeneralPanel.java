@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -60,19 +61,27 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         buttonOkAdvSearchGeneral = new javax.swing.JButton();
         dateGeneral = new com.toedter.calendar.JDateChooser();
         buttonBackSearchGeneral = new javax.swing.JButton();
-        textPlaceGeneral = new javax.swing.JTextField();
-        textCfGeneral = new javax.swing.JTextField();
+        textPlaceGeneralSearch = new javax.swing.JTextField();
+        textCfGeneralSearch = new javax.swing.JTextField();
         createPanel = new javax.swing.JPanel();
-        textSurnameCreate = new javax.swing.JTextField();
-        textCFCreate = new javax.swing.JTextField();
-        textEmailCreate = new javax.swing.JTextField();
+        buttonBackCreate = new javax.swing.JButton();
+        buttonCreate = new javax.swing.JButton();
+        panelCreateEvent = new javax.swing.JPanel();
+        descriptionArea = new javax.swing.JTextArea();
+        comboGenEventCreate = new javax.swing.JComboBox<>();
+        dateCreateEvent = new com.toedter.calendar.JDateChooser();
+        comboTypeEventCreate = new javax.swing.JComboBox<>();
+        textNameEventCreate = new javax.swing.JTextField();
+        comboPlaceEvent = new javax.swing.JComboBox<>();
+        panelCreateSecurity = new javax.swing.JPanel();
+        textPasswordCreate = new javax.swing.JTextField();
+        textUsernameCreate = new javax.swing.JTextField();
         textNumberCreate = new javax.swing.JTextField();
         textSalaryCreate = new javax.swing.JTextField();
-        textUsernameCreate = new javax.swing.JTextField();
-        textPasswordCreate = new javax.swing.JTextField();
-        textNameSecurityCreate = new javax.swing.JTextField();
-        buttonCreate = new javax.swing.JButton();
-        buttonBackCreate = new javax.swing.JButton();
+        textEmailCreate = new javax.swing.JTextField();
+        textCFCreate = new javax.swing.JTextField();
+        textNameCreate = new javax.swing.JTextField();
+        textSurnameCreate = new javax.swing.JTextField();
         SfondoGeneralPanel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(590, 600));
@@ -144,25 +153,66 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         jPanelAdvSearch.add(dateGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 150, 30));
         jPanelAdvSearch.add(buttonBackSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 30, 30));
 
-        textPlaceGeneral.setText("jTextField1");
-        jPanelAdvSearch.add(textPlaceGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, 30));
+        textPlaceGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
+        textPlaceGeneralSearch.setText("jTextField1");
+        jPanelAdvSearch.add(textPlaceGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, 30));
 
-        textCfGeneral.setText("jTextField1");
-        jPanelAdvSearch.add(textCfGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 150, 30));
+        textCfGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
+        textCfGeneralSearch.setText("jTextField1");
+        jPanelAdvSearch.add(textCfGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 150, 30));
 
         add(jPanelAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 540, 90));
 
         createPanel.setOpaque(false);
         createPanel.setPreferredSize(new java.awt.Dimension(590, 600));
         createPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        createPanel.add(buttonBackCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 50, 40));
 
-        textSurnameCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textSurnameCreate.setText("Insert Surname Here");
-        createPanel.add(textSurnameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 150, 30));
+        buttonCreate.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
+        buttonCreate.setText("CREATE!");
+        createPanel.add(buttonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 100, 40));
 
-        textCFCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textCFCreate.setText("Insert CF Here");
-        createPanel.add(textCFCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 150, 30));
+        panelCreateEvent.setOpaque(false);
+        panelCreateEvent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        descriptionArea.setColumns(20);
+        descriptionArea.setRows(5);
+        descriptionArea.setText("Description...");
+        panelCreateEvent.add(descriptionArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 400, 110));
+
+        comboGenEventCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Genere Evento" }));
+        panelCreateEvent.add(comboGenEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 150, 30));
+        panelCreateEvent.add(dateCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 150, 30));
+
+        comboTypeEventCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo Evento" }));
+        panelCreateEvent.add(comboTypeEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 150, 30));
+
+        textNameEventCreate.setText("Name Event");
+        panelCreateEvent.add(textNameEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, 30));
+
+        comboPlaceEvent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Luoghi" }));
+        panelCreateEvent.add(comboPlaceEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 150, 30));
+
+        createPanel.add(panelCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 420, 340));
+
+        panelCreateSecurity.setOpaque(false);
+        panelCreateSecurity.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        textPasswordCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textPasswordCreate.setText("Insert Password Here");
+        panelCreateSecurity.add(textPasswordCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 150, 30));
+
+        textUsernameCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textUsernameCreate.setText("Insert Username Here");
+        panelCreateSecurity.add(textUsernameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 150, 30));
+
+        textNumberCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textNumberCreate.setText("Insert Telephon Number Here");
+        panelCreateSecurity.add(textNumberCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 150, 30));
+
+        textSalaryCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textSalaryCreate.setText("Insert Salary Here");
+        panelCreateSecurity.add(textSalaryCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 150, 30));
 
         textEmailCreate.setForeground(new java.awt.Color(153, 153, 153));
         textEmailCreate.setText("Insert Email Here");
@@ -171,32 +221,21 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
                 textEmailCreateActionPerformed(evt);
             }
         });
-        createPanel.add(textEmailCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 150, 30));
+        panelCreateSecurity.add(textEmailCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 150, 30));
 
-        textNumberCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textNumberCreate.setText("Insert Telephon Number Here");
-        createPanel.add(textNumberCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 150, 30));
+        textCFCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textCFCreate.setText("Insert CF Here");
+        panelCreateSecurity.add(textCFCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 150, 30));
 
-        textSalaryCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textSalaryCreate.setText("Insert Salary Here");
-        createPanel.add(textSalaryCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 150, 30));
+        textNameCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textNameCreate.setText("Insert Name Here");
+        panelCreateSecurity.add(textNameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 30));
 
-        textUsernameCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textUsernameCreate.setText("Insert Username Here");
-        createPanel.add(textUsernameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 150, 30));
+        textSurnameCreate.setForeground(new java.awt.Color(153, 153, 153));
+        textSurnameCreate.setText("Insert Surname Here");
+        panelCreateSecurity.add(textSurnameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 150, 30));
 
-        textPasswordCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textPasswordCreate.setText("Insert Password Here");
-        createPanel.add(textPasswordCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 150, 30));
-
-        textNameSecurityCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textNameSecurityCreate.setText("Insert Name Here");
-        createPanel.add(textNameSecurityCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 150, 30));
-
-        buttonCreate.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
-        buttonCreate.setText("CREATE!");
-        createPanel.add(buttonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, 50));
-        createPanel.add(buttonBackCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, 200, 40));
+        createPanel.add(panelCreateSecurity, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 420, 340));
 
         add(createPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 600));
 
@@ -224,20 +263,68 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         // TODO add your handling code here:
     }//GEN-LAST:event_textEmailCreateActionPerformed
 
-    public JTextField getTextCfGeneral() {
-        return textCfGeneral;
+    public JButton getButtonCreate() {
+        return buttonCreate;
     }
 
-    public void setTextCfGeneral(JTextField textCfGeneral) {
-        this.textCfGeneral = textCfGeneral;
+    public JComboBox<String> getComboGenEventCreate() {
+        return comboGenEventCreate;
     }
 
-    public JTextField getTextPlaceGeneral() {
-        return textPlaceGeneral;
+    public JComboBox<String> getComboPlaceEvent() {
+        return comboPlaceEvent;
     }
 
-    public void setTextPlaceGeneral(JTextField textPlaceGeneral) {
-        this.textPlaceGeneral = textPlaceGeneral;
+    public JComboBox<String> getComboTypeEventCreate() {
+        return comboTypeEventCreate;
+    }
+
+    public JDateChooser getDateCreateEvent() {
+        return dateCreateEvent;
+    }
+
+    public JTextArea getDescriptionArea() {
+        return descriptionArea;
+    }
+
+    public JTextField getTextNameCreate() {
+        return textNameCreate;
+    }
+
+    public JTextField getTextNameEventCreate() {
+        return textNameEventCreate;
+    }
+
+    public JPanel getPanelCreateEvent() {
+        return panelCreateEvent;
+    }
+
+    public void setPanelCreateEvent(JPanel panelCreateEvent) {
+        this.panelCreateEvent = panelCreateEvent;
+    }
+
+    public JPanel getPanelCreateSecurity() {
+        return panelCreateSecurity;
+    }
+
+    public void setPanelCreateSecurity(JPanel panelCreateSecurity) {
+        this.panelCreateSecurity = panelCreateSecurity;
+    }
+
+    public JTextField getTextCfGeneralSearch() {
+        return textCfGeneralSearch;
+    }
+
+    public void setTextCfGeneralSearch(JTextField textCfGeneral) {
+        this.textCfGeneralSearch = textCfGeneral;
+    }
+
+    public JTextField getTextPlaceGeneralSearch() {
+        return textPlaceGeneralSearch;
+    }
+
+    public void setTextPlaceGeneralSearch(JTextField textPlaceGeneral) {
+        this.textPlaceGeneralSearch = textPlaceGeneral;
     }
 
     public JPanel getCreatePanel() {
@@ -321,11 +408,11 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     }
 
     public JTextField getTextNameSecurityCreate() {
-        return textNameSecurityCreate;
+        return textNameCreate;
     }
 
     public void setTextNameSecurityCreate(JTextField textNameSecurityCreate) {
-        this.textNameSecurityCreate = textNameSecurityCreate;
+        this.textNameCreate = textNameSecurityCreate;
     }
 
     public JTextField getTextNumberCreate() {
@@ -485,21 +572,29 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     private javax.swing.JButton buttonCreateGeneral;
     private javax.swing.JButton buttonOkAdvSearchGeneral;
     private javax.swing.JButton buttonOkSearchGeneral;
+    private javax.swing.JComboBox<String> comboGenEventCreate;
+    private javax.swing.JComboBox<String> comboPlaceEvent;
+    private javax.swing.JComboBox<String> comboTypeEventCreate;
     private javax.swing.JComboBox<String> comboTypeGeneralSearch;
     private javax.swing.JPanel createPanel;
+    private com.toedter.calendar.JDateChooser dateCreateEvent;
     private com.toedter.calendar.JDateChooser dateGeneral;
+    private javax.swing.JTextArea descriptionArea;
     private javax.swing.JPanel jPanelAdvSearch;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelCreateEvent;
+    private javax.swing.JPanel panelCreateSecurity;
     private javax.swing.JTable tableSearchGeneral;
     private javax.swing.JTextField textCFCreate;
-    private javax.swing.JTextField textCfGeneral;
+    private javax.swing.JTextField textCfGeneralSearch;
     private javax.swing.JTextField textCodeGeneralSearch;
     private javax.swing.JTextField textEmailCreate;
+    private javax.swing.JTextField textNameCreate;
+    private javax.swing.JTextField textNameEventCreate;
     private javax.swing.JTextField textNameGeneralSearch;
-    private javax.swing.JTextField textNameSecurityCreate;
     private javax.swing.JTextField textNumberCreate;
     private javax.swing.JTextField textPasswordCreate;
-    private javax.swing.JTextField textPlaceGeneral;
+    private javax.swing.JTextField textPlaceGeneralSearch;
     private javax.swing.JTextField textSalaryCreate;
     private javax.swing.JTextField textSearchGeneral;
     private javax.swing.JTextField textSurnameCreate;

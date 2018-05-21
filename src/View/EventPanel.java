@@ -53,8 +53,6 @@ public class EventPanel extends GeneralPanel {
         textCodeEventSearch = getTextCodeGeneralSearch();
         textNameEventSearch = getTextNameGeneralSearch();
         textSearchEvent = getTextSearchGeneral();
-        textCfGeneral = getTextCfGeneral();
-        textPlaceGeneral = getTextPlaceGeneral();
 
         
         jPanelAdvSearch.setVisible(false);

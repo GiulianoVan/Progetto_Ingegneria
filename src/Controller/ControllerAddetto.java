@@ -61,6 +61,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
             view.getButtonCreateGeneral().setVisible(false);
             view.getTextSearchGeneral().setVisible(false);
             view.getButtonOkSearchGeneral().setVisible(false);
+            view.getPanelCreateEvent().setVisible(false);
             view.getCreatePanel().setVisible(true);
         }
         else if(action.equals("BACKSECURITY"))

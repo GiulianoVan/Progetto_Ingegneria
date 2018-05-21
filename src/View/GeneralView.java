@@ -47,7 +47,6 @@ public class GeneralView extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jTabbedMenu = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,9 +54,6 @@ public class GeneralView extends javax.swing.JFrame{
         setPreferredSize(new java.awt.Dimension(720, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/Admin.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 170, 120, 310));
 
         jTabbedMenu.setBackground(new java.awt.Color(140, 207, 255));
         jTabbedMenu.setTabPlacement(javax.swing.JTabbedPane.LEFT);
@@ -93,7 +89,6 @@ private void setSecurityTabbed(RunMVCAddetti runSecurity)
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JTabbedPane jTabbedMenu;
     // End of variables declaration//GEN-END:variables
 

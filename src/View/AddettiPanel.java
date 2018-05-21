@@ -25,11 +25,13 @@ public class AddettiPanel extends GeneralPanel{
     private javax.swing.JComboBox<String> comboTypeGeneralSearch;
     private com.toedter.calendar.JDateChooser dateGeneral;
     private javax.swing.JPanel jPanelAdvSearch;
-    private javax.swing.JScrollPane jScrollPane1;
+    //private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableSearchAddetto;
-    private javax.swing.JTextField textUserGeneralSearch;
+    private javax.swing.JTextField textPlaceGeneralSearch;
     private javax.swing.JTextField textCFGeneralSearch;
     private javax.swing.JTextField textSearchAddetto;
+    private javax.swing.JTextField textNameAddetto;
+    private javax.swing.JTextField textSurnameAddetto;
     private javax.swing.JButton buttonBackCreateSecurity;
     
     public AddettiPanel()
@@ -37,32 +39,40 @@ public class AddettiPanel extends GeneralPanel{
         super();
         this.setComponentsPanel();
         buttonOkSearchAddetto.setActionCommand("CERCA");
-        buttonBackCreateSecurity.setText("BACK SECURITY");
         buttonBackCreateSecurity.setActionCommand("BACKSECURITY");
     }
     
     public void setComponentsPanel()
     {
-        buttonAdvGeneral = getButtonAdvGeneral();
-        textCFGeneralSearch = getTextCodeGeneralSearch();
+        // ******** TEXT RICERCA AVANZATA ********
+        textCFGeneralSearch = getTextCfGeneralSearch();
+        textPlaceGeneralSearch = getTextPlaceGeneralSearch();
+        textSurnameAddetto = getTextCodeGeneralSearch();// RICORDARE DI UTILIZZARE LA TEXTCODE PER IL COGNOME
+        textNameAddetto = getTextNameGeneralSearch();
+        // ********************************
         textSearchAddetto = getTextSearchGeneral();
-        textUserGeneralSearch = getTextNameGeneralSearch();
-        jPanelAdvSearch = getjPanelAdvSearch();
+        buttonBackCreateSecurity = getButtonBackCreate();
+        buttonAdvGeneral = getButtonAdvGeneral();
         buttonOkSearchAddetto = getButtonOkSearchGeneral();
         buttonCreateGeneral = getButtonCreateGeneral();
         dateGeneral = getDateGeneral();
         comboTypeGeneralSearch = getComboTypeGeneralSearch();
         tableSearchAddetto = getTableSearchGeneral();
+        jPanelAdvSearch = getjPanelAdvSearch();
+        
+        // ******* SETTAGGIO TEXT RICARVA AVANZATA *******
+        textCFGeneralSearch.setText("Insert CF here");
+        textPlaceGeneralSearch.setText("Insert Place here");
+        textNameAddetto.setText("Insert Name here");
+        textSurnameAddetto.setText("Insert Surname here");
+        // ******************************************
         jPanelAdvSearch.setVisible(false);
         //buttonCreateGeneral.setVisible(false);
         dateGeneral.setVisible(false);
         comboTypeGeneralSearch.setVisible(false);
         buttonAdvGeneral.setText("Advanced Search");
-        buttonCreateGeneral.setText("Create Security Officer");
-        textCFGeneralSearch.setText("Insert CF here...");
-        textSearchAddetto.setText("Insert Something here...");
-        textUserGeneralSearch.setText("Insert User here...");
-        buttonBackCreateSecurity = getButtonBackCreate();
+        buttonCreateGeneral.setText("Create Security Officer");  
+        textSearchAddetto.setText("Insert Something here");
         
         
         tableSearchAddetto.setModel(new javax.swing.table.DefaultTableModel(
