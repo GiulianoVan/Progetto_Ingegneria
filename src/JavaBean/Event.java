@@ -11,14 +11,14 @@ package JavaBean;
  */
 public class Event {
     
-    private String idEvent;
-    private String title;
-    private String description;
+    private String idEvent; // ("[0-9]{6}$");
+    private String title;       // ("[a-z0-9,.;'"/-_#?!]+$",Pattern.CASE_INSENSITIVE);
+    private String description; // ("[a-z0-9,.;'"/-_#?!]+$",Pattern.CASE_INSENSITIVE); (uguale a title)
     private String typeEvent;
     private String typeGender;
     private String dataEvent;
-    private String cap;
-    private String placeName;
+    private String cap; // ("^[0-9]{3}[0-9xX]{2}$"));
+    private String placeName; // ("^(([a-z]{1}[°]?)|([0-9]+[°]?))(([ '',."/-]{1}(([a-z]{1}[°]?)|([0-9]+[°]?)))*["'']?[,./-]?[a-z 0-9]+)*[.]?$",Pattern.CASE_INSENSITIVE);
     
     
     public Event(String idEvent,String title, String description, String typeEvent, String typeGender, String dataEvent, String cap, String placeName)

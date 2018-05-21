@@ -11,10 +11,10 @@ package JavaBean;
  */
 public class Admin {
  
-    private String nome;
-    private String cognome;
-    private String id;
-    private String cf;
+    private String nome; // ("^[a-z]+(['']?[a-z ]+)*$",Pattern.CASE_INSENSITIVE);
+    private String cognome; // ("^[a-z]+(['' -]?[a-z ]+)*$",Pattern.CASE_INSENSITIVE);
+    private String id; // ("[0-9]{6}$");
+    private String cf; // ("^[a-z1-9]{16}$",Pattern.CASE_INSENSITIVE);
 
     public Admin(String nome,String cognome,String id,String cf)
     {
