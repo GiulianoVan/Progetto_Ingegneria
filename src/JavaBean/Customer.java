@@ -15,13 +15,19 @@ import java.util.Objects;
  */
 public class Customer extends Observable{
     
-    private String idCustomer;
-    private String username;
-    private String name;
-    private String surname;
-    private String email;
-    private String tax_code;
-    private String phone;
+    private String idCustomer; // ("[0-9]{6}$");
+    private String username; // ("^[a-z]+(['']?[a-z ]+)*$",Pattern.CASE_INSENSITIVE); (uguale a name)
+    private String name;     // ("^[a-z]+(['']?[a-z ]+)*$",Pattern.CASE_INSENSITIVE);
+    private String surname; // ("^[a-z]+(['' -]?[a-z ]+)*$",Pattern.CASE_INSENSITIVE);
+    private String email; /* IF( (REGEXP_LIKE(EMAIL,'^[a-z0-9]{1}[a-z0-9._%-]{0,62}[a-z0-9_%-]{1}\@[a-z0-9]{1}[a-z0-9._%-]{1,252}\.[a-z]{2,4}$','i')) ) THEN
+			SELECT REGEXP_SUBSTR(EMAIL,'[.]{2,}',1) INTO MULTIPLE_DOTS FROM DUAL; --Verifica se ci sono più punti consecutivi - esempio: mar.rossi@studenti..unina.it
+			IF(MULTIPLE_DOTS IS NULL) THEN
+				RETURN 1; -- l'email è corretta
+			ELSE
+				RAISE ERROR_DOTS;
+			END IF;*/
+    private String tax_code; // ("^[a-z1-9]{16}$",Pattern.CASE_INSENSITIVE);
+    private String phone; // ("^(\+[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$");
     private Date date_born;
     
     /**

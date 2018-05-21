@@ -93,6 +93,9 @@ public class ImplAddettoDao implements AddettoDao {
             {
                 result.add(new Addetto(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getInt(7),rs.getString(8)));
             }
+            con.close();
+            ps.close();
+            rs.close();
         }
         catch (SQLException ex) {
             System.out.println("Errore in getAddettiParolaChiaveDao");

@@ -10,6 +10,7 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -137,6 +138,14 @@ public class LoginView extends javax.swing.JFrame implements Observer{
         return ExitButton;
     }
     
+   public JTextField JTextPassword()
+   {
+       return PasswordText;
+   }
+   public JTextField JTextUsername()
+   {
+       return UsernameText;
+   }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

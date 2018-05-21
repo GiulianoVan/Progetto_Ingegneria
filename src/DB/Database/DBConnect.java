@@ -19,12 +19,12 @@ public class DBConnect {
     private static Connection con;
     //progettoingprivate static  String user = "Marcello";
     //private static String password = "progettoing";
-    private static  String user = "cognomen1";
-    private static String password = "pippo";
+   // private static  String user = "cognomen1";
+   //   private static String password = "pippo";
     //private static  String user = "cognomen";
     //private static String password = "progettoing";
-    //private static  String user = "Vincenzo";
-    //private static String password = "bd12";
+    private static  String user = "Vincenzo";
+    private static String password = "bd12";
     private static String url = "jdbc:mysql://localhost/em17?useSSL=false&serverTimezone=Europe/Rome";
 
    
