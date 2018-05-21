@@ -33,6 +33,7 @@ public class ControllerLogin implements ActionListener,KeyListener{
         viewLog.JTextPassword().addKeyListener(this);
         viewLog.JTextUsername().addKeyListener(this);
         viewLog.getAccediButton().addKeyListener(this);
+        viewLog.getExitButton().addKeyListener(this);
     }
     
     
@@ -75,11 +76,18 @@ public class ControllerLogin implements ActionListener,KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
         
-            if(e.getKeyChar()=='\n')
+            if(e.getKeyChar()=='\n' && e.getComponent()!= viewLog.getExitButton())
             {
                 String user = viewLog.getUsernameText();
                 String password = viewLog.getPasswordText();
                 modLog.setValueAmminnistratore(user,password);
+            }
+            else
+            {
+                if(e.getKeyChar()=='\n' && e.getComponent() == viewLog.getExitButton())
+                {
+                    System.exit(0);
+                }
             }
     }
     
