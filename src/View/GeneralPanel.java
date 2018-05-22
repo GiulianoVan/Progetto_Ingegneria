@@ -107,11 +107,16 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
             }
         });
         add(textSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 30));
+
+        buttonOkSearchGeneral.setBackground(new java.awt.Color(255, 222, 177));
+        buttonOkSearchGeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
         add(buttonOkSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 40, 30));
 
+        buttonAdvGeneral.setBackground(new java.awt.Color(255, 222, 177));
         buttonAdvGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         add(buttonAdvGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 130, 30));
 
+        buttonCreateGeneral.setBackground(new java.awt.Color(255, 222, 177));
         buttonCreateGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         buttonCreateGeneral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,9 +154,15 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         textNameGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textNameGeneralSearch.setForeground(new java.awt.Color(153, 153, 153));
         jPanelAdvSearch.add(textNameGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 150, 30));
-        jPanelAdvSearch.add(buttonOkAdvSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 30, 30));
+
+        buttonOkAdvSearchGeneral.setBackground(new java.awt.Color(255, 222, 177));
+        buttonOkAdvSearchGeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
+        jPanelAdvSearch.add(buttonOkAdvSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 40, 30));
         jPanelAdvSearch.add(dateGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 150, 30));
-        jPanelAdvSearch.add(buttonBackSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 30, 30));
+
+        buttonBackSearchGeneral.setBackground(new java.awt.Color(255, 222, 177));
+        buttonBackSearchGeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/backIcon.png"))); // NOI18N
+        jPanelAdvSearch.add(buttonBackSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 40, 30));
 
         textPlaceGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textPlaceGeneralSearch.setText("jTextField1");
