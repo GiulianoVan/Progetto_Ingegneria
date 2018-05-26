@@ -36,6 +36,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         tableSearchGeneral.setDefaultRenderer(Object.class,new MyTableCellRenderer());
         jScrollPane1.getViewport().setOpaque(false);
         
+        
     }
     
     

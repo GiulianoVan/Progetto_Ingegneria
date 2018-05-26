@@ -21,6 +21,7 @@ public class RunMVCLogin {
         LoginView loginview = new LoginView();
         loginmod.addObserver(loginview);
         ControllerLogin controlLogin = new ControllerLogin(loginmod, loginview);
+        loginview.setLocationRelativeTo(null);//apre la finestra al centro dello schermo
         loginview.setVisible(true);
     }
 }

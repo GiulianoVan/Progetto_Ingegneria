@@ -23,6 +23,7 @@ public class StartProject {
     {
        RunMVCLogin log = new RunMVCLogin();
        log.startRunMVCLogin();
+       
     }
     /**
      * @param args the command line arguments

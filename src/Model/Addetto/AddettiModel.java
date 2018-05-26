@@ -8,6 +8,7 @@ package Model.Addetto;
 import JavaBean.Addetto;
 import DB.DAO.ImplAddettoDao;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
 
@@ -19,7 +20,7 @@ public class AddettiModel extends Observable {
    
     public Set<Addetto>addetti;
     private ImplAddettoDao addettodao = new ImplAddettoDao();
-
+ 
  
     public void doSearch(ArrayList<String> parole)
     {
@@ -32,6 +33,12 @@ public class AddettiModel extends Observable {
     {
         addettodao.updateAddetto(new_value,attribute_to_change,id);
     }
-    
+   
+    public void doAdvancedSearch(Map<String,String> field_value)
+    {
+        addetti= addettodao.advancedSearch(field_value);
+        setChanged();
+        notifyObservers(addetti);
+    }
     
 }

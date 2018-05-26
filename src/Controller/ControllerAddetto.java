@@ -74,6 +74,11 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
             view.getButtonOkSearchGeneral().setVisible(true);
             view.getCreatePanel().setVisible(false);
         }
+        else if(action.equals("DELETE"))
+        {
+            //se tt è vuoto,impossibile effettuare la ricerca.
+           //altrimenti creo una mappa campo-valore e la passo al model x fare l'interrogazione.
+        }
     }
     @Override
     public void keyTyped(KeyEvent e) {

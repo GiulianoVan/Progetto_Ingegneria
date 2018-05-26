@@ -126,7 +126,9 @@ public class LoginView extends javax.swing.JFrame implements Observer{
             {
                 this.dispose();
                 GeneralView home = new GeneralView();
+                home.setLocationRelativeTo(null);
                 home.setVisible(true);
+                
             }
     }
 

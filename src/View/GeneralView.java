@@ -30,12 +30,11 @@ public class GeneralView extends javax.swing.JFrame{
         RunMVCCustomer runCustomer = new RunMVCCustomer();
         runEvents.startRunMVCEvents();
         runSecurity.startMVCAddetti();
-        runCustomer.startMVCCustomer();
-        
+        runCustomer.startMVCCustomer();     
         setEventsTabbed(runEvents);
         setCustomersTabbed(runCustomer);
         setSecurityTabbed(runSecurity);
-        
+      
     }
     
     /**
