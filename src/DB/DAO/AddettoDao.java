@@ -6,12 +6,10 @@
 package DB.DAO;
 
 import JavaBean.Addetto;
-import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,12 +18,13 @@ import javax.swing.table.DefaultTableModel;
 public interface AddettoDao {
     
     public int aggiungiAddetto(Addetto addetto);
-    public int rimuoviAddetto(Addetto addetto);
+    public int rimuoviAddetto(String idaddetto);
     public int updateAddetto(String new_value,String attribute_to_change,String id);
-    public Addetto cercaAddettoStipendioMax(double stipendio);
-    public List<Addetto> cercaAddettoStipendioMaggioredi(double stipendio);
-    public List<Addetto> cercaAddettoStipendioMinidoredi(double stipendio); 
-    public Addetto cercaAddettoNomeCognomeCf(String nome,String cognome,String cf);
-    public List<Addetto> getAllAddetti();
+ // public Addetto cercaAddettoStipendioMax(double stipendio);
+ // public List<Addetto> cercaAddettoStipendioMaggioredi(double stipendio);
+ // public List<Addetto> cercaAddettoStipendioMinidoredi(double stipendio); 
+ // public Addetto cercaAddettoNomeCognomeCf(String nome,String cognome,String cf);
+ // public List<Addetto> getAllAddetti();
+    public Set<Addetto> advancedSearch(Map<String,String> campo_value); //ogni chiave della mappa è un campo,ed ogni campo ha un valore associato.
     public Set<Addetto> getAddettiParolaChiave(ArrayList<String> parola);
 }

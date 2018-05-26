@@ -27,7 +27,25 @@ public class Addetto {
    private String nome; // ("^[a-z]+(['']?[a-z ]+)*$",Pattern.CASE_INSENSITIVE);
    private String cognome; // ("^[a-z]+(['' -]?[a-z ]+)*$",Pattern.CASE_INSENSITIVE);
    private String id; // ("[0-9]{6}$");
+   private String password;
+   private String username;
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+   
     public String getId() {
         return id;
     }
