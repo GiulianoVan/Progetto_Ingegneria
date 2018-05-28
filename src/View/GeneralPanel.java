@@ -32,11 +32,11 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         buttonAdvGeneral.setActionCommand("ADVSEARCH");
         buttonBackSearchGeneral.setActionCommand("BACKSEARCH");
         buttonCreateGeneral.setActionCommand("CREATE");
+        buttonOkSearchGeneral.setActionCommand("CERCA");
+
         createPanel.setVisible(false);
         tableSearchGeneral.setDefaultRenderer(Object.class,new MyTableCellRenderer());
         jScrollPane1.getViewport().setOpaque(false);
-        
-        
     }
     
     

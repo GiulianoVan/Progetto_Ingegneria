@@ -6,6 +6,7 @@
 package DB.DAO;
 
 import Model.JavaBean.Event;
+import java.util.ArrayList;
 import java.util.Set;
 
 /**
@@ -14,10 +15,10 @@ import java.util.Set;
  */
 public interface EventDao
 {
-    public Set<Event> searchEvent(String evtName);
+    //public Set<Event> searchEvent(String evtName);
     public Event advancedSearchEvent(String evtName, String codEvt, String dateEvt, String typeEvt);
     public void createEvent();
-    public void updateEvent();
-    public void deleteEvent();  
-    
+    public int updateEvent(String new_value,String attribute_to_change,String id);
+    public int deleteEvent();  
+    public Set<Event> searchEventKeysWords(ArrayList<String> words );
 }

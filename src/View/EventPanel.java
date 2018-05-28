@@ -5,7 +5,10 @@
  */
 package View;
 
+import GestioneTabella.MyDefaultTableModel;
 import java.awt.event.FocusListener;
+import java.util.Observable;
+import java.util.Set;
 
 /**
  *
@@ -36,6 +39,7 @@ public class EventPanel extends GeneralPanel {
     {
         super();
         this.setComponentsPanel();
+        //MANCA->buttonbackCreateEvent.SetactionCommand
     }
     
     public void setComponentsPanel() {
@@ -63,6 +67,24 @@ public class EventPanel extends GeneralPanel {
         textNameEventSearch.setText("Insert Name Here...");
         textSearchEvent.setText("Insert Name Here...");
     
+        tableSearchEvent.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+            },
+            new String [] {
+                "TITOLO", "TYPE", "GEN_TYPE", "DATA", "LUOGO", "CAP", "DESCR"
+            }
+          )
+            {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            @Override
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+            
+        });
+        
     }
     
     
@@ -70,6 +92,15 @@ public class EventPanel extends GeneralPanel {
     public void setNameSearch()
     {
         textSearchEvent.setText("Insert Name Here...");
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+         MyDefaultTableModel tab = new MyDefaultTableModel();
+        tab.createModelBySetEvent((Set) arg);
+        tableSearchEvent.setModel(tab);
+        int id_column = tab.getId_column();
+        tableSearchEvent.removeColumn(tableSearchEvent.getColumnModel().getColumn(id_column));
     }
     
     

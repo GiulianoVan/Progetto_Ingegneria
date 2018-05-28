@@ -6,6 +6,7 @@
 package GestioneTabella;
 
 import Model.Addetto.AddettiModel;
+import Model.EventModel;
 import View.GeneralPanel;
 import java.awt.event.KeyEvent;
 
@@ -13,13 +14,13 @@ import java.awt.event.KeyEvent;
  *
  * @author Pirozzi
  */
-public class ControllerTableAddetto extends ControllerTableGeneral{
+public class ControllerTableEvent extends ControllerTableGeneral{
     
-    private AddettiModel model;
+    private EventModel model;
     private GeneralPanel view;
     
-    
-    public ControllerTableAddetto(AddettiModel model, GeneralPanel view) {
+     public ControllerTableEvent(EventModel model, GeneralPanel view) 
+     {
         super(model,view);
         this.model = model;
         this.view = view;
@@ -41,9 +42,11 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
             String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
             if(!view.getTableSearchGeneral().getColumnName(column).equals("EMAIL"))
                 value = value.toUpperCase();
+            
             value= value.replace(",",".");
             view.getTableSearchGeneral().setValueAt(value, row, column);
-            model.doUpdateAddetto(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
+            
+            model.doUpdateEvent(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
             row = -1;
             column=-1;
         }
@@ -68,5 +71,4 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
           //ho confermato update o ho abbandonato la,quindi setto la cella cliccata nuovamente non editabile.
             
     }
-    
 }

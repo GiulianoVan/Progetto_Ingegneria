@@ -8,6 +8,7 @@ package Model;
 import Model.JavaBean.Event;
 import DB.DAO.ImplEventDao;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Set;
@@ -19,9 +20,6 @@ import java.util.Set;
  */
 public class EventModel extends Observable{
     
-    // insieme di eventi
-    // Set<Event> eventi;
-    // ImpEvent evento = new ImpEvent();
     Set<Event> events;
     ImplEventDao evtDao;
     
@@ -33,17 +31,17 @@ public class EventModel extends Observable{
     // metodi che il controller chiama per inserimento, cancellazione ecc...
     // ricerca su database
     
-    public void notifySearchName(String eventName)
+    public void notifySearchName(ArrayList<String> words)
     {
         evtDao = new ImplEventDao();
-        events = evtDao.searchEvent(eventName);
-        
-        System.out.println(events); // stampa tutto il Set...voglio vedere se prende le cose.
-        
-        int x = 0;
-        if(!events.isEmpty())
-            x=1;
+        events = evtDao.searchEventKeysWords(words);     
         setChanged();
-        notifyObservers(x);
+        notifyObservers(events);
     }
+
+     public void doUpdateEvent(String new_value,String attribute_to_change,String id)
+    {
+        evtDao.updateEvent(new_value,attribute_to_change,id);
+    }
+
 }

@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Model.Addetto.AddettiModel;
+import Model.EventModel;
 import View.GeneralPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -16,20 +16,19 @@ import javax.swing.JOptionPane;
  *
  * @author Pirozzi
  */
-public class ControllerAddetto extends ControllerGeneral{ //o estende la generale ?
-//UTILIZZANDOLA QUANDO ESTENDE,BASTA USARE UN SOLO CONTROLLER,CONTROLLERADDETTO. IL COLLEGAMENTI COL PADRE VENGONO
-    //FATTI IN AUTOMATICO NEL COSTRUTTORE DEL APDRE
-    GeneralPanel view;
-    AddettiModel model;
+public class ControllerEvent extends ControllerGeneral{
     
-    public ControllerAddetto(AddettiModel model,GeneralPanel view)
-    {
-        super(model,view);
-        this.model = model;
+    GeneralPanel view;
+    EventModel model;
+
+    public ControllerEvent(EventModel model, GeneralPanel view) {
+        super(model, view);
         this.view = view;
+        this.model = model;
         this.view.getButtonOkSearchGeneral().addActionListener(this);
         this.view.getTextSearchGeneral().addKeyListener(this);
     }
+    
     @Override
     public void actionPerformed(ActionEvent e) 
     {
@@ -47,7 +46,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
                    ArrayList<String> parolechiavi;
                    String testo = view.getTextSearchGeneral().getText();
                    parolechiavi = EstraiParoleChiavi(testo);
-                   model.doSearch(parolechiavi);      
+                   model.notifySearchName(parolechiavi);      
             }
         }
         else if(action.equals("CREATE"))
@@ -58,10 +57,10 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
             view.getButtonCreateGeneral().setVisible(false);
             view.getTextSearchGeneral().setVisible(false);
             view.getButtonOkSearchGeneral().setVisible(false);
-            view.getPanelCreateEvent().setVisible(false);
+            view.getPanelCreateSecurity().setVisible(false);
             view.getCreatePanel().setVisible(true);
         }
-        else if(action.equals("BACKSECURITY"))
+        else if(action.equals("BACKEVENT"))
         {
             //view.getjPanelAdvSearch().setVisible(false);
             view.getjScrollPane1().setVisible(true);
@@ -77,14 +76,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
            //altrimenti creo una mappa campo-valore e la passo al model x fare l'interrogazione.
         }
     }
-    @Override
-    public void keyTyped(KeyEvent e) {
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-    }
-
+    
     @Override
     public void keyReleased(KeyEvent e) 
     {
@@ -95,10 +87,10 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
             { 
                 String testo = view.getTextSearchGeneral().getText();
                 ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);
-                model.doSearch(parolechiavi);
+                model.notifySearchName(parolechiavi);
             }
            }
     }
     
-       
+    
 }

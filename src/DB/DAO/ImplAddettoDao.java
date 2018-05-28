@@ -135,7 +135,6 @@ public class ImplAddettoDao implements AddettoDao {
             
               
               ps.setString(1,id.toUpperCase());
-              System.out.println(sql);
               executeUpdate = ps.executeUpdate();
               con.close();
               ps.close();

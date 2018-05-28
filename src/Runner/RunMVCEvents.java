@@ -5,7 +5,9 @@
  */
 package Runner;
 
+import Controller.ControllerEvent;
 import Controller.ControllerGeneral;
+import GestioneTabella.ControllerTableEvent;
 import Model.EventModel;
 import View.EventPanel;
 
@@ -17,7 +19,11 @@ import View.EventPanel;
 public class RunMVCEvents {
     
     private EventModel evtModel;
+    private EventPanel evtView;
+    private ControllerEvent controller;
+    private ControllerTableEvent controllerTable;
 
+    
     public EventPanel getEvtView() {
         return evtView;
     }
@@ -25,8 +31,7 @@ public class RunMVCEvents {
     public void setEvtView(EventPanel evtView) {
         this.evtView = evtView;
     }
-    private EventPanel evtView;
-    private ControllerGeneral controller;
+    
     //private ControllerGeneralButton evtControl;
    // private ControllerMouseGeneral mouseController;
     //private ControllerGeneralFocus focusController;
@@ -37,7 +42,8 @@ public class RunMVCEvents {
         evtModel = new EventModel();
         evtView = new EventPanel();
         evtModel.addObserver(evtView);
-        controller = new ControllerGeneral(evtModel,evtView);
+        controller = new ControllerEvent(evtModel,evtView);
+        controllerTable = new ControllerTableEvent(evtModel,evtView);
         /*evtControl = new ControllerGeneralButton();
         evtControl.setModel(evtModel);
         evtControl.setView(evtView);

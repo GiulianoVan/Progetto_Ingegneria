@@ -38,7 +38,6 @@ public class AddettiPanel extends GeneralPanel{
     {
         super();
         this.setComponentsPanel();
-        buttonOkSearchAddetto.setActionCommand("CERCA");
         buttonBackCreateSecurity.setActionCommand("BACKSECURITY");
     }
     

@@ -29,7 +29,7 @@ public class AddettiModel extends Observable {
         setChanged();
         notifyObservers(addetti);
     }
-    public void doUpdate(String new_value,String attribute_to_change,String id)
+    public void doUpdateAddetto(String new_value,String attribute_to_change,String id)
     {
         addettodao.updateAddetto(new_value,attribute_to_change,id);
     }

@@ -8,6 +8,7 @@ package GestioneTabella;
 
 import Model.JavaBean.Customer;
 import Model.JavaBean.Addetto;
+import Model.JavaBean.Event;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Pirozzi
  */
 
-public class MyDefaultTableModel<T>  extends DefaultTableModel {
+public class  MyDefaultTableModel<T>  extends DefaultTableModel {
    
     
     private  int row;
@@ -72,7 +73,7 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
        
        this.addColumn("NOME");
        this.addColumn("COGNOME");
-       this.addColumn("COD. FISCALE");
+       this.addColumn("CF");
        this.addColumn("EMAIL");
        this.addColumn("TELEFONO");
        this.addColumn("STIPENDIO");
@@ -82,6 +83,26 @@ public class MyDefaultTableModel<T>  extends DefaultTableModel {
        for(Addetto add : addetti)
        {
            this.addRow(new String[]{add.getNome(),add.getCognome(),add.getCf(),add.getEmail(),add.getTel(),add.getStipendio().toString(),add.getLivello().toString(),add.getId()});
+       }   
+       //setto sempre l'id all'ultima colonna;
+       this.id_column = this.getColumnCount()-1;
+    }
+    
+        public  void createModelBySetEvent(Set<Event> events)
+    {
+      //  TITOLO,EVENTOTYPE,GENERETYPE,DATA,NOMELUOGO,CAP,DESCRIPTION,IDEVENTO 
+       this.addColumn("TITOLO");
+       this.addColumn("EVENTOTYPE");
+       this.addColumn("GENERETYPE");
+       this.addColumn("DATA");
+       this.addColumn("LUOGO");
+       this.addColumn("CAP");
+       this.addColumn("DESCRIZIONE");
+       this.addColumn("ID");
+
+       for(Event event : events)
+       {
+           this.addRow(new String[]{event.getTitle(),event.getTypeEvent(),event.getTypeGender(),event.getDataEvent(),event.getPlaceName(),event.getCap(),event.getDescription(),event.getIdEvent()});
        }   
        //setto sempre l'id all'ultima colonna;
        this.id_column = this.getColumnCount()-1;
