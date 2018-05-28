@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JavaBean;
+package Model.JavaBean;
 
 /**
  *
@@ -11,18 +11,21 @@ package JavaBean;
  */
 public class Admin {
  
+    
     private String nome; // ("^[a-z]+(['']?[a-z ]+)*$",Pattern.CASE_INSENSITIVE);
     private String cognome; // ("^[a-z]+(['' -]?[a-z ]+)*$",Pattern.CASE_INSENSITIVE);
     private String id; // ("[0-9]{6}$");
     private String cf; // ("^[a-z1-9]{16}$",Pattern.CASE_INSENSITIVE);
 
+
     public Admin(String nome,String cognome,String id,String cf)
     {
-        this.nome = nome;
+        this.nome=nome;
         this.cognome=cognome;
         this.id=id;
         this.cf=cf;
     }
+    
     public String getCf() {
         return cf;
     }

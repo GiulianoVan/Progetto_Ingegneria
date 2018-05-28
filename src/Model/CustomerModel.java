@@ -7,7 +7,7 @@ package Model;
 
 import GestioneTabella.MyDefaultTableModel;
 import DB.DAO.ImplCustomerDao;
-import JavaBean.Customer;
+import Model.JavaBean.Customer;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Set;

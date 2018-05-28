@@ -8,7 +8,7 @@ package DB.DAO;
 import DB.Database.DBConnect;
 import Model.CustomerModel;
 import java.util.List;
-import JavaBean.Customer;
+import Model.JavaBean.Customer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

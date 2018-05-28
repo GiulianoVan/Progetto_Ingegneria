@@ -6,8 +6,8 @@
 package GestioneTabella;
 
 
-import JavaBean.Customer;
-import JavaBean.Addetto;
+import Model.JavaBean.Customer;
+import Model.JavaBean.Addetto;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 

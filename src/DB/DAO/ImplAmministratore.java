@@ -6,7 +6,7 @@
 package DB.DAO;
 
 import DB.Database.DBConnect;
-import JavaBean.Admin;
+import Model.JavaBean.Admin;
 import java.sql.*;
 
 
@@ -14,6 +14,7 @@ import java.sql.*;
  *
  * @author Pirozzi
  */
+/*
 public class ImplAmministratore implements AmministratoreDao {
     
     private Connection con;
@@ -51,3 +52,4 @@ public class ImplAmministratore implements AmministratoreDao {
     }
     
 }
+*/

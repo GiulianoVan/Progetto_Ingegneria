@@ -6,8 +6,8 @@
 package DB.DAO;
 
 import DB.Database.DBConnect;
-import JavaBean.Admin;
-import JavaBean.Event;
+import Model.JavaBean.Admin;
+import Model.JavaBean.Event;
 import View.EventView;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

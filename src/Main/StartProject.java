@@ -1,7 +1,7 @@
 package Main;
 
 
-import JavaBean.Admin;
+import Model.JavaBean.Admin;
 import Runner.RunMVCLogin;
 import View.*;
 import Runner.RunMVCEvents;

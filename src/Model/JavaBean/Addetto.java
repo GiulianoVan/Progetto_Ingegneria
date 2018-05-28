@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JavaBean;
+package Model.JavaBean;
 
 import java.util.Objects;
 
@@ -12,7 +12,7 @@ import java.util.Objects;
  * @author Pirozzi
  */
 public class Addetto {
-
+    
    private double stipendio; // ("^[0-9]+?.[0-9]{2}$");
    private String email; /* IF( (REGEXP_LIKE(EMAIL,'^[a-z0-9]{1}[a-z0-9._%-]{0,62}[a-z0-9_%-]{1}\@[a-z0-9]{1}[a-z0-9._%-]{1,252}\.[a-z]{2,4}$','i')) ) THEN
 			SELECT REGEXP_SUBSTR(EMAIL,'[.]{2,}',1) INTO MULTIPLE_DOTS FROM DUAL; --Verifica se ci sono più punti consecutivi - esempio: mar.rossi@studenti..unina.it
@@ -31,6 +31,7 @@ public class Addetto {
    private String username;
 
     public String getPassword() {
+        
         return password;
     }
 

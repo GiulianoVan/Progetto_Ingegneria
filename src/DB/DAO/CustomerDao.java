@@ -5,7 +5,7 @@
  */
 package DB.DAO;
 
-import JavaBean.Customer;
+import Model.JavaBean.Customer;
 import Model.CustomerModel;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,5 +25,5 @@ public interface CustomerDao {
     public List<CustomerModel> searchByBigliettiAcquistati(int n);
     
     //public int delete(clientModel x);
-    
+
 }

@@ -5,7 +5,7 @@
  */
 package DB.DAO;
 
-import JavaBean.Admin;
+import Model.JavaBean.Admin;
 
 /**
  *

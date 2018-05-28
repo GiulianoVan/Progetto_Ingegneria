@@ -5,7 +5,7 @@
  */
 package DB.DAO;
 
-import JavaBean.Event;
+import Model.JavaBean.Event;
 import java.util.Set;
 
 /**

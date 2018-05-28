@@ -5,7 +5,7 @@
  */
 package Model.Addetto;
 
-import JavaBean.Addetto;
+import Model.JavaBean.Addetto;
 import DB.DAO.ImplAddettoDao;
 import java.util.ArrayList;
 import java.util.Map;

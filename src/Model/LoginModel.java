@@ -5,7 +5,7 @@
  */
 package Model;
 
-import JavaBean.Admin;
+import Model.JavaBean.Admin;
 import Main.StartProject;
 import DB.DAO.ImplAdminDao;
 import java.util.Observable;
@@ -67,6 +67,7 @@ public class LoginModel extends Observable{
         int x=0;       
         if(this.amministratore != null)
           x=1;  
+        
         
         setChanged();
         notifyObservers(x);
