@@ -34,7 +34,8 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         buttonCreateGeneral.setActionCommand("CREATE");
         buttonOkSearchGeneral.setActionCommand("CERCA");
 
-        deleteAdvSearch.setEnabled(false);
+        buttonDeleteSearch.setEnabled(false);
+        buttonDeleteAdvSearch.setEnabled(false);
         createPanel.setVisible(false);
         tableSearchGeneral.setDefaultRenderer(Object.class,new MyTableCellRenderer());
         jScrollPane1.getViewport().setOpaque(false);
@@ -62,12 +63,12 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         textNameGeneralSearch = new javax.swing.JTextField();
         textCfGeneralSearch = new javax.swing.JTextField();
         buttonOkAdvSearchGeneral = new javax.swing.JButton();
-        dateFromGeneral = new com.toedter.calendar.JDateChooser();
         buttonBackSearchGeneral = new javax.swing.JButton();
+        dateFromGeneral = new com.toedter.calendar.JDateChooser();
         dateToGeneral = new com.toedter.calendar.JDateChooser();
         fromAdvSearch = new javax.swing.JLabel();
         toAdvSearch = new javax.swing.JLabel();
-        deleteAdvSearch = new javax.swing.JButton();
+        buttonDeleteAdvSearch = new javax.swing.JButton();
         comboGenereType = new javax.swing.JComboBox<>();
         createPanel = new javax.swing.JPanel();
         buttonBackCreate = new javax.swing.JButton();
@@ -90,7 +91,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         textSurnameCreate = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
-        deleteSearch = new javax.swing.JButton();
+        buttonDeleteSearch = new javax.swing.JButton();
         SfondoGeneralPanel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(590, 600));
@@ -154,6 +155,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         jPanelAdvSearch.setOpaque(false);
         jPanelAdvSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        comboTypeGeneralSearch.setBackground(new java.awt.Color(255, 222, 177));
         comboTypeGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         comboTypeGeneralSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tipo" }));
         jPanelAdvSearch.add(comboTypeGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 30));
@@ -177,11 +179,15 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         buttonOkAdvSearchGeneral.setBackground(new java.awt.Color(255, 222, 177));
         buttonOkAdvSearchGeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
         jPanelAdvSearch.add(buttonOkAdvSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 40, 30));
-        jPanelAdvSearch.add(dateFromGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 90, 30));
 
         buttonBackSearchGeneral.setBackground(new java.awt.Color(255, 222, 177));
         buttonBackSearchGeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/backIcon.png"))); // NOI18N
         jPanelAdvSearch.add(buttonBackSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 40, 30));
+
+        dateFromGeneral.setBackground(new java.awt.Color(255, 222, 177));
+        jPanelAdvSearch.add(dateFromGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 90, 30));
+
+        dateToGeneral.setBackground(new java.awt.Color(255, 222, 177));
         jPanelAdvSearch.add(dateToGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, 30));
 
         fromAdvSearch.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -192,9 +198,11 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         toAdvSearch.setText("TO");
         jPanelAdvSearch.add(toAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 20, 30));
 
-        deleteAdvSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
-        jPanelAdvSearch.add(deleteAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 40, 30));
+        buttonDeleteAdvSearch.setBackground(new java.awt.Color(255, 222, 177));
+        buttonDeleteAdvSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
+        jPanelAdvSearch.add(buttonDeleteAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 40, 30));
 
+        comboGenereType.setBackground(new java.awt.Color(255, 222, 177));
         comboGenereType.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         comboGenereType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "genere", " " }));
         jPanelAdvSearch.add(comboGenereType, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 130, 30));
@@ -205,9 +213,11 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         createPanel.setPreferredSize(new java.awt.Dimension(590, 600));
         createPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        buttonBackCreate.setBackground(new java.awt.Color(255, 222, 177));
         buttonBackCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/backIcon.png"))); // NOI18N
         createPanel.add(buttonBackCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 50, 40));
 
+        buttonCreate.setBackground(new java.awt.Color(255, 222, 177));
         buttonCreate.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
         buttonCreate.setText("CREATE!");
         createPanel.add(buttonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 100, 40));
@@ -220,16 +230,19 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         descriptionArea.setText("Description...");
         panelCreateEvent.add(descriptionArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 400, 110));
 
+        comboGenEventCreate.setBackground(new java.awt.Color(255, 222, 177));
         comboGenEventCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Genere Evento" }));
         panelCreateEvent.add(comboGenEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 150, 30));
         panelCreateEvent.add(dateCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 150, 30));
 
+        comboTypeEventCreate.setBackground(new java.awt.Color(255, 222, 177));
         comboTypeEventCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo Evento" }));
         panelCreateEvent.add(comboTypeEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 150, 30));
 
         textNameEventCreate.setText("Name Event");
         panelCreateEvent.add(textNameEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, 30));
 
+        comboPlaceEvent.setBackground(new java.awt.Color(255, 222, 177));
         comboPlaceEvent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Luoghi" }));
         panelCreateEvent.add(comboPlaceEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 150, 30));
 
@@ -274,6 +287,8 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         textSurnameCreate.setForeground(new java.awt.Color(153, 153, 153));
         textSurnameCreate.setText("Insert Surname Here");
         panelCreateSecurity.add(textSurnameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 150, 30));
+
+        jDateChooser1.setBackground(new java.awt.Color(255, 222, 177));
         panelCreateSecurity.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 140, 30));
 
         jLabel1.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
@@ -285,8 +300,14 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
 
         add(createPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 600));
 
-        deleteSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
-        add(deleteSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 67, 40, 30));
+        buttonDeleteSearch.setBackground(new java.awt.Color(255, 222, 177));
+        buttonDeleteSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
+        buttonDeleteSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteSearchActionPerformed(evt);
+            }
+        });
+        add(buttonDeleteSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 67, 40, 30));
 
         SfondoGeneralPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
         add(SfondoGeneralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 600));
@@ -315,6 +336,10 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     private void textNameGeneralSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNameGeneralSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textNameGeneralSearchActionPerformed
+
+    private void buttonDeleteSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonDeleteSearchActionPerformed
 
     public JButton getButtonCreate() {
         return buttonCreate;
@@ -365,11 +390,11 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     }
 
     public JButton getDeleteAdvSearch() {
-        return deleteAdvSearch;
+        return buttonDeleteAdvSearch;
     }
 
     public void setDeleteAdvSearch(JButton deleteAdvSearch) {
-        this.deleteAdvSearch = deleteAdvSearch;
+        this.buttonDeleteAdvSearch = deleteAdvSearch;
     }
 
     public JTextField getTextNameCreate() {
@@ -593,11 +618,11 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     }
 
     public JButton getDeleteSearch() {
-        return deleteSearch;
+        return buttonDeleteSearch;
     }
 
     public void setDeleteSearch(JButton deleteSearch) {
-        this.deleteSearch = deleteSearch;
+        this.buttonDeleteSearch = deleteSearch;
     }
 
     public JTextField getTextSearchGeneral() {
@@ -657,6 +682,8 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     private javax.swing.JButton buttonBackSearchGeneral;
     private javax.swing.JButton buttonCreate;
     private javax.swing.JButton buttonCreateGeneral;
+    private javax.swing.JButton buttonDeleteAdvSearch;
+    private javax.swing.JButton buttonDeleteSearch;
     private javax.swing.JButton buttonOkAdvSearchGeneral;
     private javax.swing.JButton buttonOkSearchGeneral;
     private javax.swing.JComboBox<String> comboGenEventCreate;
@@ -668,8 +695,6 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     private com.toedter.calendar.JDateChooser dateCreateEvent;
     private com.toedter.calendar.JDateChooser dateFromGeneral;
     private com.toedter.calendar.JDateChooser dateToGeneral;
-    private javax.swing.JButton deleteAdvSearch;
-    private javax.swing.JButton deleteSearch;
     private javax.swing.JTextArea descriptionArea;
     private javax.swing.JLabel fromAdvSearch;
     private com.toedter.calendar.JDateChooser jDateChooser1;

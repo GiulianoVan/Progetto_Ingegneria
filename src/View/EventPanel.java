@@ -60,12 +60,8 @@ public class EventPanel extends GeneralPanel {
         textCfGeneral = getTextCfGeneralSearch();
         textNameEventSearch = getTextNameGeneralSearch();
         textSearchEvent = getTextSearchGeneral();
-<<<<<<< HEAD
         textCodeEventSearch = getTextCodeGeneralSearch();
-
-=======
         buttonBackCreateEvent = getButtonBackCreate();
->>>>>>> e6a8c9805ea354fe916a999734cf026f44d9ab92
         
         jPanelAdvSearch.setVisible(false);
         

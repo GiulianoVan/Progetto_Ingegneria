@@ -76,7 +76,6 @@ public class CustomerPanel extends GeneralPanel {
         comboGenereTypeSearch.setVisible(false);    
         comboTypeGeneralSearch.setVisible(false);
         buttonCreateCustomer.setVisible(false);
-        jDateChooser1.setVisible(false);
         buttonAdvCustomer.setText("Advanced Search");
         textSearchCustomer.setText("Insert Something Here...");
     

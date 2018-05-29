@@ -56,6 +56,11 @@ public class ControllerCustomer extends ControllerGeneral{
             //se tt è vuoto,impossibile effettuare la ricerca.
            //altrimenti creo una mappa campo-valore e la passo al model x fare l'interrogazione.
         }
+        else if(action.equals("BACKSEARCH"))
+        {
+            super.actionPerformed(e);
+            view.getButtonCreateGeneral().setVisible(false);
+        }
     }
     
     @Override
