@@ -63,10 +63,11 @@ public class EventPanel extends GeneralPanel {
         buttonBackCreateEvent = getButtonBackCreate();
         
         jPanelAdvSearch.setVisible(false);
+        textCodeEventSearch.setVisible(false);
         buttonAdvEvent.setText("Advanced Search");
         buttonCreateEvent.setText("Create Event");
         comboTypeEventSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type Event...", "Sport", "Cinema", "Teatro", "Concerto", "Museo" }));
-        textCodeEventSearch.setText("Insert Code Here...");
+        
         textNameEventSearch.setText("Insert Name Here...");
         textSearchEvent.setText("Insert Name Here...");
     
