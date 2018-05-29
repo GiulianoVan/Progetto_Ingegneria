@@ -7,6 +7,7 @@ package DB.DAO;
 
 import Model.JavaBean.Customer;
 import Model.CustomerModel;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -19,8 +20,8 @@ import java.util.Set;
 public interface CustomerDao {
     
     public int deleteCustomer(Customer customer);
-    public Set<Customer> getCustomerParolaChiave(ArrayList<String> parole);
-    public int updateCustomer(String new_value,String attribute_to_change,String id);
+    public Set<Customer> searchCustomerKeysWords(ArrayList<String> words);
+    public int updateCustomer(String new_value,String attribute_to_change,String id) throws SQLException;
     public List<CustomerModel> searchByEta(int eta);
     public List<CustomerModel> searchByBigliettiAcquistati(int n);
     

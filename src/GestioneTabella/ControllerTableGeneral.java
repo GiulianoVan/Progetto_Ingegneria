@@ -5,7 +5,6 @@
  */
 package GestioneTabella;
 
-import Model.Addetto.AddettiModel;
 import View.GeneralPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -95,16 +94,7 @@ public class ControllerTableGeneral implements MouseListener,KeyListener
    
     @Override
     public void keyReleased(KeyEvent e) {
-         /*  
-        if(e.getKeyChar()=='\n' && view.getTableSearchGeneral().isCellEditable(row, column)) 
-        {
-            MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
-            model.doUpdate((String) view.getTableSearchGeneral().getValueAt(row,column).toString(),view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,0).toString());
-        }
-        else
-        {
-            view.resetValueTable(row, column);
-        }*/
+      
     }
    
 }

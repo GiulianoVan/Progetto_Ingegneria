@@ -25,7 +25,19 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
     private  int column;
     private String oldvalue;
     private int id_column; // l'ultima colonna contiene sempre id.
+    private int row_changed;
+    private int column_changed;
 
+    public void setRow_changed(int row) {
+        row_changed = row;
+    }
+
+    public void setColumn_changed(int col) {
+        column_changed = col;
+    }
+    
+    
+    
     public int getId_column() {
         return id_column;
     }
@@ -75,7 +87,7 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        this.addColumn("COGNOME");
        this.addColumn("CF");
        this.addColumn("EMAIL");
-       this.addColumn("TELEFONO");
+       this.addColumn("TEL");
        this.addColumn("STIPENDIO");
        this.addColumn("LIVELLO");
        this.addColumn("ID");
@@ -107,7 +119,7 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        //setto sempre l'id all'ultima colonna;
        this.id_column = this.getColumnCount()-1;
     }
-    /*
+    
     public  void createModelBySetCustomer(Set<Customer> customer)
     {
        //SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,LIVELLO 
@@ -115,18 +127,19 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        this.addColumn("USERNAME");
        this.addColumn("NOME");
        this.addColumn("COGNOME");
-       this.addColumn("COD. FISCALE");
+       this.addColumn("CF");
        this.addColumn("EMAIL");
-       this.addColumn("TELEFONO");
+       this.addColumn("TEL");
+       this.addColumn("DNASCITA");
        this.addColumn("ID");
        for(Customer add : customer)
        {
-           this.addRow(new String[]{add.getUsername(),add.getName(),add.getSurname(),add.getEmail(),add.getTax_code(),add.getPhone(),add.getDate_born().toString(),add.getIdCustomer()});
+           this.addRow(new String[]{add.getUsername(),add.getName(),add.getSurname(),add.getTax_code(),add.getEmail(),add.getPhone(),add.getDate_born().toString(),add.getIdCustomer()});
        }   
-       
-       this.id_column = this.getColumnCount();
+       //ID SEMPRE SU ULTIMA COLONNA,XKè COLONNE IN MEZZO NON POSSONO ESSERE NASCOSTE.
+       this.id_column = this.getColumnCount()-1;
         
     }
-*/
+
   
 }

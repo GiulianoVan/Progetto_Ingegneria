@@ -8,6 +8,7 @@ package Model;
 import GestioneTabella.MyDefaultTableModel;
 import DB.DAO.ImplCustomerDao;
 import Model.JavaBean.Customer;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Set;
@@ -26,18 +27,27 @@ public class CustomerModel extends Observable {
      *
      * @param parole
      */
-    public void doSearch(ArrayList<String> parole)
+    public void doSearchCustomer(ArrayList<String> parole)
     {
         
-        customer = customerdao.getCustomerParolaChiave(parole);
+        customer = customerdao.searchCustomerKeysWords(parole);
         
         setChanged();
-        //notifyObservers(tab.createModelBySetCustomer(customer));
+        notifyObservers(customer);
     }
-    public void doUpdate(String new_value,String attribute_to_change,String id)
+    public void doUpdateCustomer(String new_value,String attribute_to_change,String id)
     {
+        Integer error = 0;
+        try{
         customerdao.updateCustomer(new_value,attribute_to_change,id);
-    }
+        }
+        catch(SQLException e)
+        {
+             error=1;
+             setChanged();
+        }
+          notifyObservers(error);
+        }
   
   
 }

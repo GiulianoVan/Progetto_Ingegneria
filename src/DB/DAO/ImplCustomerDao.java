@@ -35,14 +35,14 @@ public class ImplCustomerDao implements CustomerDao{
     }
     
     @Override
-    public Set<Customer> getCustomerParolaChiave(ArrayList<String> parole){
+    public Set<Customer> searchCustomerKeysWords(ArrayList<String> words){
          
          Set<Customer>result = new HashSet<>();
          String sql = "SELECT IDCLIENTE,USERNAME,NOME,COGNOME,EMAIL,CF,TEL,DNASCITA FROM CLIENTE WHERE ";
         //CREO LA STRINGA DINAMICAMENTE AGGIUNGENDO LA STESSA STRINGA PER QUANTE SONO LE PAROLE CHIAVI
-        for(String parola : parole)
+        for(String parola : words)
         {
-             sql += "NOME LIKE ? OR COGNOME LIKE ? OR EMAIL LIKE ?  OR ";
+             sql += "NOME LIKE ? OR COGNOME LIKE ? OR EMAIL LIKE ? OR ";
         }
         sql = sql.substring(0,sql.length()-3); //TOLGO ULTIMO OR.
         sql += ";"; //AGGIUNGO PUNTO E VIRGOLA ALLA FINE
@@ -53,10 +53,10 @@ public class ImplCustomerDao implements CustomerDao{
             ps = con.prepareStatement(sql);
             
             //SETTO TUTTI I ? CON I VALORI DINAMICAMENTE. 
-            for(int i = 1;i<=parole.size()*4;++i)
+            for(int i = 1;i<=words.size()*3;++i)
             { 
-              int j = (i-1)/4;
-              ps.setString(i,"%"+parole.get(j)+"%");
+              int j = (i-1)/3;
+              ps.setString(i,"%"+words.get(j)+"%");
             }
             //EFFETTUO QUERY E LA METTO NEL RESULTSET
             rs = ps.executeQuery();
@@ -74,12 +74,11 @@ public class ImplCustomerDao implements CustomerDao{
     }
     
     @Override
-    public int updateCustomer(String new_value, String attribute_to_change, String id) {
+    public int updateCustomer(String new_value, String attribute_to_change, String id) throws SQLException {
 
         String sql = "UPDATE CLIENTE SET "+attribute_to_change+ " = ? WHERE IDCLIENTE = ?;";
         int executeUpdate = 0;
-        try 
-        {
+        
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             
@@ -92,10 +91,7 @@ public class ImplCustomerDao implements CustomerDao{
               rs.close();
               if(executeUpdate < 1)
                 System.out.println("Errore!\nCampi inseriti non validi.");
-        }
-        catch (SQLException ex) {
-            System.out.println("Errore!\nAggiornamento fallito.");
-        }
+
         return executeUpdate;
     }
 

@@ -93,17 +93,7 @@ public class AddettiPanel extends GeneralPanel{
 
     }
     
-        public void SetControllerButton(ActionListener controller)
-        {
-            buttonOkSearchAddetto.addActionListener(controller);
-          
-        }
 
-        public void SetControllerKeyText(KeyListener controller)
-        {
-            textSearchAddetto.addKeyListener(controller);
-        }
-        
      @Override
     public void setNameSearch()
     {

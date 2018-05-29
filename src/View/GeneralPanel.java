@@ -137,6 +137,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
 
             }
         ));
+        tableSearchGeneral.setToolTipText("");
         tableSearchGeneral.setOpaque(false);
         jScrollPane1.setViewportView(tableSearchGeneral);
 

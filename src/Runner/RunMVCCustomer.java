@@ -6,7 +6,9 @@
 package Runner;
 
 
+import Controller.ControllerCustomer;
 import Controller.ControllerGeneral;
+import GestioneTabella.ControllerTableCustomer;
 import Model.CustomerModel;
 import View.CustomerPanel;
 
@@ -19,10 +21,8 @@ public class RunMVCCustomer {
     
     private CustomerModel customerModel;
     private CustomerPanel customerView;
-   // private ControllerKeyTableCustomer controllerTab;
-    //private ControllerMouseTableCustomer controllerMouse;
-    private ControllerGeneral controller;
-    //private ControllerFocusTableCustomer controllerFocus;
+    private ControllerCustomer controller;
+    private ControllerTableCustomer controllerTable;
 
    public void startMVCCustomer()
    {
@@ -32,7 +32,8 @@ public class RunMVCCustomer {
          customerView = new CustomerPanel();
         //model registra un osservatore
         customerModel.addObserver(customerView);
-        controller = new ControllerGeneral(customerModel,customerView);
+        controller = new ControllerCustomer(customerModel,customerView);
+        controllerTable=new ControllerTableCustomer(customerModel,customerView);
         /*
         controllerButton = new ControllerButtonCustomer();
         controllerButton.setModel(model);
