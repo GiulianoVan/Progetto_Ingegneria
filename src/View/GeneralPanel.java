@@ -88,6 +88,8 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         textCFCreate = new javax.swing.JTextField();
         textNameCreate = new javax.swing.JTextField();
         textSurnameCreate = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
         deleteSearch = new javax.swing.JButton();
         SfondoGeneralPanel = new javax.swing.JLabel();
 
@@ -202,6 +204,8 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         createPanel.setOpaque(false);
         createPanel.setPreferredSize(new java.awt.Dimension(590, 600));
         createPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        buttonBackCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/backIcon.png"))); // NOI18N
         createPanel.add(buttonBackCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 50, 40));
 
         buttonCreate.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
@@ -270,6 +274,12 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         textSurnameCreate.setForeground(new java.awt.Color(153, 153, 153));
         textSurnameCreate.setText("Insert Surname Here");
         panelCreateSecurity.add(textSurnameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 150, 30));
+        panelCreateSecurity.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 140, 30));
+
+        jLabel1.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("DATE OF BIRTH");
+        panelCreateSecurity.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 264, 140, 30));
 
         createPanel.add(panelCreateSecurity, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 420, 340));
 
@@ -582,6 +592,14 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
         this.textNameGeneralSearch = textNameGeneralSearch;
     }
 
+    public JButton getDeleteSearch() {
+        return deleteSearch;
+    }
+
+    public void setDeleteSearch(JButton deleteSearch) {
+        this.deleteSearch = deleteSearch;
+    }
+
     public JTextField getTextSearchGeneral() {
         return textSearchGeneral;
     }
@@ -608,6 +626,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
             getTextSearchGeneral().setVisible(false);
             getButtonOkSearchGeneral().setVisible(false);
             getjPanelAdvSearch().setVisible(true);
+            getDeleteSearch().setVisible(false);
     }
     
     public void backNormalSearch()
@@ -617,6 +636,7 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
             getTextSearchGeneral().setVisible(true);
             getButtonOkSearchGeneral().setVisible(true);
             getjPanelAdvSearch().setVisible(false);
+            getDeleteSearch().setVisible(true);
     }
     
     public void DontUpdateRow() {
@@ -652,6 +672,8 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     private javax.swing.JButton deleteSearch;
     private javax.swing.JTextArea descriptionArea;
     private javax.swing.JLabel fromAdvSearch;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelAdvSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelCreateEvent;

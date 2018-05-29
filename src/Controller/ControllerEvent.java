@@ -53,6 +53,7 @@ public class ControllerEvent extends ControllerGeneral{
         {
             //view.getjPanelAdvSearch().setVisible(false);
             view.getjScrollPane1().setVisible(false);
+            view.getDeleteSearch().setVisible(false);
             view.getButtonAdvGeneral().setVisible(false);
             view.getButtonCreateGeneral().setVisible(false);
             view.getTextSearchGeneral().setVisible(false);
@@ -63,6 +64,7 @@ public class ControllerEvent extends ControllerGeneral{
         else if(action.equals("BACKEVENT"))
         {
             //view.getjPanelAdvSearch().setVisible(false);
+            view.getDeleteSearch().setVisible(true);
             view.getjScrollPane1().setVisible(true);
             view.getButtonAdvGeneral().setVisible(true);
             view.getButtonCreateGeneral().setVisible(true);

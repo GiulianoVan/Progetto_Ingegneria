@@ -53,6 +53,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
         else if(action.equals("CREATE"))
         {
             //view.getjPanelAdvSearch().setVisible(false);
+            view.getDeleteSearch().setVisible(false);
             view.getjScrollPane1().setVisible(false);
             view.getButtonAdvGeneral().setVisible(false);
             view.getButtonCreateGeneral().setVisible(false);
@@ -64,6 +65,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
         else if(action.equals("BACKSECURITY"))
         {
             //view.getjPanelAdvSearch().setVisible(false);
+            view.getDeleteSearch().setVisible(true);
             view.getjScrollPane1().setVisible(true);
             view.getButtonAdvGeneral().setVisible(true);
             view.getButtonCreateGeneral().setVisible(true);
