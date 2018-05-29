@@ -21,7 +21,8 @@ public class CustomerPanel extends GeneralPanel {
     private javax.swing.JButton buttonCreateCustomer;
     private javax.swing.JButton buttonOkSearchCustomer;
     private javax.swing.JButton buttonBackSearchCustomer;
-    private javax.swing.JComboBox<String> comboTypeEventCustomer;
+    private javax.swing.JComboBox<String> comboTypeGeneralSearch;
+    private javax.swing.JComboBox<String> comboGenereTypeSearch;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelAdvSearch;
@@ -31,7 +32,13 @@ public class CustomerPanel extends GeneralPanel {
     private javax.swing.JTextField textNameCustomerSearch;
     private javax.swing.JTextField textSearchCustomer;
     private javax.swing.JButton buttonAdvCustomer;
+    private javax.swing.JTextField textCFGeneralSearch;
+    private javax.swing.JTextField textNameCustomer;
+    private javax.swing.JTextField textSurnameCustomer;
+    
     MyDefaultTableModel tab;
+    
+    
     public CustomerPanel()
     {
         super();
@@ -45,30 +52,32 @@ public class CustomerPanel extends GeneralPanel {
         buttonCreateCustomer = getButtonCreateGeneral();
         buttonOkSearchCustomer = getButtonOkSearchGeneral();
         buttonBackSearchCustomer = getButtonBackSearchGeneral();
-        comboTypeEventCustomer = getComboTypeGeneralSearch();
+        comboTypeGeneralSearch = getComboTypeGeneralSearch();
+        comboGenereTypeSearch = getComboGenereType();
         jDateChooser1 = getDateGeneral();
         jPanelAdvSearch = getjPanelAdvSearch();
         jScrollPane1 = getjScrollPane1();
         tableSearchCustomer = getTableSearchGeneral();
-        textCodeCustomerSearch = getTextCodeGeneralSearch();
-        textNameCustomerSearch = getTextNameGeneralSearch();
         textSearchCustomer = getTextSearchGeneral();
+        // ADV SEARCH
+        textSurnameCustomer = getTextCodeGeneralSearch();
+        textNameCustomer = getTextNameGeneralSearch();
+        textCFGeneralSearch = getTextCfGeneralSearch();
+        
         
          // ******* SETTAGGIO TEXT RICARVA AVANZATA *******
-         /*
-           textCFGeneralSearch.setText("Insert CF here");
-           textPlaceGeneralSearch.setText("Insert Place here");
-           textNameAddetto.setText("Insert Name here");
-           textSurnameAddetto.setText("Insert Surname here");
-         */
+         
+         textCFGeneralSearch.setText("Insert CF here");
+         textNameCustomer.setText("Insert Name here");
+         textSurnameCustomer.setText("Insert Surname here");
+         
         
         jPanelAdvSearch.setVisible(false);
-        comboTypeEventCustomer.setVisible(false);
+        comboGenereTypeSearch.setVisible(false);    
+        comboTypeGeneralSearch.setVisible(false);
         buttonCreateCustomer.setVisible(false);
         jDateChooser1.setVisible(false);
         buttonAdvCustomer.setText("Advanced Search");
-        textCodeCustomerSearch.setText("Insert Place Here...");
-        textNameCustomerSearch.setText("Insert CF Here...");
         textSearchCustomer.setText("Insert Something Here...");
     
         
