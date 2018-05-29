@@ -39,6 +39,10 @@ public class MyTableCellRenderer extends JLabel implements TableCellRenderer{
             this.setText((String) value);
             this.setToolTipText(value.toString());
         }
+        else
+        {
+            this.setText("null");
+        }
         if(isSelected)
         {   this.setOpaque(true);
             this.setBackground(new Color(244,164,96));

@@ -7,6 +7,7 @@ package Model.Addetto;
 
 import Model.JavaBean.Addetto;
 import DB.DAO.ImplAddettoDao;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Observable;
@@ -31,7 +32,16 @@ public class AddettiModel extends Observable {
     }
     public void doUpdateAddetto(String new_value,String attribute_to_change,String id)
     {
+        String error = null;
+        try{
         addettodao.updateAddetto(new_value,attribute_to_change,id);
+        }
+        catch(SQLException e)
+        {
+            error = "Update";
+            setChanged();
+        }
+        notifyObservers(error);
     }
    
     public void doAdvancedSearch(Map<String,String> field_value)

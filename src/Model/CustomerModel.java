@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -37,13 +39,12 @@ public class CustomerModel extends Observable {
     }
     public void doUpdateCustomer(String new_value,String attribute_to_change,String id)
     {
-        Integer error = 0;
-        try{
-        customerdao.updateCustomer(new_value,attribute_to_change,id);
-        }
-        catch(SQLException e)
-        {
-             error=1;
+        String error = null;
+        
+        try {
+            customerdao.updateCustomer(new_value,attribute_to_change,id);
+        } catch (SQLException ex) {
+             error="Update";
              setChanged();
         }
           notifyObservers(error);

@@ -6,6 +6,7 @@
 package DB.DAO;
 
 import Model.JavaBean.Addetto;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ public interface AddettoDao {
     
     public int aggiungiAddetto(Addetto addetto);
     public int rimuoviAddetto(String idaddetto);
-    public int updateAddetto(String new_value,String attribute_to_change,String id);
+    public int updateAddetto(String new_value,String attribute_to_change,String id) throws SQLException;
  // public Addetto cercaAddettoStipendioMax(double stipendio);
  // public List<Addetto> cercaAddettoStipendioMaggioredi(double stipendio);
  // public List<Addetto> cercaAddettoStipendioMinidoredi(double stipendio); 

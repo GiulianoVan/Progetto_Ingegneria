@@ -45,6 +45,9 @@ public class ControllerTableGeneral implements MouseListener,KeyListener
                 tab.setRowEditable(row);
                 view.getTableSearchGeneral().editCellAt(row, column);
                 oldvalue=tab.getValueAt(row, column).toString();
+                tab.setOldvalue(oldvalue);
+                tab.setRow_changed(row);
+                tab.setColumn_changed(column);
             }
             else{
                     //SE PREMO UNA VOLTA SU UNA CELLA,E NON HO PREMUTO INVIO PER FARE L'UPDATE.

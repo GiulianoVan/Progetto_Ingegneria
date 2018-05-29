@@ -77,7 +77,7 @@ public class ImplCustomerDao implements CustomerDao{
     public int updateCustomer(String new_value, String attribute_to_change, String id) throws SQLException {
 
         String sql = "UPDATE CLIENTE SET "+attribute_to_change+ " = ? WHERE IDCLIENTE = ?;";
-        int executeUpdate = 0;
+        int executeUpdate;
         
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);

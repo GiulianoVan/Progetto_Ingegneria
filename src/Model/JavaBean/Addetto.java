@@ -5,6 +5,7 @@
  */
 package Model.JavaBean;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -23,13 +24,22 @@ public class Addetto {
 			END IF;*/
    private String tel; // ("^(\+[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$");
    private String cf; // ("^[a-z1-9]{16}$",Pattern.CASE_INSENSITIVE);
-   private int livello; // ("^[1-3]{1}$");
    private String nome; // ("^[a-z]+(['']?[a-z ]+)*$",Pattern.CASE_INSENSITIVE);
    private String cognome; // ("^[a-z]+(['' -]?[a-z ]+)*$",Pattern.CASE_INSENSITIVE);
    private String id; // ("[0-9]{6}$");
    private String password;
    private String username;
+   private Date dnascita;
 
+    public Date getDnascita() {
+        return dnascita;
+    }
+
+    public void setDnascita(Date dnascita) {
+        this.dnascita = dnascita;
+    }
+
+   
     public String getPassword() {
         
         return password;
@@ -55,7 +65,7 @@ public class Addetto {
         this.id = id;
     }
 
-   public Addetto(String nome,String cogn,String cf,String email,String tel,Double stip,int livello,String id)
+   public Addetto(String nome,String cogn,String cf,String email,String tel,Double stip,Date data,String id)
    {
        this.nome = nome;
        this.cognome = cogn;
@@ -63,7 +73,7 @@ public class Addetto {
        this.email = email;
        this.tel = tel;
        this.stipendio = stip;
-       this.livello = livello;
+       this.dnascita = data;
        this.id = id;
    }
   
@@ -118,14 +128,6 @@ public class Addetto {
         this.cf = cf;
     }
 
-    public Integer getLivello() {
-        return livello;
-    }
-
-    public void setLivello(int livello) {
-        this.livello = livello;
-    }
-
     @Override
     public int hashCode() {
         int hash = 3;
@@ -133,7 +135,7 @@ public class Addetto {
         hash = 53 * hash + Objects.hashCode(this.email);
         hash = 53 * hash + Objects.hashCode(this.tel);
         hash = 53 * hash + Objects.hashCode(this.cf);
-        hash = 53 * hash + Objects.hashCode(this.livello);
+        hash = 53 * hash + Objects.hashCode(this.dnascita);
         hash = 53 * hash + Objects.hashCode(this.nome);
         hash = 53 * hash + Objects.hashCode(this.cognome);
         return hash;
@@ -160,7 +162,7 @@ public class Addetto {
         if (!Objects.equals(this.cf, other.cf)) {
             return false;
         }
-        if (!Objects.equals(this.livello, other.livello)) {
+        if (!Objects.equals(this.dnascita, other.dnascita)) {
             return false;
         }
         if (!Objects.equals(this.nome, other.nome)) {

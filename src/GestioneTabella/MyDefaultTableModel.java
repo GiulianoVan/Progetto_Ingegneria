@@ -28,12 +28,29 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
     private int row_changed;
     private int column_changed;
 
+    public String getOldvalue() {
+        return oldvalue;
+    }
+
+    public void setOldvalue(String oldvalue) {
+        this.oldvalue = oldvalue;
+    }
+    
+    
     public void setRow_changed(int row) {
         row_changed = row;
     }
 
     public void setColumn_changed(int col) {
         column_changed = col;
+    }
+
+    public int getRow_changed() {
+        return row_changed;
+    }
+
+    public int getColumn_changed() {
+        return column_changed;
     }
     
     
@@ -94,8 +111,9 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
 
        for(Addetto add : addetti)
        {
-           this.addRow(new String[]{add.getNome(),add.getCognome(),add.getCf(),add.getEmail(),add.getTel(),add.getStipendio().toString(),add.getLivello().toString(),add.getId()});
+           this.addRow(new String[]{add.getNome(),add.getCognome(),add.getCf(),add.getEmail(),add.getTel(),add.getStipendio().toString(),add.getDnascita().toString(),add.getId()});
        }   
+       
        //setto sempre l'id all'ultima colonna;
        this.id_column = this.getColumnCount()-1;
     }

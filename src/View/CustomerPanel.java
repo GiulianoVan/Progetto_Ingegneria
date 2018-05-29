@@ -6,6 +6,7 @@
 package View;
 
 import GestioneTabella.MyDefaultTableModel;
+import java.util.HashSet;
 import java.util.Observable;
 import java.util.Set;
 import javax.swing.JOptionPane;
@@ -30,11 +31,12 @@ public class CustomerPanel extends GeneralPanel {
     private javax.swing.JTextField textNameCustomerSearch;
     private javax.swing.JTextField textSearchCustomer;
     private javax.swing.JButton buttonAdvCustomer;
-    
+    MyDefaultTableModel tab;
     public CustomerPanel()
     {
         super();
         this.setComponentsPanel();
+        tab = null;
     }
     
     public void setComponentsPanel() {
@@ -106,25 +108,31 @@ public class CustomerPanel extends GeneralPanel {
     }
 
     
+    @Override
     public void update(Observable o, Object arg) {
         
-        if(arg.getClass()== Set.class)
-        {
-        MyDefaultTableModel tab = new MyDefaultTableModel();
-        tab.createModelBySetCustomer((Set) arg);
-        tableSearchCustomer.setModel(tab);
-        //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
-        //ultimo indice contiene sempre id.
-        int id_column = tab.getId_column();
-        tableSearchCustomer.removeColumn(tableSearchCustomer.getColumnModel().getColumn(id_column));
+        if(arg.getClass()== HashSet.class)
+        {    
+         tab = new MyDefaultTableModel();
+         tab.createModelBySetCustomer((Set) arg);
+         tableSearchCustomer.setModel(tab);
+         //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
+         //ultimo indice contiene sempre id.
+         int id_column = tab.getId_column();
+         tableSearchCustomer.removeColumn(tableSearchCustomer.getColumnModel().getColumn(id_column));
         }
-        else if(arg.getClass() == Integer.class)
+        else if(arg.getClass() == String.class)
         {
-            Integer error = (Integer) arg;
-            if(error==1)
-            {
-                JOptionPane.showMessageDialog(this, "Dato inserito non valido.\nRiprovare inserendo un valore valido nel campo apposito.", "ERRORE", JOptionPane.ERROR_MESSAGE);
-                this.resetValueTable(row, column,oldvalue);
+            String error = (String) arg;
+            if(error.equalsIgnoreCase("Update"))
+            {   
+                if(tab != null)
+                {
+                  System.out.println(tab.getRow_changed()+"  "+tab.getColumn_changed());
+                  JOptionPane.showMessageDialog(this, "Formato dato inserito non valido.\nRiprovare inserendo un valore valido nel campo apposito.", "ERRORE", JOptionPane.ERROR_MESSAGE);
+                  this.resetValueTable(tab.getRow_changed(),tab.getColumn_changed(),tab.getOldvalue());
+                  
+                }
             }
             
         }

@@ -39,11 +39,10 @@ public class ControllerTableCustomer extends ControllerTableGeneral {
             String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
             if(!view.getTableSearchGeneral().getColumnName(column).equals("EMAIL"))
                 value = value.toUpperCase();
+            
             value= value.replace(",",".");
             view.getTableSearchGeneral().setValueAt(value, row, column);
             model.doUpdateCustomer(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
-            tab.setRow_changed(row);
-            tab.setColumn_changed(column);
             row = -1;
             column=-1;
         }

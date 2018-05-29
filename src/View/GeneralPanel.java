@@ -571,8 +571,8 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     
     
      public void resetValueTable(int row,int column,String oldvalue) {
-
-            tableSearchGeneral.setValueAt((String) oldvalue, row, column);
+            
+            tableSearchGeneral.getModel().setValueAt((String) oldvalue, row, column);
      }  
 
     
