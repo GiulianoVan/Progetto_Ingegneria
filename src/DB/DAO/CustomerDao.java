@@ -21,7 +21,7 @@ public interface CustomerDao {
     
     public int deleteCustomer(Customer customer);
     public Set<Customer> searchCustomerKeysWords(ArrayList<String> words);
-    public int updateCustomer(String new_value,String attribute_to_change,String id) throws SQLException;
+    public int updateCustomer(String new_value,String attribute_to_change,String id);
     public List<CustomerModel> searchByEta(int eta);
     public List<CustomerModel> searchByBigliettiAcquistati(int n);
     

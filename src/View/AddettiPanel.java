@@ -106,8 +106,7 @@ public class AddettiPanel extends GeneralPanel{
     @Override
     public void update(Observable o, Object arg) {
               
-        if(arg.getClass()== HashSet.class)
-        {    
+        
          tab = new MyDefaultTableModel();
          tab.createModelBySetAddetto((Set) arg);
          tableSearchAddetto.setModel(tab);
@@ -116,20 +115,7 @@ public class AddettiPanel extends GeneralPanel{
          int id_column = tab.getId_column();
          tableSearchAddetto.removeColumn(tableSearchAddetto.getColumnModel().getColumn(id_column));
         }
-        else if(arg.getClass() == String.class)
-        {
-            String error = (String) arg;
-            if(error.equalsIgnoreCase("Update"))
-            {   
-                if(tab != null)
-                {
-                  System.out.println(tab.getRow_changed()+"  "+tab.getColumn_changed());
-                  JOptionPane.showMessageDialog(this, "Formato Dato inserito non valido.\nRiprovare inserendo un valore valido nel campo apposito.", "ERRORE", JOptionPane.ERROR_MESSAGE);
-                  this.resetValueTable(tab.getRow_changed(),tab.getColumn_changed(),tab.getOldvalue());
-                  
-                }
-            }
             
-        }                              
-   }
+                              
+   
 }

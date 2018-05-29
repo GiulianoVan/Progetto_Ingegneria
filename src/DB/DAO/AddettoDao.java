@@ -20,7 +20,7 @@ public interface AddettoDao {
     
     public int aggiungiAddetto(Addetto addetto);
     public int rimuoviAddetto(String idaddetto);
-    public int updateAddetto(String new_value,String attribute_to_change,String id) throws SQLException;
+    public int updateAddetto(String new_value,String attribute_to_change,String id);
  // public Addetto cercaAddettoStipendioMax(double stipendio);
  // public List<Addetto> cercaAddettoStipendioMaggioredi(double stipendio);
  // public List<Addetto> cercaAddettoStipendioMinidoredi(double stipendio); 

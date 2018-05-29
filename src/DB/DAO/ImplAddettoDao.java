@@ -121,26 +121,34 @@ public class ImplAddettoDao implements AddettoDao {
     }
 
     @Override
-    public int updateAddetto(String new_value,String attribute_to_change,String id) throws SQLException {
-        
-       // String sql = "UPDATE ADDSICUREZZA SET "+attribute_to_change+ " = ? WHERE IDADDETTO = ?;";
-        String sql = "UPDATE ADDSICUREZZA SET "+attribute_to_change+ " = '"+ new_value+"' WHERE IDSICUREZZA = ?;";
-        int executeUpdate = 0;
+    public int updateAddetto(String new_value,String attribute_to_change,String id)  {
        
+        int executeUpdate = 0;
+
+        try {
+            // String sql = "UPDATE ADDSICUREZZA SET "+attribute_to_change+ " = ? WHERE IDADDETTO = ?;";
+            String sql = "UPDATE ADDSICUREZZA SET "+attribute_to_change+ " = '"+ new_value+"' WHERE IDSICUREZZA = ?;";
+            executeUpdate = 0;
+            
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             
-            //SETTO TUTTI I ? CON I VALORI DINAMICAMENTE. 
-              //ps.setString(1,new_value.toUpperCase());
+            //SETTO TUTTI I ? CON I VALORI DINAMICAMENTE.
+            //ps.setString(1,new_value.toUpperCase());
             
-              
-              ps.setString(1,id.toUpperCase());
-              executeUpdate = ps.executeUpdate();
-              con.close();
-              ps.close();
-              rs.close();
+            
+            ps.setString(1,id.toUpperCase());
+            executeUpdate = ps.executeUpdate();
+            con.close();
+            ps.close();
+            rs.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ImplAddettoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         return executeUpdate;
+
     }
 
     @Override

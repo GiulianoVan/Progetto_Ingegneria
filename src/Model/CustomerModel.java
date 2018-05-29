@@ -41,14 +41,7 @@ public class CustomerModel extends Observable {
     {
         String error = null;
         
-        try {
-            customerdao.updateCustomer(new_value,attribute_to_change,id);
-        } catch (SQLException ex) {
-             error="Update";
-             setChanged();
-        }
-          notifyObservers(error);
-        }
-  
-  
+        customerdao.updateCustomer(new_value,attribute_to_change,id);
+    }
+    
 }

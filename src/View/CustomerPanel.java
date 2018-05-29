@@ -110,9 +110,7 @@ public class CustomerPanel extends GeneralPanel {
     
     @Override
     public void update(Observable o, Object arg) {
-        
-        if(arg.getClass()== HashSet.class)
-        {    
+           
          tab = new MyDefaultTableModel();
          tab.createModelBySetCustomer((Set) arg);
          tableSearchCustomer.setModel(tab);
@@ -120,23 +118,8 @@ public class CustomerPanel extends GeneralPanel {
          //ultimo indice contiene sempre id.
          int id_column = tab.getId_column();
          tableSearchCustomer.removeColumn(tableSearchCustomer.getColumnModel().getColumn(id_column));
-        }
-        else if(arg.getClass() == String.class)
-        {
-            String error = (String) arg;
-            if(error.equalsIgnoreCase("Update"))
-            {   
-                if(tab != null)
-                {
-                  System.out.println(tab.getRow_changed()+"  "+tab.getColumn_changed());
-                  JOptionPane.showMessageDialog(this, "Formato dato inserito non valido.\nRiprovare inserendo un valore valido nel campo apposito.", "ERRORE", JOptionPane.ERROR_MESSAGE);
-                  this.resetValueTable(tab.getRow_changed(),tab.getColumn_changed(),tab.getOldvalue());
-                  
-                }
-            }
-            
-        }
-    }
+       
+       }
     
     
 }

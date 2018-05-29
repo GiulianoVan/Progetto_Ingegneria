@@ -32,16 +32,7 @@ public class AddettiModel extends Observable {
     }
     public void doUpdateAddetto(String new_value,String attribute_to_change,String id)
     {
-        String error = null;
-        try{
-        addettodao.updateAddetto(new_value,attribute_to_change,id);
-        }
-        catch(SQLException e)
-        {
-            error = "Update";
-            setChanged();
-        }
-        notifyObservers(error);
+        addettodao.updateAddetto(new_value,attribute_to_change,id);       
     }
    
     public void doAdvancedSearch(Map<String,String> field_value)

@@ -16,6 +16,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -74,25 +76,29 @@ public class ImplCustomerDao implements CustomerDao{
     }
     
     @Override
-    public int updateCustomer(String new_value, String attribute_to_change, String id) throws SQLException {
-
-        String sql = "UPDATE CLIENTE SET "+attribute_to_change+ " = ? WHERE IDCLIENTE = ?;";
-        int executeUpdate;
+    public int updateCustomer(String new_value, String attribute_to_change, String id){
         
+        int executeUpdate=0;
+        try {
+            String sql = "UPDATE CLIENTE SET "+attribute_to_change+ " = ? WHERE IDCLIENTE = ?;";
+            
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             
-            //SETTO TUTTI I ? CON I VALORI DINAMICAMENTE. 
-              ps.setString(1,new_value.toUpperCase());
-              ps.setString(2,id.toUpperCase());
-              executeUpdate = ps.executeUpdate();
-              con.close();
-              ps.close();
-              rs.close();
-              if(executeUpdate < 1)
+            //SETTO TUTTI I ? CON I VALORI DINAMICAMENTE.
+            ps.setString(1,new_value.toUpperCase());
+            ps.setString(2,id.toUpperCase());
+            executeUpdate = ps.executeUpdate();
+            con.close();
+            ps.close();
+            rs.close();
+            if(executeUpdate < 1)
                 System.out.println("Errore!\nCampi inseriti non validi.");
-
-        return executeUpdate;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ImplCustomerDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return executeUpdate;
     }
 
     @Override
