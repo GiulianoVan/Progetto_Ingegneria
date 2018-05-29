@@ -7,8 +7,9 @@ package Runner;
 
 
 import Controller.ControllerAddetto;
+import DB.DAO.ImplAddettoDao;
 import GestioneTabella.ControllerTableAddetto;
-import Model.Addetto.AddettiModel;
+import Model.MODELDACANCELARE.AddettiModel;
 import View.AddettiPanel;
 
 
@@ -16,24 +17,22 @@ import View.AddettiPanel;
  *
  * @author Pirozzi
  */
-public class RunMVCAddetti {
+public class RunBCEAddetti {
     
-    AddettiModel addettiModel;
     AddettiPanel addettiView;
     ControllerAddetto controller;
     ControllerTableAddetto controllerTable;
-   
+    ImplAddettoDao dao;
     
    public void startMVCAddetti()
    {
     
-         addettiModel = new AddettiModel();
+        dao = new ImplAddettoDao();
         // creo le addettiView passando il addettiModel
          addettiView = new AddettiPanel();
         //model registra un osservatore
-        addettiModel.addObserver(addettiView);
-        controller = new ControllerAddetto(addettiModel,addettiView);
-        controllerTable = new ControllerTableAddetto(addettiModel,addettiView);
+        controller = new ControllerAddetto(dao,addettiView);
+        controllerTable = new ControllerTableAddetto(dao,addettiView);
         
         
         

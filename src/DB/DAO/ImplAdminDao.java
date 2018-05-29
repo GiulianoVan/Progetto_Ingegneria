@@ -21,13 +21,12 @@ public class ImplAdminDao implements AmministratoreDao {
     private ResultSet rs;
     
     @Override
-    public Admin searchbyUserAndPassword(String user, String password) {
+    public Admin searchbyUserAndPassword(String user, String password) throws SQLException {
             
         Admin amm = null;
         con = DBConnect.getConnection();
         String sql = "SELECT NOME,COGNOME,IDAMM,CF FROM AMMINISTRATORE WHERE USERNAME=? AND PASSWORD=?";
-        try
-        {
+        
             ps = con.prepareStatement(sql);
             ps.setString(1,user);
             ps.setString(2,password);
@@ -40,12 +39,6 @@ public class ImplAdminDao implements AmministratoreDao {
          rs.close();
          ps.close();   
          con.close();
-        }
-        catch(SQLException x)
-        {
-            System.out.println("Errore in searchbyUserAndPassword Ammministratore");
-        }
-        
             
         return amm;
     }

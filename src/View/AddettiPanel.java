@@ -104,10 +104,8 @@ public class AddettiPanel extends GeneralPanel{
         textSearchAddetto.setText("Insert something here..");
     }
         
-    @Override
-    public void update(Observable o, Object arg) {
+    public void updateTable(Object arg) {
               
-        
          tab = new MyDefaultTableModel();
          tab.createModelBySetAddetto((Set) arg);
          tableSearchAddetto.setModel(tab);

@@ -8,8 +8,10 @@ package Runner;
 
 import Controller.ControllerCustomer;
 import Controller.ControllerGeneral;
+import DB.DAO.CustomerDao;
+import DB.DAO.ImplCustomerDao;
 import GestioneTabella.ControllerTableCustomer;
-import Model.CustomerModel;
+import Model.MODELDACANCELARE.CustomerModel;
 import View.CustomerPanel;
 
 
@@ -17,23 +19,18 @@ import View.CustomerPanel;
  *
  * @author Vincent
  */
-public class RunMVCCustomer {
+public class RunBCECustomer {
     
-    private CustomerModel customerModel;
     private CustomerPanel customerView;
     private ControllerCustomer controller;
     private ControllerTableCustomer controllerTable;
-
+    private CustomerDao dao;
    public void startMVCCustomer()
    {
-    
-         customerModel = new CustomerModel();
-        // creo le view passando il model
+         dao= new ImplCustomerDao();
          customerView = new CustomerPanel();
-        //model registra un osservatore
-        customerModel.addObserver(customerView);
-        controller = new ControllerCustomer(customerModel,customerView);
-        controllerTable=new ControllerTableCustomer(customerModel,customerView);
+        controller = new ControllerCustomer(dao,customerView);
+        controllerTable=new ControllerTableCustomer(dao,customerView);
         /*
         controllerButton = new ControllerButtonCustomer();
         controllerButton.setModel(model);

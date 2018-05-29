@@ -22,7 +22,7 @@ import javax.swing.JTextField;
  *
  * @author giuli
  */
-public class GeneralPanel extends javax.swing.JPanel implements Observer {
+public abstract class GeneralPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form GeneralPanel
@@ -639,9 +639,9 @@ public class GeneralPanel extends javax.swing.JPanel implements Observer {
     }
  
     
-    @Override
-    public void update(Observable o, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public void updateTable(Object arg) {
+
     }
     
     public void changeAdvGeneral()

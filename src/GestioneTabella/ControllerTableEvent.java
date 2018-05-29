@@ -5,12 +5,17 @@
  */
 package GestioneTabella;
 
-import Model.Addetto.AddettiModel;
-import Model.EventModel;
+import DB.DAO.EventDao;
+import Model.MODELDACANCELARE.AddettiModel;
+import Model.MODELDACANCELARE.EventModel;
 import View.GeneralPanel;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,14 +23,14 @@ import java.util.regex.Pattern;
  */
 public class ControllerTableEvent extends ControllerTableGeneral{
     
-    private EventModel model;
+    private EventDao dao;
     private GeneralPanel view;
     boolean flag;
     
-     public ControllerTableEvent(EventModel model, GeneralPanel view) 
+     public ControllerTableEvent(EventDao dao, GeneralPanel view) 
      {
-        super(model,view);
-        this.model = model;
+        super(view);
+        this.dao = dao;
         this.view = view;
         view.addKeyListener(this);
     }
@@ -46,25 +51,19 @@ public class ControllerTableEvent extends ControllerTableGeneral{
                 if(!view.getTableSearchGeneral().getColumnName(column).equals("EMAIL"))
                     value = value.toUpperCase();
 
-                if(view.getTableSearchGeneral().getColumnName(column).equals("TITOLO"))
-                 {
-                         flag =  validateTitolo(view.getTableSearchGeneral().getValueAt(row, column).toString());
-                 }
-                else if( view.getTableSearchGeneral().getColumnName(column).equals(""))
-
-                if(flag != false)
-                {
-                    flag=false;
-                    value= value.replace(",",".");
-                    view.getTableSearchGeneral().setValueAt(value, row, column);
-                    model.doUpdateEvent(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
-                    row = -1;
-                    column=-1;
-                }
-                else
-                {
-                     System.out.println("ERRORE");   
-                 }
+                
+                    try {
+                        flag=false;
+                        value= value.replace(",",".");
+                        view.getTableSearchGeneral().setValueAt(value, row, column);
+                        dao.updateEvent(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
+                        row = -1;
+                        column=-1;
+                    } catch (SQLException ex) {
+                        String msg = ex.getMessage();
+                     JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                     }
+                
         }
         else
         {
@@ -88,12 +87,4 @@ public class ControllerTableEvent extends ControllerTableGeneral{
             
     }
     
-    public boolean validateTitolo(String titolo)
-    { 
-         Pattern model = Pattern.compile("[a-z0-9,.;'\"/-_#?!]+$",Pattern.CASE_INSENSITIVE);
-         Matcher t = model.matcher(titolo);        
-         return t.find();
-         
-       
-    }
 }

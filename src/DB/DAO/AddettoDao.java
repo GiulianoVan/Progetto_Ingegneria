@@ -18,14 +18,14 @@ import java.util.Set;
  */
 public interface AddettoDao {
     
-    public int aggiungiAddetto(Addetto addetto);
-    public int rimuoviAddetto(String idaddetto);
-    public int updateAddetto(String new_value,String attribute_to_change,String id);
+    public int aggiungiAddetto(Addetto addetto) throws SQLException;
+    public int rimuoviAddetto(String idaddetto) throws SQLException;
+    public int updateAddetto(String new_value,String attribute_to_change,String id) throws SQLException;
  // public Addetto cercaAddettoStipendioMax(double stipendio);
  // public List<Addetto> cercaAddettoStipendioMaggioredi(double stipendio);
  // public List<Addetto> cercaAddettoStipendioMinidoredi(double stipendio); 
  // public Addetto cercaAddettoNomeCognomeCf(String nome,String cognome,String cf);
  // public List<Addetto> getAllAddetti();
-    public Set<Addetto> advancedSearch(Map<String,String> campo_value); //ogni chiave della mappa è un campo,ed ogni campo ha un valore associato.
-    public Set<Addetto> getAddettiParolaChiave(ArrayList<String> parola);
+    public Set<Addetto> advancedSearch(Map<String,String> campo_value) throws SQLException; //ogni chiave della mappa è un campo,ed ogni campo ha un valore associato.
+    public Set<Addetto> getAddettiParolaChiave(ArrayList<String> parola) throws SQLException;
 }

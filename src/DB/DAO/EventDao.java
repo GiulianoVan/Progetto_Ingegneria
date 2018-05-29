@@ -6,6 +6,7 @@
 package DB.DAO;
 
 import Model.JavaBean.Event;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -16,9 +17,9 @@ import java.util.Set;
 public interface EventDao
 {
     //public Set<Event> searchEvent(String evtName);
-    public Event advancedSearchEvent(String evtName, String codEvt, String dateEvt, String typeEvt);
-    public void createEvent();
-    public int updateEvent(String new_value,String attribute_to_change,String id);
-    public int deleteEvent();  
-    public Set<Event> searchEventKeysWords(ArrayList<String> words );
+    public Event advancedSearchEvent(String evtName, String codEvt, String dateEvt, String typeEvt) throws SQLException;
+    public void createEvent() throws SQLException;
+    public int updateEvent(String new_value,String attribute_to_change,String id) throws SQLException;
+    public int deleteEvent() throws SQLException;  
+    public Set<Event> searchEventKeysWords(ArrayList<String> words ) throws SQLException;
 }

@@ -21,14 +21,14 @@ import java.util.Observable;
  *
  * @author Pirozzi
  */
-public class ControllerGeneral implements ActionListener,MouseListener,FocusListener,KeyListener{
+public abstract class ControllerGeneral implements ActionListener,MouseListener,FocusListener,KeyListener{
 
     GeneralPanel view;
-    Observable model;
     
-    public ControllerGeneral(Observable model,GeneralPanel view)
+    
+     ControllerGeneral(GeneralPanel view)
     {
-        this.model = model;
+        
         this.view =view;
         this.view.getButtonAdvGeneral().addActionListener(this);
         this.view.getButtonBackSearchGeneral().addActionListener(this);

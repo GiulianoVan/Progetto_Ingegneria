@@ -77,7 +77,7 @@ public class ImplAddettoDao implements AddettoDao {
 
 
     @Override
-    public Set<Addetto> getAddettiParolaChiave(ArrayList<String> parole){
+    public Set<Addetto> getAddettiParolaChiave(ArrayList<String> parole) throws SQLException{
          
          Set<Addetto>result = new HashSet<>();
          String sql = "SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,DNASCITA,IDSICUREZZA FROM ADDSICUREZZA WHERE ";
@@ -89,8 +89,7 @@ public class ImplAddettoDao implements AddettoDao {
         sql = sql.substring(0,sql.length()-3); //TOLGO ULTIMO OR.
         sql += ";"; //AGGIUNGO PUNTO E VIRGOLA ALLA FINE
         System.out.println(sql);
-        try 
-        {
+        
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             //SETTO TUTTI I ? CON I VALORI DINAMICAMENTE. 
@@ -111,21 +110,17 @@ public class ImplAddettoDao implements AddettoDao {
             con.close();
             ps.close();
             rs.close();
-        }
-        catch (SQLException ex) {
-            System.out.println("Errore in getAddettiParolaChiaveDao");
-            ex.printStackTrace();
-        }
+        
         
         return result;
     }
 
     @Override
-    public int updateAddetto(String new_value,String attribute_to_change,String id)  {
+    public int updateAddetto(String new_value,String attribute_to_change,String id) throws SQLException  {
        
         int executeUpdate = 0;
 
-        try {
+
             // String sql = "UPDATE ADDSICUREZZA SET "+attribute_to_change+ " = ? WHERE IDADDETTO = ?;";
             String sql = "UPDATE ADDSICUREZZA SET "+attribute_to_change+ " = '"+ new_value+"' WHERE IDSICUREZZA = ?;";
             executeUpdate = 0;
@@ -143,16 +138,14 @@ public class ImplAddettoDao implements AddettoDao {
             ps.close();
             rs.close();
             
-        } catch (SQLException ex) {
-            Logger.getLogger(ImplAddettoDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
         
         return executeUpdate;
 
     }
 
     @Override
-    public Set<Addetto> advancedSearch(Map<String, String> campo_value) {
+    public Set<Addetto> advancedSearch(Map<String, String> campo_value) throws SQLException {
 
         String sql = "SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,DNASCITA,IDSICUREZZA FROM ADDSICUREZZA WHERE ";
         int i = 1;
@@ -166,8 +159,7 @@ public class ImplAddettoDao implements AddettoDao {
         
         sql = sql.substring(0,sql.length()-4);//TOLGO L'AND FINALE
         
-        try 
-        {                
+                       
             con =DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             for(String key : campo_value.keySet())
@@ -181,10 +173,7 @@ public class ImplAddettoDao implements AddettoDao {
                 result.add(new Addetto(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getDate(7),rs.getString(8)));
             }
             
-        } catch (SQLException ex) {
-            Logger.getLogger(ImplAddettoDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("[Errore] Comunicazione fallita con il database.Impossibile effettuare la ricerca");
-        }
+       
        return result;
     }
 }

@@ -6,6 +6,7 @@
 package DB.DAO;
 
 import Model.JavaBean.Admin;
+import java.sql.SQLException;
 
 /**
  *
@@ -13,5 +14,5 @@ import Model.JavaBean.Admin;
  */
 public interface AmministratoreDao {
     
-    public Admin searchbyUserAndPassword(String user,String password);
+    public Admin searchbyUserAndPassword(String user,String password) throws SQLException;
 }

@@ -7,8 +7,10 @@ package Runner;
 
 import Controller.ControllerEvent;
 import Controller.ControllerGeneral;
+import DB.DAO.EventDao;
+import DB.DAO.ImplEventDao;
 import GestioneTabella.ControllerTableEvent;
-import Model.EventModel;
+import Model.MODELDACANCELARE.EventModel;
 import View.EventPanel;
 
 
@@ -16,9 +18,9 @@ import View.EventPanel;
  *
  * @author giuli
  */
-public class RunMVCEvents {
+public class RunBCEEvents {
     
-    private EventModel evtModel;
+    private EventDao dao;
     private EventPanel evtView;
     private ControllerEvent controller;
     private ControllerTableEvent controllerTable;
@@ -38,12 +40,10 @@ public class RunMVCEvents {
     
     public void startRunMVCEvents()
     {
-       
-        evtModel = new EventModel();
+        dao = new ImplEventDao();
         evtView = new EventPanel();
-        evtModel.addObserver(evtView);
-        controller = new ControllerEvent(evtModel,evtView);
-        controllerTable = new ControllerTableEvent(evtModel,evtView);
+        controller = new ControllerEvent(dao,evtView);
+        controllerTable = new ControllerTableEvent(dao,evtView);
         /*evtControl = new ControllerGeneralButton();
         evtControl.setModel(evtModel);
         evtControl.setView(evtView);

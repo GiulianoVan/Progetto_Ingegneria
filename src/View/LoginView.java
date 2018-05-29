@@ -16,7 +16,7 @@ import javax.swing.JTextField;
  *
  * @author giuli
  */
-public class LoginView extends javax.swing.JFrame implements Observer{
+public class LoginView extends javax.swing.JFrame{
 
     /**
      * Creates new form LoginView
@@ -114,12 +114,11 @@ public class LoginView extends javax.swing.JFrame implements Observer{
     /**
      * @param args the command line arguments
      */
-    @Override
-    public void update(Observable o, Object risultato) {
+    
+    public void accessApp(Object admin) {
            
-            Integer errore = (Integer) risultato;
-            if(errore == 0)
-            {
+            
+            if(admin == null){
               JOptionPane.showMessageDialog(this, "Connessione fallita. Credenziali  errate.\nRiprovare.", "ERRORE", JOptionPane.ERROR_MESSAGE);
             }
             else
@@ -127,10 +126,9 @@ public class LoginView extends javax.swing.JFrame implements Observer{
                 this.dispose();
                 GeneralView home = new GeneralView();
                 home.setLocationRelativeTo(null);
-                home.setVisible(true);
-                
+                home.setVisible(true);   
             }
-    }
+    }  
 
     public JButton getAccediButton() {
         return AccediButton;

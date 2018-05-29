@@ -5,9 +5,14 @@
  */
 package GestioneTabella;
 
-import Model.CustomerModel;
+import DB.DAO.CustomerDao;
+import Model.MODELDACANCELARE.CustomerModel;
 import View.GeneralPanel;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,13 +20,13 @@ import java.awt.event.KeyEvent;
  */
 public class ControllerTableCustomer extends ControllerTableGeneral {
   
-    private CustomerModel model;
+    private CustomerDao dao;
     private GeneralPanel view;
     
     
-    public ControllerTableCustomer(CustomerModel model, GeneralPanel view) {
-        super(model,view);
-        this.model = model;
+    public ControllerTableCustomer(CustomerDao dao, GeneralPanel view) {
+        super(view);
+        this.dao = dao;
         this.view = view;
         view.addKeyListener(this);
     }
@@ -34,17 +39,22 @@ public class ControllerTableCustomer extends ControllerTableGeneral {
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
         if(e.getKeyChar()=='\n' && view.getTableSearchGeneral().isCellEditable(row, column)) 
         {
-            tab.setColumnEditable(-1);
-            tab.setRowEditable(-1);
-            String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
-            if(!view.getTableSearchGeneral().getColumnName(column).equals("EMAIL"))
-                value = value.toUpperCase();
-            
-            value= value.replace(",",".");
-            view.getTableSearchGeneral().setValueAt(value, row, column);
-            model.doUpdateCustomer(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
-            row = -1;
-            column=-1;
+            try {
+                tab.setColumnEditable(-1);
+                tab.setRowEditable(-1);
+                String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
+                if(!view.getTableSearchGeneral().getColumnName(column).equals("EMAIL"))
+                    value = value.toUpperCase();
+                
+                value= value.replace(",",".");
+                view.getTableSearchGeneral().setValueAt(value, row, column);
+                dao.updateCustomer(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
+                row = -1;
+                column=-1;
+            } catch (SQLException ex) {
+                String msg = ex.getMessage();
+                     JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+            }
         }
         else
         {

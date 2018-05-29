@@ -16,17 +16,16 @@ import java.util.Observable;
  *
  * @author Pirozzi
  */
-public class ControllerTableGeneral implements MouseListener,KeyListener
+public abstract class  ControllerTableGeneral implements MouseListener,KeyListener
 {
     private GeneralPanel view;
-    private Observable model; // posso dare addettiModel
+    
     protected int row=-1;
     protected int column=-1;
     protected String oldvalue;
     
-    public ControllerTableGeneral(Observable model,GeneralPanel view)
+    public ControllerTableGeneral(GeneralPanel view)
     {
-        this.model = model;
         this.view= view;
         this.view.getTableSearchGeneral().addMouseListener(this);
         this.view.getTableSearchGeneral().addKeyListener(this);

@@ -5,23 +5,28 @@
  */
 package GestioneTabella;
 
-import Model.Addetto.AddettiModel;
+import DB.DAO.AddettoDao;
+import Model.MODELDACANCELARE.AddettiModel;
 import View.GeneralPanel;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Pirozzi
  */
 public class ControllerTableAddetto extends ControllerTableGeneral{
-    
-    private AddettiModel model;
+
+    private AddettoDao dao;
     private GeneralPanel view;
     
     
-    public ControllerTableAddetto(AddettiModel model, GeneralPanel view) {
-        super(model,view);
-        this.model = model;
+    public ControllerTableAddetto(AddettoDao dao, GeneralPanel view) {
+        super(view);
+        this.dao = dao;
         this.view = view;
         view.addKeyListener(this);
     }
@@ -36,16 +41,21 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
         if(e.getKeyChar()=='\n' && view.getTableSearchGeneral().isCellEditable(row, column)) 
         {
-            tab.setColumnEditable(-1);
-            tab.setRowEditable(-1);
-            String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
-            if(!view.getTableSearchGeneral().getColumnName(column).equals("EMAIL"))
-                value = value.toUpperCase();
-            value= value.replace(",",".");
-            view.getTableSearchGeneral().setValueAt(value, row, column);
-            model.doUpdateAddetto(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
-            row = -1;
-            column=-1;
+            try {
+                tab.setColumnEditable(-1);
+                tab.setRowEditable(-1);
+                String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
+                if(!view.getTableSearchGeneral().getColumnName(column).equals("EMAIL"))
+                    value = value.toUpperCase();
+                value= value.replace(",",".");
+                view.getTableSearchGeneral().setValueAt(value, row, column);
+                dao.updateAddetto(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
+                row = -1;
+                column=-1;
+            } catch (SQLException ex) {
+                  String msg = ex.getMessage();
+                     JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+            }
         }
         else
         {

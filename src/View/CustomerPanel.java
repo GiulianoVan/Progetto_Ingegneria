@@ -117,7 +117,7 @@ public class CustomerPanel extends GeneralPanel {
 
     
     @Override
-    public void update(Observable o, Object arg) {
+    public void updateTable(Object arg) {
            
          tab = new MyDefaultTableModel();
          tab.createModelBySetCustomer((Set) arg);

@@ -102,7 +102,7 @@ public class EventPanel extends GeneralPanel {
     }
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void updateTable(Object arg) {
          MyDefaultTableModel tab = new MyDefaultTableModel();
         tab.createModelBySetEvent((Set) arg);
         tableSearchEvent.setModel(tab);

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model.Addetto;
+package Model.MODELDACANCELARE;
 
 import Model.JavaBean.Addetto;
 import DB.DAO.ImplAddettoDao;
@@ -21,7 +21,6 @@ public class AddettiModel extends Observable {
    
     public Set<Addetto>addetti;
     private ImplAddettoDao addettodao = new ImplAddettoDao();
- 
  
     public void doSearch(ArrayList<String> parole)
     {

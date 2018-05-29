@@ -6,7 +6,9 @@
 package Runner;
 
 import Controller.ControllerLogin;
-import Model.LoginModel;
+import DB.DAO.AmministratoreDao;
+import DB.DAO.ImplAdminDao;
+import Model.MODELDACANCELARE.LoginModel;
 import View.LoginView;
 
 /**
@@ -15,12 +17,13 @@ import View.LoginView;
  */
 public class RunMVCLogin {
     
+    
     public void startRunMVCLogin()
     {
-        LoginModel loginmod = new LoginModel();
+
+        AmministratoreDao dao = new ImplAdminDao();
         LoginView loginview = new LoginView();
-        loginmod.addObserver(loginview);
-        ControllerLogin controlLogin = new ControllerLogin(loginmod, loginview);
+        ControllerLogin controlLogin = new ControllerLogin(dao, loginview);
         loginview.setLocationRelativeTo(null);//apre la finestra al centro dello schermo
         loginview.setVisible(true);
     }

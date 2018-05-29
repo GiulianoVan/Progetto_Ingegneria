@@ -5,15 +5,21 @@
  */
 package Controller;
 
+import DB.DAO.AmministratoreDao;
 import DB.DAO.ImplAdminDao;
+import Main.StartProject;
 import Model.JavaBean.Admin;
-import Model.LoginModel;
+import Model.MODELDACANCELARE.LoginModel;
 import View.LoginView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,12 +27,14 @@ import java.awt.event.MouseEvent;
  */
 public class ControllerLogin implements ActionListener,KeyListener{
     
-    private LoginModel modLog;
-    private LoginView viewLog;
-    
-    public ControllerLogin(LoginModel model, LoginView view)
+
+      AmministratoreDao dao;
+      private LoginView viewLog;
+      Admin admin;
+      
+    public ControllerLogin(AmministratoreDao dao, LoginView view)
     {
-        modLog = model;
+        this.dao = dao;
         viewLog = view;
         viewLog.getAccediButton().addActionListener(this);
         viewLog.getExitButton().addActionListener(this);
@@ -34,6 +42,7 @@ public class ControllerLogin implements ActionListener,KeyListener{
         viewLog.JTextUsername().addKeyListener(this);
         viewLog.getAccediButton().addKeyListener(this);
         viewLog.getExitButton().addKeyListener(this);
+        this.admin =  StartProject.admin;
     }
     
     
@@ -42,9 +51,14 @@ public class ControllerLogin implements ActionListener,KeyListener{
         String action = e.getActionCommand();
         if(action.equals("ACCEDI"))
         {
-            String user = viewLog.getUsernameText();
-            String password = viewLog.getPasswordText();
-            modLog.setValueAmminnistratore(user,password);  
+            try {
+                String user = viewLog.getUsernameText();
+                String password = viewLog.getPasswordText();
+                admin = dao.searchbyUserAndPassword(user, password);
+                viewLog.accessApp(admin);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE);
+            }
         }
         else
         {
@@ -53,15 +67,7 @@ public class ControllerLogin implements ActionListener,KeyListener{
         
     }
     
-    public void setModel(LoginModel nuovo)
-    {
-        modLog = nuovo;
-        
-    }
-    public void setView(LoginView nuovo)
-    {
-        viewLog = nuovo;
-    }
+    
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -78,9 +84,14 @@ public class ControllerLogin implements ActionListener,KeyListener{
         
             if(e.getKeyChar()=='\n' && e.getComponent()!= viewLog.getExitButton())
             {
-                String user = viewLog.getUsernameText();
-                String password = viewLog.getPasswordText();
-                modLog.setValueAmminnistratore(user,password);
+                  try {
+                        String user = viewLog.getUsernameText();
+                        String password = viewLog.getPasswordText();
+                        admin = dao.searchbyUserAndPassword(user, password);
+                        viewLog.accessApp(admin);
+                 }      catch (SQLException ex) {
+                          JOptionPane.showMessageDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE);
+            }
             }
             else
             {

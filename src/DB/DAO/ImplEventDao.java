@@ -60,14 +60,12 @@ public class ImplEventDao implements EventDao{
     }
 */
     @Override
-    public Event advancedSearchEvent(String evtName, String codEvt, String dateEvt, String typeEvt) 
+    public Event advancedSearchEvent(String evtName, String codEvt, String dateEvt, String typeEvt) throws SQLException 
     {
         con = DBConnect.getConnection();
         String query = "SELECT * FROM EVENTO WHERE TITOLO = ? AND IDEVENTO = ? AND DATA = ? AND EVENTOTYPE = ?;";
-        try
-        {
-            ps = con.prepareStatement(query);
-            
+        
+            ps = con.prepareStatement(query);          
             ps.setString(1, evtName);
             ps.setString(2, codEvt);
             ps.setString(3, dateEvt);
@@ -82,11 +80,7 @@ public class ImplEventDao implements EventDao{
             rs.close();
             ps.close();
             con.close();
-        } catch (SQLException ex)
-        {
-            System.out.println("Errore query. Impossibile  trovare l'evento.");
-            System.err.println(ex);
-        }
+      
         return null;
     }
 

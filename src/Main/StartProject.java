@@ -4,7 +4,7 @@ package Main;
 import Model.JavaBean.Admin;
 import Runner.RunMVCLogin;
 import View.*;
-import Runner.RunMVCEvents;
+import Runner.RunBCEEvents;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
