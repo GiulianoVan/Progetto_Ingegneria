@@ -9,6 +9,8 @@ import Model.Addetto.AddettiModel;
 import Model.EventModel;
 import View.GeneralPanel;
 import java.awt.event.KeyEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -18,6 +20,7 @@ public class ControllerTableEvent extends ControllerTableGeneral{
     
     private EventModel model;
     private GeneralPanel view;
+    boolean flag;
     
      public ControllerTableEvent(EventModel model, GeneralPanel view) 
      {
@@ -37,18 +40,31 @@ public class ControllerTableEvent extends ControllerTableGeneral{
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
         if(e.getKeyChar()=='\n' && view.getTableSearchGeneral().isCellEditable(row, column)) 
         {
-            tab.setColumnEditable(-1);
-            tab.setRowEditable(-1);
-            String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
-            if(!view.getTableSearchGeneral().getColumnName(column).equals("EMAIL"))
-                value = value.toUpperCase();
-            
-            value= value.replace(",",".");
-            view.getTableSearchGeneral().setValueAt(value, row, column);
-            
-            model.doUpdateEvent(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
-            row = -1;
-            column=-1;
+                tab.setColumnEditable(-1);
+                tab.setRowEditable(-1);
+                String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
+                if(!view.getTableSearchGeneral().getColumnName(column).equals("EMAIL"))
+                    value = value.toUpperCase();
+
+                if(view.getTableSearchGeneral().getColumnName(column).equals("TITOLO"))
+                 {
+                         flag =  validateTitolo(view.getTableSearchGeneral().getValueAt(row, column).toString());
+                 }
+                else if( view.getTableSearchGeneral().getColumnName(column).equals(""))
+
+                if(flag != false)
+                {
+                    flag=false;
+                    value= value.replace(",",".");
+                    view.getTableSearchGeneral().setValueAt(value, row, column);
+                    model.doUpdateEvent(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
+                    row = -1;
+                    column=-1;
+                }
+                else
+                {
+                     System.out.println("ERRORE");   
+                 }
         }
         else
         {
@@ -70,5 +86,14 @@ public class ControllerTableEvent extends ControllerTableGeneral{
         }
           //ho confermato update o ho abbandonato la,quindi setto la cella cliccata nuovamente non editabile.
             
+    }
+    
+    public boolean validateTitolo(String titolo)
+    { 
+         Pattern model = Pattern.compile("[a-z0-9,.;'\"/-_#?!]+$",Pattern.CASE_INSENSITIVE);
+         Matcher t = model.matcher(titolo);        
+         return t.find();
+         
+       
     }
 }

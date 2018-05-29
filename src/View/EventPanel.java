@@ -32,14 +32,17 @@ public class EventPanel extends GeneralPanel {
     private javax.swing.JTextField textCfGeneral;
     private javax.swing.JTextField textPlaceGeneral;
     private javax.swing.JButton buttonAdvEvent;
-    
+    private javax.swing.JButton buttonBackCreateEvent;
+
     
     
     public EventPanel()
     {
         super();
         this.setComponentsPanel();
-        //MANCA->buttonbackCreateEvent.SetactionCommand
+        buttonBackCreateEvent.setActionCommand("BACKCREATEEVENT");
+
+        
     }
     
     public void setComponentsPanel() {
@@ -57,7 +60,7 @@ public class EventPanel extends GeneralPanel {
         textCodeEventSearch = getTextCodeGeneralSearch();
         textNameEventSearch = getTextNameGeneralSearch();
         textSearchEvent = getTextSearchGeneral();
-
+        buttonBackCreateEvent = getButtonBackCreate();
         
         jPanelAdvSearch.setVisible(false);
         buttonAdvEvent.setText("Advanced Search");

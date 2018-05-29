@@ -60,7 +60,7 @@ public class ControllerEvent extends ControllerGeneral{
             view.getPanelCreateSecurity().setVisible(false);
             view.getCreatePanel().setVisible(true);
         }
-        else if(action.equals("BACKEVENT"))
+        else if(action.equals("BACKCREATEEVENT"))
         {
             //view.getjPanelAdvSearch().setVisible(false);
             view.getjScrollPane1().setVisible(true);
