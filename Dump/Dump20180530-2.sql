@@ -47,6 +47,104 @@ LOCK TABLES `addsicurezza` WRITE;
 INSERT INTO `addsicurezza` VALUES ('1','CANON','TOMMI','tommasopirozzi@hotmail.it','TOMMASO1','PIROZZI','PRZTMS92P04G309L','3343942027',3000,'2018-01-01'),('2','MARCE','TOMMI','tom@hhh','MARCELLO','QUATTROMANI','PRZTMS92P04G309L','4548484',1500.5,'2018-01-01'),('3','GIUL','TOMMI','tom@hhh','GIULIANO','VANESIO','PRZTMS92P04G309L','3405117062',1500.5,'2018-01-01'),('4','VIN','TOMMI','tom@hhh','VINCENZO','TORINO','PRZTMS92P04G308L','77777',1000,'2018-01-01');
 /*!40000 ALTER TABLE `addsicurezza` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `addsicurezza_BEFORE_INSERT_1` BEFORE INSERT ON `addsicurezza` FOR EACH ROW BEGIN
+
+IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
+THEN
+	 
+	SIGNAL SQLSTATE '45000'
+    SET MESSAGE_TEXT = 'Error : Invalid string format ';
+END IF;
+
+IF(NOT REGEXP_LIKE(NEW.SURNAME,'^[a-z]+(['' -]?[a-z ]+)*$','i'))
+THEN
+	SIGNAL SQLSTATE '45001'
+    SET MESSAGE_TEXT = 'Error : Invalid Surname format ';
+END IF;
+
+IF(NOT REGEXP_LIKE(NEW.TAX_CODE,'[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]$','i'))
+THEN
+	SIGNAL SQLSTATE '45002'
+    SET MESSAGE_TEXT = 'Error : Invalid Tax_code format ';
+END IF;
+
+IF(NOT REGEXP_LIKE(NEW.EMAIL,'^[a-z0-9_]+@[a-z0-9\-]+\.[a-z0-9\-\.]+$]','i'))
+THEN
+	SIGNAL SQLSTATE '45003'
+    SET MESSAGE_TEXT = 'Error : Invalid Email format ';
+END IF;
+
+IF(NOT REGEXP_LIKE(NEW.PHONE,'^(\+[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$','i'))
+THEN
+	SIGNAL SQLSTATE '45003'
+    SET MESSAGE_TEXT = 'Error : Invalid Email format ';
+END IF;
+
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `addsicurezza_BEFORE_INSERT` BEFORE UPDATE ON `addsicurezza` FOR EACH ROW BEGIN
+
+IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
+THEN
+	 
+	SIGNAL SQLSTATE '45000'
+    SET MESSAGE_TEXT = 'Error : Invalid string format ';
+END IF;
+
+IF(NOT REGEXP_LIKE(NEW.SURNAME,'^[a-z]+(['' -]?[a-z ]+)*$','i'))
+THEN
+	SIGNAL SQLSTATE '45001'
+    SET MESSAGE_TEXT = 'Error : Invalid Surname format ';
+END IF;
+
+IF(NOT REGEXP_LIKE(NEW.TAX_CODE,'[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]$','i'))
+THEN
+	SIGNAL SQLSTATE '45002'
+    SET MESSAGE_TEXT = 'Error : Invalid Tax_code format ';
+END IF;
+
+IF(NOT REGEXP_LIKE(NEW.EMAIL,'^[a-z0-9_]+@[a-z0-9\-]+\.[a-z0-9\-\.]+$]','i'))
+THEN
+	SIGNAL SQLSTATE '45003'
+    SET MESSAGE_TEXT = 'Error : Invalid Email format ';
+END IF;
+
+IF(NOT REGEXP_LIKE(NEW.PHONE,'^(\+[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$','i'))
+THEN
+	SIGNAL SQLSTATE '45003'
+    SET MESSAGE_TEXT = 'Error : Invalid Email format ';
+END IF;
+
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `amministratore`
@@ -371,6 +469,14 @@ LOCK TABLES `tariffa` WRITE;
 /*!40000 ALTER TABLE `tariffa` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tariffa` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'em17'
+--
+
+--
+-- Dumping routines for database 'em17'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -381,4 +487,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-30 19:41:08
+-- Dump completed on 2018-05-30 20:04:10

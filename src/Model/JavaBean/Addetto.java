@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Addetto {
     
    private double stipendio; // ("^[0-9]+?.[0-9]{2}$");
-   private String email; /* IF( (REGEXP_LIKE(EMAIL,'^[a-z0-9]{1}[a-z0-9._%-]{0,62}[a-z0-9_%-]{1}\@[a-z0-9]{1}[a-z0-9._%-]{1,252}\.[a-z]{2,4}$','i')) ) THEN
+   private String email; /* IF((REGEXP_LIKE(EMAIL,'^[a-z0-9]{1}[a-z0-9._%-]{0,62}[a-z0-9_%-]{1}\@[a-z0-9]{1}[a-z0-9._%-]{1,252}\.[a-z]{2,4}$','i')) ) THEN
 			SELECT REGEXP_SUBSTR(EMAIL,'[.]{2,}',1) INTO MULTIPLE_DOTS FROM DUAL; --Verifica se ci sono più punti consecutivi - esempio: mar.rossi@studenti..unina.it
 			IF(MULTIPLE_DOTS IS NULL) THEN
 				RETURN 1; -- l'email è corretta
