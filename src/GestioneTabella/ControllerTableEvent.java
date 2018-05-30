@@ -40,10 +40,10 @@ public class ControllerTableEvent extends ControllerTableGeneral{
     @Override
     public void keyReleased(KeyEvent e) { //DA FARE . NON VA BENE.
        
-        MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
+        MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel(); 
         //SE PREMO INVIO E LA CELLA è EDITABILE.FAI UPDATE
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
-        if(e.getKeyChar()=='\n' && view.getTableSearchGeneral().isCellEditable(row, column)) 
+        if(e.getKeyChar()=='\n' && view.getTableSearchGeneral().isCellEditable(row, column) && row != -1 && column !=-1) 
         {
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);
