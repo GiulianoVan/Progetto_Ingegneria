@@ -28,7 +28,7 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
         super(view);
         this.dao = dao;
         this.view = view;
-        view.addKeyListener(this);
+        this.view.addKeyListener(this);
     }
     
     
@@ -54,7 +54,9 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
                 column=-1;
             } catch (SQLException ex) {
                   String msg = ex.getMessage();
-                     JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                  JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                  view.resetValueTable(row, column,oldvalue);
+  
             }
         }
         else

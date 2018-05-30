@@ -53,7 +53,10 @@ public class ControllerTableCustomer extends ControllerTableGeneral {
                 column=-1;
             } catch (SQLException ex) {
                 String msg = ex.getMessage();
-                     JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                view.resetValueTable(row, column,oldvalue);
+                JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                
+
             }
         }
         else

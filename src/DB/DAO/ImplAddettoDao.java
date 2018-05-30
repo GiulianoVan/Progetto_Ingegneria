@@ -30,7 +30,7 @@ public class ImplAddettoDao implements AddettoDao {
     public int aggiungiAddetto(Addetto addetto) {
             
         try {
-            String sql ="INSERT INTO ADDSICUREZZA(IDSICUREZZA,NOME,COGNOME,CF,TEL,STIPENDIO,EMAIL,USERNAME,PASSWORD) VALUES (?,?,?,?,?,?,?,?,?)";
+            String sql ="INSERT INTO ADDSICUREZZA(IDSICUREZZA,NAME,SURNAME,TAX CODE,PHONE,SALARY,EMAIL,USERNAME,PASSWORD,BIRTH) VALUES (?,?,?,?,?,?,?,?,?,?)";
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1,addetto.getId());
@@ -42,6 +42,7 @@ public class ImplAddettoDao implements AddettoDao {
             ps.setString(7,addetto.getEmail());
             ps.setString(8,addetto.getUsername());
             ps.setString(9,addetto.getPassword());
+          //  ps.setDate(10, (Date) addetto.getDnascita());
             int insert=  ps.executeUpdate(); //ritorna 1 se l'inserimento va a buon fine.
             con.close();
             ps.close();
@@ -80,11 +81,11 @@ public class ImplAddettoDao implements AddettoDao {
     public Set<Addetto> getAddettiParolaChiave(ArrayList<String> parole) throws SQLException{
          
          Set<Addetto>result = new HashSet<>();
-         String sql = "SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,DNASCITA,IDSICUREZZA FROM ADDSICUREZZA WHERE ";
+         String sql = "SELECT NAME,SURNAME,TAX_CODE,EMAIL,PHONE,SALARY,BIRTH,IDSICUREZZA FROM ADDSICUREZZA WHERE ";
         //CREO LA STRINGA DINAMICAMENTE AGGIUNGENDO LA STESSA STRINGA PER QUANTE SONO LE PAROLE CHIAVI
         for(String parola : parole)
         {
-             sql += "NOME LIKE ? OR COGNOME LIKE ? OR EMAIL LIKE ? OR ";
+             sql += "NAME LIKE ? OR SURNAME LIKE ? OR EMAIL LIKE ? OR ";
         }
         sql = sql.substring(0,sql.length()-3); //TOLGO ULTIMO OR.
         sql += ";"; //AGGIUNGO PUNTO E VIRGOLA ALLA FINE
@@ -147,7 +148,7 @@ public class ImplAddettoDao implements AddettoDao {
     @Override
     public Set<Addetto> advancedSearch(Map<String, String> campo_value) throws SQLException {
 
-        String sql = "SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,DNASCITA,IDSICUREZZA FROM ADDSICUREZZA WHERE ";
+        String sql = "SELECT NAME,SURNAME,CF,EMAIL,PHONE,SALARY,BIRTH,IDSICUREZZA FROM ADDSICUREZZA WHERE ";
         int i = 1;
         Set<Addetto> result = new HashSet<>();
         

@@ -100,13 +100,13 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
     {
        //SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,LIVELLO 
        
-       this.addColumn("NOME");
-       this.addColumn("COGNOME");
-       this.addColumn("CF");
+       this.addColumn("NAME");
+       this.addColumn("SURNAME");
+       this.addColumn("TAX_CODE");
        this.addColumn("EMAIL");
-       this.addColumn("TEL");
-       this.addColumn("STIPENDIO");
-       this.addColumn("LIVELLO");
+       this.addColumn("PHONE");
+       this.addColumn("SALARY");
+       this.addColumn("BIRTH");
        this.addColumn("ID");
 
        for(Addetto add : addetti)

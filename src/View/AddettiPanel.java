@@ -82,7 +82,9 @@ public class AddettiPanel extends GeneralPanel{
             new Object [][] {
             },
             new String [] {
-                "NOME", "COGNOME", "CF", "EMAIL", "TEL", "STIPENDIO", "LIVELLO"
+                "NAME", "SURNAME", "TAX CODE", "EMAIL", "PHONE", "SALARY", "BIRTH"
+                    
+               
             }
          ) {
             Class[] types = new Class [] {
