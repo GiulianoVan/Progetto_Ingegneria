@@ -2,9 +2,9 @@ package Main;
 
 
 import Model.JavaBean.Admin;
-import Runner.RunMVCLogin;
+import Runner.RunECBLogin;
 import View.*;
-import Runner.RunBCEEvents;
+import Runner.RunECBEvents;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,7 +21,7 @@ public class StartProject {
     public static Admin admin;
     public StartProject()
     {
-       RunMVCLogin log = new RunMVCLogin();
+       RunECBLogin log = new RunECBLogin();
        log.startRunMVCLogin();
        
     }

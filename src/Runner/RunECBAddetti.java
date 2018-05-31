@@ -17,7 +17,7 @@ import View.AddettiPanel;
  *
  * @author Pirozzi
  */
-public class RunBCEAddetti {
+public class RunECBAddetti {
     
     AddettiPanel addettiView;
     ControllerAddetto controller;

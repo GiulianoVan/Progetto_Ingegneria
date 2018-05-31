@@ -15,7 +15,7 @@ import View.LoginView;
  *
  * @author Pirozzi
  */
-public class RunMVCLogin {
+public class RunECBLogin {
     
     
     public void startRunMVCLogin()

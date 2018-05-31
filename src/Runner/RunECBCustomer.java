@@ -19,7 +19,7 @@ import View.CustomerPanel;
  *
  * @author Vincent
  */
-public class RunBCECustomer {
+public class RunECBCustomer {
     
     private CustomerPanel customerView;
     private ControllerCustomer controller;

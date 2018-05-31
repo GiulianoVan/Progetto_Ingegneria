@@ -6,9 +6,9 @@
 package View;
 
 
-import Runner.RunBCEAddetti;
-import Runner.RunBCECustomer;
-import Runner.RunBCEEvents;
+import Runner.RunECBAddetti;
+import Runner.RunECBCustomer;
+import Runner.RunECBEvents;
 import java.awt.Color;
 
 
@@ -25,9 +25,9 @@ public class GeneralView extends javax.swing.JFrame{
     public GeneralView() {
         
         initComponents();
-        RunBCEEvents runEvents = new RunBCEEvents();
-        RunBCEAddetti runSecurity = new RunBCEAddetti();
-        RunBCECustomer runCustomer = new RunBCECustomer();
+        RunECBEvents runEvents = new RunECBEvents();
+        RunECBAddetti runSecurity = new RunECBAddetti();
+        RunECBCustomer runCustomer = new RunECBCustomer();
         runEvents.startRunMVCEvents();
         runSecurity.startMVCAddetti();
         runCustomer.startMVCCustomer();     
@@ -64,14 +64,14 @@ public class GeneralView extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-private void setEventsTabbed(RunBCEEvents runEvents)
+private void setEventsTabbed(RunECBEvents runEvents)
 {
     jTabbedMenu.add("Events",runEvents.getEvtView());
     jTabbedMenu.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Picture/popularParty.png")));
     jTabbedMenu.setBackgroundAt(0, new java.awt.Color(255, 222, 177));
 }
 
-private void setCustomersTabbed(RunBCECustomer runCustomer)
+private void setCustomersTabbed(RunECBCustomer runCustomer)
 {
     
     jTabbedMenu.add("Customers",runCustomer.getCustomerView());  
@@ -79,7 +79,7 @@ private void setCustomersTabbed(RunBCECustomer runCustomer)
     jTabbedMenu.setBackgroundAt(1, new java.awt.Color(255, 222, 177));
 }
 
-private void setSecurityTabbed(RunBCEAddetti runSecurity)
+private void setSecurityTabbed(RunECBAddetti runSecurity)
 {
     jTabbedMenu.add("Security",runSecurity.getAddettiView());
     jTabbedMenu.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Picture/securityOfficer.png")));

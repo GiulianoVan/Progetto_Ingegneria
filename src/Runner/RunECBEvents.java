@@ -18,7 +18,7 @@ import View.EventPanel;
  *
  * @author giuli
  */
-public class RunBCEEvents {
+public class RunECBEvents {
     
     private EventDao dao;
     private EventPanel evtView;
