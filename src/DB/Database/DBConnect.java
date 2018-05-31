@@ -20,19 +20,16 @@ public class DBConnect {
     //progettoingprivate static  String user = "Marcello";
     //private static String password = "progettoing";
     //private static  String user = "cognomen1";
-<<<<<<< HEAD
    // private static String password = "pippo";
      private static  String user = "cognomen";
      private static String password = "progettoing";
     //private static  String user = "Vincenzo";
     //private static String password = "bd12";
-=======
     //private static String password = "pippo";
     //private static  String user = "cognomen";
     //private static String password = "progettoing";
-    private static  String user = "Vincenzo";
-    private static String password = "bd12";
->>>>>>> a56fa3ec6120562106a8973bcc0514d2a3558227
+   // private static  String user = "Vincenzo";
+    //private static String password = "bd12";
     private static String url = "jdbc:mysql://localhost/em17?useSSL=false&serverTimezone=Europe/Rome";
 
    
