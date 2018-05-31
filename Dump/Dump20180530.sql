@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `em17` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+USE `em17`;
 -- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: em17
@@ -44,7 +46,7 @@ CREATE TABLE `addsicurezza` (
 
 LOCK TABLES `addsicurezza` WRITE;
 /*!40000 ALTER TABLE `addsicurezza` DISABLE KEYS */;
-INSERT INTO `addsicurezza` VALUES ('1','CANON','TOMMI','tommasopirozzi@hotmail.it','TOMMASO1','PIROZZI','PRZTMS92P04G309L','3343942027',3000,'2018-01-01'),('2','MARCE','TOMMI','tom@hhh','MARCELLO','QUATTROMANI','PRZTMS92P04G309L','4548484',1500.5,'2018-01-01'),('3','GIUL','TOMMI','tom@hhh','GIULIANO','VANESIO','PRZTMS92P04G309L','3405117062',1500.5,'2018-01-01'),('4','VIN','TOMMI','tom@hhh','VINCENZO','TORINO','PRZTMS92P04G308L','77777',1000,'2018-01-01');
+INSERT INTO `addsicurezza` VALUES ('1','CANON','TOMMI','tommasopirozzi@hotmail.it','TOMMASO','PIROZZI','PRZTMS92P04G309L','3343942027',3000,'2018-01-01'),('2','MARCE','TOMMI','tom@hhhit','MARCELLO','QUATTROMANI','PRZTMS92P04G309L','3354548484',1500.5,'2018-01-01'),('3','GIUL','TOMMI','tom@hhh.it','GIULIANO','VANESIO','PRZTMS92P04G309L','3405117062',1500.5,'2018-01-01'),('4','VIN','TOMMI','tom@hhh.it','VINCENZO','TORINO','PRZTMS92P04G308L','3327777755',1000,'2018-01-01');
 /*!40000 ALTER TABLE `addsicurezza` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -56,40 +58,36 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=CURRENT_USER*/ /*!50003 TRIGGER `addsicurezza_BEFORE_INSERT` BEFORE INSERT ON `addsicurezza` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `addsicurezza_BEFORE_INSERT` BEFORE INSERT ON `addsicurezza` FOR EACH ROW BEGIN
+	IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
+	THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'Error : Invalid name format ';
+	END IF;
 
-IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
-THEN
-	SIGNAL SQLSTATE '45000'
-    SET MESSAGE_TEXT = 'Error : Invalid Name format ';
-END IF;
+	IF(NOT REGEXP_LIKE(NEW.SURNAME,'^[a-z]+(['' -]?[a-z ]+)*$','i'))
+	THEN
+		SIGNAL SQLSTATE '45001'
+		SET MESSAGE_TEXT = 'Error : Invalid surname format ';
+	END IF;
 
-IF(NOT REGEXP_LIKE(NEW.SURNAME,'^[a-z]+(['' -]?[a-z ]+)*$','i'))
-THEN
-	SIGNAL SQLSTATE '45001'
-    SET MESSAGE_TEXT = 'Error : Invalid Surname format ';
-END IF;
+	IF(NOT REGEXP_LIKE(NEW.TAX_CODE,'[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]$','i'))
+	THEN
+		SIGNAL SQLSTATE '45002'
+		SET MESSAGE_TEXT = 'Error : Invalid tax code format ';
+	END IF;
 
-IF(NOT REGEXP_LIKE(NEW.TAX_CODE,'[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]$','i'))
-THEN
-	SIGNAL SQLSTATE '45002'
-    SET MESSAGE_TEXT = 'Error : Invalid Tax_code format ';
-END IF;
+	IF(NOT REGEXP_LIKE(NEW.EMAIL,'^[a-z0-9]{1}[a-z0-9._%-]{0,62}[a-z0-9_%-]{1}\@[a-z0-9]{1}[a-z0-9._%-]{1,252}\.[a-z]{2,4}$','i'))
+	THEN
+		SIGNAL SQLSTATE '45003'
+		SET MESSAGE_TEXT = 'Error : Invalid email format ';
+	END IF;
 
-IF(NOT REGEXP_LIKE(NEW.EMAIL,'^[a-z0-9]{1}[a-z0-9._%-]{0,62}[a-z0-9_%-]{1}\@[a-z0-9]{1}[a-z0-9._%-]{1,252}\.[a-z]{2,4}$','i'))
-THEN
-	SIGNAL SQLSTATE '45003'
-    SET MESSAGE_TEXT = 'Error : Invalid Email format ';
-END IF;
-
-IF(NOT REGEXP_LIKE(NEW.PHONE,'^([+]{1}[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$','i'))
-THEN
-	SIGNAL SQLSTATE '45004'
-    SET MESSAGE_TEXT = 'Error : Invalid Phone format ';
-END IF;
-END
-
-
+	IF(NOT REGEXP_LIKE(NEW.PHONE,'^([+]{1}[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$','i'))
+	THEN
+		SIGNAL SQLSTATE '45004'
+		SET MESSAGE_TEXT = 'Error : Invalid phone format ';
+	END IF;
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -105,40 +103,36 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=CURRENT_USER*/ /*!50003 TRIGGER `addsicurezza_BEFORE_UPDATE` BEFORE UPDATE ON `addsicurezza` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `addsicurezza_BEFORE_UPDATE` BEFORE UPDATE ON `addsicurezza` FOR EACH ROW BEGIN
+	IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
+	THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'Error : Invalid name format ';
+	END IF;
 
-IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
-THEN
-	SIGNAL SQLSTATE '45000'
-    SET MESSAGE_TEXT = 'Error : Invalid Name format ';
-END IF;
+	IF(NOT REGEXP_LIKE(NEW.SURNAME,'^[a-z]+(['' -]?[a-z ]+)*$','i'))
+	THEN
+		SIGNAL SQLSTATE '45001'
+		SET MESSAGE_TEXT = 'Error : Invalid surname format ';
+	END IF;
 
-IF(NOT REGEXP_LIKE(NEW.SURNAME,'^[a-z]+(['' -]?[a-z ]+)*$','i'))
-THEN
-	SIGNAL SQLSTATE '45001'
-    SET MESSAGE_TEXT = 'Error : Invalid Surname format ';
-END IF;
+	IF(NOT REGEXP_LIKE(NEW.TAX_CODE,'[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]$','i'))
+	THEN
+		SIGNAL SQLSTATE '45002'
+		SET MESSAGE_TEXT = 'Error : Invalid tax code format ';
+	END IF;
 
-IF(NOT REGEXP_LIKE(NEW.TAX_CODE,'[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]$','i'))
-THEN
-	SIGNAL SQLSTATE '45002'
-    SET MESSAGE_TEXT = 'Error : Invalid Tax_code format ';
-END IF;
+	IF(NOT REGEXP_LIKE(NEW.EMAIL,'^[a-z0-9]{1}[a-z0-9._%-]{0,62}[a-z0-9_%-]{1}\@[a-z0-9]{1}[a-z0-9._%-]{1,252}\.[a-z]{2,4}$','i'))
+	THEN
+		SIGNAL SQLSTATE '45003'
+		SET MESSAGE_TEXT = 'Error : Invalid email format ';
+	END IF;
 
-IF(NOT REGEXP_LIKE(NEW.EMAIL,'^[a-z0-9]{1}[a-z0-9._%-]{0,62}[a-z0-9_%-]{1}\@[a-z0-9]{1}[a-z0-9._%-]{1,252}\.[a-z]{2,4}$','i'))
-THEN
-	SIGNAL SQLSTATE '45003'
-    SET MESSAGE_TEXT = 'Error : Invalid Email format ';
-END IF;
-
-IF(NOT REGEXP_LIKE(NEW.PHONE,'^([+]{1}[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$','i'))
-THEN
-	SIGNAL SQLSTATE '45004'
-    SET MESSAGE_TEXT = 'Error : Invalid Phone format ';
-END IF;
-END
-
-
+	IF(NOT REGEXP_LIKE(NEW.PHONE,'^([+]{1}[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$','i'))
+	THEN
+		SIGNAL SQLSTATE '45004'
+		SET MESSAGE_TEXT = 'Error : Invalid phone format ';
+	END IF;
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -173,7 +167,7 @@ CREATE TABLE `amministratore` (
 
 LOCK TABLES `amministratore` WRITE;
 /*!40000 ALTER TABLE `amministratore` DISABLE KEYS */;
-INSERT INTO `amministratore` VALUES ('1','TOMMASO','PIROZZI','CANON21','TOMMI','PRZTMS92P04G309L','XXX','000');
+INSERT INTO `amministratore` VALUES ('1','TOMMASO','PIROZZI','CANON21','TOMMI','PRZTMS92P04G309L','XXX','000'),('12345','General','Administrator','ok','ok','GNLDNT90T15E313X','admin@em17.it','3391234567');
 /*!40000 ALTER TABLE `amministratore` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,9 +196,9 @@ CREATE TABLE `biglietto` (
   KEY `ADDSICUREZZA` (`ADDSICUREZZA`),
   KEY `FK_POSTO2` (`REPARTO`,`NOMEPOSTO`),
   CONSTRAINT `FK_POSTO2` FOREIGN KEY (`REPARTO`, `NOMEPOSTO`) REFERENCES `posto` (`reparto`, `nomeposto`),
-  CONSTRAINT `biglietto_ibfk_1` FOREIGN KEY (`EVENTO`) REFERENCES `evento` (`idevento`),
-  CONSTRAINT `biglietto_ibfk_2` FOREIGN KEY (`CLIENTE`) REFERENCES `cliente` (`idcliente`),
-  CONSTRAINT `biglietto_ibfk_3` FOREIGN KEY (`ADDSICUREZZA`) REFERENCES `addsicurezza` (`IDSICUREZZA`)
+  CONSTRAINT `biglietto_ibfk_1` FOREIGN KEY (`EVENTO`) REFERENCES `evento` (`IDEVENTO`),
+  CONSTRAINT `biglietto_ibfk_2` FOREIGN KEY (`CLIENTE`) REFERENCES `cliente` (`IDCLIENTE`),
+  CONSTRAINT `biglietto_ibfk_3` FOREIGN KEY (`ADDSICUREZZA`) REFERENCES `addsicurezza` (`idsicurezza`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -227,13 +221,13 @@ DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE `cliente` (
   `IDCLIENTE` varchar(50) NOT NULL,
   `USERNAME` varchar(50) NOT NULL,
-  `PASS` varchar(20) NOT NULL,
-  `NOME` varchar(20) NOT NULL,
-  `COGNOME` varchar(20) NOT NULL,
+  `PASSWORD` varchar(20) NOT NULL,
+  `NAME` varchar(20) NOT NULL,
+  `SURNAME` varchar(20) NOT NULL,
   `EMAIL` varchar(40) NOT NULL,
-  `CF` varchar(16) NOT NULL,
-  `TEL` varchar(10) DEFAULT NULL,
-  `DNASCITA` date NOT NULL,
+  `TAX_CODE` varchar(16) NOT NULL,
+  `PHONE` varchar(10) DEFAULT NULL,
+  `BIRTH` date NOT NULL,
   PRIMARY KEY (`IDCLIENTE`),
   UNIQUE KEY `CLIENTE_UNICO` (`USERNAME`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -245,9 +239,109 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES ('1','PROVA','prova1','TOMMASO','PIROZZI','kmkdmf','556','55','2015-05-05');
+INSERT INTO `cliente` VALUES ('1','PROVA','prova1','TOMMASO','PIROZZI','KMKDMF@GMAIL.COM','PRZTMS92P04G309L','5556789333','2015-05-05');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `cliente_BEFORE_INSERT` BEFORE INSERT ON `cliente` FOR EACH ROW BEGIN
+	IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
+	THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'Error : Invalid name format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.SURNAME,'^[a-z]+(['' -]?[a-z ]+)*$','i'))
+	THEN
+		SIGNAL SQLSTATE '45001'
+		SET MESSAGE_TEXT = 'Error : Invalid surname format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.TAX_CODE,'[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]$','i'))
+	THEN
+		SIGNAL SQLSTATE '45002'
+		SET MESSAGE_TEXT = 'Error : Invalid tax code format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.EMAIL,'^[a-z0-9]{1}[a-z0-9._%-]{0,62}[a-z0-9_%-]{1}\@[a-z0-9]{1}[a-z0-9._%-]{1,252}\.[a-z]{2,4}$','i'))
+	THEN
+		SIGNAL SQLSTATE '45003'
+		SET MESSAGE_TEXT = 'Error : Invalid email format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.PHONE,'^([+]{1}[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$','i'))
+	THEN
+		SIGNAL SQLSTATE '45004'
+		SET MESSAGE_TEXT = 'Error : Invalid phone format ';
+	END IF;
+    IF(NOT REGEXP_LIKE(NEW.USERNAME,'^(?!.*?[ ''.-]{2})[A-Za-z0-9 ''.-]{1,30}$','i'))
+	THEN
+		SIGNAL SQLSTATE '45005'
+		SET MESSAGE_TEXT = 'Error : Invalid username format ';
+	END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `cliente_BEFORE_UPDATE` BEFORE UPDATE ON `cliente` FOR EACH ROW BEGIN
+	IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
+	THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'Error : Invalid name format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.SURNAME,'^[a-z]+(['' -]?[a-z ]+)*$','i'))
+	THEN
+		SIGNAL SQLSTATE '45001'
+		SET MESSAGE_TEXT = 'Error : Invalid surname format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.TAX_CODE,'[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]$','i'))
+	THEN
+		SIGNAL SQLSTATE '45002'
+		SET MESSAGE_TEXT = 'Error : Invalid tax code format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.EMAIL,'^[a-z0-9]{1}[a-z0-9._%-]{0,62}[a-z0-9_%-]{1}\@[a-z0-9]{1}[a-z0-9._%-]{1,252}\.[a-z]{2,4}$','i'))
+	THEN
+		SIGNAL SQLSTATE '45003'
+		SET MESSAGE_TEXT = 'Error : Invalid email format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.PHONE,'^([+]{1}[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$','i'))
+	THEN
+		SIGNAL SQLSTATE '45004'
+		SET MESSAGE_TEXT = 'Error : Invalid phone format ';
+	END IF;
+    IF(NOT REGEXP_LIKE(NEW.USERNAME,'^(?!.*?[ ''.-]{2})[A-Za-z0-9 ''.-]{1,30}$','i'))
+	THEN
+		SIGNAL SQLSTATE '45005'
+		SET MESSAGE_TEXT = 'Error : Invalid username format ';
+	END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `evento`
@@ -258,17 +352,17 @@ DROP TABLE IF EXISTS `evento`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `evento` (
   `IDEVENTO` varchar(50) NOT NULL,
-  `TITOLO` varchar(50) NOT NULL,
-  `DESCRIZIONE` varchar(1000) NOT NULL,
-  `EVENTOTYPE` varchar(20) DEFAULT NULL,
-  `GENERETYPE` varchar(20) DEFAULT NULL,
-  `DATA` date NOT NULL,
-  `CAP` varchar(5) DEFAULT NULL,
-  `NOMELUOGO` varchar(30) DEFAULT NULL,
+  `TITLE` varchar(50) NOT NULL,
+  `DESCRIPTION` varchar(1000) NOT NULL,
+  `EVENT_TYPE` varchar(20) DEFAULT NULL,
+  `KIND_TYPE` varchar(20) DEFAULT NULL,
+  `DATE` date NOT NULL,
+  `ZIP_CODE` varchar(5) DEFAULT NULL,
+  `PLACE_NAME` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`IDEVENTO`),
-  KEY `FK_LUOGO` (`CAP`),
-  KEY `FK_LUOGO1` (`NOMELUOGO`,`CAP`),
-  CONSTRAINT `FK_LUOGO1` FOREIGN KEY (`NOMELUOGO`, `CAP`) REFERENCES `luogo` (`nome`, `cap`)
+  KEY `FK_LUOGO` (`ZIP_CODE`),
+  KEY `FK_LUOGO1` (`PLACE_NAME`,`ZIP_CODE`),
+  CONSTRAINT `FK_LUOGO1` FOREIGN KEY (`PLACE_NAME`, `ZIP_CODE`) REFERENCES `luogo` (`nome`, `cap`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -278,9 +372,97 @@ CREATE TABLE `evento` (
 
 LOCK TABLES `evento` WRITE;
 /*!40000 ALTER TABLE `evento` DISABLE KEYS */;
-INSERT INTO `evento` VALUES ('1','PROVA1','XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX','SPORT','CALCIO','2017-12-05','80019','StadioQualiano');
+INSERT INTO `evento` VALUES ('000001','PROVA1','BELLO E BUONO','SPORT','CALCIO','2017-12-05','80019','StadioQualiano');
 /*!40000 ALTER TABLE `evento` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `evento_BEFORE_INSERT` BEFORE INSERT ON `evento` FOR EACH ROW BEGIN
+	IF(NOT REGEXP_LIKE(NEW.IDEVENTO,'^[0-9]{6}$'))
+	THEN
+		SIGNAL SQLSTATE '45006'
+		SET MESSAGE_TEXT = 'Error : Invalid ID format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.DESCRIPTION,'^[a-z0-9,.;''"/-_#?! ]+$','i'))
+	THEN
+		SIGNAL SQLSTATE '45007'
+		SET MESSAGE_TEXT = 'Error : Invalid description format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.ZIP_CODE,'^[0-9]{3}[0-9xX]{2}$','i'))
+	THEN
+		SIGNAL SQLSTATE '45008'
+		SET MESSAGE_TEXT = 'Error : Invalid zip code format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.PLACE_NAME,'^(([a-z]{1}[°]?)|([0-9]+[°]?))(([ '',."/-]{1}(([a-z]{1}[°]?)|([0-9]+[°]?)))*["'']?[,./-]?[a-z 0-9]+)*[.]?$','i'))
+	THEN
+		SIGNAL SQLSTATE '45009'
+		SET MESSAGE_TEXT = 'Error : Invalid place name format ';
+	END IF;
+	IF(NOT REGEXP_LIKE(NEW.TITLE,'^[a-z0-9,.;''"/-_#?!]+$','i'))
+	THEN
+		SIGNAL SQLSTATE '45010'
+		SET MESSAGE_TEXT = 'Error : Invalid title format ';
+	END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `evento_BEFORE_UPDATE` BEFORE UPDATE ON `evento` FOR EACH ROW BEGIN
+	IF(NOT REGEXP_LIKE(NEW.IDEVENTO,'^[0-9]{6}$'))
+	THEN
+		SIGNAL SQLSTATE '45006'
+		SET MESSAGE_TEXT = 'Error : Invalid ID format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.DESCRIPTION,'^[a-z0-9,.;''"/-_#?! ]+$','i'))
+	THEN
+		SIGNAL SQLSTATE '45007'
+		SET MESSAGE_TEXT = 'Error : Invalid description format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.ZIP_CODE,'^[0-9]{3}[0-9xX]{2}$','i'))
+	THEN
+		SIGNAL SQLSTATE '45008'
+		SET MESSAGE_TEXT = 'Error : Invalid zip code format ';
+	END IF;
+
+	IF(NOT REGEXP_LIKE(NEW.PLACE_NAME,'^(([a-z]{1}[°]?)|([0-9]+[°]?))(([ '',."/-]{1}(([a-z]{1}[°]?)|([0-9]+[°]?)))*["'']?[,./-]?[a-z 0-9]+)*[.]?$','i'))
+	THEN
+		SIGNAL SQLSTATE '45009'
+		SET MESSAGE_TEXT = 'Error : Invalid place name format ';
+	END IF;
+	IF(NOT REGEXP_LIKE(NEW.TITLE,'^[a-z0-9,.;''"/-_#?!]+$','i'))
+	THEN
+		SIGNAL SQLSTATE '45010'
+		SET MESSAGE_TEXT = 'Error : Invalid title format ';
+	END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `gestione_cliente`
@@ -295,7 +477,7 @@ CREATE TABLE `gestione_cliente` (
   `OPERATION` varchar(20) DEFAULT NULL,
   KEY `CLIENTE` (`CLIENTE`),
   KEY `AMMINISTRATORE` (`AMMINISTRATORE`),
-  CONSTRAINT `gestione_cliente_ibfk_1` FOREIGN KEY (`CLIENTE`) REFERENCES `cliente` (`idcliente`),
+  CONSTRAINT `gestione_cliente_ibfk_1` FOREIGN KEY (`CLIENTE`) REFERENCES `cliente` (`IDCLIENTE`),
   CONSTRAINT `gestione_cliente_ibfk_2` FOREIGN KEY (`AMMINISTRATORE`) REFERENCES `amministratore` (`idamm`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -322,7 +504,7 @@ CREATE TABLE `gestione_evento` (
   `OPERATION` varchar(15) DEFAULT NULL,
   KEY `EVENTO` (`EVENTO`),
   KEY `AMMINISTRATORE` (`AMMINISTRATORE`),
-  CONSTRAINT `gestione_evento_ibfk_1` FOREIGN KEY (`EVENTO`) REFERENCES `evento` (`idevento`),
+  CONSTRAINT `gestione_evento_ibfk_1` FOREIGN KEY (`EVENTO`) REFERENCES `evento` (`IDEVENTO`),
   CONSTRAINT `gestione_evento_ibfk_2` FOREIGN KEY (`AMMINISTRATORE`) REFERENCES `amministratore` (`idamm`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -351,9 +533,9 @@ CREATE TABLE `gestione_turno` (
   KEY `EVENTO` (`EVENTO`),
   KEY `AMMINISTRATORE` (`AMMINISTRATORE`),
   KEY `ADDSICUREZZA` (`ADDSICUREZZA`),
-  CONSTRAINT `gestione_turno_ibfk_1` FOREIGN KEY (`EVENTO`) REFERENCES `evento` (`idevento`),
+  CONSTRAINT `gestione_turno_ibfk_1` FOREIGN KEY (`EVENTO`) REFERENCES `evento` (`IDEVENTO`),
   CONSTRAINT `gestione_turno_ibfk_2` FOREIGN KEY (`AMMINISTRATORE`) REFERENCES `amministratore` (`idamm`),
-  CONSTRAINT `gestione_turno_ibfk_3` FOREIGN KEY (`ADDSICUREZZA`) REFERENCES `addsicurezza` (`IDSICUREZZA`)
+  CONSTRAINT `gestione_turno_ibfk_3` FOREIGN KEY (`ADDSICUREZZA`) REFERENCES `addsicurezza` (`idsicurezza`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -456,7 +638,7 @@ CREATE TABLE `tariffa` (
   `PREZZO` double DEFAULT NULL,
   KEY `EVENTO` (`EVENTO`),
   KEY `REPARTO` (`REPARTO`),
-  CONSTRAINT `tariffa_ibfk_1` FOREIGN KEY (`EVENTO`) REFERENCES `evento` (`idevento`),
+  CONSTRAINT `tariffa_ibfk_1` FOREIGN KEY (`EVENTO`) REFERENCES `evento` (`IDEVENTO`),
   CONSTRAINT `tariffa_ibfk_2` FOREIGN KEY (`REPARTO`) REFERENCES `reparto` (`idreparto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -487,4 +669,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-30 20:04:10
+-- Dump completed on 2018-05-31 17:45:49
