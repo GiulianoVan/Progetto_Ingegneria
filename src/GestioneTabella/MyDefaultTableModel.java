@@ -121,13 +121,13 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
         public  void createModelBySetEvent(Set<Event> events)
     {
       //  TITOLO,EVENTOTYPE,GENERETYPE,DATA,NOMELUOGO,CAP,DESCRIPTION,IDEVENTO 
-       this.addColumn("TITOLO");
-       this.addColumn("EVENTOTYPE");
-       this.addColumn("GENERETYPE");
-       this.addColumn("DATA");
-       this.addColumn("LUOGO");
-       this.addColumn("CAP");
-       this.addColumn("DESCRIZIONE");
+       this.addColumn("TITLE");
+       this.addColumn("EVENT_TYPE");
+       this.addColumn("KIND_TYPE");
+       this.addColumn("DATE");
+       this.addColumn("PLACE_NAME");
+       this.addColumn("ZIP_CODE");
+       this.addColumn("DESCRIPTION");
        this.addColumn("ID");
 
        for(Event event : events)
@@ -143,12 +143,12 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        //SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,LIVELLO 
               
        this.addColumn("USERNAME");
-       this.addColumn("NOME");
-       this.addColumn("COGNOME");
-       this.addColumn("CF");
+       this.addColumn("NAME");
+       this.addColumn("SURNAME");
+       this.addColumn("TAX_CODE");
        this.addColumn("EMAIL");
-       this.addColumn("TEL");
-       this.addColumn("DNASCITA");
+       this.addColumn("PHONE");
+       this.addColumn("BIRTH");
        this.addColumn("ID");
        for(Customer add : customer)
        {

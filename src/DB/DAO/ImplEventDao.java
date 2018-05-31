@@ -7,6 +7,7 @@ package DB.DAO;
 
 import DB.Database.DBConnect;
 import Model.JavaBean.Event;
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,15 +16,16 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+
 /**
  *
  * @author giuli
  */
 public class ImplEventDao implements EventDao{
     
-    private Connection con;
-    private PreparedStatement ps;
-    private ResultSet rs;
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
     
     //override di tutti i metodi per ricercare, cancellare, modificare
     /*
@@ -63,7 +65,7 @@ public class ImplEventDao implements EventDao{
     public Event advancedSearchEvent(String evtName, String codEvt, String dateEvt, String typeEvt) throws SQLException 
     {
         con = DBConnect.getConnection();
-        String query = "SELECT * FROM EVENTO WHERE TITOLO = ? AND IDEVENTO = ? AND DATA = ? AND EVENTOTYPE = ?;";
+        String query = "SELECT * FROM EVENTO WHERE TITLE = ? AND IDEVENTO = ? AND DATE = ? AND EVENT_TYPE = ?;";
         
             ps = con.prepareStatement(query);          
             ps.setString(1, evtName);
@@ -90,12 +92,14 @@ public class ImplEventDao implements EventDao{
     }
 
     @Override
-    public int updateEvent(String new_value,String attribute_to_change,String id) {
+    public int updateEvent(String new_value,String attribute_to_change,String id) throws SQLException  {
+        
+        int executeUpdate = 0;
         
         String sql = "UPDATE EVENTO SET "+attribute_to_change+ " = '"+ new_value+"' WHERE IDEVENTO = ?;";
-        int executeUpdate = 0;
-        try 
-        {
+        executeUpdate = 0;
+   //     try 
+   //     {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             
@@ -109,10 +113,10 @@ public class ImplEventDao implements EventDao{
               ps.close();
               rs.close();
 
-        }
+ /*       }
         catch (SQLException ex) {
             System.out.println("Errore!\nAggiornamento fallito.");
-        }
+        }*/
         return executeUpdate;
       }
 
@@ -125,11 +129,11 @@ public class ImplEventDao implements EventDao{
     public Set<Event> searchEventKeysWords(ArrayList<String> words) 
         {
             Set<Event> result = new HashSet<>();
-            String sql = "SELECT TITOLO,EVENTOTYPE,GENERETYPE,DATA,NOMELUOGO,CAP,DESCRIZIONE,IDEVENTO FROM EVENTO WHERE ";
+            String sql = "SELECT TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,ZIP_CODE,DESCRIPTION,IDEVENTO FROM EVENTO WHERE ";
             //CREO LA STRINGA DINAMICAMENTE AGGIUNGENDO LA STESSA STRINGA PER QUANTE SONO LE PAROLE CHIAVI
             for(String word : words)
             {
-             sql += "TITOLO LIKE ? OR EVENTOTYPE LIKE ? OR GENERETYPE LIKE ? OR NOMELUOGO LIKE ? OR ";
+             sql += "TITLE LIKE ? OR EVENT_TYPE LIKE ? OR KIND_TYPE LIKE ? OR PLACE_NAME LIKE ? OR ";
             }
             sql = sql.substring(0,sql.length()-3); //TOLGO ULTIMO OR.
             sql += ";"; //AGGIUNGO PUNTO E VIRGOLA ALLA FINE

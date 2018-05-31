@@ -30,7 +30,7 @@ public class ImplAddettoDao implements AddettoDao {
     public int aggiungiAddetto(Addetto addetto) {
             
         try {
-            String sql ="INSERT INTO ADDSICUREZZA(IDSICUREZZA,NAME,SURNAME,TAX CODE,PHONE,SALARY,EMAIL,USERNAME,PASSWORD,BIRTH) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            String sql ="INSERT INTO ADDSICUREZZA(IDSICUREZZA,NAME,SURNAME,TAX_CODE,PHONE,SALARY,EMAIL,USERNAME,PASSWORD,BIRTH) VALUES (?,?,?,?,?,?,?,?,?,?)";
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1,addetto.getId());
@@ -148,7 +148,7 @@ public class ImplAddettoDao implements AddettoDao {
     @Override
     public Set<Addetto> advancedSearch(Map<String, String> campo_value) throws SQLException {
 
-        String sql = "SELECT NAME,SURNAME,CF,EMAIL,PHONE,SALARY,BIRTH,IDSICUREZZA FROM ADDSICUREZZA WHERE ";
+        String sql = "SELECT NAME,SURNAME,TAX_CODE,EMAIL,PHONE,SALARY,BIRTH,IDSICUREZZA FROM ADDSICUREZZA WHERE ";
         int i = 1;
         Set<Addetto> result = new HashSet<>();
         

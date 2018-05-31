@@ -84,7 +84,7 @@ public class CustomerPanel extends GeneralPanel {
             new Object [][] {
             },
             new String [] {
-               "USERNAME" ,"NOME", "COGNOME", "CF", "EMAIL", "TEL", "DNASCITA"
+               "USERNAME" ,"NAME", "SURNAME", "TAX CODE", "EMAIL", "PHONE", "BIRTH"
             }
          ) {
             Class[] types = new Class [] {
@@ -122,6 +122,9 @@ public class CustomerPanel extends GeneralPanel {
          tab = new MyDefaultTableModel();
          tab.createModelBySetCustomer((Set) arg);
          tableSearchCustomer.setModel(tab);
+         //Aggiorno i nomi delle colonne nella view 
+         tableSearchCustomer.getColumnModel().getColumn(3).setHeaderValue("TAX CODE");
+         
          //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
          //ultimo indice contiene sempre id.
          int id_column = tab.getId_column();

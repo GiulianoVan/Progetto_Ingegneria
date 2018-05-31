@@ -40,11 +40,11 @@ public class ImplCustomerDao implements CustomerDao{
     public Set<Customer> searchCustomerKeysWords(ArrayList<String> words) throws SQLException{
          
          Set<Customer>result = new HashSet<>();
-         String sql = "SELECT IDCLIENTE,USERNAME,NOME,COGNOME,EMAIL,CF,TEL,DNASCITA FROM CLIENTE WHERE ";
+         String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH FROM CLIENTE WHERE ";
         //CREO LA STRINGA DINAMICAMENTE AGGIUNGENDO LA STESSA STRINGA PER QUANTE SONO LE PAROLE CHIAVI
         for(String parola : words)
         {
-             sql += "NOME LIKE ? OR COGNOME LIKE ? OR EMAIL LIKE ? OR ";
+             sql += "NAME LIKE ? OR SURNAME LIKE ? OR EMAIL LIKE ? OR ";
         }
         sql = sql.substring(0,sql.length()-3); //TOLGO ULTIMO OR.
         sql += ";"; //AGGIUNGO PUNTO E VIRGOLA ALLA FINE

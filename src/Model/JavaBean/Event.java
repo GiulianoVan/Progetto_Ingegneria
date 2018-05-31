@@ -14,10 +14,10 @@ public class Event {
     private String idEvent; // ("[0-9]{6}$");
     private String title;       // ("[a-z0-9,.;'"/-_#?!]+$",Pattern.CASE_INSENSITIVE);
     private String description; // ("[a-z0-9,.;'"/-_#?!]+$",Pattern.CASE_INSENSITIVE); (uguale a title)
-    private String typeEvent;
-    private String typeGender;
-    private String dataEvent;
-    private String cap; // ("^[0-9]{3}[0-9xX]{2}$"));
+    private String eventType;
+    private String kindType;
+    private String dateEvent;
+    private String zipCoce; // ("^[0-9]{3}[0-9xX]{2}$"));
     private String placeName; // ("^(([a-z]{1}[°]?)|([0-9]+[°]?))(([ '',."/-]{1}(([a-z]{1}[°]?)|([0-9]+[°]?)))*["'']?[,./-]?[a-z 0-9]+)*[.]?$",Pattern.CASE_INSENSITIVE);
     
     
@@ -26,10 +26,10 @@ public class Event {
         this.idEvent = idEvent;
         this.title = title;
         this.description = description;
-        this.typeEvent =  typeEvent;
-        this.typeGender = typeGender;
-        this.dataEvent = dataEvent;
-        this.cap = cap;
+        this.eventType =  typeEvent;
+        this.kindType = typeGender;
+        this.dateEvent = dataEvent;
+        this.zipCoce = cap;
         this.placeName = placeName;
     }
 
@@ -58,35 +58,35 @@ public class Event {
     }
 
     public String getTypeEvent() {
-        return typeEvent;
+        return eventType;
     }
 
     public void setTypeEvent(String typeEvent) {
-        this.typeEvent = typeEvent;
+        this.eventType = typeEvent;
     }
 
     public String getTypeGender() {
-        return typeGender;
+        return kindType;
     }
 
     public void setTypeGender(String typeGender) {
-        this.typeGender = typeGender;
+        this.kindType = typeGender;
     }
 
     public String getDataEvent() {
-        return dataEvent;
+        return dateEvent;
     }
 
     public void setDataEvent(String dataEvent) {
-        this.dataEvent = dataEvent;
+        this.dateEvent = dataEvent;
     }
 
     public String getCap() {
-        return cap;
+        return zipCoce;
     }
 
     public void setCap(String cap) {
-        this.cap = cap;
+        this.zipCoce = cap;
     }
 
     public String getPlaceName() {
