@@ -56,13 +56,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `addsicurezza_BEFORE_INSERT_1` BEFORE INSERT ON `addsicurezza` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=CURRENT_USER*/ /*!50003 TRIGGER `addsicurezza_BEFORE_INSERT` BEFORE INSERT ON `addsicurezza` FOR EACH ROW BEGIN
 
 IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
 THEN
 	 
 	SIGNAL SQLSTATE '45000'
-    SET MESSAGE_TEXT = 'Error : Invalid string format ';
+    SET MESSAGE_TEXT = 'Error : Invalid Name format ';
 END IF;
 
 IF(NOT REGEXP_LIKE(NEW.SURNAME,'^[a-z]+(['' -]?[a-z ]+)*$','i'))
@@ -105,13 +105,13 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `addsicurezza_BEFORE_INSERT` BEFORE UPDATE ON `addsicurezza` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=CURRENT_USER*/ /*!50003 TRIGGER `addsicurezza_BEFORE_UPDATE` BEFORE UPDATE ON `addsicurezza` FOR EACH ROW BEGIN
 
 IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
 THEN
 	 
 	SIGNAL SQLSTATE '45000'
-    SET MESSAGE_TEXT = 'Error : Invalid string format ';
+    SET MESSAGE_TEXT = 'Error : Invalid Name format ';
 END IF;
 
 IF(NOT REGEXP_LIKE(NEW.SURNAME,'^[a-z]+(['' -]?[a-z ]+)*$','i'))
