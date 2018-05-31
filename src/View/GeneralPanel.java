@@ -39,6 +39,9 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         createPanel.setVisible(false);
         tableSearchGeneral.setDefaultRenderer(Object.class,new MyTableCellRenderer());
         jScrollPane1.getViewport().setOpaque(false);
+        buttonDeleteSearch.setToolTipText("Delete selected row");
+        buttonDeleteAdvSearch.setToolTipText("Delete selected row");
+
     }
     
     
@@ -638,8 +641,6 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         textSearchGeneral.setText("Insert Name Here...");
     }
  
-    
-    
     public void updateTable(Object arg) {
 
     }
@@ -652,6 +653,10 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
             getButtonOkSearchGeneral().setVisible(false);
             getjPanelAdvSearch().setVisible(true);
             getDeleteSearch().setVisible(false);
+    }
+
+    public JButton getButtonDeleteAdvSearch() {
+        return buttonDeleteAdvSearch;
     }
     
     public void backNormalSearch()

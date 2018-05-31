@@ -31,6 +31,7 @@ public class ControllerLogin implements ActionListener,KeyListener{
       AmministratoreDao dao;
       private LoginView viewLog;
       Admin admin;
+      private int flag = 0;
       
     public ControllerLogin(AmministratoreDao dao, LoginView view)
     {
@@ -87,6 +88,7 @@ public class ControllerLogin implements ActionListener,KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
         
+            
             if(e.getKeyChar()=='\n' && e.getComponent()!= viewLog.getExitButton())
             {
                   try {
@@ -94,10 +96,11 @@ public class ControllerLogin implements ActionListener,KeyListener{
                         String password = viewLog.getPasswordText();
                         admin = dao.searchbyUserAndPassword(user, password);
                         viewLog.accessApp(admin);
+                        
                         if(admin == null )
-                         {
+                         {    
                               JOptionPane.showMessageDialog(viewLog,"Attenzione : username o password errati","Error",JOptionPane.ERROR_MESSAGE);
-
+                              
                          }
                       }catch (SQLException ex) {
                           JOptionPane.showMessageDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE);

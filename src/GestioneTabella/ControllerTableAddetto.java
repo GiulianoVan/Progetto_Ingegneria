@@ -8,6 +8,7 @@ package GestioneTabella;
 import DB.DAO.AddettoDao;
 import Model.MODELDACANCELARE.AddettiModel;
 import View.GeneralPanel;
+import java.awt.event.FocusEvent;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -29,6 +30,7 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
         this.dao = dao;
         this.view = view;
         this.view.addKeyListener(this);
+        
     }
     
     
@@ -79,6 +81,17 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
         }
           //ho confermato update o ho abbandonato la,quindi setto la cella cliccata nuovamente non editabile.
             
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+         view.getDeleteSearch().setEnabled(true);
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+        view.getDeleteSearch().setEnabled(false);
+
     }
     
 }

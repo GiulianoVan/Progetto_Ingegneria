@@ -42,7 +42,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
         String action = e.getActionCommand();
         if(action.equals("CERCA"))
         {
-            if(view.getTextSearchGeneral().getText().trim().length() == 0)
+            if(view.getTextSearchGeneral().getText().trim().length() > 0)
             {
                    ArrayList<String> parolechiavi;
                    String testo = view.getTextSearchGeneral().getText();
@@ -98,11 +98,10 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
     @Override
     public void keyReleased(KeyEvent e) 
     {
-        
-        
-             if(e.getKeyChar()=='\n')
+                  
+        if(e.getKeyChar()=='\n')
             {
-                if(view.getTextNameGeneralSearch().getText().trim().length()>0)
+            if(view.getTextSearchGeneral().getText().trim().length() > 0)
                {
                     String testo = view.getTextSearchGeneral().getText();
                     ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);

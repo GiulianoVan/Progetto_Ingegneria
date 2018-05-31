@@ -43,9 +43,10 @@ public class ControllerEvent extends ControllerGeneral{
         String action = e.getActionCommand();
         if(action.equals("CERCA"))
         {
-            if(view.getTextSearchGeneral().getText().trim().length() == 0)
+            if(view.getTextSearchGeneral().getText().trim().length() > 0)
             {
-                try {
+                
+                 try {
                     ArrayList<String> parolechiavi;
                     String testo = view.getTextSearchGeneral().getText();
                     parolechiavi = EstraiParoleChiavi(testo);
@@ -94,7 +95,8 @@ public class ControllerEvent extends ControllerGeneral{
           
          if(e.getKeyChar()=='\n')
         { 
-                if(view.getTextNameGeneralSearch().getText().trim().length()>0)
+
+            if(view.getTextSearchGeneral().getText().trim().length() > 0)
                 {
                    try {
                      String testo = view.getTextSearchGeneral().getText();

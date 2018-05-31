@@ -44,7 +44,7 @@ public class ControllerCustomer extends ControllerGeneral{
         String action = e.getActionCommand();
         if(action.equals("CERCA"))
         {
-            if(view.getTextSearchGeneral().getText().trim().length() == 0)
+            if(view.getTextSearchGeneral().getText().trim().length() > 0)
             {
 
                    ArrayList<String> parolechiavi;
@@ -81,7 +81,7 @@ public class ControllerCustomer extends ControllerGeneral{
         
              if(e.getKeyChar()=='\n')
              { 
-                if(view.getTextNameGeneralSearch().getText().trim().length()>0)
+                if(view.getTextSearchGeneral().getText().trim().length() > 0)
                 {
                     System.out.println(view.getTextNameGeneralSearch().getText());
                     String testo = view.getTextSearchGeneral().getText();

@@ -6,6 +6,7 @@
 package GestioneTabella;
 
 import View.GeneralPanel;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -16,7 +17,7 @@ import java.util.Observable;
  *
  * @author Pirozzi
  */
-public abstract class  ControllerTableGeneral implements MouseListener,KeyListener
+public abstract class  ControllerTableGeneral implements MouseListener,KeyListener,FocusListener
 {
     private GeneralPanel view;
     
@@ -24,12 +25,12 @@ public abstract class  ControllerTableGeneral implements MouseListener,KeyListen
     protected int column=-1;
     protected String oldvalue;
     
+    
     public ControllerTableGeneral(GeneralPanel view)
     {
         this.view= view;
         this.view.getTableSearchGeneral().addMouseListener(this);
         this.view.getTableSearchGeneral().addKeyListener(this);
-        
     }
 
     @Override
@@ -56,6 +57,7 @@ public abstract class  ControllerTableGeneral implements MouseListener,KeyListen
                      tab.setRowEditable(-1);
                      row = -1;
                      column=-1;
+                     
             }
           
     }
