@@ -60,7 +60,6 @@ DELIMITER ;;
 
 IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
 THEN
-	 
 	SIGNAL SQLSTATE '45000'
     SET MESSAGE_TEXT = 'Error : Invalid Name format ';
 END IF;
@@ -77,17 +76,18 @@ THEN
     SET MESSAGE_TEXT = 'Error : Invalid Tax_code format ';
 END IF;
 
-IF(NOT REGEXP_LIKE(NEW.EMAIL,'^[a-z0-9_]+@[a-z0-9\-]+\.[a-z0-9\-\.]+$]','i'))
+IF(NOT REGEXP_LIKE(NEW.EMAIL,'^[a-z0-9]{1}[a-z0-9._%-]{0,62}[a-z0-9_%-]{1}\@[a-z0-9]{1}[a-z0-9._%-]{1,252}\.[a-z]{2,4}$','i'))
 THEN
 	SIGNAL SQLSTATE '45003'
     SET MESSAGE_TEXT = 'Error : Invalid Email format ';
 END IF;
 
-IF(NOT REGEXP_LIKE(NEW.PHONE,'^(\+[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$','i'))
+IF(NOT REGEXP_LIKE(NEW.PHONE,'^([+]{1}[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$','i'))
 THEN
-	SIGNAL SQLSTATE '45003'
-    SET MESSAGE_TEXT = 'Error : Invalid Email format ';
+	SIGNAL SQLSTATE '45004'
+    SET MESSAGE_TEXT = 'Error : Invalid Phone format ';
 END IF;
+END
 
 
 END */;;
@@ -109,7 +109,6 @@ DELIMITER ;;
 
 IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
 THEN
-	 
 	SIGNAL SQLSTATE '45000'
     SET MESSAGE_TEXT = 'Error : Invalid Name format ';
 END IF;
@@ -126,17 +125,18 @@ THEN
     SET MESSAGE_TEXT = 'Error : Invalid Tax_code format ';
 END IF;
 
-IF(NOT REGEXP_LIKE(NEW.EMAIL,'^[a-z0-9_]+@[a-z0-9\-]+\.[a-z0-9\-\.]+$]','i'))
+IF(NOT REGEXP_LIKE(NEW.EMAIL,'^[a-z0-9]{1}[a-z0-9._%-]{0,62}[a-z0-9_%-]{1}\@[a-z0-9]{1}[a-z0-9._%-]{1,252}\.[a-z]{2,4}$','i'))
 THEN
 	SIGNAL SQLSTATE '45003'
     SET MESSAGE_TEXT = 'Error : Invalid Email format ';
 END IF;
 
-IF(NOT REGEXP_LIKE(NEW.PHONE,'^(\+[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$','i'))
+IF(NOT REGEXP_LIKE(NEW.PHONE,'^([+]{1}[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$','i'))
 THEN
-	SIGNAL SQLSTATE '45003'
-    SET MESSAGE_TEXT = 'Error : Invalid Email format ';
+	SIGNAL SQLSTATE '45004'
+    SET MESSAGE_TEXT = 'Error : Invalid Phone format ';
 END IF;
+END
 
 
 END */;;
