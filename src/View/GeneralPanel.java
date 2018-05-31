@@ -440,6 +440,14 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         return buttonAdvGeneral;
     }
 
+    public JButton getButtonDeleteSearch() {
+        return buttonDeleteSearch;
+    }
+
+    public void setButtonDeleteSearch(JButton buttonDeleteSearch) {
+        this.buttonDeleteSearch = buttonDeleteSearch;
+    }
+
     public void setButtonAdvGeneral(JButton buttonAdvGeneral) {
         this.buttonAdvGeneral = buttonAdvGeneral;
     }

@@ -53,6 +53,7 @@ public class MyTableCellRenderer extends JLabel implements TableCellRenderer{
            this.setOpaque(true);
            this.setBackground(new Color(86,170,255));
        }
+      
        
        return this;
     }

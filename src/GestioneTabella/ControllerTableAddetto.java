@@ -82,16 +82,5 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
           //ho confermato update o ho abbandonato la,quindi setto la cella cliccata nuovamente non editabile.
             
     }
-
-    @Override
-    public void focusGained(FocusEvent e) {
-         view.getDeleteSearch().setEnabled(true);
-    }
-
-    @Override
-    public void focusLost(FocusEvent e) {
-        view.getDeleteSearch().setEnabled(false);
-
-    }
     
 }

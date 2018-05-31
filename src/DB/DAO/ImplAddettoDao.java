@@ -89,7 +89,6 @@ public class ImplAddettoDao implements AddettoDao {
         }
         sql = sql.substring(0,sql.length()-3); //TOLGO ULTIMO OR.
         sql += ";"; //AGGIUNGO PUNTO E VIRGOLA ALLA FINE
-        System.out.println(sql);
         
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);

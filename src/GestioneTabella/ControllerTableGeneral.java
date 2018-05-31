@@ -6,6 +6,7 @@
 package GestioneTabella;
 
 import View.GeneralPanel;
+import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -31,6 +32,8 @@ public abstract class  ControllerTableGeneral implements MouseListener,KeyListen
         this.view= view;
         this.view.getTableSearchGeneral().addMouseListener(this);
         this.view.getTableSearchGeneral().addKeyListener(this);
+        this.view.getTableSearchGeneral().addFocusListener(this);
+
     }
 
     @Override
@@ -97,6 +100,22 @@ public abstract class  ControllerTableGeneral implements MouseListener,KeyListen
     @Override
     public void keyReleased(KeyEvent e) {
       
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        
+          view.getButtonDeleteAdvSearch().setEnabled(true);
+          view.getButtonDeleteSearch().setEnabled(true);
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+         if(view.getTableSearchGeneral().getSelectedRow()<0)
+         {
+             view.getButtonDeleteAdvSearch().setEnabled(false);
+             view.getButtonDeleteSearch().setEnabled(false);
+         }
     }
    
 }
