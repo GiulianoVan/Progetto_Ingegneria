@@ -118,11 +118,8 @@ public class LoginView extends javax.swing.JFrame{
     public void accessApp(Object admin) {
            
             
-            if(admin == null){
-              JOptionPane.showMessageDialog(this, "Connessione fallita. Credenziali  errate.\nRiprovare.", "ERRORE", JOptionPane.ERROR_MESSAGE);
-            }
-            else
-            {
+            if(admin != null){
+ 
                 this.dispose();
                 GeneralView home = new GeneralView();
                 home.setLocationRelativeTo(null);
