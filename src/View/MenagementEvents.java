@@ -67,8 +67,10 @@ public class MenagementEvents extends javax.swing.JPanel {
         jLabel2.setText("ADMIN");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 130, 20));
 
+        comboAdminMenagementEvents.setBackground(new java.awt.Color(255, 222, 177));
         add(comboAdminMenagementEvents, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 130, 30));
 
+        comboActionMenagementEvents.setBackground(new java.awt.Color(255, 222, 177));
         add(comboActionMenagementEvents, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 130, 30));
 
         jLabel3.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N

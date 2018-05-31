@@ -71,9 +71,11 @@ public class MenagementCustomers extends javax.swing.JPanel {
         jLabel2.setText("ADMIN");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 130, 20));
 
+        comboActionMenagementCustomers.setBackground(new java.awt.Color(255, 222, 177));
         add(comboActionMenagementCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 130, 30));
         add(dateMenagementCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 140, 30));
 
+        comboAdminMenagementCustomers.setBackground(new java.awt.Color(255, 222, 177));
         add(comboAdminMenagementCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 130, 30));
 
         jLabel3.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N

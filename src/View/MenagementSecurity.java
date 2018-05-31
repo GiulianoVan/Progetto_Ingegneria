@@ -69,6 +69,7 @@ public class MenagementSecurity extends javax.swing.JPanel {
         panelMenagementSecurity.setOpaque(false);
         panelMenagementSecurity.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        comboActionMenagementSecurity.setBackground(new java.awt.Color(255, 222, 177));
         panelMenagementSecurity.add(comboActionMenagementSecurity, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 130, 30));
 
         jLabel4.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
@@ -76,6 +77,7 @@ public class MenagementSecurity extends javax.swing.JPanel {
         jLabel4.setText("ACTION");
         panelMenagementSecurity.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 130, 20));
 
+        comboAdminMenagementSecurity.setBackground(new java.awt.Color(255, 222, 177));
         panelMenagementSecurity.add(comboAdminMenagementSecurity, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 30));
 
         jLabel2.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
@@ -89,6 +91,7 @@ public class MenagementSecurity extends javax.swing.JPanel {
         jLabel3.setText("DATE");
         panelMenagementSecurity.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 130, 20));
 
+        jButton1.setBackground(new java.awt.Color(255, 222, 177));
         jButton1.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jButton1.setText("MENAGEMENT WORK");
         panelMenagementSecurity.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, 50));
@@ -98,17 +101,21 @@ public class MenagementSecurity extends javax.swing.JPanel {
         panelMenagementWork.setOpaque(false);
         panelMenagementWork.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        comboEventsWork.setBackground(new java.awt.Color(255, 222, 177));
         comboEventsWork.setFont(new java.awt.Font("Dubai Medium", 1, 10)); // NOI18N
         comboEventsWork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Event" }));
         panelMenagementWork.add(comboEventsWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 150, 30));
 
+        comboSecurityWork.setBackground(new java.awt.Color(255, 222, 177));
         comboSecurityWork.setFont(new java.awt.Font("Dubai Medium", 1, 10)); // NOI18N
         comboSecurityWork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Security Officer" }));
         panelMenagementWork.add(comboSecurityWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 150, 30));
 
+        buttonAddSecurityWork.setBackground(new java.awt.Color(255, 222, 177));
         buttonAddSecurityWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/toWork.png"))); // NOI18N
         panelMenagementWork.add(buttonAddSecurityWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 60, 50));
 
+        buttonBackWork.setBackground(new java.awt.Color(255, 222, 177));
         buttonBackWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/backIcon.png"))); // NOI18N
         panelMenagementWork.add(buttonBackWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 30, 50, 40));
 
