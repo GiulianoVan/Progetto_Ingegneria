@@ -46,11 +46,7 @@ public class ControllerCustomer extends ControllerGeneral{
         {
             if(view.getTextSearchGeneral().getText().trim().length() == 0)
             {
-              JOptionPane.showMessageDialog(view, "Impossibile cercare senza nessun valore.\nRiprovare inserendo un valore nel campo apposito.", "ERRORE", JOptionPane.ERROR_MESSAGE);
 
-            }
-            else
-            {
                    ArrayList<String> parolechiavi;
                    String testo = view.getTextSearchGeneral().getText();
                    parolechiavi = EstraiParoleChiavi(testo);
@@ -82,23 +78,27 @@ public class ControllerCustomer extends ControllerGeneral{
     public void keyReleased(KeyEvent e) 
     {
         
-        if(view.getTextNameGeneralSearch().getText().trim().length()>0)
-           {
+        
              if(e.getKeyChar()=='\n')
-            { 
-                String testo = view.getTextSearchGeneral().getText();
-                ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);
-               try
-               {
-                   customer = dao.searchCustomerKeysWords(parolechiavi);
-                   view.updateTable(customer);
-               }
-               catch(SQLException ex)
-               {
-                  JOptionPane.showMessageDialog(view, "Mancata comunicazione col database.\nImpossibile effetuare la ricerca.", "ERRORE", JOptionPane.ERROR_MESSAGE);
-               }
+             { 
+                if(view.getTextNameGeneralSearch().getText().trim().length()>0)
+                {
+                    System.out.println(view.getTextNameGeneralSearch().getText());
+                    String testo = view.getTextSearchGeneral().getText();
+                    ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);
+                   try
+                   {
+                       customer = dao.searchCustomerKeysWords(parolechiavi);
+                       view.updateTable(customer);
+                   }
+                   catch(SQLException ex)
+                   {
+                      JOptionPane.showMessageDialog(view, "Mancata comunicazione col database.\nImpossibile effetuare la ricerca.", "ERRORE", JOptionPane.ERROR_MESSAGE);
+                   }
+                }
+                
             }
-           }
+               
     }
     
 }

@@ -27,16 +27,14 @@ public abstract class ControllerGeneral implements ActionListener,MouseListener,
     
     
      ControllerGeneral(GeneralPanel view)
-    {
-        
+    {       
         this.view =view;
         this.view.getButtonAdvGeneral().addActionListener(this);
         this.view.getButtonBackSearchGeneral().addActionListener(this);
         this.view.getTextSearchGeneral().addFocusListener(this);
         this.view.getTextSearchGeneral().addMouseListener(this);
         this.view.getButtonCreateGeneral().addActionListener(this);
-        this.view.getButtonBackCreate().addActionListener(this);
-        
+        this.view.getButtonBackCreate().addActionListener(this);        
     }
  
     
@@ -71,12 +69,14 @@ public abstract class ControllerGeneral implements ActionListener,MouseListener,
 
     @Override
     public void mouseClicked(MouseEvent e) {
-            if(e.getClickCount()==1)
-            view.getTextSearchGeneral().setText("");
+            if(e.getClickCount()>=1)
+             view.getTextSearchGeneral().setText("");
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
+         view.getTextSearchGeneral().setText("");
+
     }
 
     @Override
@@ -85,6 +85,7 @@ public abstract class ControllerGeneral implements ActionListener,MouseListener,
 
     @Override
     public void mouseEntered(MouseEvent e) {
+
     }
 
     @Override

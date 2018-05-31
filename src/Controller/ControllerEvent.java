@@ -45,11 +45,6 @@ public class ControllerEvent extends ControllerGeneral{
         {
             if(view.getTextSearchGeneral().getText().trim().length() == 0)
             {
-              JOptionPane.showMessageDialog(view, "Impossibile cercare senza nessun valore.\nRiprovare inserendo un valore nel campo apposito.", "ERRORE", JOptionPane.ERROR_MESSAGE);
-
-            }
-            else
-            {
                 try {
                     ArrayList<String> parolechiavi;
                     String testo = view.getTextSearchGeneral().getText();
@@ -96,22 +91,22 @@ public class ControllerEvent extends ControllerGeneral{
     @Override
     public void keyReleased(KeyEvent e) 
     {
-        
-        if(view.getTextNameGeneralSearch().getText().trim().length()>0)
-           {
-             if(e.getKeyChar()=='\n')
-            { 
-                 try {
+          
+         if(e.getKeyChar()=='\n')
+        { 
+                if(view.getTextNameGeneralSearch().getText().trim().length()>0)
+                {
+                   try {
                      String testo = view.getTextSearchGeneral().getText();
                      ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);
                      event = dao.searchEventKeysWords(parolechiavi);
                      view.updateTable(event);
-                 } catch (SQLException ex) {
+                   } catch (SQLException ex) {
                       JOptionPane.showMessageDialog(view, "Mancata comunicazione col database.\nImpossibile effetuare la ricerca.", "ERRORE", JOptionPane.ERROR_MESSAGE);
-
-                 }
-            }
-           }
+                     } 
+               }
+               
+        }
     }
     
     
