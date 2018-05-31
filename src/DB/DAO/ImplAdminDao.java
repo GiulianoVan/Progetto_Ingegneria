@@ -25,7 +25,11 @@ public class ImplAdminDao implements AmministratoreDao {
             
         Admin amm = null;
         con = DBConnect.getConnection();
+<<<<<<< HEAD
         String sql = "SELECT NOME,COGNOME,IDAMM,CF FROM AMMINISTRATORE WHERE USERNAME = ? AND PASSWORD = ?";
+=======
+        String sql = "SELECT NOME,COGNOME,IDAMM,CF FROM AMMINISTRATORE WHERE USERNAME=? AND BINARY PASSWORD=?";
+>>>>>>> a56fa3ec6120562106a8973bcc0514d2a3558227
         
             ps = con.prepareStatement(sql);
             ps.setString(1,user);
