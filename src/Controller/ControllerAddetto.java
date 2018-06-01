@@ -94,7 +94,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
                MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
                 //dao.rimuoviAddetto()
                int start_selection = view.getTableSearchGeneral().getSelectedRow();
-               int end_selection = view.getTableSearchGeneral().getSelectedRowCount()+view.getTableSearchGeneral().getSelectedRow()-1;
+               int end_selection = view.getTableSearchGeneral().getSelectedRowCount()+start_selection-1;
                 for(int i = end_selection ; i>= start_selection;--i)
                 {
                     
