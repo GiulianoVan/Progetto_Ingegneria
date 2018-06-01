@@ -36,7 +36,7 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
     
 
     @Override
-    public void keyReleased(KeyEvent e) { //DA FARE . NON VA BENE.
+    public void keyReleased(KeyEvent e) {
        
         MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
         //SE PREMO INVIO E LA CELLA è EDITABILE.FAI UPDATE

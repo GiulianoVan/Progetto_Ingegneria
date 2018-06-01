@@ -33,7 +33,8 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         buttonBackSearchGeneral.setActionCommand("BACKSEARCH");
         buttonCreateGeneral.setActionCommand("CREATE");
         buttonOkSearchGeneral.setActionCommand("CERCA");
-
+        buttonDeleteAdvSearch.setActionCommand("DELETE");
+        buttonDeleteSearch.setActionCommand("DELETE");
         buttonDeleteSearch.setEnabled(false);
         buttonDeleteAdvSearch.setEnabled(false);
         createPanel.setVisible(false);

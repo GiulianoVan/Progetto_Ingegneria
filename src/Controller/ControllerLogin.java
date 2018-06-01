@@ -31,7 +31,7 @@ public class ControllerLogin implements ActionListener,KeyListener{
       AmministratoreDao dao;
       private LoginView viewLog;
       Admin admin;
-      private int flag_joptionpane = 1;//
+      private int flag_joptionpane = 1;//flag che controlla lo stato del bottone JOptionPane
       private Object[] ok_options = {"OK"};//setto 'Ok' come unica opzione dei JOptionPane.showOptionDialog
       
     public ControllerLogin(AmministratoreDao dao, LoginView view)

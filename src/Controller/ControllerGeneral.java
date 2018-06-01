@@ -34,7 +34,9 @@ public abstract class ControllerGeneral implements ActionListener,MouseListener,
         this.view.getTextSearchGeneral().addFocusListener(this);
         this.view.getTextSearchGeneral().addMouseListener(this);
         this.view.getButtonCreateGeneral().addActionListener(this);
-        this.view.getButtonBackCreate().addActionListener(this);        
+        this.view.getButtonBackCreate().addActionListener(this);
+        this.view.getButtonDeleteAdvSearch().addActionListener(this);
+        this.view.getButtonDeleteSearch().addActionListener(this);
     }
  
     

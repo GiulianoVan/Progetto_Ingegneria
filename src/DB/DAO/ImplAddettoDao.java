@@ -55,23 +55,17 @@ public class ImplAddettoDao implements AddettoDao {
     }
 
     @Override
-    public int rimuoviAddetto(String idAddetto) {
-
-        try {
-            String sql = "DELETE FROM ADDSICUREZZA WHERE ID =  ?";
+    public int deleteAddetto(String idAddetto) throws SQLException {
+        
+            String sql = "DELETE FROM ADDSICUREZZA WHERE IDSICUREZZA = ?";
             con = DBConnect.getConnection();
             ps= con.prepareStatement(sql);
             ps.setString(1,idAddetto);
-            con.close();
-            ps.close();
             int del= ps.executeUpdate();//ritorna 1 se viene eliminato un addetto o 0 se nn viene eliminato
             con.close();
             ps.close();
             return del;
-        } catch (SQLException ex) {
-            System.out.println("Errore : Mancata comunicazione con il  db.Impossibile eliminare l'addetto");
-            return 0;
-        }
+  
     }
 
    
@@ -175,5 +169,15 @@ public class ImplAddettoDao implements AddettoDao {
             
        
        return result;
+    }
+
+    @Override
+    public int deleteAddetto(Addetto employee) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Addetto> getAllAddetti() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
