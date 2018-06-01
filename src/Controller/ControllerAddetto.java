@@ -87,22 +87,26 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
         else if(action.equals("DELETE"))
         {
             
-           
-            int answer  = JOptionPane.showConfirmDialog(view,"Sei sicuro di volere eliminare la riga o le righe selezionate ?","DELETE",JOptionPane.YES_NO_OPTION);
+            String deleteMessage;
+            int rowCount = view.getTableSearchGeneral().getSelectedRowCount();
+            if(rowCount > 1)
+                deleteMessage = "Hai selezionato "+rowCount+" righe, sei sicuro di volerle eliminare tutte?";
+            else
+                deleteMessage = "Sei sicuro di voler eliminare la riga selezionata?";
+            int answer  = JOptionPane.showConfirmDialog(view,deleteMessage,"DELETE",JOptionPane.YES_NO_OPTION);
             if(answer == 0) // ha cliccato si
             {
-               MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
+                MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
                 //dao.rimuoviAddetto()
-               int start_selection = view.getTableSearchGeneral().getSelectedRow();
-               int end_selection = view.getTableSearchGeneral().getSelectedRowCount()+start_selection-1;
+                int start_selection = view.getTableSearchGeneral().getSelectedRow();
+                int end_selection = rowCount+start_selection-1;
+                
                 for(int i = end_selection ; i>= start_selection;--i)
                 {
-                    
                     try
                     {
                         dao.deleteAddetto((tab.getValueAt(i,tab.getId_column()).toString()));
                         tab.removeRow(i);
-                        //flag_errorDelete=1;
                     }
                     catch(SQLException errorDelete)
                     {
