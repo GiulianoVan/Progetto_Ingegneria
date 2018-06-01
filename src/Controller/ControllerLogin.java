@@ -31,8 +31,8 @@ public class ControllerLogin implements ActionListener,KeyListener{
       AmministratoreDao dao;
       private LoginView viewLog;
       Admin admin;
-      int flag_joptionpane = 1;//
-      Object[] ok_options = {"OK"};//setto 'Ok' come unica opzione dei JOptionPane.showOptionDialog
+      private int flag_joptionpane = 1;//
+      private Object[] ok_options = {"OK"};//setto 'Ok' come unica opzione dei JOptionPane.showOptionDialog
       
     public ControllerLogin(AmministratoreDao dao, LoginView view)
     {
@@ -92,8 +92,6 @@ public class ControllerLogin implements ActionListener,KeyListener{
                 flag_joptionpane = 1;
             else if(e.getKeyChar()=='\n' && e.getComponent()!= viewLog.getExitButton() )
             {
-                //while(flag_joptionpane  == JOptionPane.OK_OPTION){
-               // }
                   try {
                         String user = viewLog.getUsernameText();
                         String password = viewLog.getPasswordText();
