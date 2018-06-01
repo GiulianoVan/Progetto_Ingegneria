@@ -32,7 +32,7 @@ public class ControllerLogin implements ActionListener,KeyListener{
       private LoginView viewLog;
       Admin admin;
       int flag_joptionpane = 1;//
-      Object[] ok_options = {"Ok"};//setto 'Ok' come unica opzione dei JOptionPane.showOptionDialog
+      Object[] ok_options = {"OK"};//setto 'Ok' come unica opzione dei JOptionPane.showOptionDialog
       
     public ControllerLogin(AmministratoreDao dao, LoginView view)
     {
