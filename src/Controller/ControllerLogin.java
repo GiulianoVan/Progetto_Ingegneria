@@ -31,7 +31,8 @@ public class ControllerLogin implements ActionListener,KeyListener{
       AmministratoreDao dao;
       private LoginView viewLog;
       Admin admin;
-      private int flag = 0;
+      int flag_joptionpane = 1;//
+      Object[] ok_options = {"Ok"};//setto 'Ok' come unica opzione dei JOptionPane.showOptionDialog
       
     public ControllerLogin(AmministratoreDao dao, LoginView view)
     {
@@ -59,11 +60,10 @@ public class ControllerLogin implements ActionListener,KeyListener{
                 viewLog.accessApp(admin);
                 if(admin == null )
                 {
-                   JOptionPane.showMessageDialog(viewLog,"Attenzione : username  o password errati","Error",JOptionPane.ERROR_MESSAGE);
-
+                   flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Attenzione : username o password errati","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
                 }
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE);
+                flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
             }
         }
         else
@@ -88,9 +88,12 @@ public class ControllerLogin implements ActionListener,KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
         
-            
-            if(e.getKeyChar()=='\n' && e.getComponent()!= viewLog.getExitButton())
+            if(flag_joptionpane  == JOptionPane.OK_OPTION)
+                flag_joptionpane = 1;
+            else if(e.getKeyChar()=='\n' && e.getComponent()!= viewLog.getExitButton() )
             {
+                //while(flag_joptionpane  == JOptionPane.OK_OPTION){
+               // }
                   try {
                         String user = viewLog.getUsernameText();
                         String password = viewLog.getPasswordText();
@@ -98,13 +101,11 @@ public class ControllerLogin implements ActionListener,KeyListener{
                         viewLog.accessApp(admin);
                         
                         if(admin == null )
-                         {    
-                              JOptionPane.showMessageDialog(viewLog,"Attenzione : username o password errati","Error",JOptionPane.ERROR_MESSAGE);
-                              
+                         {
+                            flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Attenzione : username o password errati","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
                          }
                       }catch (SQLException ex) {
-                          JOptionPane.showMessageDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE);
-           
+                          flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
                     }
             }
             else
