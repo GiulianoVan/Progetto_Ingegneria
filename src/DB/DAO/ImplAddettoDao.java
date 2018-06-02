@@ -30,19 +30,18 @@ public class ImplAddettoDao implements AddettoDao {
     public int aggiungiAddetto(Addetto addetto) {
             
         try {
-            String sql ="INSERT INTO ADDSICUREZZA(IDSICUREZZA,NAME,SURNAME,TAX_CODE,PHONE,SALARY,EMAIL,USERNAME,PASSWORD,BIRTH) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            String sql ="INSERT INTO ADDSICUREZZA(NAME,SURNAME,TAX_CODE,PHONE,SALARY,EMAIL,USERNAME,PASSWORD,BIRTH) VALUES (?,?,?,?,?,?,?,?,?)";
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setString(1,addetto.getId());
-            ps.setString(2,addetto.getNome());
-            ps.setString(3,addetto.getCognome());
-            ps.setString(4,addetto.getCf());
-            ps.setString(5,addetto.getTel());
-            ps.setDouble(6,addetto.getStipendio());
-            ps.setString(7,addetto.getEmail());
-            ps.setString(8,addetto.getUsername());
-            ps.setString(9,addetto.getPassword());
-          //  ps.setDate(10, (Date) addetto.getDnascita());
+            ps.setString(1,addetto.getNome());
+            ps.setString(2,addetto.getCognome());
+            ps.setString(3,addetto.getCf());
+            ps.setString(4,addetto.getTel());
+            ps.setDouble(5,addetto.getStipendio());
+            ps.setString(6,addetto.getEmail());
+            ps.setString(7,addetto.getUsername());
+            ps.setString(8,addetto.getPassword());
+          //  ps.setString(10,addetto.getDnascita());
             int insert=  ps.executeUpdate(); //ritorna 1 se l'inserimento va a buon fine.
             con.close();
             ps.close();

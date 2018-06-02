@@ -61,7 +61,7 @@ public class ControllerEvent extends ControllerGeneral{
                 }
             }
         }
-        else if(action.equals("CREATE"))
+        else if(action.equals("CREATEPANEL"))
         {
             //view.getjPanelAdvSearch().setVisible(false);
             view.getjScrollPane1().setVisible(false);

@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -36,6 +37,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
         this.view = view;
         this.view.getButtonOkSearchGeneral().addActionListener(this);
         this.view.getTextSearchGeneral().addKeyListener(this);
+        this.view.getButtonCreate().addActionListener(this);
     }
     
     @Override
@@ -61,7 +63,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
          
             }
         }
-        else if(action.equals("CREATE"))
+        else if(action.equals("CREATEPANEL"))
         {
             //view.getjPanelAdvSearch().setVisible(false);
             view.getDeleteSearch().setVisible(false);
@@ -123,6 +125,38 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
                  view.getButtonDeleteSearch().setEnabled(false);
             }
             //JTable tab = view.getTableSearchGeneral();
+            
+        }
+        else if(action.equals("CREATE"))
+        {
+            System.out.println("CIAO");
+            String name = view.getTextNameSecurityCreate().getText();
+            String surname = view.getTextSurnameCreate().getText();
+            String username = view.getTextUsernameCreate().getText();
+            String password = view.getTextPasswordCreate().getText();
+            String code = view.getTextCfGeneralSearch().getText();
+            Date birth = view.getDateCreateEvent().getDate();
+            String phone = view.getTextNumberCreate().getText();
+            String email = view.getTextEmailCreate().getText();
+            
+            Double salary;
+            try
+            {
+                 salary= Double.parseDouble(view.getTextSalaryCreate().getText());
+                 Addetto security = new Addetto(name,surname,code, email,phone, salary, birth,"usless");
+                 dao.aggiungiAddetto(security);
+                 JOptionPane.showMessageDialog(view,"Inserimento avvenuto con successo","INSERT",JOptionPane.INFORMATION_MESSAGE);
+                 
+            }
+            catch(NumberFormatException err)
+            {
+                JOptionPane.showMessageDialog(view,"Error : Impossibile convertire lo stipendio","ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            catch(SQLException err)
+            {
+               JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
             
         }
     }

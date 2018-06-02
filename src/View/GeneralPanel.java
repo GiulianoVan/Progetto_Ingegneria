@@ -7,8 +7,6 @@ package View;
 
 import GestioneTabella.MyTableCellRenderer;
 import com.toedter.calendar.JDateChooser;
-import java.util.Observable;
-import java.util.Observer;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -31,10 +29,11 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         initComponents();
         buttonAdvGeneral.setActionCommand("ADVSEARCH");
         buttonBackSearchGeneral.setActionCommand("BACKSEARCH");
-        buttonCreateGeneral.setActionCommand("CREATE");
+        buttonCreateGeneral.setActionCommand("CREATEPANEL");
         buttonOkSearchGeneral.setActionCommand("CERCA");
         buttonDeleteAdvSearch.setActionCommand("DELETE");
         buttonDeleteSearch.setActionCommand("DELETE");
+        buttonCreate.setActionCommand("CREATE");
         buttonDeleteSearch.setEnabled(false);
         buttonDeleteAdvSearch.setEnabled(false);
         createPanel.setVisible(false);
@@ -42,7 +41,15 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         jScrollPane1.getViewport().setOpaque(false);
         buttonDeleteSearch.setToolTipText("Delete selected row");
         buttonDeleteAdvSearch.setToolTipText("Delete selected row");
+        
+    }
 
+    public JDateChooser getDateCreateAddetto() {
+        return DateCreateAddetto;
+    }
+
+    public void setDateCreateAddetto(JDateChooser DateCreateAddetto) {
+        this.DateCreateAddetto = DateCreateAddetto;
     }
     
     
@@ -93,7 +100,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         textCFCreate = new javax.swing.JTextField();
         textNameCreate = new javax.swing.JTextField();
         textSurnameCreate = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        DateCreateAddetto = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         buttonDeleteSearch = new javax.swing.JButton();
         SfondoGeneralPanel = new javax.swing.JLabel();
@@ -292,8 +299,8 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         textSurnameCreate.setText("Insert Surname Here");
         panelCreateSecurity.add(textSurnameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 150, 30));
 
-        jDateChooser1.setBackground(new java.awt.Color(255, 222, 177));
-        panelCreateSecurity.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 140, 30));
+        DateCreateAddetto.setBackground(new java.awt.Color(255, 222, 177));
+        panelCreateSecurity.add(DateCreateAddetto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 140, 30));
 
         jLabel1.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -678,9 +685,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
             getDeleteSearch().setVisible(true);
     }
     
-    public void DontUpdateRow() {
-        
-    }
+
     
     
      public void resetValueTable(int row,int column,String oldvalue) {
@@ -690,6 +695,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser DateCreateAddetto;
     private javax.swing.JLabel SfondoGeneralPanel;
     private javax.swing.JButton buttonAdvGeneral;
     private javax.swing.JButton buttonBackCreate;
@@ -711,7 +717,6 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser dateToGeneral;
     private javax.swing.JTextArea descriptionArea;
     private javax.swing.JLabel fromAdvSearch;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelAdvSearch;
     private javax.swing.JScrollPane jScrollPane1;
