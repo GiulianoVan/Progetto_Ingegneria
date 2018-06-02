@@ -102,6 +102,14 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         textSurnameCreate = new javax.swing.JTextField();
         DateCreateAddetto = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         buttonDeleteSearch = new javax.swing.JButton();
         SfondoGeneralPanel = new javax.swing.JLabel();
 
@@ -264,19 +272,19 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
         textPasswordCreate.setForeground(new java.awt.Color(153, 153, 153));
         textPasswordCreate.setText("Insert Password Here");
-        panelCreateSecurity.add(textPasswordCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 150, 30));
+        panelCreateSecurity.add(textPasswordCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 150, 30));
 
         textUsernameCreate.setForeground(new java.awt.Color(153, 153, 153));
         textUsernameCreate.setText("Insert Username Here");
-        panelCreateSecurity.add(textUsernameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 150, 30));
+        panelCreateSecurity.add(textUsernameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 150, 30));
 
         textNumberCreate.setForeground(new java.awt.Color(153, 153, 153));
         textNumberCreate.setText("Insert Telephon Number Here");
-        panelCreateSecurity.add(textNumberCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 150, 30));
+        panelCreateSecurity.add(textNumberCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 150, 30));
 
         textSalaryCreate.setForeground(new java.awt.Color(153, 153, 153));
         textSalaryCreate.setText("Insert Salary Here");
-        panelCreateSecurity.add(textSalaryCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 150, 30));
+        panelCreateSecurity.add(textSalaryCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 150, 30));
 
         textEmailCreate.setForeground(new java.awt.Color(153, 153, 153));
         textEmailCreate.setText("Insert Email Here");
@@ -285,27 +293,67 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
                 textEmailCreateActionPerformed(evt);
             }
         });
-        panelCreateSecurity.add(textEmailCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 150, 30));
+        panelCreateSecurity.add(textEmailCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 150, 30));
 
         textCFCreate.setForeground(new java.awt.Color(153, 153, 153));
         textCFCreate.setText("Insert CF Here");
-        panelCreateSecurity.add(textCFCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 150, 30));
+        panelCreateSecurity.add(textCFCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 150, 30));
 
         textNameCreate.setForeground(new java.awt.Color(153, 153, 153));
         textNameCreate.setText("Insert Name Here");
-        panelCreateSecurity.add(textNameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 30));
+        panelCreateSecurity.add(textNameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 150, 30));
 
         textSurnameCreate.setForeground(new java.awt.Color(153, 153, 153));
         textSurnameCreate.setText("Insert Surname Here");
-        panelCreateSecurity.add(textSurnameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 150, 30));
+        panelCreateSecurity.add(textSurnameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 150, 30));
 
         DateCreateAddetto.setBackground(new java.awt.Color(255, 222, 177));
-        panelCreateSecurity.add(DateCreateAddetto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 140, 30));
+        panelCreateSecurity.add(DateCreateAddetto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 140, 30));
 
         jLabel1.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("DATE OF BIRTH");
-        panelCreateSecurity.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 264, 140, 30));
+        panelCreateSecurity.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 140, 30));
+
+        jLabel2.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("SURNAME");
+        panelCreateSecurity.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 150, 20));
+
+        jLabel3.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("CF");
+        panelCreateSecurity.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 150, 20));
+
+        jLabel4.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("EMAIL");
+        panelCreateSecurity.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 150, 20));
+
+        jLabel5.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("TELEPHON");
+        panelCreateSecurity.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 150, 20));
+
+        jLabel6.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("SALARY");
+        panelCreateSecurity.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 150, 20));
+
+        jLabel7.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("USERNAME");
+        panelCreateSecurity.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 150, 20));
+
+        jLabel8.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("PASSWORD");
+        panelCreateSecurity.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 150, 20));
+
+        jLabel9.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("NAME");
+        panelCreateSecurity.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, 20));
 
         createPanel.add(panelCreateSecurity, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 420, 340));
 
@@ -718,6 +766,14 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private javax.swing.JTextArea descriptionArea;
     private javax.swing.JLabel fromAdvSearch;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanelAdvSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelCreateEvent;
