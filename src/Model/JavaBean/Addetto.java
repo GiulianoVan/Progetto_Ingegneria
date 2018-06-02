@@ -31,6 +31,33 @@ public class Addetto {
    private String username;
    private Date dnascita;
 
+   
+     public Addetto(String nome,String cogn,String cf,String email,String tel,Double stip,Date data,String id)
+   {
+       this.nome = nome;
+       this.cognome = cogn;
+       this.cf = cf;
+       this.email = email;
+       this.tel = tel;
+       this.stipendio = stip;
+       this.dnascita = data;
+       this.id = id;
+   }
+   
+     
+    public Addetto(String nome,String cogn,String cf,String email,String tel,Double stip,Date data,String username,String password)
+   {
+       this.nome = nome;
+       this.cognome = cogn;
+       this.cf = cf;
+       this.email = email;
+       this.tel = tel;
+       this.stipendio = stip;
+       this.dnascita = data;
+       this.password=password;
+       this.username=username;
+   }  
+     
     public Date getDnascita() {
         return dnascita;
     }
@@ -65,17 +92,7 @@ public class Addetto {
         this.id = id;
     }
 
-   public Addetto(String nome,String cogn,String cf,String email,String tel,Double stip,Date data,String id)
-   {
-       this.nome = nome;
-       this.cognome = cogn;
-       this.cf = cf;
-       this.email = email;
-       this.tel = tel;
-       this.stipendio = stip;
-       this.dnascita = data;
-       this.id = id;
-   }
+ 
   
  
     

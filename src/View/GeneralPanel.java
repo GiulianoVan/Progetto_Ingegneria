@@ -270,44 +270,34 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         panelCreateSecurity.setOpaque(false);
         panelCreateSecurity.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        textPasswordCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textPasswordCreate.setText("Insert Password Here");
+        textPasswordCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textPasswordCreateActionPerformed(evt);
+            }
+        });
         panelCreateSecurity.add(textPasswordCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 150, 30));
-
-        textUsernameCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textUsernameCreate.setText("Insert Username Here");
         panelCreateSecurity.add(textUsernameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 150, 30));
-
-        textNumberCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textNumberCreate.setText("Insert Telephon Number Here");
         panelCreateSecurity.add(textNumberCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 150, 30));
 
-        textSalaryCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textSalaryCreate.setText("Insert Salary Here");
+        textSalaryCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSalaryCreateActionPerformed(evt);
+            }
+        });
         panelCreateSecurity.add(textSalaryCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 150, 30));
 
-        textEmailCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textEmailCreate.setText("Insert Email Here");
         textEmailCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textEmailCreateActionPerformed(evt);
             }
         });
         panelCreateSecurity.add(textEmailCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 150, 30));
-
-        textCFCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textCFCreate.setText("Insert CF Here");
         panelCreateSecurity.add(textCFCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 150, 30));
-
-        textNameCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textNameCreate.setText("Insert Name Here");
         panelCreateSecurity.add(textNameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 150, 30));
-
-        textSurnameCreate.setForeground(new java.awt.Color(153, 153, 153));
-        textSurnameCreate.setText("Insert Surname Here");
         panelCreateSecurity.add(textSurnameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 150, 30));
 
         DateCreateAddetto.setBackground(new java.awt.Color(255, 222, 177));
+        DateCreateAddetto.setDateFormatString("yyyy-MM-dd");
         panelCreateSecurity.add(DateCreateAddetto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 140, 30));
 
         jLabel1.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
@@ -399,6 +389,14 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private void buttonDeleteSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonDeleteSearchActionPerformed
+
+    private void textSalaryCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSalaryCreateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSalaryCreateActionPerformed
+
+    private void textPasswordCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPasswordCreateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textPasswordCreateActionPerformed
 
     public JButton getButtonCreate() {
         return buttonCreate;

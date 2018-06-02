@@ -27,9 +27,8 @@ public class ImplAddettoDao implements AddettoDao {
     ResultSet rs;
     
     @Override
-    public int aggiungiAddetto(Addetto addetto) {
+    public int aggiungiAddetto(Addetto addetto)throws SQLException{
             
-        try {
             String sql ="INSERT INTO ADDSICUREZZA(NAME,SURNAME,TAX_CODE,PHONE,SALARY,EMAIL,USERNAME,PASSWORD,BIRTH) VALUES (?,?,?,?,?,?,?,?,?)";
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
@@ -41,16 +40,11 @@ public class ImplAddettoDao implements AddettoDao {
             ps.setString(6,addetto.getEmail());
             ps.setString(7,addetto.getUsername());
             ps.setString(8,addetto.getPassword());
-          //  ps.setString(10,addetto.getDnascita());
+            ps.setTimestamp(9,new Timestamp(addetto.getDnascita().getTime()));
             int insert=  ps.executeUpdate(); //ritorna 1 se l'inserimento va a buon fine.
             con.close();
             ps.close();
             return insert;
-        } catch (SQLException ex) {
-            Logger.getLogger(ImplAddettoDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("[ERRORE] Problema di comunicazione con il Db,impossibile inserire l'addetto");
-            return 0;
-        }
     }
 
     @Override

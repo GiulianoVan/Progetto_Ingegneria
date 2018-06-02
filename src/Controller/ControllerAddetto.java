@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import java.sql.Timestamp;
 
 /**
  *
@@ -134,19 +135,22 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
             String surname = view.getTextSurnameCreate().getText();
             String username = view.getTextUsernameCreate().getText();
             String password = view.getTextPasswordCreate().getText();
-            String code = view.getTextCfGeneralSearch().getText();
-            Date birth = view.getDateCreateEvent().getDate();
+            String code = view.getTextCFCreate().getText();
+            Date birth =view.getDateCreateAddetto().getDate();
             String phone = view.getTextNumberCreate().getText();
             String email = view.getTextEmailCreate().getText();
-            
+            //Timestamp birth = new Timestamp(birth.getTime());
+            String salar = view.getTextSalaryCreate().getText();
+            salar = salar.replace(",", ".");
             Double salary;
+            
             try
             {
-                 salary= Double.parseDouble(view.getTextSalaryCreate().getText());
-                 Addetto security = new Addetto(name,surname,code, email,phone, salary, birth,"usless");
+                 salary= Double.parseDouble(salar);
+                 Addetto security = new Addetto(name,surname,code,email,phone, salary,birth,username,password);
                  dao.aggiungiAddetto(security);
                  JOptionPane.showMessageDialog(view,"Inserimento avvenuto con successo","INSERT",JOptionPane.INFORMATION_MESSAGE);
-                 
+                 clearAllTextCreate();
             }
             catch(NumberFormatException err)
             {
@@ -191,6 +195,17 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
                 
            }
     }
-    
-       
+   
+ public void clearAllTextCreate()
+ {
+     view.getTextNameCreate().setText("");
+     view.getTextSurnameCreate().setText("");
+     view.getTextSalaryCreate().setText("");
+     view.getTextEmailCreate().setText("");
+     view.getTextCFCreate().setText("");
+     view.getTextUsernameCreate().setText("");
+     view.getTextPasswordCreate().setText("");
+     view.getDateCreateAddetto().setDate(null);
+     view.getTextNumberCreate().setText("");
+ }
 }
