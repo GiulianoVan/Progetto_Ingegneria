@@ -48,14 +48,20 @@ public abstract class  ControllerTableGeneral implements MouseListener,KeyListen
                 tab.setRowEditable(row);
                 view.getTableSearchGeneral().editCellAt(row, column);
                 oldvalue=tab.getValueAt(row, column).toString();
-               
+                //se sto modificando non posso cancellare.
+                view.getButtonDeleteAdvSearch().setEnabled(false);
+                view.getButtonDeleteSearch().setEnabled(false);
+                
             }
             else{
                     //SE PREMO UNA VOLTA SU UNA CELLA,E NON HO PREMUTO INVIO PER FARE L'UPDATE.
                     //RITORNO AL VECCHIO VALORE.
                     //ROW = -1 E COL = -1 PERCHè SE ENTRO QUI,NON HO PIU LA CELLA EDITABILE.
-                    if(row != -1 && column != -1)
-                       view.resetValueTable(row, column, oldvalue);
+                   
+                    view.getButtonDeleteAdvSearch().setEnabled(true);
+                    view.getButtonDeleteSearch().setEnabled(true);
+                    if(row != -1 && column != -1 )
+                      view.resetValueTable(row, column, oldvalue);
                      tab.setColumnEditable(-1);
                      tab.setRowEditable(-1);
                      row = -1;
@@ -111,11 +117,7 @@ public abstract class  ControllerTableGeneral implements MouseListener,KeyListen
 
     @Override
     public void focusLost(FocusEvent e) {
-         if(view.getTableSearchGeneral().getSelectedRow()<0)
-         {
-             view.getButtonDeleteAdvSearch().setEnabled(false);
-             view.getButtonDeleteSearch().setEnabled(false);
-         }
+        
     }
    
 }

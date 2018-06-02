@@ -87,7 +87,7 @@ public class ImplEventDao implements EventDao{
     }
 
     @Override
-    public void createEvent() {
+    public void createEvent(Event event) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -121,8 +121,16 @@ public class ImplEventDao implements EventDao{
       }
 
     @Override
-    public int deleteEvent() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int deleteEvent(String idEvent) throws SQLException {
+            
+            String sql = "DELETE FROM EVENTO WHERE IDEVENTO = ?";
+            con = DBConnect.getConnection();
+            ps= con.prepareStatement(sql);
+            ps.setString(1,idEvent);
+            int del= ps.executeUpdate();//ritorna 1 se viene eliminato un addetto o 0 se nn viene eliminato
+            con.close();
+            ps.close();
+            return del;
     }
 
     @Override
@@ -163,6 +171,11 @@ public class ImplEventDao implements EventDao{
             }
 
             return result;
+    }
+
+    @Override
+    public int deleteEvent(Event event) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }    

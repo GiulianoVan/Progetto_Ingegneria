@@ -72,6 +72,8 @@ public class ControllerTableCustomer extends ControllerTableGeneral {
                   view.resetValueTable(row, column,oldvalue);
                row = -1;
                column = -1;
+               view.getButtonDeleteAdvSearch().setEnabled(true);
+               view.getButtonDeleteSearch().setEnabled(true);
             }
             //sto cambiando casella senza invio,quindi setto la cella cliccata nuovamente non editabile.
             

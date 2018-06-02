@@ -6,6 +6,7 @@
 package Controller;
 
 import DB.DAO.EventDao;
+import GestioneTabella.MyDefaultTableModel;
 import Model.MODELDACANCELARE.EventModel;
 import Model.JavaBean.Event;
 import View.GeneralPanel;
@@ -24,10 +25,11 @@ import javax.swing.JOptionPane;
  */
 public class ControllerEvent extends ControllerGeneral{
     
-    GeneralPanel view;
-    EventDao dao;
-    Set<Event> event;
-
+    private GeneralPanel view;
+    private EventDao dao;
+    private Set<Event> event;
+    private int flag_errorDelete = 1;
+    
     public ControllerEvent(EventDao dao, GeneralPanel view) {
         super(view);
         this.dao = dao;
@@ -84,8 +86,40 @@ public class ControllerEvent extends ControllerGeneral{
         }
         else if(action.equals("DELETE"))
         {
-            //se tt è vuoto,impossibile effettuare la ricerca.
-           //altrimenti creo una mappa campo-valore e la passo al model x fare l'interrogazione.
+            String deleteMessage;
+            int rowCount = view.getTableSearchGeneral().getSelectedRowCount();
+            if(rowCount > 1)
+                deleteMessage = "Hai selezionato "+rowCount+" righe, sei sicuro di volerle eliminare tutte?";
+            else
+                deleteMessage = "Sei sicuro di voler eliminare la riga selezionata?";
+            int answer  = JOptionPane.showConfirmDialog(view,deleteMessage,"DELETE",JOptionPane.YES_NO_OPTION);
+            if(answer == 0) // ha cliccato si
+            {
+                MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
+                int start_selection = view.getTableSearchGeneral().getSelectedRow();
+                int end_selection = rowCount+start_selection-1;
+                
+                for(int i = end_selection ; i>= start_selection;--i)
+                {
+                    try
+                    {
+                        dao.deleteEvent((tab.getValueAt(i,tab.getId_column()).toString()));
+                        tab.removeRow(i);
+                    }
+                    catch(SQLException errorDelete)
+                    {
+                          if(flag_errorDelete==1)
+                          {
+                              JOptionPane.showMessageDialog(view, "Errore : "+errorDelete.getMessage(), "ERRORE", JOptionPane.ERROR_MESSAGE);
+                              flag_errorDelete = 0;
+                          }
+                    }
+                     
+                }
+                 flag_errorDelete=1;
+                 view.getButtonDeleteAdvSearch().setEnabled(false);
+                 view.getButtonDeleteSearch().setEnabled(false);
+            }
         }
     }
     

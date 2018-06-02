@@ -24,10 +24,10 @@ import javax.swing.JTable;
 public class ControllerAddetto extends ControllerGeneral{ //o estende la generale ?
 //UTILIZZANDOLA QUANDO ESTENDE,BASTA USARE UN SOLO CONTROLLER,CONTROLLERADDETTO. IL COLLEGAMENTI COL PADRE VENGONO
     //FATTI IN AUTOMATICO NEL COSTRUTTORE DEL APDRE
-    Set<Addetto> addetti;
-    AddettoDao dao;
-    GeneralPanel view;
-    int flag_errorDelete = 1;
+    private Set<Addetto> addetti;
+    private AddettoDao dao;
+    private GeneralPanel view;
+    private int flag_errorDelete = 1;
     
     public ControllerAddetto(AddettoDao dao,GeneralPanel view)
     {
@@ -97,7 +97,6 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
             if(answer == 0) // ha cliccato si
             {
                 MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
-                //dao.rimuoviAddetto()
                 int start_selection = view.getTableSearchGeneral().getSelectedRow();
                 int end_selection = rowCount+start_selection-1;
                 
@@ -119,6 +118,9 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
                      
                 }
                  flag_errorDelete=1;
+                 //se cancello le righe,risetto a false il button.
+                 view.getButtonDeleteAdvSearch().setEnabled(false);
+                 view.getButtonDeleteSearch().setEnabled(false);
             }
             //JTable tab = view.getTableSearchGeneral();
             

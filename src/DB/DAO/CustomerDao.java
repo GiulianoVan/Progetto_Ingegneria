@@ -24,7 +24,7 @@ public interface CustomerDao {
     public int updateCustomer(String new_value,String attribute_to_change,String id) throws SQLException;
     public List<CustomerModel> searchByEta(int eta) throws SQLException;
     public List<CustomerModel> searchByBigliettiAcquistati(int n) throws SQLException;
-    
+    public int deleteCustomer(String idcustomer) throws SQLException;
     //public int delete(clientModel x);
 
 }

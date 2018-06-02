@@ -65,7 +65,7 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
         {
             
            //se non premo invio,RESETTO LA CELLA AL VALORE PRECEDENTE
-            //ROW = -1 E COL = -1 PERCHè UNA VOLTA QUI NON HO PIU LA CELLA EDITABILE
+            //ROW = -1 E COL = -1 PERCHè UNA VOLTA QUI NON HO PIU LA CELLA EDITABILE,solo col doppio click è editabile
             if(view.getTableSearchGeneral().getSelectedRow() != row || view.getTableSearchGeneral().getSelectedColumn() != column)
             {  
                 tab.setColumnEditable(-1);
@@ -74,6 +74,8 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
                   view.resetValueTable(row, column,oldvalue);
                row = -1;
                column = -1;
+               view.getButtonDeleteAdvSearch().setEnabled(true);
+               view.getButtonDeleteSearch().setEnabled(true);
             }
             //sto cambiando casella senza invio,quindi setto la cella cliccata nuovamente non editabile.
             

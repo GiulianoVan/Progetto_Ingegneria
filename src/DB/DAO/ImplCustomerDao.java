@@ -109,6 +109,19 @@ public class ImplCustomerDao implements CustomerDao{
          return clienti;
     }
 
+    @Override
+    public int deleteCustomer(String idcustomer) throws SQLException {
+        
+            String sql = "DELETE FROM CLIENTE WHERE IDCLIENTE = ?";
+            con = DBConnect.getConnection();
+            ps= con.prepareStatement(sql);
+            ps.setString(1,idcustomer);
+            int del= ps.executeUpdate();//ritorna 1 se viene eliminato un addetto o 0 se nn viene eliminato
+            con.close();
+            ps.close();
+            return del;
+    }
+    
 
     
     

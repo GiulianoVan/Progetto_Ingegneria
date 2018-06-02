@@ -6,6 +6,7 @@
 package Controller;
 
 import DB.DAO.CustomerDao;
+import GestioneTabella.MyDefaultTableModel;
 import Model.MODELDACANCELARE.CustomerModel;
 import Model.MODELDACANCELARE.EventModel;
 import Model.JavaBean.Customer;
@@ -24,9 +25,10 @@ import javax.swing.JOptionPane;
 public class ControllerCustomer extends ControllerGeneral{
  
     
-    GeneralPanel view;
-    CustomerDao dao;
-    Set<Customer> customer;
+    private GeneralPanel view;
+    private CustomerDao dao;
+    private Set<Customer> customer;
+    private int flag_errorDelete = 1;
     
     public ControllerCustomer(CustomerDao dao, GeneralPanel view) {
         
@@ -64,8 +66,42 @@ public class ControllerCustomer extends ControllerGeneral{
         }
         else if(action.equals("DELETE"))
         {
-            //se tt è vuoto,impossibile effettuare la ricerca.
-           //altrimenti creo una mappa campo-valore e la passo al model x fare l'interrogazione.
+            String deleteMessage;
+            int rowCount = view.getTableSearchGeneral().getSelectedRowCount();
+            if(rowCount > 1)
+                deleteMessage = "Hai selezionato "+rowCount+" righe, sei sicuro di volerle eliminare tutte?";
+            else
+                deleteMessage = "Sei sicuro di voler eliminare la riga selezionata?";
+            int answer  = JOptionPane.showConfirmDialog(view,deleteMessage,"DELETE",JOptionPane.YES_NO_OPTION);
+            if(answer == 0) // ha cliccato si
+            {
+                MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
+                int start_selection = view.getTableSearchGeneral().getSelectedRow();
+                int end_selection = rowCount+start_selection-1;
+                
+                for(int i = end_selection ; i>= start_selection;--i)
+                {
+                    try
+                    {
+                        dao.deleteCustomer((tab.getValueAt(i,tab.getId_column()).toString()));
+                        tab.removeRow(i);
+                    }
+                    catch(SQLException errorDelete)
+                    {
+                          if(flag_errorDelete==1)
+                          {
+                              JOptionPane.showMessageDialog(view, "Errore : "+errorDelete.getMessage(), "ERRORE", JOptionPane.ERROR_MESSAGE);
+                              flag_errorDelete = 0;
+                          }
+                    }
+                     
+                }
+                 flag_errorDelete=1;
+                  view.getButtonDeleteAdvSearch().setEnabled(false);
+                 view.getButtonDeleteSearch().setEnabled(false);
+            }
+            //JTable tab = view.getTableSearchGeneral();
+            
         }
         else if(action.equals("BACKSEARCH"))
         {
@@ -83,7 +119,6 @@ public class ControllerCustomer extends ControllerGeneral{
              { 
                 if(view.getTextSearchGeneral().getText().trim().length() > 0)
                 {
-                    System.out.println(view.getTextNameGeneralSearch().getText());
                     String testo = view.getTextSearchGeneral().getText();
                     ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);
                    try

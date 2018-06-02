@@ -80,6 +80,9 @@ public class ControllerTableEvent extends ControllerTableGeneral{
                   view.resetValueTable(row, column,oldvalue);
                row = -1;
                column = -1;
+               //se non sto piu nella cella editabile,perche mi sono spostato con un tasto,risetto a true il pulsante delete
+               view.getButtonDeleteAdvSearch().setEnabled(true);
+               view.getButtonDeleteSearch().setEnabled(true);
             }
             //sto cambiando casella senza invio,quindi setto la cella cliccata nuovamente non editabile.
             
