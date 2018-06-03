@@ -42,6 +42,10 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
         this.view.getTextSearchGeneral().addKeyListener(this);
         this.view.getButtonCreate().addActionListener(this);
         this.view.getButtonOkAdvSearchGeneral().addActionListener(this);
+        this.view.getTextSurnameGeneralSearch().addKeyListener(this);
+        this.view.getTextNameGeneralSearch().addKeyListener(this);
+        this.view.getTextCfGeneralSearch().addKeyListener(this);
+      
     }
     
     @Override
@@ -171,8 +175,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
             {
                 try
                 {
-                  System.out.println(view.getTextCfGeneralSearch().getText());
-                   addetti.add(dao.searchByTaxCode(view.getTextCfGeneralSearch().getText()));
+                    addetti.add(dao.searchByTaxCode(view.getTextCfGeneralSearch().getText()));
 
                 }
                 catch(SQLException err)
@@ -187,7 +190,10 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
                         
                         try
                         {
-                             addetti.addAll(dao.searchByName(view.getTextNameGeneralSearch().getText()));
+                             if(addetti.isEmpty())
+                               addetti.addAll(dao.searchByName(view.getTextNameGeneralSearch().getText()));
+                             else
+                                addetti.retainAll(dao.searchByName(view.getTextNameGeneralSearch().getText()));
                         }
                         catch(SQLException err)
                         {
@@ -197,7 +203,11 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
                     if(view.getTextSurnameGeneralSearch().getText().trim().length() != 0)
                     {
                         try{
-                        addetti.addAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
+                           if(addetti.isEmpty()) 
+                             addetti.addAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
+                           else
+                             addetti.retainAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
+
                         }
                         catch(SQLException err)
                         {
@@ -207,8 +217,10 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
                     if(view.getDateFromGeneral().getDate()!= null && view.getDateToGeneral().getDate()!= null)
                     {
                         try{
-                         addetti.addAll(dao.searchByBirth(view.getDateFromGeneral().getDate(),view.getDateToGeneral().getDate()));
-                         
+                           if(addetti.isEmpty())  
+                              addetti.addAll(dao.searchByBirth(view.getDateFromGeneral().getDate(),view.getDateToGeneral().getDate()));
+                           else
+                             addetti.retainAll(dao.searchByBirth(view.getDateFromGeneral().getDate(),view.getDateToGeneral().getDate()));
                         }
                         catch(SQLException err)
                         {
@@ -223,6 +235,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
 
                     }
             }
+             
              view.updateTable(addetti);
         }
     }
@@ -238,7 +251,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
     public void keyReleased(KeyEvent e) 
     {
                   
-        if(e.getKeyChar()=='\n')
+        if(e.getKeyChar()=='\n' && e.getComponent()==view.getTextSearchGeneral())
             {
             if(view.getTextSearchGeneral().getText().trim().length() > 0)
                {
@@ -256,6 +269,10 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
                }
                 
            }
+        else if(e.getKeyChar() == '\n' && (e.getComponent()== view.getTextNameGeneralSearch() || e.getComponent()== view.getTextSurnameGeneralSearch() || e.getComponent()== view.getTextCfGeneralSearch()))
+        {       
+           view.getButtonOkAdvSearchGeneral().doClick();
+        }
     }
    
  public void clearAllTextCreate()

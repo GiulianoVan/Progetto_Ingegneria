@@ -108,9 +108,12 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        this.addColumn("SALARY");
        this.addColumn("BIRTH");
        this.addColumn("ID");
-
+       
+       
+       
        for(Addetto add : addetti)
        {
+           if(add != null)
            this.addRow(new String[]{add.getNome(),add.getCognome(),add.getCf(),add.getEmail(),add.getTel(),add.getStipendio().toString(),add.getDnascita().toString(),add.getId()});
        }   
        
@@ -132,6 +135,7 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
 
        for(Event event : events)
        {
+           if(event != null)
            this.addRow(new String[]{event.getTitle(),event.getTypeEvent(),event.getTypeGender(),event.getDataEvent(),event.getPlaceName(),event.getCap(),event.getDescription(),event.getIdEvent()});
        }   
        //setto sempre l'id all'ultima colonna;
@@ -152,6 +156,7 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        this.addColumn("ID");
        for(Customer add : customer)
        {
+           if(add != null)
            this.addRow(new String[]{add.getUsername(),add.getName(),add.getSurname(),add.getTax_code(),add.getEmail(),add.getPhone(),add.getDate_born().toString(),add.getIdCustomer()});
        }   
        //ID SEMPRE SU ULTIMA COLONNA,XKè COLONNE IN MEZZO NON POSSONO ESSERE NASCOSTE.
