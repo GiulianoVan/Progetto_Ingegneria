@@ -7,14 +7,13 @@ package Controller;
 
 import DB.DAO.CustomerDao;
 import GestioneTabella.MyDefaultTableModel;
-import Model.MODELDACANCELARE.CustomerModel;
-import Model.MODELDACANCELARE.EventModel;
 import Model.JavaBean.Customer;
 import View.GeneralPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
 
@@ -37,6 +36,10 @@ public class ControllerCustomer extends ControllerGeneral{
         this.view = view;
         this.view.getButtonOkSearchGeneral().addActionListener(this);
         this.view.getTextSearchGeneral().addKeyListener(this);
+        this.view.getButtonOkAdvSearchGeneral().addActionListener(this);
+        this.view.getTextNameGeneralSearch().addKeyListener(this);
+        this.view.getTextSurnameGeneralSearch().addKeyListener(this);
+        this.view.getTextCfGeneralSearch().addKeyListener(this);
     }
     
     @Override
@@ -108,32 +111,106 @@ public class ControllerCustomer extends ControllerGeneral{
             super.actionPerformed(e);
             view.getButtonCreateGeneral().setVisible(false);
         }
-    }
+        else if(action.equalsIgnoreCase("SEARCH_ADVANCED"))
+        {
+            customer = new HashSet<>();
+            
+            if(view.getTextCfGeneralSearch().getText().trim().length() != 0)
+            {
+                try
+                {
+                    customer.add(dao.searchByTaxCode(view.getTextCfGeneralSearch().getText()));
+
+                }
+                catch(SQLException err)
+                {
+                   JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            else
+            {
+                    if(view.getTextNameGeneralSearch().getText().trim().length()!=0)
+                    {
+                        
+                        try
+                        {
+                             if(customer.isEmpty())
+                               customer.addAll(dao.searchByName(view.getTextNameGeneralSearch().getText()));
+                             else
+                                customer.retainAll(dao.searchByName(view.getTextNameGeneralSearch().getText()));
+                        }
+                        catch(SQLException err)
+                        {
+                             JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    if(view.getTextSurnameGeneralSearch().getText().trim().length() != 0)
+                    {
+                        try{
+                           if(customer.isEmpty()) 
+                             customer.addAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
+                           else
+                             customer.retainAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
+
+                        }
+                        catch(SQLException err)
+                        {
+                              JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    if(view.getDateFromGeneral().getDate()!= null && view.getDateToGeneral().getDate()!= null)
+                    {
+                        try{
+                           if(customer.isEmpty())  
+                              customer.addAll(dao.searchByBirth(view.getDateFromGeneral().getDate(),view.getDateToGeneral().getDate()));
+                           else
+                             customer.retainAll(dao.searchByBirth(view.getDateFromGeneral().getDate(),view.getDateToGeneral().getDate()));
+                        }
+                        catch(SQLException err)
+                        {
+                           JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                   
+                    else
+                    {
+                        if((view.getDateFromGeneral().getDate()== null &&  view.getDateToGeneral().getDate()!= null) || (view.getDateFromGeneral().getDate()!= null &&  view.getDateToGeneral().getDate()== null))       
+                             JOptionPane.showMessageDialog(view,"Error : Riempire entrambi i campi della data o lasciarli entrambi vuoti. ","ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    }
+            }
+             
+             view.updateTable(customer);
+        }
+     }
+    
     
     @Override
     public void keyReleased(KeyEvent e) 
     {
-        
-        
-             if(e.getKeyChar()=='\n')
+             if(e.getKeyChar()=='\n' && e.getComponent()==view.getTextSearchGeneral())
              { 
-                if(view.getTextSearchGeneral().getText().trim().length() > 0)
-                {
-                    String testo = view.getTextSearchGeneral().getText();
-                    ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);
-                   try
-                   {
-                       customer = dao.searchCustomerKeysWords(parolechiavi);
-                       view.updateTable(customer);
-                   }
-                   catch(SQLException ex)
-                   {
-                      JOptionPane.showMessageDialog(view, "Mancata comunicazione col database.\nImpossibile effetuare la ricerca.", "ERRORE", JOptionPane.ERROR_MESSAGE);
-                   }
-                }
-                
-            }
-               
+                    if(view.getTextSearchGeneral().getText().trim().length() > 0)
+                    {
+                        String testo = view.getTextSearchGeneral().getText();
+                        ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);
+                       try
+                       {
+                           customer = dao.searchCustomerKeysWords(parolechiavi);
+                           view.updateTable(customer);
+                       }
+                       catch(SQLException ex)
+                       {
+                          JOptionPane.showMessageDialog(view, "Mancata comunicazione col database.\nImpossibile effetuare la ricerca.", "ERRORE", JOptionPane.ERROR_MESSAGE);
+                       }
+                    }
+             }
+             else if(e.getKeyChar() == '\n' && (e.getComponent()== view.getTextNameGeneralSearch() || e.getComponent()== view.getTextSurnameGeneralSearch() || e.getComponent()== view.getTextCfGeneralSearch()))
+               {
+                  //stesso comportamento del pulsante.
+                    view.getButtonOkAdvSearchGeneral().doClick();
+               }
+            
     }
     
 }

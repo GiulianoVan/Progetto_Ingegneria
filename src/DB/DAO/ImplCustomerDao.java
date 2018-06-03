@@ -13,11 +13,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -97,16 +98,12 @@ public class ImplCustomerDao implements CustomerDao{
 
     @Override
     public List<CustomerModel> searchByEta(int età) {
-        List<CustomerModel> clienti = null;
-        //codice
-        return clienti;
+              throw new UnsupportedOperationException();
     }
 
     @Override
     public List<CustomerModel> searchByBigliettiAcquistati(int n) {
-         List<CustomerModel> clienti = null;
-        //codice
-         return clienti;
+       throw new UnsupportedOperationException();
     }
 
     @Override
@@ -120,6 +117,71 @@ public class ImplCustomerDao implements CustomerDao{
             con.close();
             ps.close();
             return del;
+    }
+
+    @Override
+    public Set<Customer> searchByName(String name) throws SQLException {
+        
+        Set<Customer> result = new HashSet<>();
+        String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH FROM CLIENTE WHERE NAME = ?";
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1,name);
+        rs = ps.executeQuery();
+        while(rs.next())
+        {
+            result.add(new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8)));
+        }
+        return result;
+    }
+
+    @Override
+    public Set<Customer> searchBySurname(String surname) throws SQLException {
+        Set<Customer> result = new HashSet<>();
+        String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH FROM CLIENTE WHERE SURNAME = ?";
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1,surname);
+        rs = ps.executeQuery();
+        while(rs.next())
+        {
+            result.add(new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8)));
+        }
+        return result;
+
+    }
+
+    @Override
+    public Set<Customer> searchByBirth(Date from, Date to) throws SQLException {
+        
+        Set<Customer> result = new HashSet<>();
+        String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH FROM CLIENTE WHERE BIRTH >= ? AND BIRTH <= ?";
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setTimestamp(1,new Timestamp(from.getTime()));
+        ps.setTimestamp(2,new Timestamp(to.getTime()));
+        rs = ps.executeQuery();
+        while(rs.next())
+        {
+            result.add(new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8)));
+        }
+        return result;
+    }
+
+    @Override
+    public Customer searchByTaxCode(String tax_code) throws SQLException {
+
+        
+        String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH FROM CLIENTE WHERE TAX_CODE = ?";
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1,tax_code);
+        rs = ps.executeQuery();
+        if(rs.next())
+        {
+            return new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8));
+        }
+        return null;
     }
     
 

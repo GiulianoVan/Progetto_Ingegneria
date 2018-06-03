@@ -9,6 +9,7 @@ import Model.JavaBean.Customer;
 import Model.MODELDACANCELARE.CustomerModel;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -25,6 +26,10 @@ public interface CustomerDao {
     public List<CustomerModel> searchByEta(int eta) throws SQLException;
     public List<CustomerModel> searchByBigliettiAcquistati(int n) throws SQLException;
     public int deleteCustomer(String idcustomer) throws SQLException;
+    public Set<Customer> searchByName(String name) throws SQLException;
+    public Set<Customer> searchBySurname(String surname) throws SQLException;
+    public Set<Customer> searchByBirth(Date from,Date to) throws SQLException;
+    public Customer searchByTaxCode(String tax_code) throws SQLException;
     //public int delete(clientModel x);
 
 }

@@ -9,7 +9,6 @@ import DB.DAO.AddettoDao;
 import GestioneTabella.MyDefaultTableModel;
 import Model.JavaBean.Addetto;
 import View.GeneralPanel;
-import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
@@ -17,8 +16,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import java.sql.Timestamp;
 import java.util.HashSet;
 
 /**
