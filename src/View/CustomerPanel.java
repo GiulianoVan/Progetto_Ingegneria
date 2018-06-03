@@ -60,7 +60,7 @@ public class CustomerPanel extends GeneralPanel {
         tableSearchCustomer = getTableSearchGeneral();
         textSearchCustomer = getTextSearchGeneral();
         // ADV SEARCH
-        textSurnameCustomer = getTextCodeGeneralSearch();
+        textSurnameCustomer = getTextSurnameGeneralSearch();
         textNameCustomer = getTextNameGeneralSearch();
         textCFGeneralSearch = getTextCfGeneralSearch();
         

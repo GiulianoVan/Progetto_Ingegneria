@@ -27,13 +27,14 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
      */
     public GeneralPanel() {
         initComponents();
-        buttonAdvGeneral.setActionCommand("ADVSEARCH");
+        buttonAdvGeneral.setActionCommand("ADVSEARCHPANEL");
         buttonBackSearchGeneral.setActionCommand("BACKSEARCH");
         buttonCreateGeneral.setActionCommand("CREATEPANEL");
         buttonOkSearchGeneral.setActionCommand("CERCA");
         buttonDeleteAdvSearch.setActionCommand("DELETE");
         buttonDeleteSearch.setActionCommand("DELETE");
         buttonCreate.setActionCommand("CREATE");
+        buttonOkAdvSearchGeneral.setActionCommand("SEARCH_ADVANCED");
         buttonDeleteSearch.setEnabled(false);
         buttonDeleteAdvSearch.setEnabled(false);
         createPanel.setVisible(false);
@@ -70,7 +71,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         tableSearchGeneral = new javax.swing.JTable();
         jPanelAdvSearch = new javax.swing.JPanel();
         comboTypeGeneralSearch = new javax.swing.JComboBox<>();
-        textCodeGeneralSearch = new javax.swing.JTextField();
+        textSurnameGeneralSearch = new javax.swing.JTextField();
         textNameGeneralSearch = new javax.swing.JTextField();
         textCfGeneralSearch = new javax.swing.JTextField();
         buttonOkAdvSearchGeneral = new javax.swing.JButton();
@@ -179,9 +180,9 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         comboTypeGeneralSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tipo" }));
         jPanelAdvSearch.add(comboTypeGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 30));
 
-        textCodeGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
-        textCodeGeneralSearch.setForeground(new java.awt.Color(153, 153, 153));
-        jPanelAdvSearch.add(textCodeGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 30));
+        textSurnameGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
+        textSurnameGeneralSearch.setForeground(new java.awt.Color(153, 153, 153));
+        jPanelAdvSearch.add(textSurnameGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 30));
 
         textNameGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textNameGeneralSearch.setForeground(new java.awt.Color(153, 153, 153));
@@ -666,12 +667,12 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         this.tableSearchGeneral = tableSearchGeneral;
     }
 
-    public JTextField getTextCodeGeneralSearch() {
-        return textCodeGeneralSearch;
+    public JTextField getTextSurnameGeneralSearch() {
+        return textSurnameGeneralSearch;
     }
 
-    public void setTextCodeGeneralSearch(JTextField textCodeGeneralSearch) {
-        this.textCodeGeneralSearch = textCodeGeneralSearch;
+    public void setTextSurnameGeneralSearch(JTextField textCodeGeneralSearch) {
+        this.textSurnameGeneralSearch = textCodeGeneralSearch;
     }
 
     public JTextField getTextNameGeneralSearch() {
@@ -779,7 +780,6 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private javax.swing.JTable tableSearchGeneral;
     private javax.swing.JTextField textCFCreate;
     private javax.swing.JTextField textCfGeneralSearch;
-    private javax.swing.JTextField textCodeGeneralSearch;
     private javax.swing.JTextField textEmailCreate;
     private javax.swing.JTextField textNameCreate;
     private javax.swing.JTextField textNameEventCreate;
@@ -789,6 +789,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private javax.swing.JTextField textSalaryCreate;
     private javax.swing.JTextField textSearchGeneral;
     private javax.swing.JTextField textSurnameCreate;
+    private javax.swing.JTextField textSurnameGeneralSearch;
     private javax.swing.JTextField textUsernameCreate;
     private javax.swing.JLabel toAdvSearch;
     // End of variables declaration//GEN-END:variables

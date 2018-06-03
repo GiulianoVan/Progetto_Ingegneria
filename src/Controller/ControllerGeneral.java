@@ -46,7 +46,7 @@ public abstract class ControllerGeneral implements ActionListener,MouseListener,
         //SE il comando si chiama CREA ADDETTO fai questo
         String action = e.getActionCommand();
     
-        if(action.equals("ADVSEARCH"))
+        if(action.equals("ADVSEARCHPANEL"))
         {
             view.changeAdvGeneral();
             

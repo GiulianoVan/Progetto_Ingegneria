@@ -50,7 +50,7 @@ public class AddettiPanel extends GeneralPanel{
     {
         // ******** TEXT RICERCA AVANZATA ********
         textCFGeneralSearch = getTextCfGeneralSearch();
-        textSurnameAddetto = getTextCodeGeneralSearch();// RICORDARE DI UTILIZZARE LA TEXT_CODE PER IL COGNOME
+        textSurnameAddetto = getTextSurnameGeneralSearch();// RICORDARE DI UTILIZZARE LA TEXT_CODE PER IL COGNOME
         textNameAddetto = getTextNameGeneralSearch();
         // ********************************
         textSearchAddetto = getTextSearchGeneral();

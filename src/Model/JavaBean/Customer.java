@@ -214,15 +214,8 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.idCustomer);
-        hash = 97 * hash + Objects.hashCode(this.username);
-        hash = 97 * hash + Objects.hashCode(this.name);
-        hash = 97 * hash + Objects.hashCode(this.surname);
-        hash = 97 * hash + Objects.hashCode(this.email);
-        hash = 97 * hash + Objects.hashCode(this.tax_code);
-        hash = 97 * hash + Objects.hashCode(this.phone);
-        hash = 97 * hash + Objects.hashCode(this.date_born);
+        int hash = 3;
+        hash = 83 * hash + Objects.hashCode(this.idCustomer);
         return hash;
     }
 
@@ -241,26 +234,10 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
         if (!Objects.equals(this.idCustomer, other.idCustomer)) {
             return false;
         }
-        if (!Objects.equals(this.username, other.username)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.surname, other.surname)) {
-            return false;
-        }
-        if (!Objects.equals(this.email, other.email)) {
-            return false;
-        }
-        if (!Objects.equals(this.tax_code, other.tax_code)) {
-            return false;
-        }
-        if (!Objects.equals(this.phone, other.phone)) {
-            return false;
-        }
-        return Objects.equals(this.date_born, other.date_born);
+        return true;
     }
+
+    
 }
 
     

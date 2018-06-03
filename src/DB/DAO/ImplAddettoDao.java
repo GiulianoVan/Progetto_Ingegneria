@@ -7,14 +7,18 @@ package DB.DAO;
 
 import DB.Database.DBConnect;
 import Model.JavaBean.Addetto;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -172,5 +176,74 @@ public class ImplAddettoDao implements AddettoDao {
     @Override
     public List<Addetto> getAllAddetti() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Set<Addetto> searchByName(String name) throws SQLException {
+        
+        Set<Addetto> result = new HashSet<>();
+        String sql = "SELECT NAME,SURNAME,TAX_CODE,EMAIL,PHONE,SALARY,BIRTH,IDSICUREZZA FROM ADDSICUREZZA WHERE NAME = ?";
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1,name);
+        rs = ps.executeQuery();
+        while(rs.next())
+        {
+             result.add(new Addetto(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getDate(7),rs.getString(8)));
+        }
+            
+        return result;
+
+    }
+
+    @Override
+    public Set<Addetto> searchBySurname(String surname) throws SQLException{
+        
+        Set<Addetto> result = new HashSet<>();
+        String sql = "SELECT NAME,SURNAME,TAX_CODE,EMAIL,PHONE,SALARY,BIRTH,IDSICUREZZA FROM ADDSICUREZZA WHERE SURNAME = ?";
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1,surname);
+        rs = ps.executeQuery();
+        while(rs.next())
+        {
+             result.add(new Addetto(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getDate(7),rs.getString(8)));
+        }
+            
+        return result;
+    }
+
+    @Override
+    public Set<Addetto> searchByBirth(Date from, Date to) throws SQLException {
+       
+        Set<Addetto> result = new HashSet<>();
+        String sql = "SELECT NAME,SURNAME,TAX_CODE,EMAIL,PHONE,SALARY,BIRTH,IDSICUREZZA FROM ADDSICUREZZA WHERE BIRTH >= ? AND BIRTH <= ?";
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setTimestamp(1,new Timestamp(from.getTime()));
+        ps.setTimestamp(2,new Timestamp(to.getTime()));
+        rs = ps.executeQuery();
+        while(rs.next())
+        {
+             result.add(new Addetto(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getDate(7),rs.getString(8)));
+        }
+            
+        return result;
+    }
+
+    @Override
+    public Addetto searchByTaxCode(String tax_code) throws SQLException {
+      
+        
+        String sql = "SELECT NAME,SURNAME,TAX_CODE,EMAIL,PHONE,SALARY,BIRTH,IDSICUREZZA FROM ADDSICUREZZA WHERE TAX_CODE = ?";
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1,tax_code);
+        rs = ps.executeQuery();
+             
+             if(rs.next())
+              return new Addetto(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getDate(7),rs.getString(8));
+                  
+        return null;
     }
 }

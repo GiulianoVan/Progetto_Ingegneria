@@ -148,13 +148,7 @@ public class Addetto {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.stipendio);
-        hash = 53 * hash + Objects.hashCode(this.email);
-        hash = 53 * hash + Objects.hashCode(this.tel);
-        hash = 53 * hash + Objects.hashCode(this.cf);
-        hash = 53 * hash + Objects.hashCode(this.dnascita);
-        hash = 53 * hash + Objects.hashCode(this.nome);
-        hash = 53 * hash + Objects.hashCode(this.cognome);
+        hash = 13 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -170,32 +164,12 @@ public class Addetto {
             return false;
         }
         final Addetto other = (Addetto) obj;
-        if (!Objects.equals(this.email, other.email)) {
-            return false;
-        }
-        if (!Objects.equals(this.tel, other.tel)) {
-            return false;
-        }
-        if (!Objects.equals(this.cf, other.cf)) {
-            return false;
-        }
-        if (!Objects.equals(this.dnascita, other.dnascita)) {
-            return false;
-        }
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
-        }
-        if (!Objects.equals(this.cognome, other.cognome)) {
-            return false;
-        }
-        if (!Objects.equals(this.stipendio, other.stipendio)) {
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
+
+
   
-
-
-   
-   
 }

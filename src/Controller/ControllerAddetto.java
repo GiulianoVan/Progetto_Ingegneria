@@ -9,6 +9,7 @@ import DB.DAO.AddettoDao;
 import GestioneTabella.MyDefaultTableModel;
 import Model.JavaBean.Addetto;
 import View.GeneralPanel;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
@@ -18,6 +19,7 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import java.sql.Timestamp;
+import java.util.HashSet;
 
 /**
  *
@@ -39,6 +41,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
         this.view.getButtonOkSearchGeneral().addActionListener(this);
         this.view.getTextSearchGeneral().addKeyListener(this);
         this.view.getButtonCreate().addActionListener(this);
+        this.view.getButtonOkAdvSearchGeneral().addActionListener(this);
     }
     
     @Override
@@ -130,7 +133,6 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
         }
         else if(action.equals("CREATE"))
         {
-            System.out.println("CIAO");
             String name = view.getTextNameSecurityCreate().getText();
             String surname = view.getTextSurnameCreate().getText();
             String username = view.getTextUsernameCreate().getText();
@@ -159,9 +161,69 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
             catch(SQLException err)
             {
                JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+            }   
+        }
+        else if(action.equalsIgnoreCase("SEARCH_ADVANCED"))
+        {
+            addetti = new HashSet<>();
+            
+            if(view.getTextCfGeneralSearch().getText().trim().length() != 0)
+            {
+                try
+                {
+                  System.out.println(view.getTextCfGeneralSearch().getText());
+                   addetti.add(dao.searchByTaxCode(view.getTextCfGeneralSearch().getText()));
+
+                }
+                catch(SQLException err)
+                {
+                   JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                }
             }
-            
-            
+            else
+            {
+                    if(view.getTextNameGeneralSearch().getText().trim().length()!=0)
+                    {
+                        
+                        try
+                        {
+                             addetti.addAll(dao.searchByName(view.getTextNameGeneralSearch().getText()));
+                        }
+                        catch(SQLException err)
+                        {
+                             JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    if(view.getTextSurnameGeneralSearch().getText().trim().length() != 0)
+                    {
+                        try{
+                        addetti.addAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
+                        }
+                        catch(SQLException err)
+                        {
+                              JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    if(view.getDateFromGeneral().getDate()!= null && view.getDateToGeneral().getDate()!= null)
+                    {
+                        try{
+                         addetti.addAll(dao.searchByBirth(view.getDateFromGeneral().getDate(),view.getDateToGeneral().getDate()));
+                         
+                        }
+                        catch(SQLException err)
+                        {
+                           JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                   
+                    else
+                    {
+                        if((view.getDateFromGeneral().getDate()== null &&  view.getDateToGeneral().getDate()!= null) || (view.getDateFromGeneral().getDate()!= null &&  view.getDateToGeneral().getDate()== null))       
+                             JOptionPane.showMessageDialog(view,"Error : Riempire entrambi i campi della data o lasciarli entrambi vuoti. ","ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    }
+            }
+             view.updateTable(addetti);
         }
     }
     @Override
