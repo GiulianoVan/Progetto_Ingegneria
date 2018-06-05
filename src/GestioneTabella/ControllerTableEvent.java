@@ -65,10 +65,27 @@ public class ControllerTableEvent extends ControllerTableGeneral{
                         column=-1;
                         
                     } catch (SQLException ex) {
-                        String msg = ex.getMessage();
-                        JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                        String event_type = view.getTableSearchGeneral().getModel().getValueAt(row,1).toString();
+                        
+                        if(ex.getErrorCode() == 1265)
+                        {
+                            System.out.println(event_type);
+                            if(event_type.equalsIgnoreCase("SPORT"))
+                              JOptionPane.showMessageDialog(view,"Error :Event_type is : "+event_type+". You can choose : 'FOOTBALL', 'TENNIS', 'BASKET', 'VOLLEYBALL', 'SWIMMING','OTHER'", "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                            else if(event_type.equalsIgnoreCase("CONCERT"))
+                              JOptionPane.showMessageDialog(view,"Error :Event_type is : "+event_type+". You can choose : 'POP AND ROCK', 'METAL', 'OTHER'", "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                            else if(event_type.equalsIgnoreCase("THEATER"))
+                              JOptionPane.showMessageDialog(view,"Error :Event_type is : "+event_type+". You can choose : 'MUSICAL','CABARET','OTHER' ", "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                            else if(event_type.equalsIgnoreCase("CINEMA"))
+                              JOptionPane.showMessageDialog(view,"Error :Event_type is : "+event_type+". You can choose : 'UCI CINEMAS','STELLA FILM','OTHER' ", "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                            }
+                        else
+                        {
+                             String msg = ex.getMessage();
+                             JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                        }
                         view.resetValueTable(row, column,oldvalue);
-
+                        
                     }
                 
         }
