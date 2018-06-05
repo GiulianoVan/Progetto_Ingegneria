@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: em17
+-- Host: localhost    Database: em17
 -- ------------------------------------------------------
 -- Server version	8.0.11
 
@@ -353,8 +353,8 @@ CREATE TABLE `evento` (
   `IDEVENTO` int(11) NOT NULL AUTO_INCREMENT,
   `TITLE` varchar(50) NOT NULL,
   `DESCRIPTION` varchar(1000) NOT NULL,
-  `EVENT_TYPE` varchar(20) DEFAULT NULL,
-  `KIND_TYPE` varchar(20) DEFAULT NULL,
+  `EVENT_TYPE` enum('SPORT','CONCERT','THEATER','CINEMA','OTHER') DEFAULT NULL,
+  `KIND_TYPE` enum('FOOTBALL','TENNIS','BASKET','VOLLEYBALL','SWIMMING','POP AND ROCK','METAL','MUSICAL','CABARET','UCI CINEMAS','STELLA FILM','OTHER') DEFAULT NULL,
   `DATE` date NOT NULL,
   `ZIP_CODE` varchar(5) DEFAULT NULL,
   `PLACE_NAME` varchar(30) DEFAULT NULL,
@@ -362,7 +362,7 @@ CREATE TABLE `evento` (
   KEY `FK_LUOGO` (`ZIP_CODE`),
   KEY `FK_LUOGO1` (`PLACE_NAME`,`ZIP_CODE`),
   CONSTRAINT `FK_LUOGO1` FOREIGN KEY (`PLACE_NAME`, `ZIP_CODE`) REFERENCES `luogo` (`nome`, `cap`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -371,7 +371,7 @@ CREATE TABLE `evento` (
 
 LOCK TABLES `evento` WRITE;
 /*!40000 ALTER TABLE `evento` DISABLE KEYS */;
-INSERT INTO `evento` VALUES (1,'PROVA1','BELLO E BUONO','SPORT','CALCIO','2017-12-05','80019','StadioQualiano');
+INSERT INTO `evento` VALUES (1,'PROVA1','BELLO E BUONO','SPORT',NULL,'2017-12-05','80019','StadioQualiano'),(5,'BELLO','SUPER EVENTO','CONCERT',NULL,'2018-06-18','80019','StadioQualiano'),(9,'BE12LLO','SUPER EVENTO','CONCERT',NULL,'2018-06-18','80019','StadioQualiano');
 /*!40000 ALTER TABLE `evento` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -384,12 +384,6 @@ UNLOCK TABLES;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `evento_BEFORE_INSERT` BEFORE INSERT ON `evento` FOR EACH ROW BEGIN
-	IF(NOT REGEXP_LIKE(NEW.IDEVENTO,'^[0-9]{6}$'))
-	THEN
-		SIGNAL SQLSTATE '45006'
-		SET MESSAGE_TEXT = 'Error : Invalid ID format ';
-	END IF;
-
 	IF(NOT REGEXP_LIKE(NEW.DESCRIPTION,'^[a-z0-9,.;''"/-_#?! ]+$','i'))
 	THEN
 		SIGNAL SQLSTATE '45007'
@@ -411,6 +405,26 @@ DELIMITER ;;
 	THEN
 		SIGNAL SQLSTATE '45010'
 		SET MESSAGE_TEXT = 'Error : Invalid title format ';
+	END IF;
+    IF(NEW.KIND_TYPE != 'FOOTBALL' AND NEW.KIND_TYPE != 'TENNIS' AND NEW.KIND_TYPE != 'BASKET' AND NEW.KIND_TYPE != 'VOLLEYBALL' AND NEW.KIND_TYPE != 'SWIMMING' AND NEW.EVENT_TYPE = 'SPORT')
+    THEN
+		SIGNAL SQLSTATE '45011'
+		SET MESSAGE_TEXT = 'Error : The kind inserted is not of the type Sport ';
+	END IF;
+    IF(NEW.KIND_TYPE != 'POP AND ROCK' AND NEW.KIND_TYPE != 'METAL' AND NEW.EVENT_TYPE = 'CONCERT')
+    THEN
+		SIGNAL SQLSTATE '45012'
+		SET MESSAGE_TEXT = 'Error : The kind inserted is not of the type Concert ';
+	END IF;
+    IF(NEW.KIND_TYPE != 'MUSICAL' AND NEW.KIND_TYPE != 'CABARET' AND NEW.EVENT_TYPE = 'THEATER')
+    THEN
+		SIGNAL SQLSTATE '45013'
+		SET MESSAGE_TEXT = 'Error : The kind inserted is not of the type Theater ';
+	END IF;
+    IF(NEW.KIND_TYPE != 'UCI CINEMAS' AND NEW.KIND_TYPE != 'STELLA FILM' AND NEW.EVENT_TYPE = 'CINEMA')
+    THEN
+		SIGNAL SQLSTATE '45014'
+		SET MESSAGE_TEXT = 'Error : The kind inserted is not of the type Cinema ';
 	END IF;
 END */;;
 DELIMITER ;
@@ -428,12 +442,7 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `evento_BEFORE_UPDATE` BEFORE UPDATE ON `evento` FOR EACH ROW BEGIN
-	IF(NOT REGEXP_LIKE(NEW.IDEVENTO,'^[0-9]{6}$'))
-	THEN
-		SIGNAL SQLSTATE '45006'
-		SET MESSAGE_TEXT = 'Error : Invalid ID format ';
-	END IF;
-
+	
 	IF(NOT REGEXP_LIKE(NEW.DESCRIPTION,'^[a-z0-9,.;''"/-_#?! ]+$','i'))
 	THEN
 		SIGNAL SQLSTATE '45007'
@@ -455,6 +464,31 @@ DELIMITER ;;
 	THEN
 		SIGNAL SQLSTATE '45010'
 		SET MESSAGE_TEXT = 'Error : Invalid title format ';
+	END IF;
+    IF(NEW.EVENT_TYPE != OLD.EVENT_TYPE)
+    THEN
+        SET NEW.KIND_TYPE = NULL;
+        
+    END IF;
+	IF(NEW.KIND_TYPE != 'FOOTBALL' AND NEW.KIND_TYPE != 'TENNIS' AND NEW.KIND_TYPE != 'BASKET' AND NEW.KIND_TYPE != 'VOLLEYBALL' AND NEW.KIND_TYPE != 'SWIMMING' AND NEW.EVENT_TYPE = 'SPORT')
+    THEN
+		SIGNAL SQLSTATE '45011'
+		SET MESSAGE_TEXT = 'Error : The kind inserted is not of the type Sport ';
+	END IF;
+    IF(NEW.KIND_TYPE != 'POP AND ROCK' AND NEW.KIND_TYPE != 'METAL' AND NEW.EVENT_TYPE = 'CONCERT')
+    THEN
+		SIGNAL SQLSTATE '45012'
+		SET MESSAGE_TEXT = 'Error : The kind inserted is not of the type Concert ';
+	END IF;
+    IF(NEW.KIND_TYPE != 'MUSICAL' AND NEW.KIND_TYPE != 'CABARET' AND NEW.EVENT_TYPE = 'THEATER')
+    THEN
+		SIGNAL SQLSTATE '45013'
+		SET MESSAGE_TEXT = 'Error : The kind inserted is not of the type Theater ';
+	END IF;
+    IF(NEW.KIND_TYPE != 'UCI CINEMAS' AND NEW.KIND_TYPE != 'STELLA FILM' AND NEW.EVENT_TYPE = 'CINEMA')
+    THEN
+		SIGNAL SQLSTATE '45014'
+		SET MESSAGE_TEXT = 'Error : The kind inserted is not of the type Cinema ';
 	END IF;
 END */;;
 DELIMITER ;
@@ -574,27 +608,6 @@ INSERT INTO `luogo` VALUES ('StadioQualiano','80019','via',NULL);
 UNLOCK TABLES;
 
 --
--- Table structure for table `new_table`
---
-
-DROP TABLE IF EXISTS `new_table`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `new_table` (
-  `PROVa` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `new_table`
---
-
-LOCK TABLES `new_table` WRITE;
-/*!40000 ALTER TABLE `new_table` DISABLE KEYS */;
-/*!40000 ALTER TABLE `new_table` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `posto`
 --
 
@@ -690,4 +703,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-02 19:54:12
+-- Dump completed on 2018-06-05 11:01:19
