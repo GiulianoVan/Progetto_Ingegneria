@@ -47,7 +47,10 @@ public abstract class  ControllerTableGeneral implements MouseListener,KeyListen
                 tab.setColumnEditable(column);
                 tab.setRowEditable(row);
                 view.getTableSearchGeneral().editCellAt(row, column);
+                if(tab.getValueAt(row, column)!=null)
                 oldvalue=tab.getValueAt(row, column).toString();
+                else
+                    oldvalue = null;
                 //se sto modificando non posso cancellare.
                 view.getButtonDeleteAdvSearch().setEnabled(false);
                 view.getButtonDeleteSearch().setEnabled(false);

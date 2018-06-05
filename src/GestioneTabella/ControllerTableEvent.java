@@ -57,8 +57,13 @@ public class ControllerTableEvent extends ControllerTableGeneral{
                         value= value.replace(",",".");
                         view.getTableSearchGeneral().setValueAt(value, row, column);
                         dao.updateEvent(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
+                        if(view.getTableSearchGeneral().getModel().getColumnName(column).equals("EVENT_TYPE") )
+                        {
+                               view.getTableSearchGeneral().setValueAt(null,row,2);
+                        }
                         row = -1;
                         column=-1;
+                        
                     } catch (SQLException ex) {
                         String msg = ex.getMessage();
                         JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
