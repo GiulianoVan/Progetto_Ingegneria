@@ -41,7 +41,6 @@ public class EventPanel extends GeneralPanel {
         super();
         this.setComponentsPanel();
         buttonBackCreateEvent.setActionCommand("BACKCREATEEVENT");
-
         
     }
     
@@ -115,6 +114,10 @@ public class EventPanel extends GeneralPanel {
         int id_column = tab.getId_column();
         tableSearchEvent.removeColumn(tableSearchEvent.getColumnModel().getColumn(id_column));
     }
-    
-    
+
+    @Override
+    String setTextButtonCreate() {
+        return "CREATE EVENT";
+    }
 }
+

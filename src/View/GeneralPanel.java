@@ -21,7 +21,7 @@ import javax.swing.JTextField;
  * @author giuli
  */
 public abstract class GeneralPanel extends javax.swing.JPanel {
-
+    String textButtonCreate = setTextButtonCreate();
     /**
      * Creates new form GeneralPanel
      */
@@ -239,8 +239,13 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
         buttonCreate.setBackground(new java.awt.Color(255, 222, 177));
         buttonCreate.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
-        buttonCreate.setText("CREATE!");
-        createPanel.add(buttonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 100, 40));
+        buttonCreate.setText(textButtonCreate);
+        buttonCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCreateActionPerformed(evt);
+            }
+        });
+        createPanel.add(buttonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 170, 40));
 
         panelCreateEvent.setOpaque(false);
         panelCreateEvent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -398,6 +403,10 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private void textPasswordCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPasswordCreateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textPasswordCreateActionPerformed
+
+    private void buttonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonCreateActionPerformed
 
     public JButton getButtonCreate() {
         return buttonCreate;
@@ -703,6 +712,11 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     {
         textSearchGeneral.setText("Insert Name Here...");
     }
+    
+    
+    String setTextButtonCreate() {
+        return "CREATE";
+    }
  
     public void updateTable(Object arg) {
 
@@ -793,6 +807,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private javax.swing.JTextField textUsernameCreate;
     private javax.swing.JLabel toAdvSearch;
     // End of variables declaration//GEN-END:variables
+
 
    
 

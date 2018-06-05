@@ -112,5 +112,8 @@ public class AddettiPanel extends GeneralPanel{
         }
             
                               
-   
+    @Override
+    String setTextButtonCreate() {
+        return "CREATE SECURITY";
+    }
 }
