@@ -69,15 +69,16 @@ public class ControllerTableEvent extends ControllerTableGeneral{
                         
                         if(ex.getErrorCode() == 1265)
                         {
-                            System.out.println(event_type);
-                            if(event_type.equalsIgnoreCase("SPORT"))
-                              JOptionPane.showMessageDialog(view,"Error :Event_type is : "+event_type+". You can choose : 'FOOTBALL', 'TENNIS', 'BASKET', 'VOLLEYBALL', 'SWIMMING','OTHER'", "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                            if(!(event_type.equalsIgnoreCase("SPORT")) && !(event_type.equalsIgnoreCase("CONCERT")) && !(event_type.equalsIgnoreCase("THEATER")) && !(event_type.equalsIgnoreCase("CINEMA")) && !(event_type.equalsIgnoreCase("OTHER")))
+                                JOptionPane.showMessageDialog(view,"Event type not valid.\nYou can choose one of the following:\n'SPORT', 'CONCERT', 'THEATER', 'CINEMA','OTHER'", "ERROR :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                            else if(event_type.equalsIgnoreCase("SPORT"))
+                              JOptionPane.showMessageDialog(view,"Error! Event type is : "+event_type+".\nYou can choose one of the following kind type:\n'FOOTBALL', 'TENNIS', 'BASKET', 'VOLLEYBALL', 'SWIMMING','OTHER'", "ERROR :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
                             else if(event_type.equalsIgnoreCase("CONCERT"))
-                              JOptionPane.showMessageDialog(view,"Error :Event_type is : "+event_type+". You can choose : 'POP AND ROCK', 'METAL', 'OTHER'", "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                              JOptionPane.showMessageDialog(view,"Error! Event type is : "+event_type+".\nYou can choose one of the following kind type:\n'POP AND ROCK', 'METAL', 'OTHER'", "ERROR :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
                             else if(event_type.equalsIgnoreCase("THEATER"))
-                              JOptionPane.showMessageDialog(view,"Error :Event_type is : "+event_type+". You can choose : 'MUSICAL','CABARET','OTHER' ", "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                              JOptionPane.showMessageDialog(view,"Error! Event type is : "+event_type+".\nYou can choose one of the following kind type:\n'MUSICAL','CABARET','OTHER' ", "ERROR :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
                             else if(event_type.equalsIgnoreCase("CINEMA"))
-                              JOptionPane.showMessageDialog(view,"Error :Event_type is : "+event_type+". You can choose : 'UCI CINEMAS','STELLA FILM','OTHER' ", "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                              JOptionPane.showMessageDialog(view,"Error! Event type is : "+event_type+".\nYou can choose one of the following kind type:\n'UCI CINEMAS','STELLA FILM','OTHER' ", "ERROR :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
                             }
                         else
                         {

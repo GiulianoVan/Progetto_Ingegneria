@@ -98,8 +98,6 @@ public class ImplEventDao implements EventDao{
         
         String sql = "UPDATE EVENTO SET "+attribute_to_change+ " = '"+ new_value+"' WHERE IDEVENTO = ?;";
         executeUpdate = 0;
-   //     try 
-   //     {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             
@@ -112,11 +110,7 @@ public class ImplEventDao implements EventDao{
               con.close();
               ps.close();
               rs.close();
-
- /*       }
-        catch (SQLException ex) {
-            System.out.println("Errore!\nAggiornamento fallito.");
-        }*/
+              
         return executeUpdate;
       }
 
