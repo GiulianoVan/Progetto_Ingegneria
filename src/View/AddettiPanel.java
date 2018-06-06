@@ -116,4 +116,18 @@ public class AddettiPanel extends GeneralPanel{
     String setTextButtonCreate() {
         return "CREATE SECURITY";
     }
+    
+    @Override
+     public void clearAllTextCreate()
+     {
+         getTextNameCreate().setText("");
+         getTextSurnameCreate().setText("");
+         getTextSalaryCreate().setText("");
+         getTextEmailCreate().setText("");
+         getTextCFCreate().setText("");
+         getTextUsernameCreate().setText("");
+         getTextPasswordCreate().setText("");
+         getDateCreateAddetto().setDate(null);
+         getTextNumberCreate().setText("");
+     }
 }

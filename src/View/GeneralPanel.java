@@ -92,6 +92,11 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         comboTypeEventCreate = new javax.swing.JComboBox<>();
         textNameEventCreate = new javax.swing.JTextField();
         comboPlaceEvent = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         panelCreateSecurity = new javax.swing.JPanel();
         textPasswordCreate = new javax.swing.JTextField();
         textUsernameCreate = new javax.swing.JTextField();
@@ -252,24 +257,46 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
         descriptionArea.setColumns(20);
         descriptionArea.setRows(5);
-        descriptionArea.setText("Description...");
-        panelCreateEvent.add(descriptionArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 400, 110));
+        descriptionArea.setText("\n");
+        panelCreateEvent.add(descriptionArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 400, 110));
 
         comboGenEventCreate.setBackground(new java.awt.Color(255, 222, 177));
-        comboGenEventCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Genere Evento" }));
-        panelCreateEvent.add(comboGenEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 150, 30));
-        panelCreateEvent.add(dateCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 150, 30));
+        panelCreateEvent.add(comboGenEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 150, 30));
+        panelCreateEvent.add(dateCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 150, 30));
 
         comboTypeEventCreate.setBackground(new java.awt.Color(255, 222, 177));
-        comboTypeEventCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo Evento" }));
-        panelCreateEvent.add(comboTypeEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 150, 30));
-
-        textNameEventCreate.setText("Name Event");
-        panelCreateEvent.add(textNameEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, 30));
+        comboTypeEventCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CINEMA", "SPORT", "CONCERT", "THEATER" }));
+        comboTypeEventCreate.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboTypeEventCreateItemStateChanged(evt);
+            }
+        });
+        comboTypeEventCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTypeEventCreateActionPerformed(evt);
+            }
+        });
+        panelCreateEvent.add(comboTypeEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 150, 30));
+        panelCreateEvent.add(textNameEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 150, 30));
 
         comboPlaceEvent.setBackground(new java.awt.Color(255, 222, 177));
         comboPlaceEvent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Luoghi" }));
         panelCreateEvent.add(comboPlaceEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 150, 30));
+
+        jLabel10.setText("Name Event");
+        panelCreateEvent.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 80, -1));
+
+        jLabel11.setText("Date Event");
+        panelCreateEvent.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, -1));
+
+        jLabel12.setText("Event Type");
+        panelCreateEvent.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 90, -1));
+
+        jLabel13.setText("Kind Type");
+        panelCreateEvent.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 60, -1));
+
+        jLabel14.setText("Description and Details");
+        panelCreateEvent.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 140, -1));
 
         createPanel.add(panelCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 420, 340));
 
@@ -407,6 +434,14 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private void buttonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonCreateActionPerformed
+
+    private void comboTypeEventCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTypeEventCreateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboTypeEventCreateActionPerformed
+
+    private void comboTypeEventCreateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboTypeEventCreateItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboTypeEventCreateItemStateChanged
 
     public JButton getButtonCreate() {
         return buttonCreate;
@@ -754,7 +789,10 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
             tableSearchGeneral.getModel().setValueAt((String) oldvalue, row, column);
      }  
 
-    
+    public  void loadCombo(){};
+     
+     public abstract void clearAllTextCreate();
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DateCreateAddetto;
     private javax.swing.JLabel SfondoGeneralPanel;
@@ -779,6 +817,11 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private javax.swing.JTextArea descriptionArea;
     private javax.swing.JLabel fromAdvSearch;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

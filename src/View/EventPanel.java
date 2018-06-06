@@ -33,7 +33,8 @@ public class EventPanel extends GeneralPanel {
     private javax.swing.JTextField textPlaceGeneral;
     private javax.swing.JButton buttonAdvEvent;
     private javax.swing.JButton buttonBackCreateEvent;
-
+    private javax.swing.JComboBox<String> comboType_event;
+    private javax.swing.JComboBox<String> comboKind_event;
     
     
     public EventPanel()
@@ -41,6 +42,8 @@ public class EventPanel extends GeneralPanel {
         super();
         this.setComponentsPanel();
         buttonBackCreateEvent.setActionCommand("BACKCREATEEVENT");
+        this.loadCombo();
+        
         
     }
     
@@ -61,7 +64,8 @@ public class EventPanel extends GeneralPanel {
         textSearchEvent = getTextSearchGeneral();
         textCodeEventSearch = getTextSurnameGeneralSearch();
         buttonBackCreateEvent = getButtonBackCreate();
-        
+        comboKind_event = getComboGenEventCreate();
+        comboType_event = getComboTypeEventCreate();
         jPanelAdvSearch.setVisible(false);
         
         textCodeEventSearch.setVisible(false);
@@ -118,6 +122,54 @@ public class EventPanel extends GeneralPanel {
     @Override
     String setTextButtonCreate() {
         return "CREATE EVENT";
+    }
+    
+    @Override
+    public void loadCombo()
+    {
+        comboKind_event.removeAllItems();
+        
+        if(comboType_event.getSelectedItem().equals("CINEMA"))
+        {
+            comboKind_event.addItem("COMEDY");
+            comboKind_event.addItem("DRAMATIC");
+            comboKind_event.addItem("HORROR");
+            comboKind_event.addItem("OTHER");
+        }
+       else if(comboType_event.getSelectedItem().equals("SPORT"))
+       {
+            comboKind_event.addItem("FOOTBALL");
+            comboKind_event.addItem("TENNES");
+            comboKind_event.addItem("BASKET");
+            comboKind_event.addItem("VOLLEYBALL");
+            comboKind_event.addItem("SWIMMING");
+            comboKind_event.addItem("OTHER");
+       }
+       else if(comboType_event.getSelectedItem().equals("CONCERT"))
+       {
+           //EW.KIND_TYPE != 'OTHER' AND NEW.KIND_TYPE != 'POP AND ROCK' AND NEW.KIND_TYPE != 'METAL'
+            comboKind_event.addItem("POP AND ROCK");
+            comboKind_event.addItem("METAL");
+            comboKind_event.addItem("OTHER");
+       }
+        else if(comboType_event.getSelectedItem().equals("THEATER"))
+       {
+           //EW.KIND_TYPE != 'OTHER' AND NEW.KIND_TYPE != 'POP AND ROCK' AND NEW.KIND_TYPE != 'METAL'
+            comboKind_event.addItem("MUSICAL");
+            comboKind_event.addItem("CABARET");
+            comboKind_event.addItem("OTHER");
+       }
+
+        
+    }
+
+    @Override
+    public void clearAllTextCreate() {
+       
+         getTextNameCreate().setText("");
+         getDescriptionArea().setText("");
+         getDateCreateEvent().setDate(null);
+         
     }
 }
 

@@ -5,6 +5,7 @@
  */
 package Model.JavaBean;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -18,12 +19,12 @@ public class Event {
     private String description; // ("[a-z0-9,.;'"/-_#?!]+$",Pattern.CASE_INSENSITIVE); (uguale a title)
     private String eventType;
     private String kindType;
-    private String dateEvent;
+    private Date dateEvent;
     private String zipCoce; // ("^[0-9]{3}[0-9xX]{2}$"));
     private String placeName; // ("^(([a-z]{1}[°]?)|([0-9]+[°]?))(([ '',."/-]{1}(([a-z]{1}[°]?)|([0-9]+[°]?)))*["'']?[,./-]?[a-z 0-9]+)*[.]?$",Pattern.CASE_INSENSITIVE);
     
     
-    public Event(String idEvent,String title, String description, String typeEvent, String typeGender, String dataEvent, String cap, String placeName)
+    public Event(String idEvent,String title, String description, String typeEvent, String typeGender, Date dataEvent, String cap, String placeName)
     {
         this.idEvent = idEvent;
         this.title = title;
@@ -35,6 +36,16 @@ public class Event {
         this.placeName = placeName;
     }
 
+    public Event(String title, String description, String typeEvent, String typeGender, Date dataEvent, String placeName)
+    {
+        this.title = title;
+        this.description = description;
+        this.eventType =  typeEvent;
+        this.kindType = typeGender;
+        this.dateEvent = dataEvent;
+        this.placeName = placeName;
+    }
+    
     public String getIdEvent() {
         return idEvent;
     }
@@ -75,11 +86,11 @@ public class Event {
         this.kindType = typeGender;
     }
 
-    public String getDataEvent() {
+    public Date getDataEvent() {
         return dateEvent;
     }
 
-    public void setDataEvent(String dataEvent) {
+    public void setDataEvent(Date dataEvent) {
         this.dateEvent = dataEvent;
     }
 

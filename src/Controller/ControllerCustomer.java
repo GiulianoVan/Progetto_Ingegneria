@@ -127,7 +127,7 @@ public class ControllerCustomer extends ControllerGeneral{
                    JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
                 }
             }
-            else
+            else 
             {
                     if(view.getTextNameGeneralSearch().getText().trim().length()!=0)
                     {

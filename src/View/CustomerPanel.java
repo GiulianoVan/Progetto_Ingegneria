@@ -131,6 +131,10 @@ public class CustomerPanel extends GeneralPanel {
          tableSearchCustomer.removeColumn(tableSearchCustomer.getColumnModel().getColumn(id_column));
        
        }
+
+    @Override
+    public void clearAllTextCreate() {        
+     }
     
     
 }

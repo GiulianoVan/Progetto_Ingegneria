@@ -11,9 +11,12 @@ import Model.MODELDACANCELARE.EventModel;
 import Model.JavaBean.Event;
 import View.GeneralPanel;
 import java.awt.event.ActionEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,7 +26,7 @@ import javax.swing.JOptionPane;
  *
  * @author Pirozzi
  */
-public class ControllerEvent extends ControllerGeneral{
+public class ControllerEvent extends ControllerGeneral implements ItemListener{
     
     private GeneralPanel view;
     private EventDao dao;
@@ -36,6 +39,8 @@ public class ControllerEvent extends ControllerGeneral{
         this.view = view;
         this.view.getButtonOkSearchGeneral().addActionListener(this);
         this.view.getTextSearchGeneral().addKeyListener(this);
+        this.view.getButtonCreate().addActionListener(this);
+        this.view.getComboTypeEventCreate().addItemListener(this);
     }
     
     @Override
@@ -121,6 +126,28 @@ public class ControllerEvent extends ControllerGeneral{
                  view.getButtonDeleteSearch().setEnabled(false);
             }
         }
+        else if(action.equalsIgnoreCase("CREATE"))//insert evento.
+        {
+            //MANCA LUOGO, DA CAMBIARE IN STRINGA.X ORA SARA A NULL.
+            String titolo = view.getTextNameEventCreate().getText();
+            Date data = view.getDateCreateEvent().getDate();
+            String event_type = view.getComboTypeEventCreate().getSelectedItem().toString();
+            String kind_type = view.getComboGenEventCreate().getSelectedItem().toString();
+            String description = view.getDescriptionArea().getText();
+            String luogo = null;
+            
+            try
+            {
+                Event event = new Event(titolo,description,event_type, kind_type, data, luogo);
+                dao.createEvent(event);
+                JOptionPane.showMessageDialog(view,"Inserimento avvenuto con successo","INSERT",JOptionPane.INFORMATION_MESSAGE);
+                view.clearAllTextCreate();
+            }
+            catch(SQLException ex)
+            {
+                JOptionPane.showMessageDialog(view,"Error : "+ex.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
     
     @Override
@@ -143,6 +170,12 @@ public class ControllerEvent extends ControllerGeneral{
                }
                
         }
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        
+        view.loadCombo();
     }
     
     

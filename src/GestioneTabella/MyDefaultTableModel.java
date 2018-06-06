@@ -136,7 +136,7 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        for(Event event : events)
        {
            if(event != null)
-           this.addRow(new String[]{event.getTitle(),event.getTypeEvent(),event.getTypeGender(),event.getDataEvent(),event.getPlaceName(),event.getCap(),event.getDescription(),event.getIdEvent()});
+           this.addRow(new String[]{event.getTitle(),event.getTypeEvent(),event.getTypeGender(),event.getDataEvent().toString(),event.getPlaceName(),event.getCap(),event.getDescription(),event.getIdEvent()});
        }   
        //setto sempre l'id all'ultima colonna;
        this.id_column = this.getColumnCount()-1;

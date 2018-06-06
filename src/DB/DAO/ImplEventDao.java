@@ -87,8 +87,22 @@ public class ImplEventDao implements EventDao{
     }
 
     @Override
-    public void createEvent(Event event) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void createEvent(Event event) throws SQLException{
+        
+        String sql = "INSERT INTO EVENTO(TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,DESCRIPTION) VALUES (?,?,?,?,?,?);";
+        con = DBConnect.getConnection();
+        ps=con.prepareStatement(sql);
+        ps.setString(1,event.getTitle());
+        ps.setString(2, event.getTypeEvent());
+        ps.setString(3,event.getTypeGender());
+        ps.setTimestamp(4, new Timestamp(event.getDataEvent().getTime()));
+        ps.setString(5,event.getPlaceName());
+        ps.setString(6,event.getDescription());
+        
+        ps.executeUpdate();
+        con.close();
+        ps.close();
+        
     }
 
     @Override
@@ -154,7 +168,7 @@ public class ImplEventDao implements EventDao{
                 rs = ps.executeQuery();
                 while(rs.next())
                 {
-                  result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(6),rs.getString(5)));
+                  result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
                 }
                 con.close();
                 ps.close();
