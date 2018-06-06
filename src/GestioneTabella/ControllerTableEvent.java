@@ -78,7 +78,7 @@ public class ControllerTableEvent extends ControllerTableGeneral{
                             else if(event_type.equalsIgnoreCase("THEATER"))
                               JOptionPane.showMessageDialog(view,"Error! Event type is : "+event_type+".\nYou can choose one of the following kind type:\n'MUSICAL','CABARET','OTHER' ", "ERROR :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
                             else if(event_type.equalsIgnoreCase("CINEMA"))
-                              JOptionPane.showMessageDialog(view,"Error! Event type is : "+event_type+".\nYou can choose one of the following kind type:\n'UCI CINEMAS','STELLA FILM','OTHER' ", "ERROR :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
+                              JOptionPane.showMessageDialog(view,"Error! Event type is : "+event_type+".\nYou can choose one of the following kind type:\n'COMEDY','DRAMATIC','HORROR','OTHER' ", "ERROR :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
                             }
                         else
                         {
