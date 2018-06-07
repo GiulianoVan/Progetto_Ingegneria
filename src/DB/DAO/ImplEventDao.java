@@ -6,6 +6,7 @@
 package DB.DAO;
 
 import DB.Database.DBConnect;
+import Model.JavaBean.Addetto;
 import Model.JavaBean.Event;
 import java.sql.*;
 import java.sql.Connection;
@@ -184,6 +185,129 @@ public class ImplEventDao implements EventDao{
     @Override
     public int deleteEvent(Event event) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Set<Event> searchByTypeEvent(String type_event) throws SQLException {
+        
+        Set<Event> result = new HashSet<>();
+        
+        String sql = "SELECT TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,ZIP_CODE,DESCRIPTION,IDEVENTO FROM EVENTO WHERE EVENT_TYPE = ?";
+
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1,type_event);
+        rs = ps.executeQuery();
+      
+        while(rs.next())
+        {
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+        }
+            
+        return result;
+    }
+
+    @Override
+    public Set<Event> searchByKindEvent(String kind_event) throws SQLException {
+            
+        Set<Event> result = new HashSet<>();
+        
+        String sql = "SELECT TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,ZIP_CODE,DESCRIPTION,IDEVENTO FROM EVENTO WHERE KIND_EVENT = ?";
+
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1,kind_event);
+        rs = ps.executeQuery();
+      
+        while(rs.next())
+        {
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+        }
+            
+        return result;
+    }
+
+    @Override
+    public Set<Event> searchByTitle(String title) throws SQLException {
+ 
+        Set<Event> result = new HashSet<>();
+        
+        String sql = "SELECT TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,ZIP_CODE,DESCRIPTION,IDEVENTO FROM EVENTO WHERE TITLE = ?";
+
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1,title);
+        rs = ps.executeQuery();
+      
+        while(rs.next())
+        {
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+        }
+            
+        return result;
+    }
+
+    @Override
+    public Set<Event> searchByPlace(String place) throws SQLException {
+        
+          Set<Event> result = new HashSet<>();
+        
+        String sql = "SELECT TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,ZIP_CODE,DESCRIPTION,IDEVENTO FROM EVENTO WHERE PLACE_NAME = ?";
+
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1,place);
+        rs = ps.executeQuery();
+      
+        while(rs.next())
+        {
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+        }
+            
+        return result;
+    }
+
+    @Override
+    public Set<Event> searchByProvince(String province) throws SQLException {
+        
+        Set<Event> result = new HashSet<>();
+        
+        String sql = "SELECT TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,ZIP_CODE,DESCRIPTION,IDEVENTO FROM EVENTO WHERE PROVINCE = ?";
+
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1,province);
+        rs = ps.executeQuery();
+      
+        while(rs.next())
+        {
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+        }
+            
+        return result;
+    }
+
+    @Override
+    public Set<Event> searchByDate(java.util.Date from, java.util.Date to) throws SQLException{
+            
+         
+        Set<Event> result = new HashSet<>();
+        
+        String sql = "SELECT TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,ZIP_CODE,DESCRIPTION,IDEVENTO FROM EVENTO WHERE DATE >= ? AND DATE <= ?";
+
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setTimestamp(1,new Timestamp(from.getTime()));
+        ps.setTimestamp(2,new Timestamp(to.getTime()));
+
+        rs = ps.executeQuery();
+      
+        while(rs.next())
+        {
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+        }
+            
+        return result;
     }
     
 }    

@@ -8,6 +8,7 @@ package DB.DAO;
 import Model.JavaBean.Event;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -23,5 +24,13 @@ public interface EventDao
     public int deleteEvent(Event event) throws SQLException;  
     public Set<Event> searchEventKeysWords(ArrayList<String> words ) throws SQLException;
     public int deleteEvent(String idEvent) throws SQLException;  
+    public Set<Event> searchByTypeEvent(String type_event) throws SQLException;
+    public Set<Event> searchByKindEvent(String kind_event) throws SQLException;
+    public Set<Event> searchByTitle(String title) throws SQLException;
+    public Set<Event> searchByPlace(String place) throws SQLException;
+    public Set<Event> searchByProvince(String province) throws SQLException ;
+    public Set<Event> searchByDate(Date from,Date to) throws SQLException;
+
+
 
 }
