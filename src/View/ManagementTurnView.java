@@ -6,6 +6,7 @@
 package View;
 
 import GestioneTabella.MyDefaultTableModel;
+import GestioneTabella.MyTableCellRenderer;
 import java.util.Set;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -29,6 +30,8 @@ public class ManagementTurnView extends javax.swing.JPanel {
         buttonCreate.setActionCommand("CREATE");
         buttonDelete.setActionCommand("DELETE");
         buttonSearch.setActionCommand("SEARCH");
+        tableMenagementEvents.setDefaultRenderer(Object.class,new MyTableCellRenderer());
+
     }
 
     public JButton getButtonCreate() {
