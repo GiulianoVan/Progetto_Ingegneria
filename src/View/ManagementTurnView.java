@@ -90,7 +90,7 @@ public class ManagementTurnView extends javax.swing.JPanel {
     public void updateTable(Set obj)
     {
          tab = new MyDefaultTableModel();
-         tab.createModelBySetAddetto((Set) obj);//da aggiungere nuovo metodo dentro a my default tabe model che carica questi.
+         tab.createModelBySetTurn((Set) obj);//da aggiungere nuovo metodo dentro a my default tabe model che carica questi.
          tableMenagementEvents.setModel(tab);
     }
     /**

@@ -32,6 +32,7 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
     {
         this.view = view;
         this.dao = dao;
+        this.view.getButtonSearch().addActionListener(this);
     }
 
     @Override
@@ -47,9 +48,9 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
             {
                 try{
                     if(turn.isEmpty())
-                        turn.addAll(dao.getTurnAddetto(view.getTextTaxCode().getText()));
+                        turn.addAll(dao.getTurnEvent(view.getTextCodeEvent().getText()));
                     else
-                        turn.retainAll(dao.getTurnAddetto(view.getTextTaxCode().getText()));
+                        turn.retainAll(dao.getTurnEvent(view.getTextCodeEvent().getText()));
                 }
                 catch(SQLException err)
                 {
@@ -57,13 +58,13 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
 
                 }
             }
-            if(view.getTextCodeEvent().getText().trim().length()!= 0)
+            if(view.getTextTaxCode().getText().trim().length()!= 0)
             {
                 try{
                     if(turn.isEmpty())
-                        turn.addAll(dao.getTurnEvent(view.getTextCodeEvent().getText()));
+                        turn.addAll(dao.getTurnAddetto(view.getTextTaxCode().getText()));
                     else
-                        turn.retainAll(dao.getTurnEvent(view.getTextCodeEvent().getText()));
+                        turn.retainAll(dao.getTurnAddetto(view.getTextTaxCode().getText()));
                 }
                 catch(SQLException err)
                 {

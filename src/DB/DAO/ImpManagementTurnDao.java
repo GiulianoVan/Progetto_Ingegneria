@@ -81,10 +81,9 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
      
        Set<ManagementTurn> result = new HashSet();
        String sql = "SELECT A.NAME,A.SURNAME,A.TAX_CODE,A.EMAIL,A.PHONE,A.SALARY,A.BIRTH,A.IDSICUREZZA ,"
-               + "E.TITLE,E.EVENT_TYPE,E.KIND_TYPE,E.PLACE_NAME,E.DESCRIPTION,E.IDEVENTO,E.DATE "
-               + "T.START,T.END"
-               + "FROM GESTIONE_TURNO T,ADDSICUREZZA A,EVENTO E WHERE E.IDEVENTO = ? ";
-       
+               + "E.TITLE,E.EVENT_TYPE,E.KIND_TYPE,E.PLACE_NAME,E.DESCRIPTION,E.IDEVENTO,E.DATE,"
+               + "T.START,T.END "
+               + " FROM GESTIONE_TURNO T JOIN ADDSICUREZZA A ON T.ADDSICUREZZA=A.IDSICUREZZA JOIN EVENTO E T.EVENTO = E.IDEVENTO WHERE E.IDEVENTO = ? ";
        con = DBConnect.getConnection();
        ps = con.prepareStatement(sql);
        ps.setString(1,idEvent);
@@ -107,10 +106,10 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
     public Set<ManagementTurn> getTurnAddetto(String cf) throws SQLException {
           Set<ManagementTurn> result = new HashSet();
        String sql = "SELECT A.NAME,A.SURNAME,A.TAX_CODE,A.EMAIL,A.PHONE,A.SALARY,A.BIRTH,A.IDSICUREZZA ,"
-               + "E.TITLE,E.EVENT_TYPE,E.KIND_TYPE,E.PLACE_NAME,E.DESCRIPTION,E.IDEVENTO,E.DATE "
-               + "T.START,T.END"
-               + "FROM GESTIONE_TURNO T,ADDSICUREZZA A,EVENTO E WHERE A.TAX_CODE = ? ";
-       
+               + "E.TITLE,E.EVENT_TYPE,E.KIND_TYPE,E.PLACE_NAME,E.DESCRIPTION,E.IDEVENTO,E.DATE, "
+               + "T.START,T.END "
+               + " FROM GESTIONE_TURNO T JOIN EVENTO E ON E.IDEVENTO=T.EVENTO JOIN ADDSICUREZZA A  ON A.IDSICUREZZA=T.ADDSICUREZZA WHERE A.TAX_CODE = ? ";
+       System.out.println(sql);
        con = DBConnect.getConnection();
        ps = con.prepareStatement(sql);
        ps.setString(1,cf);
