@@ -9,6 +9,7 @@ package GestioneTabella;
 import Model.JavaBean.Customer;
 import Model.JavaBean.Addetto;
 import Model.JavaBean.Event;
+import Model.JavaBean.ManagementTurn;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
@@ -164,5 +165,46 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
         
     }
 
-  
+     public  void createModelBySetTurn(Set<ManagementTurn> turn)
+    {
+      //  TITOLO,EVENTOTYPE,GENERETYPE,DATA,NOMELUOGO,CAP,DESCRIPTION,IDEVENTO 
+       this.addColumn("NAME");
+       this.addColumn("SURNAME");
+       this.addColumn("TITLE");
+       this.addColumn("DATE");
+       this.addColumn("START");
+       this.addColumn("END");
+       
+
+       for(ManagementTurn manTurn : turn)
+       {
+           if(manTurn != null)
+           this.addRow(new String[]{manTurn.getAddetto().getNome(),manTurn.getAddetto().getCognome(),manTurn.getEvent().getTitle(),manTurn.getEvent().getDataEvent().toString(),manTurn.getStartTurn().toString(),manTurn.getEndTurn().toString()});
+       }   
+       //setto sempre l'id all'ultima colonna;
+       this.id_column = this.getColumnCount()-1;
+    }
+    /*
+    public  void createModelBySetCustomer(Set<Customer> customer)
+    {
+       //SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,LIVELLO 
+              
+       this.addColumn("USERNAME");
+       this.addColumn("NAME");
+       this.addColumn("SURNAME");
+       this.addColumn("TAX_CODE");
+       this.addColumn("EMAIL");
+       this.addColumn("PHONE");
+       this.addColumn("BIRTH");
+       this.addColumn("ID");
+       for(Customer add : customer)
+       {
+           if(add != null)
+           this.addRow(new String[]{add.getUsername(),add.getName(),add.getSurname(),add.getTax_code(),add.getEmail(),add.getPhone(),add.getDate_born().toString(),add.getIdCustomer()});
+       }   
+       //ID SEMPRE SU ULTIMA COLONNA,XKè COLONNE IN MEZZO NON POSSONO ESSERE NASCOSTE.
+       this.id_column = this.getColumnCount()-1;
+        
+    }
+  */
 }

@@ -16,6 +16,38 @@ public class ManagementTurn {
     
     Addetto addetto;
     Event event;
+
+    public Addetto getAddetto() {
+        return addetto;
+    }
+
+    public void setAddetto(Addetto addetto) {
+        this.addetto = addetto;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public Time getStartTurn() {
+        return startTurn;
+    }
+
+    public void setStartTurn(Time startTurn) {
+        this.startTurn = startTurn;
+    }
+
+    public Time getEndTurn() {
+        return endTurn;
+    }
+
+    public void setEndTurn(Time endTurn) {
+        this.endTurn = endTurn;
+    }
     Time startTurn;
     Time endTurn;
     
