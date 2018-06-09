@@ -41,16 +41,19 @@ public abstract class  ControllerTableGeneral implements MouseListener,KeyListen
         MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
             if(e.getClickCount()==2)
             {   
-                //SE CLICCO DUE VOLTE.MI SALVO I VALORI DELLA RIGA E COLONNA SELEZIONATA E LA RENDO EDITABILE
-                row = view.getTableSearchGeneral().getSelectedRow();
-                column = view.getTableSearchGeneral().getSelectedColumn();
-                tab.setColumnEditable(column);
-                tab.setRowEditable(row);
-                view.getTableSearchGeneral().editCellAt(row, column);
-                if(tab.getValueAt(row, column)!=null)
-                oldvalue=tab.getValueAt(row, column).toString();
+                if(view.getTableSearchGeneral().getSelectedColumn()!= tab.getId_column())
+                {
+                    //SE CLICCO DUE VOLTE.MI SALVO I VALORI DELLA RIGA E COLONNA SELEZIONATA E LA RENDO EDITABILE
+                    row = view.getTableSearchGeneral().getSelectedRow();
+                    column = view.getTableSearchGeneral().getSelectedColumn();
+                    tab.setColumnEditable(column);
+                    tab.setRowEditable(row);
+                    view.getTableSearchGeneral().editCellAt(row, column);
+                    if(tab.getValueAt(row, column)!=null)
+                    oldvalue=tab.getValueAt(row, column).toString();
+                }
                 else
-                    oldvalue = null;
+                oldvalue = null;
                 //se sto modificando non posso cancellare.
                 view.getButtonDeleteAdvSearch().setEnabled(false);
                 view.getButtonDeleteSearch().setEnabled(false);

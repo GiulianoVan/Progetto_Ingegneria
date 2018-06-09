@@ -9,12 +9,12 @@ package View;
  *
  * @author giuli
  */
-public class MenagementEvents extends javax.swing.JPanel {
+public class Participation_View extends javax.swing.JPanel {
 
     /**
      * Creates new form MenagementEvents
      */
-    public MenagementEvents() {
+    public Participation_View() {
         initComponents();
     }
 
@@ -29,12 +29,12 @@ public class MenagementEvents extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tableMenagementEvents = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        comboAdminMenagementEvents = new javax.swing.JComboBox<>();
-        comboActionMenagementEvents = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         dateMenagementEvents = new com.toedter.calendar.JDateChooser();
-        jLabel4 = new javax.swing.JLabel();
         sfondo = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(590, 600));
@@ -47,7 +47,7 @@ public class MenagementEvents extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Action", "Events", "Admin", "Date"
+                "Name", "Surname", "Title Event", "Date"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -62,41 +62,38 @@ public class MenagementEvents extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 117, 590, 400));
 
-        jLabel2.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("ADMIN");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 130, 20));
-
-        comboAdminMenagementEvents.setBackground(new java.awt.Color(255, 222, 177));
-        add(comboAdminMenagementEvents, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 130, 30));
-
-        comboActionMenagementEvents.setBackground(new java.awt.Color(255, 222, 177));
-        add(comboActionMenagementEvents, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 130, 30));
-
         jLabel3.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("DATE");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 130, 20));
+        jLabel3.setText("TITLE EVENT");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 130, 20));
+
+        jLabel5.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("DATE");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 130, 20));
+
+        jLabel6.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("TAX CODE");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 130, 20));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 130, 30));
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 130, 30));
         add(dateMenagementEvents, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 140, 30));
 
-        jLabel4.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("ACTION");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 130, 20));
-
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
+        sfondo.setOpaque(true);
         add(sfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 490));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> comboActionMenagementEvents;
-    private javax.swing.JComboBox<String> comboAdminMenagementEvents;
     private com.toedter.calendar.JDateChooser dateMenagementEvents;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel sfondo;
     private javax.swing.JTable tableMenagementEvents;
     // End of variables declaration//GEN-END:variables
