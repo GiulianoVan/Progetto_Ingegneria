@@ -12,14 +12,14 @@ import java.util.Set;
  *
  * @author Pirozzi
  */
-public class TurnManagement {
+public class ManagementTurn {
     
     Addetto addetto;
     Event event;
     Time startTurn;
     Time endTurn;
     
-    public TurnManagement(Addetto addetto,Event event,Time startTurn,Time endTurn)
+    public ManagementTurn(Addetto addetto,Event event,Time startTurn,Time endTurn)
     {
         this.addetto=addetto;
         this.event = event;

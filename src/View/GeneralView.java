@@ -9,6 +9,7 @@ package View;
 import Runner.RunECBAddetti;
 import Runner.RunECBCustomer;
 import Runner.RunECBEvents;
+import Runner.RunECBManagementTurn;
 import java.awt.Color;
 
 
@@ -28,13 +29,16 @@ public class GeneralView extends javax.swing.JFrame{
         RunECBEvents runEvents = new RunECBEvents();
         RunECBAddetti runSecurity = new RunECBAddetti();
         RunECBCustomer runCustomer = new RunECBCustomer();
+        RunECBManagementTurn runManagementTurn = new RunECBManagementTurn();
         runEvents.startRunMVCEvents();
         runSecurity.startMVCAddetti();
-        runCustomer.startMVCCustomer();     
+        runCustomer.startMVCCustomer();
+        runManagementTurn.start();
         setEventsTabbed(runEvents);
         setCustomersTabbed(runCustomer);
         setSecurityTabbed(runSecurity);
-      
+        setManagementTabbed(runManagementTurn);
+        
     }
     
     /**
@@ -86,6 +90,12 @@ private void setSecurityTabbed(RunECBAddetti runSecurity)
     jTabbedMenu.setBackgroundAt(2, new java.awt.Color(255, 222, 177));
 }
 
+private void setManagementTabbed(RunECBManagementTurn runManagementTurn)
+{
+    jTabbedMenu.add("Man. Turn",runManagementTurn.getView());
+    jTabbedMenu.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Picture/securityOfficer.png")));
+    jTabbedMenu.setBackgroundAt(3, new java.awt.Color(255, 222, 177));
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane jTabbedMenu;
