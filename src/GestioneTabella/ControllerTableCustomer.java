@@ -6,54 +6,55 @@
 package GestioneTabella;
 
 import DB.DAO.CustomerDao;
-import Model.MODELDACANCELARE.CustomerModel;
 import View.GeneralPanel;
+import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Pirozzi
  */
-public class ControllerTableCustomer extends ControllerTableGeneral {
+public class ControllerTableCustomer extends ControllerTable {
   
     private CustomerDao dao;
     private GeneralPanel view;
     
     
     public ControllerTableCustomer(CustomerDao dao, GeneralPanel view) {
-        super(view);
+        super(view.getTableSearchGeneral(),new HashMap<String,Component>());
+        comp.put("button1",view.getButtonDeleteAdvSearch());
+        comp.put("button2",view.getButtonDeleteSearch());
         this.dao = dao;
         this.view = view;
-        view.addKeyListener(this);
+        this.view.addKeyListener(this);
     }
     
     @Override
     public void keyReleased(KeyEvent e) { 
        
-        MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
+        MyDefaultTableModel tab = (MyDefaultTableModel) table.getModel();
         //SE PREMO INVIO E LA CELLA è EDITABILE.FAI UPDATE
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
-        if(e.getKeyChar()=='\n' && view.getTableSearchGeneral().isCellEditable(row, column) && row!=-1 && column != -1) 
+        if(e.getKeyChar()=='\n' && table.isCellEditable(row, column) && row!=-1 && column != -1) 
         {
             try {
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);
-                String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
-                if(!view.getTableSearchGeneral().getColumnName(column).equals("EMAIL"))
+                String value = table.getValueAt(row, column).toString();
+                if(!table.getColumnName(column).equals("EMAIL"))
                     value = value.toUpperCase();
                 
                 value= value.replace(",",".");
-                view.getTableSearchGeneral().setValueAt(value, row, column);
-                dao.updateCustomer(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
+                table.setValueAt(value, row, column);
+                dao.updateCustomer(value,table.getColumnName(column),table.getModel().getValueAt(row,tab.getId_column()).toString());
                 row = -1;
                 column=-1;
             } catch (SQLException ex) {
                 String msg = ex.getMessage();
-                view.resetValueTable(row, column,oldvalue);
+                resetValueTable(row, column,oldvalue);
                 JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
                 
 
@@ -64,16 +65,16 @@ public class ControllerTableCustomer extends ControllerTableGeneral {
             
            //se non premo invio,RESETTO LA CELLA AL VALORE PRECEDENTE
             //ROW = -1 E COL = -1 PERCHè UNA VOLTA QUI NON HO PIU LA CELLA EDITABILE
-            if(view.getTableSearchGeneral().getSelectedRow() != row || view.getTableSearchGeneral().getSelectedColumn() != column)
+            if(table.getSelectedRow() != row || table.getSelectedColumn() != column)
             {  
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);
                if(row!= -1 && column != -1)
-                  view.resetValueTable(row, column,oldvalue);
+                 resetValueTable(row, column,oldvalue);
                row = -1;
                column = -1;
-               view.getButtonDeleteAdvSearch().setEnabled(true);
-               view.getButtonDeleteSearch().setEnabled(true);
+               for(String s : comp.keySet())
+                   comp.get(s).setEnabled(true);
             }
             //sto cambiando casella senza invio,quindi setto la cella cliccata nuovamente non editabile.
             

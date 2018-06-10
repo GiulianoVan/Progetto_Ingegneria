@@ -6,27 +6,27 @@
 package GestioneTabella;
 
 import DB.DAO.AddettoDao;
-import Model.MODELDACANCELARE.AddettiModel;
 import View.GeneralPanel;
-import java.awt.event.FocusEvent;
+import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Pirozzi
  */
-public class ControllerTableAddetto extends ControllerTableGeneral{
+public class ControllerTableAddetto extends ControllerTable{
 
     private AddettoDao dao;
     private GeneralPanel view;
     
     
-    public ControllerTableAddetto(AddettoDao dao, GeneralPanel view) {
-        super(view);
+    public ControllerTableAddetto(AddettoDao dao,GeneralPanel view) {
+        super(view.getTableSearchGeneral(),new HashMap<String,Component>());
+        comp.put("button1",view.getButtonDeleteAdvSearch());
+        comp.put("button2",view.getButtonDeleteSearch());
         this.dao = dao;
         this.view = view;
         this.view.addKeyListener(this);
@@ -38,26 +38,26 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
     @Override
     public void keyReleased(KeyEvent e) {
        
-        MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
+        MyDefaultTableModel tab = (MyDefaultTableModel) table.getModel();
         //SE PREMO INVIO E LA CELLA è EDITABILE.FAI UPDATE
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
-        if(e.getKeyChar()=='\n' && view.getTableSearchGeneral().isCellEditable(row, column) && row != -1 && column != -1) 
+        if(e.getKeyChar()=='\n' && table.isCellEditable(row, column) && row != -1 && column != -1) 
         {
             try {
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);
                 String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
-                if(!view.getTableSearchGeneral().getColumnName(column).equals("EMAIL"))
+                if(!table.getColumnName(column).equals("EMAIL"))
                     value = value.toUpperCase();
                 value= value.replace(",",".");
-                view.getTableSearchGeneral().setValueAt(value, row, column);
-                dao.updateAddetto(value,view.getTableSearchGeneral().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
+                table.setValueAt(value, row, column);
+                dao.updateAddetto(value,table.getColumnName(column),table.getModel().getValueAt(row,tab.getId_column()).toString());
                 row = -1;
                 column=-1;
             } catch (SQLException ex) {
                   String msg = ex.getMessage();
                   JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
-                  view.resetValueTable(row, column,oldvalue);
+                  resetValueTable(row, column,oldvalue);
   
             }
         }
@@ -71,11 +71,11 @@ public class ControllerTableAddetto extends ControllerTableGeneral{
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);
                if(row!= -1 && column != -1)
-                  view.resetValueTable(row, column,oldvalue);
+                  resetValueTable(row, column,oldvalue);
                row = -1;
                column = -1;
-               view.getButtonDeleteAdvSearch().setEnabled(true);
-               view.getButtonDeleteSearch().setEnabled(true);
+               for(String s : comp.keySet())
+                   comp.get(s).setEnabled(true);
             }
             //sto cambiando casella senza invio,quindi setto la cella cliccata nuovamente non editabile.
             
