@@ -76,6 +76,15 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public int deleteTurn(Integer idTurn) throws SQLException
+    {
+        String sql = "DELETE FROM GESTIONE_TURNO WHERE TURN_NUMBER = ?";
+        con = DBConnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setInt(1,idTurn);
+        return ps.executeUpdate();
+    }
+    
     @Override
     public Set<ManagementTurn> getTurnEvent(String idEvent) throws SQLException {
      
@@ -134,7 +143,7 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
     @Override
     public int updateTurn(int turn,String campo,Object new_value) throws SQLException {
         
-       String sql = "UPDATE GESTIONE_SICUREZZA SET "+campo+ " = '"+new_value+"' WHERE TURN_NUMBER = ?";
+       String sql = "UPDATE GESTIONE_TURNO SET "+campo+ " = '"+new_value+"' WHERE TURN_NUMBER = ?";
        con = DBConnect.getConnection();
        ps = con.prepareStatement(sql);
        ps.setInt(1, turn);

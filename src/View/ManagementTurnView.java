@@ -31,7 +31,7 @@ public class ManagementTurnView extends javax.swing.JPanel {
         buttonDelete.setActionCommand("DELETE");
         buttonSearch.setActionCommand("SEARCH");
         tableMenagementEvents.setDefaultRenderer(Object.class,new MyTableCellRenderer());
-
+        buttonDelete.setEnabled(false);
     }
 
     public JButton getButtonCreate() {

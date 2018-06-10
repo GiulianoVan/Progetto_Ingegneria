@@ -97,7 +97,7 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
                 {
                     try
                     {
-                        dao.deleteTurn(addetto, event, start, end);
+                        dao.deleteTurn(Integer.parseInt(view.getTableMenagementEvents().getValueAt(i,tab.getId_column()).toString()));
                         //dao.deleteTurn((tab.getValueAt(i,tab.getId_column()).toString()));
                         tab.removeRow(i);
                     }

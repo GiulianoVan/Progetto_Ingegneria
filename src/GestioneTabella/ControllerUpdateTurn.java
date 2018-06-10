@@ -53,7 +53,8 @@ public class ControllerUpdateTurn extends ControllerTable{
             } catch (SQLException ex) {
                   String msg = ex.getMessage();
                   JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
-                //  view.resetValueTable(row, column,oldvalue);//da fare.
+                  resetValueTable(row, column,oldvalue);
+
   
             }
         }
