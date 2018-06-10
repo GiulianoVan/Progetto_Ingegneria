@@ -94,6 +94,8 @@ public class ManagementTurnView extends javax.swing.JPanel {
     {
          tab = new MyDefaultTableModel();
          tab.createModelBySetTurn((Set) obj);//da aggiungere nuovo metodo dentro a my default tabe model che carica questi.
+         int id = tableMenagementEvents.getColumnModel().getColumnIndex("TURN_NUMBER");
+         tab.setId_column(id);
          tableMenagementEvents.setModel(tab);
     }
     /**
@@ -130,11 +132,11 @@ public class ManagementTurnView extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Surname", "Title Event", "Date", "Start Turn", "End Turn"
+                "NAME", "SURNAME", "TITLE", "DATE", "START_TURN", "END_TURN", "TURN_NUMBER"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, true, true
+                true, false, false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -144,7 +146,7 @@ public class ManagementTurnView extends javax.swing.JPanel {
         tableMenagementEvents.setOpaque(false);
         jScrollPane1.setViewportView(tableMenagementEvents);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 590, 430));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 590, 600));
 
         jLabel3.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

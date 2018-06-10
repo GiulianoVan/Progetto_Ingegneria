@@ -5,59 +5,68 @@
  */
 package GestioneTabella;
 
-import View.GeneralPanel;
+import java.awt.Component;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Observable;
+import java.util.Map;
 import javax.swing.JTable;
 
 /**
  *
  * @author Pirozzi
  */
-public abstract class  ControllerTableGeneral implements MouseListener,KeyListener,FocusListener
-{
-    private GeneralPanel view;
+public class ControllerTable implements MouseListener,KeyListener,FocusListener {
+   
     protected int row=-1;
     protected int column=-1;
     protected String oldvalue;
+    protected JTable table;
+    Map<String,Component> comp;
     
-    public ControllerTableGeneral(GeneralPanel view)
+    public ControllerTable(JTable table)
     {
-        this.view= view;
-        this.view.getTableSearchGeneral().addMouseListener(this);
-        this.view.getTableSearchGeneral().addKeyListener(this);
-        this.view.getTableSearchGeneral().addFocusListener(this);
-        
+        this.table = table;
+        this.table.addMouseListener(this);
+        this.table.addKeyListener(this);
+        this.table.addKeyListener(this);
 
+    }
+    //costruttore per elementi che si abilitato e disattivano in base ad azioni sulla tabella.
+    public ControllerTable(JTable table,Map<String,Component> comp)
+    {
+        this.table = table;
+        this.table.addMouseListener(this);
+        this.table.addKeyListener(this);
+        this.table.addKeyListener(this);
+        this.comp = comp;
     }
     
     
     @Override
     public void mouseClicked(MouseEvent e) {
-        MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
+        MyDefaultTableModel tab = (MyDefaultTableModel) table.getModel();
             if(e.getClickCount()==2)
             {   
-               if(view.getTableSearchGeneral().getSelectedColumn()!= tab.getId_column())
+               if(table.getSelectedColumn()!= tab.getId_column())
                 {
                     //SE CLICCO DUE VOLTE.MI SALVO I VALORI DELLA RIGA E COLONNA SELEZIONATA E LA RENDO EDITABILE
-                    row = view.getTableSearchGeneral().getSelectedRow();
-                    column = view.getTableSearchGeneral().getSelectedColumn();
+                    row = table.getSelectedRow();
+                    column = table.getSelectedColumn();
                     tab.setColumnEditable(column);
                     tab.setRowEditable(row);
-                    view.getTableSearchGeneral().editCellAt(row, column);
+                    table.editCellAt(row, column);
                     if(tab.getValueAt(row, column)!=null)
                     oldvalue=tab.getValueAt(row, column).toString();
                 }
                else
                 oldvalue = null;
                 //se sto modificando non posso cancellare.
-               view.getButtonDeleteAdvSearch().setEnabled(false);
-               view.getButtonDeleteSearch().setEnabled(false);
+                for(String s : comp.keySet())
+                 comp.get(s).setEnabled(false);
                 
             }
             else{
@@ -65,10 +74,11 @@ public abstract class  ControllerTableGeneral implements MouseListener,KeyListen
                     //RITORNO AL VECCHIO VALORE.
                     //ROW = -1 E COL = -1 PERCHè SE ENTRO QUI,NON HO PIU LA CELLA EDITABILE.
                    
-                    view.getButtonDeleteAdvSearch().setEnabled(true);
-                    view.getButtonDeleteSearch().setEnabled(true);
+                    for(String s : comp.keySet())
+                    comp.get(s).setEnabled(true);
+                    
                     if(row != -1 && column != -1 )
-                      view.resetValueTable(row, column, oldvalue);
+                      resetValueTable(row, column, oldvalue);
                      tab.setColumnEditable(-1);
                      tab.setRowEditable(-1);
                      row = -1;
@@ -118,8 +128,8 @@ public abstract class  ControllerTableGeneral implements MouseListener,KeyListen
     @Override
     public void focusGained(FocusEvent e) {
         
-          view.getButtonDeleteAdvSearch().setEnabled(true);
-          view.getButtonDeleteSearch().setEnabled(true);
+         for(String s : comp.keySet())
+           comp.get(s).setEnabled(true);
     }
 
     @Override
@@ -127,4 +137,9 @@ public abstract class  ControllerTableGeneral implements MouseListener,KeyListen
         
     }
    
+    public void resetValueTable(int row,int column,String oldvalue) {
+            
+            table.getModel().setValueAt((String) oldvalue, row, column);
+     }  
+
 }

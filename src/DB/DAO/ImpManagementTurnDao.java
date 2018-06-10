@@ -82,8 +82,8 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
        Set<ManagementTurn> result = new HashSet();
        String sql = "SELECT A.NAME,A.SURNAME,A.TAX_CODE,A.EMAIL,A.PHONE,A.SALARY,A.BIRTH,A.IDSICUREZZA ,"
                + "E.TITLE,E.EVENT_TYPE,E.KIND_TYPE,E.PLACE_NAME,E.DESCRIPTION,E.IDEVENTO,E.DATE,"
-               + "T.START,T.END "
-               + " FROM GESTIONE_TURNO T JOIN ADDSICUREZZA A ON T.ADDSICUREZZA=A.IDSICUREZZA JOIN EVENTO E T.EVENTO = E.IDEVENTO WHERE E.IDEVENTO = ? ";
+               + "T.START,T.END,T.TURN_NUMBER "
+               + " FROM GESTIONE_TURNO T JOIN ADDSICUREZZA A ON T.ADDSICUREZZA=A.IDSICUREZZA JOIN EVENTO E ON T.EVENTO = E.IDEVENTO WHERE E.IDEVENTO = ? ";
        con = DBConnect.getConnection();
        ps = con.prepareStatement(sql);
        ps.setString(1,idEvent);
@@ -96,7 +96,9 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
                    new Addetto(rs.getString("NAME"),rs.getString("SURNAME"),rs.getString("TAX_CODE"),rs.getString("EMAIL"),rs.getString("PHONE"),rs.getDouble("SALARY"),rs.getDate("BIRTH"), rs.getString("IDSICUREZZA"))
                   ,new Event(rs.getString("IDEVENTO"),rs.getString("TITLE"),rs.getString("DESCRIPTION"),rs.getString("EVENT_TYPE"),rs.getString("KIND_TYPE"),rs.getDate("DATE"),"0000", rs.getString("PLACE_NAME"))
                   ,rs.getTime("START")
-                  ,rs.getTime("END")));
+                  ,rs.getTime("END")
+                  ,rs.getInt("TURN_NUMBER")
+                  ));
        }
        
        return result;
@@ -105,9 +107,9 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
     @Override
     public Set<ManagementTurn> getTurnAddetto(String cf) throws SQLException {
           Set<ManagementTurn> result = new HashSet();
-       String sql = "SELECT A.NAME,A.SURNAME,A.TAX_CODE,A.EMAIL,A.PHONE,A.SALARY,A.BIRTH,A.IDSICUREZZA ,"
+       String sql = "SELECT A.NAME,A.SURNAME,A.TAX_CODE,A.EMAIL,A.PHONE,A.SALARY,A.BIRTH,A.IDSICUREZZA,"
                + "E.TITLE,E.EVENT_TYPE,E.KIND_TYPE,E.PLACE_NAME,E.DESCRIPTION,E.IDEVENTO,E.DATE, "
-               + "T.START,T.END "
+               + "T.START,T.END,T.TURN_NUMBER"
                + " FROM GESTIONE_TURNO T JOIN EVENTO E ON E.IDEVENTO=T.EVENTO JOIN ADDSICUREZZA A  ON A.IDSICUREZZA=T.ADDSICUREZZA WHERE A.TAX_CODE = ? ";
        System.out.println(sql);
        con = DBConnect.getConnection();
@@ -122,17 +124,21 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
                    new Addetto(rs.getString("NAME"),rs.getString("SURNAME"),rs.getString("TAX_CODE"),rs.getString("EMAIL"),rs.getString("PHONE"),rs.getDouble("SALARY"),rs.getDate("BIRTH"), rs.getString("IDSICUREZZA"))
                   ,new Event(rs.getString("IDEVENTO"),rs.getString("TITLE"),rs.getString("DESCRIPTION"),rs.getString("EVENT_TYPE"),rs.getString("KIND_TYPE"),rs.getDate("DATE"),"0000", rs.getString("PLACE_NAME"))
                   ,rs.getTime("START")
-                  ,rs.getTime("END")));
+                  ,rs.getTime("END")
+                  ,rs.getInt("TURN_NUMBER")));
        }
        
        return result;
     }
 
     @Override
-    public int updateTurn(String turn,String campo,Object new_value) throws SQLException {
+    public int updateTurn(int turn,String campo,Object new_value) throws SQLException {
         
-       String sql = "UPDATE GESTIONE_SICUREZZA SET "+campo+ " = '"+new_value+"' WHERE EVENTO = ? AND ADDSICUREZZ = ? AND START = ? AND END = ?";
-       ps.setString(0,
-    }
+       String sql = "UPDATE GESTIONE_SICUREZZA SET "+campo+ " = '"+new_value+"' WHERE TURN_NUMBER = ?";
+       con = DBConnect.getConnection();
+       ps = con.prepareStatement(sql);
+       ps.setInt(1, turn);
+       return ps.executeUpdate();
+           }
     
 }

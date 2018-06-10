@@ -5,35 +5,38 @@
  */
 package GestioneTabella;
 
-import DB.DAO.AddettoDao;
-import Model.JavaBean.ManagementTurn;
+import DB.DAO.ManagementTurnDao;
 import View.ManagementTurnView;
+import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Pirozzi
  */
-public class ControllerUpdateTurn extends ControllerTableGeneral{
+public class ControllerUpdateTurn extends ControllerTable{
     
-    private ManagementTurn dao;
+    private ManagementTurnDao dao;
     private ManagementTurnView view;
    
-    public ControllerUpdateTurn(ManagementTurn dao,ManagementTurnView view) {
-        //super(view);
+    public ControllerUpdateTurn(ManagementTurnDao dao,ManagementTurnView view) {
+        
+        super(view.getTableMenagementEvents(),new HashMap<String,Component>());
+        comp.put("button1",view.getButtonDelete());
         this.dao = dao;
         this.view = view;
     }
     
       @Override
     public void keyReleased(KeyEvent e) {
-       /*
-        MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
+       
+        MyDefaultTableModel tab = (MyDefaultTableModel) table.getModel();
         //SE PREMO INVIO E LA CELLA è EDITABILE.FAI UPDATE
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
-        if(e.getKeyChar()=='\n' && view.getTableSearchGeneral().isCellEditable(row, column) && row != -1 && column != -1) 
+        if(e.getKeyChar()=='\n' && table.isCellEditable(row, column) && row != -1 && column != -1) 
         {
             try {
                 tab.setColumnEditable(-1);
@@ -43,7 +46,8 @@ public class ControllerUpdateTurn extends ControllerTableGeneral{
                     value = value.toUpperCase();
                 value= value.replace(",",".");
                 view.getTableMenagementEvents().setValueAt(value, row, column);
-                //dao.(value,view.getTableMenagementEvents().getColumnName(column),view.getTableSearchGeneral().getModel().getValueAt(row,tab.getId_column()).toString());
+                //int updateTurn(int turn,String field,Object new_value) throws SQLException;
+                dao.updateTurn((Integer)(Integer.parseInt(table.getValueAt(row,tab.getId_column()).toString())),table.getColumnName(column),value);
                 row = -1;
                 column=-1;
             } catch (SQLException ex) {
@@ -58,23 +62,23 @@ public class ControllerUpdateTurn extends ControllerTableGeneral{
             
            //se non premo invio,RESETTO LA CELLA AL VALORE PRECEDENTE
             //ROW = -1 E COL = -1 PERCHè UNA VOLTA QUI NON HO PIU LA CELLA EDITABILE,solo col doppio click è editabile
-            if(view.getTableSearchGeneral().getSelectedRow() != row || view.getTableSearchGeneral().getSelectedColumn() != column)
+            if(table.getSelectedRow() != row || table.getSelectedColumn() != column)
             {  
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);
                if(row!= -1 && column != -1)
-                  view.resetValueTable(row, column,oldvalue);
+                  resetValueTable(row, column,oldvalue);
                row = -1;
                column = -1;
-               view.getButtonDeleteAdvSearch().setEnabled(true);
-               view.getButtonDeleteSearch().setEnabled(true);
+               for(String s : comp.keySet())
+                comp.get(s).setEnabled(true);
             }
             //sto cambiando casella senza invio,quindi setto la cella cliccata nuovamente non editabile.
             
             
         }
           //ho confermato update o ho abbandonato la,quindi setto la cella cliccata nuovamente non editabile.
-    */        
+        
     }
     
     

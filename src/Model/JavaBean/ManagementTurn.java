@@ -14,11 +14,19 @@ import java.util.Set;
  */
 public class ManagementTurn {
     
-    String idTurn;
+    Integer idTurn;
     Addetto addetto;
     Event event;
     Time start;
     Time end;
+
+    public Integer getIdTurn() {
+        return idTurn;
+    }
+
+    public void setIdTurn(int idTurn) {
+        this.idTurn = idTurn;
+    }
     
     /*
     DateFormat formatter = new SimpleDateFormat("HH:mm");
@@ -63,12 +71,13 @@ public class ManagementTurn {
     Time startTurn;
     Time endTurn;
     
-    public ManagementTurn(Addetto addetto,Event event,Time startTurn,Time endTurn)
+    public ManagementTurn(Addetto addetto,Event event,Time startTurn,Time endTurn,int idturn)
     {
         this.addetto=addetto;
         this.event = event;
         this.startTurn = startTurn;
         this.endTurn = endTurn;
+        this.idTurn=new Integer(idturn);
     }
     
 }

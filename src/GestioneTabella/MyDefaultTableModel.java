@@ -29,6 +29,10 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
     private int row_changed;
     private int column_changed;
 
+    public void setId_column(int id_column) {
+        this.id_column = id_column;
+    }
+
     public MyDefaultTableModel()
     {
         super();
@@ -187,7 +191,7 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        for(ManagementTurn manTurn : turn)
        {
            if(manTurn != null)
-           this.addRow(new String[]{manTurn.getAddetto().getNome(),manTurn.getAddetto().getCognome(),manTurn.getEvent().getTitle(),manTurn.getEvent().getDataEvent().toString(),manTurn.getStartTurn().toString(),manTurn.getEndTurn().toString()});
+           this.addRow(new String[]{manTurn.getAddetto().getNome(),manTurn.getAddetto().getCognome(),manTurn.getEvent().getTitle(),manTurn.getEvent().getDataEvent().toString(),manTurn.getStartTurn().toString(),manTurn.getEndTurn().toString(),manTurn.getIdTurn().toString()});
        }   
        
     }
