@@ -36,6 +36,8 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
         this.dao = dao;
         this.view.getButtonSearch().addActionListener(this);
         this.view.getButtonDelete().addActionListener(this);
+        this.view.getTextCodeEvent().addKeyListener(this);
+        this.view.getTextTaxCode().addKeyListener(this);
     }
 
     @Override
@@ -122,42 +124,36 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
 
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+            if(e.getKeyChar() == '\n')
+                view.getButtonSearch().doClick();//clicca il pulsante da solo xD.. risparmio codice
+       }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
