@@ -19,14 +19,14 @@ import javax.swing.JTable;
  *
  * @author Pirozzi
  */
-public abstract class  ControllerTableGeneral implements MouseListener,KeyListener,FocusListener
+public abstract class  ControllerTableGeneralNON_SERVE_PIUSOSTITUITADACONTROLLERTABLE implements MouseListener,KeyListener,FocusListener
 {
     private GeneralPanel view;
     protected int row=-1;
     protected int column=-1;
     protected String oldvalue;
     
-    public ControllerTableGeneral(GeneralPanel view)
+    public ControllerTableGeneralNON_SERVE_PIUSOSTITUITADACONTROLLERTABLE(GeneralPanel view)
     {
         this.view= view;
         this.view.getTableSearchGeneral().addMouseListener(this);

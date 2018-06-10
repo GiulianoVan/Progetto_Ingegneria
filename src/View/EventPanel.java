@@ -81,7 +81,7 @@ public class EventPanel extends GeneralPanel {
             new Object [][] {
             },
             new String [] {
-                "TITLE", "TYPE", "KIND", "DATE", "PLACE", "ZIP CODE", "DESCRIPTION"
+                "TITLE", "TYPE", "KIND", "DATE", "PLACE", "ZIP CODE", "DESCRIPTION","IDEVENT"
             }
           )
             {
@@ -108,6 +108,8 @@ public class EventPanel extends GeneralPanel {
     public void updateTable(Object arg) {
          MyDefaultTableModel tab = new MyDefaultTableModel();
         tab.createModelBySetEvent((Set) arg);
+        int id = tableSearchEvent.getColumnModel().getColumnIndex("IDEVENT");
+        tab.setId_column(id);
         tableSearchEvent.setModel(tab);
         //Aggiorno i nomi delle colonne nella view 
         tableSearchEvent.getColumnModel().getColumn(1).setHeaderValue("TYPE");
@@ -115,8 +117,8 @@ public class EventPanel extends GeneralPanel {
         tableSearchEvent.getColumnModel().getColumn(4).setHeaderValue("PLACE");
         tableSearchEvent.getColumnModel().getColumn(5).setHeaderValue("ZIP CODE");
          
-        int id_column = tab.getId_column();
-        tableSearchEvent.removeColumn(tableSearchEvent.getColumnModel().getColumn(id_column));
+       // int id_column = tab.getId_column();
+        //tableSearchEvent.removeColumn(tableSearchEvent.getColumnModel().getColumn(id_column));
     }
 
     @Override

@@ -19,7 +19,7 @@ import javax.swing.JTable;
  *
  * @author Pirozzi
  */
-public class ControllerTable implements MouseListener,KeyListener,FocusListener {
+public abstract class ControllerTable implements MouseListener,KeyListener,FocusListener {
    
     protected int row=-1;
     protected int column=-1;
@@ -49,7 +49,7 @@ public class ControllerTable implements MouseListener,KeyListener,FocusListener 
     @Override
     public void mouseClicked(MouseEvent e) {
         MyDefaultTableModel tab = (MyDefaultTableModel) table.getModel();
-            if(e.getClickCount()==2)
+            if(e.getClickCount()==2 && table.getSelectedColumn()!= tab.getId_column())
             {   
                if(table.getSelectedColumn()!= tab.getId_column())
                 {
@@ -65,6 +65,7 @@ public class ControllerTable implements MouseListener,KeyListener,FocusListener 
                else
                 oldvalue = null;
                 //se sto modificando non posso cancellare.
+                if(column != tab.getId_column())
                 for(String s : comp.keySet())
                  comp.get(s).setEnabled(false);
                 

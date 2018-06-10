@@ -64,7 +64,7 @@ public class ControllerTableEvent extends ControllerTable{
                         
                     } catch (SQLException ex) {
                         String event_type = table.getModel().getValueAt(row,1).toString();
-                        
+                        oldvalue=null;
                         if(ex.getErrorCode() == 1265)
                         {
                             if(!(event_type.equalsIgnoreCase("SPORT")) && !(event_type.equalsIgnoreCase("CONCERT")) && !(event_type.equalsIgnoreCase("THEATER")) && !(event_type.equalsIgnoreCase("CINEMA")) && !(event_type.equalsIgnoreCase("OTHER")))
