@@ -29,5 +29,6 @@ public interface ManagementTurnDao {
     //inserimento turno.
     int insertTurn(Addetto addetto,Event event,Time start,Time end)throws SQLException;
     int deleteTurn(Addetto addetto,Event event,Time start,Time end) throws SQLException;
+    int updateTurn(String turn,String field,Object new_value) throws SQLException;
    // int deleteTurn(String idAddetto,String idEvento);
 }

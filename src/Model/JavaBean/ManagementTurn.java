@@ -14,9 +14,21 @@ import java.util.Set;
  */
 public class ManagementTurn {
     
+    String idTurn;
     Addetto addetto;
     Event event;
-
+    Time start;
+    Time end;
+    
+    /*
+    DateFormat formatter = new SimpleDateFormat("HH:mm");
+    try {
+    Time start = new java.sql.Time(formatter.parse(fajr_prayertime).getTime());
+    } catch (ParseException ex) {
+    Logger.getLogger(JavaFXApplication4.class.getName()).log(Level.SEVERE, null, ex);
+}
+    */
+    
     public Addetto getAddetto() {
         return addetto;
     }

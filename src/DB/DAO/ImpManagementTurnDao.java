@@ -127,5 +127,12 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
        
        return result;
     }
+
+    @Override
+    public int updateTurn(String turn,String campo,Object new_value) throws SQLException {
+        
+       String sql = "UPDATE GESTIONE_SICUREZZA SET "+campo+ " = '"+new_value+"' WHERE EVENTO = ? AND ADDSICUREZZ = ? AND START = ? AND END = ?";
+       ps.setString(0,
+    }
     
 }
