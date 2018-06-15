@@ -78,7 +78,7 @@ public class AddettiPanel extends GeneralPanel{
         textSearchAddetto.setText("Insert Something here");
         
         
-        tableSearchAddetto.setModel(new javax.swing.table.DefaultTableModel(new Object [][] {},new String [] {"NAME", "SURNAME", "TAX CODE", "EMAIL", "PHONE", "SALARY", "BIRTH","ID CODE"})
+        tableSearchAddetto.setModel(new javax.swing.table.DefaultTableModel(new Object [][] {},new String [] {"NAME", "SURNAME", "TAX CODE", "EMAIL", "PHONE", "SALARY", "BIRTH","ID"})
             {
                 Class[] types = new Class [] {
                     java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
@@ -103,9 +103,12 @@ public class AddettiPanel extends GeneralPanel{
          tab = new MyDefaultTableModel();
          tab.createModelBySetAddetto((Set) arg);
          tableSearchAddetto.setModel(tab);
+         int id = tableSearchAddetto.getColumnModel().getColumnIndex("ID");
+         tab.setId_column(id);
          //Aggiorno i nomi delle colonne nella view 
          tableSearchAddetto.getColumnModel().getColumn(2).setHeaderValue("TAX CODE");
          tableSearchAddetto.getColumnModel().getColumn(7).setHeaderValue("ID CODE");
+          
          //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
          //ultimo indice contiene sempre id.
        //  int id_column = tab.getId_column();

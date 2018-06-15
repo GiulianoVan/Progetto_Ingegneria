@@ -9,6 +9,7 @@ import GestioneTabella.MyDefaultTableModel;
 import java.awt.event.FocusListener;
 import java.util.Observable;
 import java.util.Set;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -81,7 +82,7 @@ public class EventPanel extends GeneralPanel {
             new Object [][] {
             },
             new String [] {
-                "TITLE", "TYPE", "KIND", "DATE", "PLACE", "ZIP CODE", "DESCRIPTION","IDEVENT"
+                "TITLE", "TYPE", "KIND", "DATE", "PLACE", "ZIP CODE", "DESCRIPTION","ID"
             }
           )
             {
@@ -106,17 +107,24 @@ public class EventPanel extends GeneralPanel {
 
     @Override
     public void updateTable(Object arg) {
-         MyDefaultTableModel tab = new MyDefaultTableModel();
+        
+        MyDefaultTableModel tab = new MyDefaultTableModel();
+        
         tab.createModelBySetEvent((Set) arg);
-        int id = tableSearchEvent.getColumnModel().getColumnIndex("IDEVENT");
-        tab.setId_column(id);
         tableSearchEvent.setModel(tab);
+        
+        int id = tableSearchEvent.getColumnModel().getColumnIndex("ID");
+        tab.setId_column(id);
+        
+        
         //Aggiorno i nomi delle colonne nella view 
+        
         tableSearchEvent.getColumnModel().getColumn(1).setHeaderValue("TYPE");
         tableSearchEvent.getColumnModel().getColumn(2).setHeaderValue("KIND");
         tableSearchEvent.getColumnModel().getColumn(4).setHeaderValue("PLACE");
         tableSearchEvent.getColumnModel().getColumn(5).setHeaderValue("ZIP CODE");
-         
+        tableSearchEvent.getColumnModel().getColumn(id).setHeaderValue("ID CODE");
+
        // int id_column = tab.getId_column();
         //tableSearchEvent.removeColumn(tableSearchEvent.getColumnModel().getColumn(id_column));
     }

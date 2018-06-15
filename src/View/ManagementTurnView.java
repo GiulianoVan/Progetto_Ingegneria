@@ -94,9 +94,10 @@ public class ManagementTurnView extends javax.swing.JPanel {
     {
          tab = new MyDefaultTableModel();
          tab.createModelBySetTurn((Set) obj);//da aggiungere nuovo metodo dentro a my default tabe model che carica questi.
+         
+         tableMenagementEvents.setModel(tab);
          int id = tableMenagementEvents.getColumnModel().getColumnIndex("TURN_NUMBER");
          tab.setId_column(id);
-         tableMenagementEvents.setModel(tab);
     }
     /**
      * This method is called from within the constructor to initialize the form.

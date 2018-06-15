@@ -120,7 +120,7 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        this.addColumn("PHONE");
        this.addColumn("SALARY");
        this.addColumn("BIRTH");
-       this.addColumn("IDSICUREZZA");
+       this.addColumn("ID");
        
        
        
