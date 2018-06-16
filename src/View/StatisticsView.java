@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.Color;
+import javax.swing.JButton;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -38,6 +39,7 @@ public class StatisticsView extends javax.swing.JPanel {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        buttonGenerateGraph = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(590, 490));
         setPreferredSize(new java.awt.Dimension(590, 490));
@@ -49,7 +51,7 @@ public class StatisticsView extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, 30));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, 30));
 
         jButton2.setText("LINE CHART");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -57,8 +59,24 @@ public class StatisticsView extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 110, 30));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 110, 30));
+
+        buttonGenerateGraph.setText("OK");
+        buttonGenerateGraph.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGenerateGraphActionPerformed(evt);
+            }
+        });
+        add(buttonGenerateGraph, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getButtonGenerateGraph() {
+        return buttonGenerateGraph;
+    }
+
+    public void setButtonGenerateGraph(JButton buttonGenerateGraph) {
+        this.buttonGenerateGraph = buttonGenerateGraph;
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
@@ -92,8 +110,13 @@ public class StatisticsView extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void buttonGenerateGraphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGenerateGraphActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonGenerateGraphActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonGenerateGraph;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
