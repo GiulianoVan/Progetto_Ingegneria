@@ -5,8 +5,13 @@
  */
 package View;
 
+import Factory.Charts;
+import Factory.GenerateChart;
 import java.awt.Color;
+import java.util.Map;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -26,6 +31,17 @@ public class StatisticsView extends javax.swing.JPanel {
      */
     public StatisticsView() {
         initComponents();
+        buttonGenerateGraph.setActionCommand("GENERATE");
+        this.comboDateStatisticFrom.setVisible(false);
+        this.comboDateStatisticTo.setVisible(false);
+        this.comboStatisticEventType.setVisible(false);
+        this.buttonGenerateGraph.setEnabled(false);
+        for(Integer i=2017;i<2100;++i)
+        {
+            comboDateStatisticFrom.addItem(i.toString());
+            comboDateStatisticTo.addItem(i.toString());
+        }
+        
     }
 
     /**
@@ -119,6 +135,38 @@ public class StatisticsView extends javax.swing.JPanel {
         this.buttonGenerateGraph = buttonGenerateGraph;
     }
 
+    public JComboBox<String> getComboDateStatisticFrom() {
+        return comboDateStatisticFrom;
+    }
+
+    public void setComboDateStatisticFrom(JComboBox<String> comboDateStatisticFrom) {
+        this.comboDateStatisticFrom = comboDateStatisticFrom;
+    }
+
+    public JComboBox<String> getComboDateStatisticTo() {
+        return comboDateStatisticTo;
+    }
+
+    public void setComboDateStatisticTo(JComboBox<String> comboDateStatisticTo) {
+        this.comboDateStatisticTo = comboDateStatisticTo;
+    }
+
+    public JComboBox<String> getComboStatisticEventType() {
+        return comboStatisticEventType;
+    }
+
+    public void setComboStatisticEventType(JComboBox<String> comboStatisticEventType) {
+        this.comboStatisticEventType = comboStatisticEventType;
+    }
+
+    public JComboBox<String> getComboStatisticType() {
+        return comboStatisticType;
+    }
+
+    public void setComboStatisticType(JComboBox<String> comboStatisticType) {
+        this.comboStatisticType = comboStatisticType;
+    }
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         DefaultPieDataset pieDataset = new DefaultPieDataset();
@@ -152,9 +200,39 @@ public class StatisticsView extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void buttonGenerateGraphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGenerateGraphActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_buttonGenerateGraphActionPerformed
 
+    public void generateGraph(Map<Comparable,Number> map,String choise)
+    {
+        GenerateChart charts = new GenerateChart();
+        //Average age for events, Tickets sold over the years, Presences over the years by event, Earnings over the years
+        if(choise.equals("Average age for events"))
+        {
+            Charts chart = charts.getChart("PIE");
+            JFrame frame = chart.drawChart(map);
+            frame.setVisible(true);
+            
+        }
+        else if(choise.equals("Tickets sold over the years"))
+        {
+            Charts chart = charts.getChart("LINE");
+            JFrame frame = chart.drawChart(map,"Year","Ticket");
+            frame.setVisible(true);
+        }
+        else if(choise.equals("Presences over the years by event"))
+        {
+            Charts chart = charts.getChart("LINE");
+            JFrame frame = chart.drawChart(map,"Year","Presence");
+            frame.setVisible(true);
+        }
+        else if(choise.equals("Earnings over the years"))
+        {
+             Charts chart = charts.getChart("LINE");
+            JFrame frame = chart.drawChart(map,"Year","Earning");
+            frame.setVisible(true);
+        }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonGenerateGraph;

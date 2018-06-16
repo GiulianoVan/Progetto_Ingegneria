@@ -10,6 +10,7 @@ import Runner.RunECBAddetti;
 import Runner.RunECBCustomer;
 import Runner.RunECBEvents;
 import Runner.RunECBManagementTurn;
+import Runner.RunStatistics;
 import java.awt.Color;
 
 
@@ -30,14 +31,17 @@ public class GeneralView extends javax.swing.JFrame{
         RunECBAddetti runSecurity = new RunECBAddetti();
         RunECBCustomer runCustomer = new RunECBCustomer();
         RunECBManagementTurn runManagementTurn = new RunECBManagementTurn();
+        RunStatistics runStat  = new RunStatistics();
         runEvents.startRunMVCEvents();
         runSecurity.startMVCAddetti();
         runCustomer.startMVCCustomer();
         runManagementTurn.start();
+        runStat.start();
         setEventsTabbed(runEvents);
         setCustomersTabbed(runCustomer);
         setSecurityTabbed(runSecurity);
         setManagementTabbed(runManagementTurn);
+        setStaticsTabbel(runStat);
         
     }
     
@@ -100,6 +104,12 @@ private void setManagementTabbed(RunECBManagementTurn runManagementTurn)
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane jTabbedMenu;
     // End of variables declaration//GEN-END:variables
+
+    private void setStaticsTabbel(RunStatistics runStat) {
+        jTabbedMenu.add("Statistics",runStat.getView());
+        jTabbedMenu.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Picture/securityOfficer.png")));
+        jTabbedMenu.setBackgroundAt(3, new java.awt.Color(255, 222, 177));
+    }
 
     
 }
