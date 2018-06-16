@@ -5,6 +5,7 @@
  */
 package DB.DAO;
 
+import java.sql.SQLException;
 import java.time.Year;
 import java.util.Map;
 
@@ -14,9 +15,9 @@ import java.util.Map;
  */
 public interface StatisticsDao  {
    
-    public Map<String,Double> etaMediaTipoEvento(String[] tipo_evento);//istogramma
-    public Map<Year,Integer>  bigliettiVendutiPerAnno(Year annoInizio,Year annoFine);//line chart
-    public Map <String,Double> eventiSeguitiInUnAnno(Year year); //pieChart
-    public Map<Year,Double>  incassiPerAnno(Year annoInizio,Year annoFine);
+    public Double etaMediaTipoEvento(String tipo_evento) throws SQLException;//istogramma
+    public Integer  bigliettiVendutiPerAnno(int anno) throws SQLException;//line chart
+    public Integer partecipazioneTipoEventoInUnAnno(int year,String tipoEvento) throws SQLException; //pieChart
+    public Double incassiPerAnno(int anno) throws SQLException;
     
 }
