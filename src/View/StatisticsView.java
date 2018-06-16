@@ -37,13 +37,25 @@ public class StatisticsView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        comboStatisticType = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         buttonGenerateGraph = new javax.swing.JButton();
+        comboDateStatisticTo = new javax.swing.JComboBox<>();
+        comboDateStatisticFrom = new javax.swing.JComboBox<>();
+        comboStatisticEventType = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(590, 490));
         setPreferredSize(new java.awt.Dimension(590, 490));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        comboStatisticType.setBackground(new java.awt.Color(255, 222, 177));
+        comboStatisticType.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        comboStatisticType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Statistic Type", "Average age for events", "Tickets sold over the years", "Presences over the years by event", "Earnings over the years" }));
+        add(comboStatisticType, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 250, 30));
 
         jButton1.setText("PIE CHART");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -51,7 +63,7 @@ public class StatisticsView extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, 30));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, 30));
 
         jButton2.setText("LINE CHART");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -59,15 +71,44 @@ public class StatisticsView extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 110, 30));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 110, 30));
 
-        buttonGenerateGraph.setText("OK");
+        buttonGenerateGraph.setBackground(new java.awt.Color(255, 222, 177));
+        buttonGenerateGraph.setText("Generate Chart");
         buttonGenerateGraph.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonGenerateGraphActionPerformed(evt);
             }
         });
-        add(buttonGenerateGraph, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, -1));
+        add(buttonGenerateGraph, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 150, 40));
+
+        comboDateStatisticTo.setBackground(new java.awt.Color(255, 222, 177));
+        comboDateStatisticTo.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        add(comboDateStatisticTo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 100, 30));
+
+        comboDateStatisticFrom.setBackground(new java.awt.Color(255, 222, 177));
+        comboDateStatisticFrom.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        add(comboDateStatisticFrom, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 100, 30));
+
+        comboStatisticEventType.setBackground(new java.awt.Color(255, 222, 177));
+        comboStatisticEventType.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        comboStatisticEventType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Event Type", "Sport", "Cinema", "Concert", "Theater" }));
+        add(comboStatisticEventType, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 150, 30));
+
+        jLabel2.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("FROM");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 100, 20));
+
+        jLabel3.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("TO");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 100, 20));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
+        jLabel1.setMinimumSize(new java.awt.Dimension(590, 490));
+        jLabel1.setPreferredSize(new java.awt.Dimension(590, 490));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 490));
     }// </editor-fold>//GEN-END:initComponents
 
     public JButton getButtonGenerateGraph() {
@@ -117,7 +158,14 @@ public class StatisticsView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonGenerateGraph;
+    private javax.swing.JComboBox<String> comboDateStatisticFrom;
+    private javax.swing.JComboBox<String> comboDateStatisticTo;
+    private javax.swing.JComboBox<String> comboStatisticEventType;
+    private javax.swing.JComboBox<String> comboStatisticType;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
