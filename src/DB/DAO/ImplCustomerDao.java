@@ -41,7 +41,7 @@ public class ImplCustomerDao implements CustomerDao{
     public Set<Customer> searchCustomerKeysWords(ArrayList<String> words) throws SQLException{
          
          Set<Customer>result = new HashSet<>();
-         String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH FROM CLIENTE WHERE ";
+         String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH,ACQUISTI FROM CLIENTE WHERE ";
         //CREO LA STRINGA DINAMICAMENTE AGGIUNGENDO LA STESSA STRINGA PER QUANTE SONO LE PAROLE CHIAVI
         for(String parola : words)
         {
@@ -65,7 +65,7 @@ public class ImplCustomerDao implements CustomerDao{
             
             while(rs.next())
             {
-                result.add(new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8)));
+                result.add(new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8),rs.getInt(9)));
             }
         
         
@@ -96,15 +96,7 @@ public class ImplCustomerDao implements CustomerDao{
          return executeUpdate;
     }
 
-    @Override
-    public List<CustomerModel> searchByEta(int età) {
-              throw new UnsupportedOperationException();
-    }
 
-    @Override
-    public List<CustomerModel> searchByBigliettiAcquistati(int n) {
-       throw new UnsupportedOperationException();
-    }
 
     @Override
     public int deleteCustomer(String idcustomer) throws SQLException {
@@ -123,14 +115,14 @@ public class ImplCustomerDao implements CustomerDao{
     public Set<Customer> searchByName(String name) throws SQLException {
         
         Set<Customer> result = new HashSet<>();
-        String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH FROM CLIENTE WHERE NAME = ?";
+        String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH,ACQUISTI FROM CLIENTE WHERE NAME = ?";
         con = DBConnect.getConnection();
         ps = con.prepareStatement(sql);
         ps.setString(1,name);
         rs = ps.executeQuery();
         while(rs.next())
         {
-            result.add(new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8)));
+            result.add(new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8),rs.getInt(9)));
         }
         return result;
     }
@@ -138,14 +130,14 @@ public class ImplCustomerDao implements CustomerDao{
     @Override
     public Set<Customer> searchBySurname(String surname) throws SQLException {
         Set<Customer> result = new HashSet<>();
-        String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH FROM CLIENTE WHERE SURNAME = ?";
+        String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH,ACQUISTI FROM CLIENTE WHERE SURNAME = ?";
         con = DBConnect.getConnection();
         ps = con.prepareStatement(sql);
         ps.setString(1,surname);
         rs = ps.executeQuery();
         while(rs.next())
         {
-            result.add(new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8)));
+            result.add(new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8),rs.getInt(9)));
         }
         return result;
 
@@ -155,7 +147,7 @@ public class ImplCustomerDao implements CustomerDao{
     public Set<Customer> searchByBirth(Date from, Date to) throws SQLException {
         
         Set<Customer> result = new HashSet<>();
-        String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH FROM CLIENTE WHERE BIRTH >= ? AND BIRTH <= ?";
+        String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH,ACQUISTI FROM CLIENTE WHERE BIRTH >= ? AND BIRTH <= ?";
         con = DBConnect.getConnection();
         ps = con.prepareStatement(sql);
         ps.setTimestamp(1,new Timestamp(from.getTime()));
@@ -163,7 +155,7 @@ public class ImplCustomerDao implements CustomerDao{
         rs = ps.executeQuery();
         while(rs.next())
         {
-            result.add(new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8)));
+            result.add(new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8),rs.getInt(9)));
         }
         return result;
     }
@@ -172,14 +164,14 @@ public class ImplCustomerDao implements CustomerDao{
     public Customer searchByTaxCode(String tax_code) throws SQLException {
 
         
-        String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH FROM CLIENTE WHERE TAX_CODE = ?";
+        String sql = "SELECT IDCLIENTE,USERNAME,NAME,SURNAME,EMAIL,TAX_CODE,PHONE,BIRTH,ACQUISTI FROM CLIENTE WHERE TAX_CODE = ?";
         con = DBConnect.getConnection();
         ps = con.prepareStatement(sql);
         ps.setString(1,tax_code);
         rs = ps.executeQuery();
         if(rs.next())
         {
-            return new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8));
+            return new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8),rs.getInt(9));
         }
         return null;
     }

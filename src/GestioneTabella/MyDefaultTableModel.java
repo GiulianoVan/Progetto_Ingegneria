@@ -166,11 +166,12 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        this.addColumn("EMAIL");
        this.addColumn("PHONE");
        this.addColumn("BIRTH");
+       this.addColumn("ACQUISTI");
        this.addColumn("ID");
        for(Customer add : customer)
        {
            if(add != null)
-           this.addRow(new String[]{add.getUsername(),add.getName(),add.getSurname(),add.getTax_code(),add.getEmail(),add.getPhone(),add.getDate_born().toString(),add.getIdCustomer()});
+           this.addRow(new String[]{add.getUsername(),add.getName(),add.getSurname(),add.getTax_code(),add.getEmail(),add.getPhone(),add.getDate_born().toString(),add.getTickets_purchased().toString(),add.getIdCustomer()});
        }   
        //ID SEMPRE SU ULTIMA COLONNA,XKè COLONNE IN MEZZO NON POSSONO ESSERE NASCOSTE.
        this.id_column = this.getColumnCount()-1;

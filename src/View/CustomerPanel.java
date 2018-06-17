@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.Observable;
 import java.util.Set;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 /**
@@ -44,6 +45,7 @@ public class CustomerPanel extends GeneralPanel {
     {
         super();
         this.setComponentsPanel();
+
         tab = null;
     }
     
@@ -85,15 +87,15 @@ public class CustomerPanel extends GeneralPanel {
             new Object [][] {
             },
             new String [] {
-               "USERNAME" ,"NAME", "SURNAME", "TAX CODE", "EMAIL", "PHONE", "BIRTH","ID"
+               "USERNAME" ,"NAME", "SURNAME", "TAX CODE", "EMAIL", "PHONE", "BIRTH","PURCHASED","ID"
             }
          ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,java.lang.String.class,java.lang.String.class
             };
             @Override
             public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+                return types[columnIndex];
             }
             
         });
@@ -129,6 +131,8 @@ public class CustomerPanel extends GeneralPanel {
          //Aggiorno i nomi delle colonne nella view 
          tableSearchCustomer.getColumnModel().getColumn(3).setHeaderValue("TAX CODE");
          tableSearchCustomer.getColumnModel().getColumn(id).setHeaderValue("ID CODE");
+         int purch= tableSearchCustomer.getColumnModel().getColumnIndex("ACQUISTI"); //setHeaderValue("ID CODE");
+         tableSearchCustomer.getColumnModel().getColumn(purch).setHeaderValue("PURCHASED");
          tableSearchCustomer.setRowSorter(new TableRowSorter(tab));
 
 

@@ -29,6 +29,7 @@ public class Customer extends Observable{
     private String tax_code; // ("^[a-z1-9]{16}$",Pattern.CASE_INSENSITIVE);
     private String phone; // ("^(\+[0-9]{1,3}[/ ]{1})?[0-9]{3,6}[ -]?[0-9]{7,}$");
     private Date date_born;
+    private int tickets_purchased;
     
     /**
      *
@@ -41,7 +42,7 @@ public class Customer extends Observable{
      * @param phone
      * @param date_born
      */
-    public Customer(String idCustomer,String username,String name,String surname,String email,String tax_code,String phone,Date date_born)
+    public Customer(String idCustomer,String username,String name,String surname,String email,String tax_code,String phone,Date date_born,int tickets)
     {
         this.idCustomer = idCustomer;
         this.username = username;
@@ -51,6 +52,7 @@ public class Customer extends Observable{
         this.tax_code = tax_code;
         this.phone = phone;
         this.date_born = date_born;
+        this.tickets_purchased = tickets;
     }
 
     /**
@@ -100,6 +102,14 @@ public class Customer extends Observable{
      */
     public String getSurname() {
         return surname;
+    }
+
+    public Integer getTickets_purchased() {
+        return tickets_purchased;
+    }
+
+    public void setTickets_purchased(int tickets_purchased) {
+        this.tickets_purchased = tickets_purchased;
     }
 
     /**
