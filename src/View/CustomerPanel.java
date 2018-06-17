@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.Observable;
 import java.util.Set;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -128,6 +129,8 @@ public class CustomerPanel extends GeneralPanel {
          //Aggiorno i nomi delle colonne nella view 
          tableSearchCustomer.getColumnModel().getColumn(3).setHeaderValue("TAX CODE");
          tableSearchCustomer.getColumnModel().getColumn(id).setHeaderValue("ID CODE");
+         tableSearchCustomer.setRowSorter(new TableRowSorter(tab));
+
 
          //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
          //ultimo indice contiene sempre id.

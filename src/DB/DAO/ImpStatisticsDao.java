@@ -35,7 +35,7 @@ public class ImpStatisticsDao implements StatisticsDao{
          if(rs.next())
            return  rs.getDouble(1);
          
-         return null;
+         return 0d;
     }
     
     
@@ -52,7 +52,7 @@ public class ImpStatisticsDao implements StatisticsDao{
          if(rs.next())
              return rs.getInt(1);
          
-         return null;
+         return 0;
     }
 
     
@@ -70,7 +70,7 @@ public class ImpStatisticsDao implements StatisticsDao{
          if(rs.next())
              return rs.getDouble(1);
          
-         return null;
+         return 0d;
     }
 
     @Override
@@ -85,7 +85,7 @@ public class ImpStatisticsDao implements StatisticsDao{
          if(rs.next())
              return rs.getInt(1);
          
-         return null;
+         return 0;
     }
     
 }

@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -98,6 +99,7 @@ public class ManagementTurnView extends javax.swing.JPanel {
          tableMenagementEvents.setModel(tab);
          int id = tableMenagementEvents.getColumnModel().getColumnIndex("TURN_NUMBER");
          tab.setId_column(id);
+         tableMenagementEvents.setRowSorter(new TableRowSorter (tab));
     }
     /**
      * This method is called from within the constructor to initialize the form.

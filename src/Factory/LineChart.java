@@ -38,6 +38,7 @@ public class LineChart implements Charts{
         return frame;
     }
     
+    @Override
      public JFrame drawChart(Map<Comparable,Number> map,String asseX,String asseY) 
      {
          DefaultCategoryDataset linedataset = new DefaultCategoryDataset();
@@ -46,7 +47,7 @@ public class LineChart implements Charts{
            linedataset.setValue(map.get(key),"",key.toString());
         }
         
-        JFreeChart chart = ChartFactory.createLineChart("LINE CHART", "X","Y", linedataset);
+        JFreeChart chart = ChartFactory.createLineChart("LINE CHART",asseX,asseY, linedataset);
         CategoryPlot p = chart.getCategoryPlot();
         p.setRangeGridlinePaint(Color.BLUE);
         ChartFrame frame = new ChartFrame("Bar Chart for Parameters", chart);

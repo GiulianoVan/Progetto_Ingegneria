@@ -190,7 +190,7 @@ public class StatisticsView extends javax.swing.JPanel {
         linedataset.setValue(new Double(40), "", "2");
         linedataset.setValue(new Double(50), "", "3");
         
-        JFreeChart chart = ChartFactory.createLineChart("LINE CHART", "PARAMETRI", "VALORI", linedataset);
+        JFreeChart chart = ChartFactory.createLineChart("LINE CHART","PARAMETRI","VALORI", linedataset);
         CategoryPlot p = chart.getCategoryPlot();
         p.setRangeGridlinePaint(Color.BLUE);
         ChartFrame frame = new ChartFrame("Bar Chart for Parameters", chart);

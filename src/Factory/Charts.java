@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  *
  * @author Pirozzi
  */
-public interface  Charts 
+public interface Charts 
 {    
     
     public  JFrame drawChart(Map<Comparable,Number> map);
