@@ -149,32 +149,37 @@ public class ManagementTurnView extends javax.swing.JPanel {
         tableMenagementEvents.setOpaque(false);
         jScrollPane1.setViewportView(tableMenagementEvents);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 590, 600));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 710, 450));
 
         jLabel3.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("CODE EVENT");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 130, 20));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 130, 20));
 
         jLabel6.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("TAX CODE SECURITY");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 20));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 130, 20));
 
-        buttonDelete.setText("Delete");
-        add(buttonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 90, -1));
+        buttonDelete.setBackground(new java.awt.Color(255, 222, 177));
+        buttonDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
+        add(buttonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, 50, 40));
 
-        buttonCreate.setText("Crete New Turn");
-        add(buttonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 130, 30));
+        buttonCreate.setBackground(new java.awt.Color(255, 222, 177));
+        buttonCreate.setFont(new java.awt.Font("Dubai Medium", 1, 8)); // NOI18N
+        buttonCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/toWork.png"))); // NOI18N
+        buttonCreate.setText("SET WORK");
+        add(buttonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 110, 40));
 
-        buttonSearch.setText("Search");
-        add(buttonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 90, 30));
-        add(textCodeEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 130, 30));
-        add(textTaxCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 130, 30));
+        buttonSearch.setBackground(new java.awt.Color(255, 222, 177));
+        buttonSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
+        add(buttonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 40, 40));
+        add(textCodeEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 130, 30));
+        add(textTaxCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 130, 30));
 
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
         sfondo.setOpaque(true);
-        add(sfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 490));
+        add(sfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 690));
     }// </editor-fold>//GEN-END:initComponents
 
 

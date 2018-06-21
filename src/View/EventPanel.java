@@ -51,6 +51,11 @@ public class EventPanel extends GeneralPanel {
     
     public void setComponentsPanel() {
         
+        
+        super.getLabelFirst().setText("Type Event");
+        super.getLabelSecond().setText("Title");
+        super.getLabelTirth().setText("Kind Type");
+        
         buttonAdvSearchEvent = getButtonOkAdvSearchGeneral();
         buttonAdvEvent = getButtonAdvGeneral();
         buttonCreateEvent = getButtonCreateGeneral();
@@ -76,7 +81,7 @@ public class EventPanel extends GeneralPanel {
         buttonCreateEvent.setText("Create Event");
         comboTypeEventSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type Event...", "Sport", "Concert", "Theater", "Cinema" }));
         
-        textNameEventSearch.setText("Insert Name Here...");
+        //textNameEventSearch.setText("Insert Name Here...");
         textSearchEvent.setText("Insert Name Here...");
     
         tableSearchEvent.setModel(new javax.swing.table.DefaultTableModel(

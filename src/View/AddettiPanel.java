@@ -50,6 +50,10 @@ public class AddettiPanel extends GeneralPanel{
     
     public void setComponentsPanel()
     {
+        super.getLabelFirst().setText("Surname");
+        super.getLabelSecond().setText("Name");
+        super.getLabelTirth().setText("Tax Code");
+        
         // ******** TEXT RICERCA AVANZATA ********
         textCFGeneralSearch = getTextCfGeneralSearch();
         textSurnameAddetto = getTextSurnameGeneralSearch();// RICORDARE DI UTILIZZARE LA TEXT_CODE PER IL COGNOME
@@ -66,11 +70,7 @@ public class AddettiPanel extends GeneralPanel{
         tableSearchAddetto = getTableSearchGeneral();
         jPanelAdvSearch = getjPanelAdvSearch();
         
-        // ******* SETTAGGIO TEXT RICARVA AVANZATA *******
-        textCFGeneralSearch.setText("Insert CF here");
-        textNameAddetto.setText("Insert Name here");
-        textSurnameAddetto.setText("Insert Surname here");
-        // ******************************************
+
         jPanelAdvSearch.setVisible(false);
         comboGenereTypeSearch.setVisible(false);    
         comboTypeGeneralSearch.setVisible(false);

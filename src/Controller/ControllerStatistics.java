@@ -121,6 +121,8 @@ public class ControllerStatistics implements ActionListener,ItemListener{
         
         if(view.getComboStatisticType().getSelectedItem().toString().equals("Average age for events"))
         {
+            view.getjLabel2().setVisible(false);
+            view.getjLabel3().setVisible(false);
             view.getButtonGenerateGraph().setEnabled(true);
             view.getComboDateStatisticFrom().setVisible(false);
             view.getComboDateStatisticTo().setVisible(false);
@@ -130,6 +132,8 @@ public class ControllerStatistics implements ActionListener,ItemListener{
         else if(view.getComboStatisticType().getSelectedItem().toString().equals("Tickets sold over the years") || view.getComboStatisticType().getSelectedItem().toString().equals("Earnings over the years"))
  
         {
+            view.getjLabel2().setVisible(true);
+            view.getjLabel3().setVisible(true);
             view.getButtonGenerateGraph().setEnabled(true);
             view.getComboDateStatisticFrom().setVisible(true);
             view.getComboDateStatisticTo().setVisible(true);
@@ -137,6 +141,8 @@ public class ControllerStatistics implements ActionListener,ItemListener{
         }
         else if(view.getComboStatisticType().getSelectedItem().toString().equals("Presences over the years by event"))
         {
+            view.getjLabel2().setVisible(true);
+            view.getjLabel3().setVisible(true);
             view.getButtonGenerateGraph().setEnabled(true);
             view.getComboDateStatisticFrom().setVisible(true);
             view.getComboDateStatisticTo().setVisible(true);
@@ -144,7 +150,9 @@ public class ControllerStatistics implements ActionListener,ItemListener{
         }
      else
         {
-             view.getButtonGenerateGraph().setEnabled(false);
+            view.getjLabel2().setVisible(false);
+            view.getjLabel3().setVisible(false);
+            view.getButtonGenerateGraph().setEnabled(false);
             view.getComboDateStatisticFrom().setVisible(false);
             view.getComboDateStatisticTo().setVisible(false);
             view.getComboStatisticEventType().setVisible(false);

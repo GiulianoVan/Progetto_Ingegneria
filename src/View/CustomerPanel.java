@@ -50,6 +50,11 @@ public class CustomerPanel extends GeneralPanel {
     }
     
     public void setComponentsPanel() {
+        
+        super.getLabelFirst().setText("Surname");
+        super.getLabelSecond().setText("Name");
+        super.getLabelTirth().setText("Tax Code");
+        
         buttonAdvSearchCustomer = getButtonOkAdvSearchGeneral();
         buttonAdvCustomer = getButtonAdvGeneral();
         buttonCreateCustomer = getButtonCreateGeneral();
@@ -66,14 +71,7 @@ public class CustomerPanel extends GeneralPanel {
         textSurnameCustomer = getTextSurnameGeneralSearch();
         textNameCustomer = getTextNameGeneralSearch();
         textCFGeneralSearch = getTextCfGeneralSearch();
-        
-        
-         // ******* SETTAGGIO TEXT RICARVA AVANZATA *******
-         
-         textCFGeneralSearch.setText("Insert CF here");
-         textNameCustomer.setText("Insert Name here");
-         textSurnameCustomer.setText("Insert Surname here");
-         
+             
         
         jPanelAdvSearch.setVisible(false);
         comboGenereTypeSearch.setVisible(false);    

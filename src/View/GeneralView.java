@@ -57,17 +57,19 @@ public class GeneralView extends javax.swing.JFrame{
         jTabbedMenu = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(720, 600));
-        setPreferredSize(new java.awt.Dimension(720, 600));
+        setMaximumSize(new java.awt.Dimension(850, 600));
+        setMinimumSize(new java.awt.Dimension(850, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedMenu.setBackground(new java.awt.Color(140, 207, 255));
         jTabbedMenu.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         jTabbedMenu.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jTabbedMenu.setMaximumSize(new java.awt.Dimension(850, 600));
+        jTabbedMenu.setMinimumSize(new java.awt.Dimension(850, 600));
         jTabbedMenu.setOpaque(true);
-        jTabbedMenu.setPreferredSize(new java.awt.Dimension(750, 600));
-        getContentPane().add(jTabbedMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 600));
+        jTabbedMenu.setPreferredSize(new java.awt.Dimension(850, 600));
+        getContentPane().add(jTabbedMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -97,7 +99,7 @@ private void setSecurityTabbed(RunECBAddetti runSecurity)
 private void setManagementTabbed(RunECBManagementTurn runManagementTurn)
 {
     jTabbedMenu.add("Man. Turn",runManagementTurn.getView());
-    jTabbedMenu.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Picture/securityOfficer.png")));
+    jTabbedMenu.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Picture/work.png")));
     jTabbedMenu.setBackgroundAt(3, new java.awt.Color(255, 222, 177));
 }
 
@@ -107,7 +109,7 @@ private void setManagementTabbed(RunECBManagementTurn runManagementTurn)
 
     private void setStaticsTabbel(RunStatistics runStat) {
         jTabbedMenu.add("Statistics",runStat.getView());
-        jTabbedMenu.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Picture/securityOfficer.png")));
+        jTabbedMenu.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Picture/statistic.png")));
         jTabbedMenu.setBackgroundAt(4, new java.awt.Color(255, 222, 177));
     }
 

@@ -74,7 +74,6 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         textSurnameGeneralSearch = new javax.swing.JTextField();
         textNameGeneralSearch = new javax.swing.JTextField();
         textCfGeneralSearch = new javax.swing.JTextField();
-        buttonOkAdvSearchGeneral = new javax.swing.JButton();
         buttonBackSearchGeneral = new javax.swing.JButton();
         dateFromGeneral = new com.toedter.calendar.JDateChooser();
         dateToGeneral = new com.toedter.calendar.JDateChooser();
@@ -82,6 +81,10 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         toAdvSearch = new javax.swing.JLabel();
         buttonDeleteAdvSearch = new javax.swing.JButton();
         comboGenereType = new javax.swing.JComboBox<>();
+        buttonOkAdvSearchGeneral = new javax.swing.JButton();
+        labelSecond = new javax.swing.JLabel();
+        labelTirth = new javax.swing.JLabel();
+        labelFirst = new javax.swing.JLabel();
         createPanel = new javax.swing.JPanel();
         buttonBackCreate = new javax.swing.JButton();
         buttonCreate = new javax.swing.JButton();
@@ -91,12 +94,13 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         dateCreateEvent = new com.toedter.calendar.JDateChooser();
         comboTypeEventCreate = new javax.swing.JComboBox<>();
         textNameEventCreate = new javax.swing.JTextField();
-        comboPlaceEvent = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         panelCreateSecurity = new javax.swing.JPanel();
         textPasswordCreate = new javax.swing.JTextField();
         textUsernameCreate = new javax.swing.JTextField();
@@ -141,15 +145,15 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
                 textSearchGeneralKeyPressed(evt);
             }
         });
-        add(textSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 30));
+        add(textSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 160, 30));
 
         buttonOkSearchGeneral.setBackground(new java.awt.Color(255, 222, 177));
         buttonOkSearchGeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
-        add(buttonOkSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 40, 30));
+        add(buttonOkSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 40, 30));
 
         buttonAdvGeneral.setBackground(new java.awt.Color(255, 222, 177));
         buttonAdvGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
-        add(buttonAdvGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 130, 30));
+        add(buttonAdvGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 130, 30));
 
         buttonCreateGeneral.setBackground(new java.awt.Color(255, 222, 177));
         buttonCreateGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
@@ -158,7 +162,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
                 buttonCreateGeneralActionPerformed(evt);
             }
         });
-        add(buttonCreateGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 150, 30));
+        add(buttonCreateGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 150, 30));
 
         jScrollPane1.setOpaque(false);
         jScrollPane1.setPreferredSize(new java.awt.Dimension(452, 600));
@@ -175,7 +179,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         tableSearchGeneral.setOpaque(false);
         jScrollPane1.setViewportView(tableSearchGeneral);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 570, 600));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 710, 560));
 
         jPanelAdvSearch.setOpaque(false);
         jPanelAdvSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -183,11 +187,11 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         comboTypeGeneralSearch.setBackground(new java.awt.Color(255, 222, 177));
         comboTypeGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         comboTypeGeneralSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tipo" }));
-        jPanelAdvSearch.add(comboTypeGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 30));
+        jPanelAdvSearch.add(comboTypeGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, 30));
 
         textSurnameGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textSurnameGeneralSearch.setForeground(new java.awt.Color(153, 153, 153));
-        jPanelAdvSearch.add(textSurnameGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 30));
+        jPanelAdvSearch.add(textSurnameGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, 30));
 
         textNameGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         textNameGeneralSearch.setForeground(new java.awt.Color(153, 153, 153));
@@ -196,43 +200,55 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
                 textNameGeneralSearchActionPerformed(evt);
             }
         });
-        jPanelAdvSearch.add(textNameGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 120, 30));
+        jPanelAdvSearch.add(textNameGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 120, 30));
 
         textCfGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
-        jPanelAdvSearch.add(textCfGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 120, 30));
+        jPanelAdvSearch.add(textCfGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 120, 30));
+
+        buttonBackSearchGeneral.setBackground(new java.awt.Color(255, 222, 177));
+        buttonBackSearchGeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/backIcon.png"))); // NOI18N
+        jPanelAdvSearch.add(buttonBackSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 40, 30));
+
+        dateFromGeneral.setBackground(new java.awt.Color(255, 222, 177));
+        jPanelAdvSearch.add(dateFromGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 130, 30));
+
+        dateToGeneral.setBackground(new java.awt.Color(255, 222, 177));
+        jPanelAdvSearch.add(dateToGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 130, 30));
+
+        fromAdvSearch.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        fromAdvSearch.setText("FROM");
+        jPanelAdvSearch.add(fromAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 40, 30));
+
+        toAdvSearch.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        toAdvSearch.setText("TO");
+        jPanelAdvSearch.add(toAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 20, 30));
+
+        buttonDeleteAdvSearch.setBackground(new java.awt.Color(255, 222, 177));
+        buttonDeleteAdvSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
+        jPanelAdvSearch.add(buttonDeleteAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 40, 30));
+
+        comboGenereType.setBackground(new java.awt.Color(255, 222, 177));
+        comboGenereType.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        comboGenereType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "genere", " " }));
+        jPanelAdvSearch.add(comboGenereType, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 120, 30));
 
         buttonOkAdvSearchGeneral.setBackground(new java.awt.Color(255, 222, 177));
         buttonOkAdvSearchGeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
         jPanelAdvSearch.add(buttonOkAdvSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 40, 30));
 
-        buttonBackSearchGeneral.setBackground(new java.awt.Color(255, 222, 177));
-        buttonBackSearchGeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/backIcon.png"))); // NOI18N
-        jPanelAdvSearch.add(buttonBackSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 40, 30));
+        labelSecond.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        labelSecond.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanelAdvSearch.add(labelSecond, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 120, 30));
 
-        dateFromGeneral.setBackground(new java.awt.Color(255, 222, 177));
-        jPanelAdvSearch.add(dateFromGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 130, 30));
+        labelTirth.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        labelTirth.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanelAdvSearch.add(labelTirth, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 120, 30));
 
-        dateToGeneral.setBackground(new java.awt.Color(255, 222, 177));
-        jPanelAdvSearch.add(dateToGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 130, 30));
+        labelFirst.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        labelFirst.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanelAdvSearch.add(labelFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 130, 30));
 
-        fromAdvSearch.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        fromAdvSearch.setText("FROM");
-        jPanelAdvSearch.add(fromAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 40, 30));
-
-        toAdvSearch.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        toAdvSearch.setText("TO");
-        jPanelAdvSearch.add(toAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 20, 30));
-
-        buttonDeleteAdvSearch.setBackground(new java.awt.Color(255, 222, 177));
-        buttonDeleteAdvSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
-        jPanelAdvSearch.add(buttonDeleteAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 40, 30));
-
-        comboGenereType.setBackground(new java.awt.Color(255, 222, 177));
-        comboGenereType.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
-        comboGenereType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "genere", " " }));
-        jPanelAdvSearch.add(comboGenereType, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 120, 30));
-
-        add(jPanelAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 540, 90));
+        add(jPanelAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 540, 130));
 
         createPanel.setOpaque(false);
         createPanel.setPreferredSize(new java.awt.Dimension(590, 600));
@@ -279,24 +295,35 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         panelCreateEvent.add(comboTypeEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 150, 30));
         panelCreateEvent.add(textNameEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 150, 30));
 
-        comboPlaceEvent.setBackground(new java.awt.Color(255, 222, 177));
-        comboPlaceEvent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Luoghi" }));
-        panelCreateEvent.add(comboPlaceEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 150, 30));
-
+        jLabel10.setFont(new java.awt.Font("Dubai Medium", 1, 10)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Name Event");
-        panelCreateEvent.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 80, -1));
+        panelCreateEvent.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 20));
 
+        jLabel11.setFont(new java.awt.Font("Dubai Medium", 1, 10)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Date Event");
-        panelCreateEvent.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, -1));
+        panelCreateEvent.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 150, 20));
 
+        jLabel12.setFont(new java.awt.Font("Dubai Medium", 1, 10)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Event Type");
-        panelCreateEvent.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 90, -1));
+        panelCreateEvent.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 150, 20));
 
+        jLabel13.setFont(new java.awt.Font("Dubai Medium", 1, 10)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Kind Type");
-        panelCreateEvent.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 60, -1));
+        panelCreateEvent.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 150, 20));
 
+        jLabel14.setFont(new java.awt.Font("Dubai Medium", 1, 10)); // NOI18N
         jLabel14.setText("Description and Details");
         panelCreateEvent.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 140, -1));
+        panelCreateEvent.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 140, 30));
+
+        jLabel15.setFont(new java.awt.Font("Dubai Medium", 1, 10)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("Luogo");
+        panelCreateEvent.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 140, 20));
 
         createPanel.add(panelCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 420, 340));
 
@@ -380,7 +407,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
         createPanel.add(panelCreateSecurity, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 420, 340));
 
-        add(createPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 600));
+        add(createPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 590, 600));
 
         buttonDeleteSearch.setBackground(new java.awt.Color(255, 222, 177));
         buttonDeleteSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
@@ -389,10 +416,10 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
                 buttonDeleteSearchActionPerformed(evt);
             }
         });
-        add(buttonDeleteSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 67, 40, 30));
+        add(buttonDeleteSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 40, 30));
 
         SfondoGeneralPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
-        add(SfondoGeneralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 600));
+        add(SfondoGeneralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 600));
     }// </editor-fold>//GEN-END:initComponents
 
     private void textSearchGeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textSearchGeneralMouseClicked
@@ -449,10 +476,6 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
     public JComboBox<String> getComboGenEventCreate() {
         return comboGenEventCreate;
-    }
-
-    public JComboBox<String> getComboPlaceEvent() {
-        return comboPlaceEvent;
     }
 
     public JComboBox<String> getComboTypeEventCreate() {
@@ -625,6 +648,30 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
     public void setTextNameSecurityCreate(JTextField textNameSecurityCreate) {
         this.textNameCreate = textNameSecurityCreate;
+    }
+
+    public JLabel getLabelFirst() {
+        return labelFirst;
+    }
+
+    public void setLabelFirst(JLabel labelFirst) {
+        this.labelFirst = labelFirst;
+    }
+
+    public JLabel getLabelSecond() {
+        return labelSecond;
+    }
+
+    public void setLabelSecond(JLabel labelSecond) {
+        this.labelSecond = labelSecond;
+    }
+
+    public JLabel getLabelTirth() {
+        return labelTirth;
+    }
+
+    public void setLabelTirth(JLabel labelTirth) {
+        this.labelTirth = labelTirth;
     }
 
     public JTextField getTextNumberCreate() {
@@ -807,7 +854,6 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private javax.swing.JButton buttonOkSearchGeneral;
     private javax.swing.JComboBox<String> comboGenEventCreate;
     private javax.swing.JComboBox<String> comboGenereType;
-    private javax.swing.JComboBox<String> comboPlaceEvent;
     private javax.swing.JComboBox<String> comboTypeEventCreate;
     private javax.swing.JComboBox<String> comboTypeGeneralSearch;
     private javax.swing.JPanel createPanel;
@@ -822,6 +868,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -832,6 +879,10 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanelAdvSearch;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel labelFirst;
+    private javax.swing.JLabel labelSecond;
+    private javax.swing.JLabel labelTirth;
     private javax.swing.JPanel panelCreateEvent;
     private javax.swing.JPanel panelCreateSecurity;
     private javax.swing.JTable tableSearchGeneral;
