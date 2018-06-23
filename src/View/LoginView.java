@@ -60,7 +60,6 @@ public class LoginView extends javax.swing.JFrame{
         AccediButton.setBackground(new java.awt.Color(86, 170, 255));
         AccediButton.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
         AccediButton.setText("Accedi");
-        AccediButton.setActionCommand("ACCEDI");
         AccediButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AccediButtonActionPerformed(evt);
@@ -71,7 +70,6 @@ public class LoginView extends javax.swing.JFrame{
         ExitButton.setBackground(new java.awt.Color(86, 170, 255));
         ExitButton.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
         ExitButton.setText("Exit");
-        ExitButton.setActionCommand("EXIT");
         getContentPane().add(ExitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 100, 30));
         getContentPane().add(PasswordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 160, 30));
 
@@ -84,11 +82,11 @@ public class LoginView extends javax.swing.JFrame{
 
         jLabel3.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel3.setText("Username");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 60, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 100, 30));
 
         jLabel4.setFont(new java.awt.Font("Dubai Medium", 0, 14)); // NOI18N
         jLabel4.setText("Password");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 60, 30));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 100, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pgIcon.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 100, 110));

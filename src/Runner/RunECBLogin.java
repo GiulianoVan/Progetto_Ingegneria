@@ -8,7 +8,6 @@ package Runner;
 import Controller.ControllerLogin;
 import DB.DAO.AmministratoreDao;
 import DB.DAO.ImplAdminDao;
-import Model.MODELDACANCELARE.LoginModel;
 import View.LoginView;
 
 /**

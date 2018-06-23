@@ -33,12 +33,16 @@ public class ControllerTableCustomer extends ControllerTable {
     }
     
     @Override
-    public void keyReleased(KeyEvent e) { 
+    public void keyReleased(KeyEvent e) {
        
         MyDefaultTableModel tab = (MyDefaultTableModel) table.getModel();
         //SE PREMO INVIO E LA CELLA è EDITABILE.FAI UPDATE
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
+<<<<<<< HEAD
         if(e.getKeyChar()=='\n' && row!=-1 && column != -1 && table.isCellEditable(row, column) ) 
+=======
+        if(row!=-1 && column != -1 && e.getKeyChar()=='\n' && table.isCellEditable(row, column) ) 
+>>>>>>> 50277ed6342e9a3f36c7b8d1d5584caf42b619ab
         {
             try {
                 tab.setColumnEditable(-1);

@@ -9,7 +9,6 @@ package Runner;
 import Controller.ControllerAddetto;
 import DB.DAO.ImplAddettoDao;
 import GestioneTabella.ControllerTableAddetto;
-import Model.MODELDACANCELARE.AddettiModel;
 import View.AddettiPanel;
 
 

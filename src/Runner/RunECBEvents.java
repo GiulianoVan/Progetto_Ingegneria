@@ -10,7 +10,6 @@ import Controller.ControllerGeneral;
 import DB.DAO.EventDao;
 import DB.DAO.ImplEventDao;
 import GestioneTabella.ControllerTableEvent;
-import Model.MODELDACANCELARE.EventModel;
 import View.EventPanel;
 
 

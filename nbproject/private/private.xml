@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/DB/DAO/CustomerDao.java</file>
             <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/ManagementTurnView.java</file>
             <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/AddettiPanel.java</file>
@@ -30,6 +31,12 @@
             <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Model/JavaBean/Event.java</file>
             <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Model/JavaBean/Admin.java</file>
             <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/DB/DAO/ImpStatisticsDao.java</file>
+=======
+            <file>file:/C:/Users/Vincent/Desktop/INGSW_GitHub/Progetto_Ingegneria/src/GestioneTabella/ControllerTableCustomer.java</file>
+            <file>file:/C:/Users/Vincent/Desktop/INGSW_GitHub/Progetto_Ingegneria/src/View/LoginView.java</file>
+            <file>file:/C:/Users/Vincent/Desktop/INGSW_GitHub/Progetto_Ingegneria/src/View/GeneralPanel.java</file>
+            <file>file:/C:/Users/Vincent/Desktop/INGSW_GitHub/Progetto_Ingegneria/src/DB/Database/DBConnect.java</file>
+>>>>>>> 50277ed6342e9a3f36c7b8d1d5584caf42b619ab
         </group>
     </open-files>
 </project-private>

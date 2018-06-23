@@ -6,7 +6,6 @@
 package DB.DAO;
 
 import DB.Database.DBConnect;
-import Model.MODELDACANCELARE.CustomerModel;
 import java.util.List;
 import Model.JavaBean.Customer;
 import java.sql.Connection;
