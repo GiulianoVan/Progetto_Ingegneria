@@ -20,7 +20,7 @@ import org.jfree.data.general.DefaultPieDataset;
 public class PieChart implements Charts{
 
     @Override
-    public JFrame drawChart(Map<Comparable,Number> map) {
+    public JFreeChart drawChart(Map<Comparable,Number> map) {
         
         DefaultPieDataset pieDataset = new DefaultPieDataset();
         
@@ -31,16 +31,15 @@ public class PieChart implements Charts{
        
         JFreeChart chart = ChartFactory.createPieChart("Pie Chart", pieDataset, true, true, true);
         PiePlot P = (PiePlot) chart.getPlot();
+      /*
         ChartFrame frame = new ChartFrame("Pie Chart", chart);
         //frame.setVisible(true);
         frame.setSize(450,500);
         
-        return frame;
+        return frame; */
+       return chart;
     }
 
-    @Override
-    public JFrame drawChart(Map<Comparable, Number> map, String asseX, String asseY) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
 }

@@ -38,7 +38,7 @@ public class ControllerTableCustomer extends ControllerTable {
         MyDefaultTableModel tab = (MyDefaultTableModel) table.getModel();
         //SE PREMO INVIO E LA CELLA è EDITABILE.FAI UPDATE
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
-        if(e.getKeyChar()=='\n' && table.isCellEditable(row, column) && row!=-1 && column != -1) 
+        if(e.getKeyChar()=='\n' && row!=-1 && column != -1 && table.isCellEditable(row, column) ) 
         {
             try {
                 tab.setColumnEditable(-1);

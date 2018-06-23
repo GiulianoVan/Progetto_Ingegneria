@@ -41,10 +41,10 @@ public class ControllerTableEvent extends ControllerTable{
         MyDefaultTableModel tab = (MyDefaultTableModel) table.getModel(); 
         //SE PREMO INVIO E LA CELLA è EDITABILE.FAI UPDATE
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
-        if(e.getKeyChar()=='\n' && table.isCellEditable(row, column) && row != -1 && column !=-1) 
+        if(e.getKeyChar()=='\n' &&  row != -1 && column !=-1 && table.isCellEditable(row, column) ) 
         {
-                tab.setColumnEditable(-1);
-                tab.setRowEditable(-1);
+                int flagEvent = 0;
+               
                 String value = table.getValueAt(row, column).toString();
                 if(!table.getColumnName(column).equals("EMAIL"))
                     value = value.toUpperCase();
@@ -58,13 +58,19 @@ public class ControllerTableEvent extends ControllerTable{
                         if(table.getModel().getColumnName(column).equals("EVENT_TYPE") )
                         {
                                table.setValueAt(null,row,2);
+                               flagEvent=1;
                         }
                         row = -1;
                         column=-1;
-                        
+                         tab.setColumnEditable(-1);
+                          tab.setRowEditable(-1);
                     } catch (SQLException ex) {
                         String event_type = table.getModel().getValueAt(row,1).toString();
-                        oldvalue=null;
+                        if(flagEvent == 1)
+                        {
+                            oldvalue=null;
+                            flagEvent=0;
+                        }
                         if(ex.getErrorCode() == 1265)
                         {
                             if(!(event_type.equalsIgnoreCase("SPORT")) && !(event_type.equalsIgnoreCase("CONCERT")) && !(event_type.equalsIgnoreCase("THEATER")) && !(event_type.equalsIgnoreCase("CINEMA")) && !(event_type.equalsIgnoreCase("OTHER")))
@@ -84,7 +90,8 @@ public class ControllerTableEvent extends ControllerTable{
                              JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
                         }
                         resetValueTable(row, column,oldvalue);
-                        
+                       tab.setColumnEditable(-1);
+                       tab.setRowEditable(-1);
                     }
                 
         }

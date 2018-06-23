@@ -6,16 +6,13 @@
 package Factory;
 
 import java.util.Map;
-import javax.swing.JFrame;
+import org.jfree.chart.JFreeChart;
 
 /**
  *
  * @author Pirozzi
  */
-public interface Charts 
+public interface Charts
 {    
-    
-    public  JFrame drawChart(Map<Comparable,Number> map);
-    public  JFrame drawChart(Map<Comparable,Number> map,String asseX,String asseY);
-    
+    public JFreeChart drawChart(Map<Comparable,Number> map);
 }

@@ -3,10 +3,33 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/AddettiPanel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/CustomerPanel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/AddettiViewX.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Controller/ControllerStatistics.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/DB/DAO/CustomerDao.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/ManagementTurnView.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/AddettiPanel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Runner/RunStatistics.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Controller/ControllerStatistics.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/GestioneTabella/ControllerTableCustomer.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/GeneralView.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/DB/Database/DBConnect.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/EventPanel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Factory/Charts.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/GeneralPanel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/StatisticsView.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Model/JavaBean/Customer.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Factory/LineChart.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Runner/RunECBLogin.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Runner/RunECBManagementTurn.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/GestioneTabella/MyDefaultTableModel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/GestioneTabella/ControllerTableEvent.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Factory/PieChart.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/CustomerPanel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Factory/GenerateChart.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/DB/DAO/ImplCustomerDao.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/GestioneTabella/ControllerTableAddetto.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Runner/RunECBEvents.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Model/JavaBean/Event.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Model/JavaBean/Admin.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/DB/DAO/ImpStatisticsDao.java</file>
         </group>
     </open-files>
 </project-private>

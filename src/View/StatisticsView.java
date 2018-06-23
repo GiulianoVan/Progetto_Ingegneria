@@ -7,6 +7,7 @@ package View;
 
 import Factory.Charts;
 import Factory.GenerateChart;
+import Factory.LineChart;
 import java.awt.Color;
 import java.util.Map;
 import javax.swing.JButton;
@@ -189,26 +190,32 @@ public class StatisticsView extends javax.swing.JPanel {
         if(choise.equals("Average age for events"))
         {
             Charts chart = charts.getChart("PIE");
-            JFrame frame = chart.drawChart(map);
+            ChartFrame frame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            frame.setSize(450,500);
             frame.setVisible(true);
             
         }
         else if(choise.equals("Tickets sold over the years"))
         {
             Charts chart = charts.getChart("LINE");
-            JFrame frame = chart.drawChart(map,"Year","Ticket");
+            ChartFrame frame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            JFreeChart k = chart.drawChart(map);
+            
+            frame.setSize(450,500);
             frame.setVisible(true);
         }
         else if(choise.equals("Presences over the years by event"))
         {
-            Charts chart = charts.getChart("LINE");
-            JFrame frame = chart.drawChart(map,"Year","Presence");
+             Charts chart = charts.getChart("LINE");
+            ChartFrame frame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            frame.setSize(450,500);
             frame.setVisible(true);
         }
         else if(choise.equals("Earnings over the years"))
         {
-             Charts chart = charts.getChart("LINE");
-            JFrame frame = chart.drawChart(map,"Year","Earning");
+            Charts chart = charts.getChart("LINE");
+            ChartFrame frame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            frame.setSize(450,500);
             frame.setVisible(true);
         }
         
