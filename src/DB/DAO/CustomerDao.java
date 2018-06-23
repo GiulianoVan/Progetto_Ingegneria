@@ -6,7 +6,6 @@
 package DB.DAO;
 
 import Model.JavaBean.Customer;
-import Model.MODELDACANCELARE.CustomerModel;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;

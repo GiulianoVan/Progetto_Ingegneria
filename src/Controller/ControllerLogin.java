@@ -9,7 +9,6 @@ import DB.DAO.AmministratoreDao;
 import DB.DAO.ImplAdminDao;
 import Main.StartProject;
 import Model.JavaBean.Admin;
-import Model.MODELDACANCELARE.LoginModel;
 import View.LoginView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

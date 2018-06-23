@@ -7,7 +7,6 @@ package Controller;
 
 import DB.DAO.EventDao;
 import GestioneTabella.MyDefaultTableModel;
-import Model.MODELDACANCELARE.EventModel;
 import Model.JavaBean.Event;
 import View.GeneralPanel;
 import java.awt.event.ActionEvent;

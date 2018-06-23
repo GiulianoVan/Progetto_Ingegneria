@@ -11,7 +11,6 @@ import Controller.ControllerGeneral;
 import DB.DAO.CustomerDao;
 import DB.DAO.ImplCustomerDao;
 import GestioneTabella.ControllerTableCustomer;
-import Model.MODELDACANCELARE.CustomerModel;
 import View.CustomerPanel;
 
 
