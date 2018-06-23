@@ -114,11 +114,15 @@ public class ManagementTurnView extends javax.swing.JPanel {
         tableMenagementEvents = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         buttonDelete = new javax.swing.JButton();
         buttonCreate = new javax.swing.JButton();
         buttonSearch = new javax.swing.JButton();
         textCodeEvent = new javax.swing.JTextField();
         textTaxCode = new javax.swing.JTextField();
+        jSpinner1 = new javax.swing.JSpinner();
+        jSpinner2 = new javax.swing.JSpinner();
         sfondo = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(590, 600));
@@ -154,33 +158,54 @@ public class ManagementTurnView extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("CODE EVENT");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 130, 20));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 130, 20));
 
         jLabel6.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("TAX CODE SECURITY");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 130, 20));
+        jLabel6.setText("FROM HOUR");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 80, 20));
+
+        jLabel7.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("TO HOUR");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 80, 20));
+
+        jLabel8.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("TAX CODE SECURITY");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 130, 20));
 
         buttonDelete.setBackground(new java.awt.Color(255, 222, 177));
         buttonDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
-        add(buttonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, 50, 40));
+        add(buttonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 40, 30));
 
         buttonCreate.setBackground(new java.awt.Color(255, 222, 177));
         buttonCreate.setFont(new java.awt.Font("Dubai Medium", 1, 8)); // NOI18N
         buttonCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/toWork.png"))); // NOI18N
         buttonCreate.setText("SET WORK");
-        add(buttonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 110, 40));
+        add(buttonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 110, 30));
 
         buttonSearch.setBackground(new java.awt.Color(255, 222, 177));
         buttonSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
-        add(buttonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 40, 40));
-        add(textCodeEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 130, 30));
-        add(textTaxCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 130, 30));
+        buttonSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSearchActionPerformed(evt);
+            }
+        });
+        add(buttonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 40, 30));
+        add(textCodeEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 130, 30));
+        add(textTaxCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 130, 30));
+        add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 80, 30));
+        add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 80, 30));
 
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
         sfondo.setOpaque(true);
         add(sfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 690));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -189,7 +214,11 @@ public class ManagementTurnView extends javax.swing.JPanel {
     private javax.swing.JButton buttonSearch;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JLabel sfondo;
     private javax.swing.JTable tableMenagementEvents;
     private javax.swing.JTextField textCodeEvent;
