@@ -10,7 +10,7 @@ import DB.DAO.ImpManagementTurnDao;
 import DB.DAO.ImpStatisticsDao;
 import DB.DAO.StatisticsDao;
 import Controller.ControllerStatistics;
-import GestioneTabella.ControllerUpdateTurn;
+import Controller.ControllerUpdateTurn;
 import View.ManagementTurnView;
 import View.StatisticsView;
 

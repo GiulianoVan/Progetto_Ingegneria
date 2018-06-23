@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GestioneTabella;
+package Controller;
 
-import DB.DAO.AddettoDao;
-import View.GeneralPanel;
+import DB.DAO.ManagementTurnDao;
+import GestioneTabella.MyDefaultTableModel;
+import View.ManagementTurnView;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
@@ -17,47 +18,44 @@ import javax.swing.JOptionPane;
  *
  * @author Pirozzi
  */
-public class ControllerTableAddetto extends ControllerTable{
-
-    private AddettoDao dao;
-    private GeneralPanel view;
+public class ControllerUpdateTurn extends ControllerTable{
     
-    
-    public ControllerTableAddetto(AddettoDao dao,GeneralPanel view) {
-        super(view.getTableSearchGeneral(),new HashMap<String,Component>());
-        comp.put("button1",view.getButtonDeleteAdvSearch());
-        comp.put("button2",view.getButtonDeleteSearch());
+    private ManagementTurnDao dao;
+    private ManagementTurnView view;
+   
+    public ControllerUpdateTurn(ManagementTurnDao dao,ManagementTurnView view) {
+        
+        super(view.getTableMenagementEvents(),new HashMap<String,Component>());
+        comp.put("button1",view.getButtonDelete());
         this.dao = dao;
         this.view = view;
-        this.view.addKeyListener(this);
-        
     }
     
-    
-
-    @Override
+      @Override
     public void keyReleased(KeyEvent e) {
        
         MyDefaultTableModel tab = (MyDefaultTableModel) table.getModel();
         //SE PREMO INVIO E LA CELLA è EDITABILE.FAI UPDATE
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
-        if(e.getKeyChar()=='\n' && row != -1 && column != -1 && table.isCellEditable(row, column) ) 
+        if(e.getKeyChar()=='\n' && table.isCellEditable(row, column) && row != -1 && column != -1) 
         {
             try {
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);
-                String value = view.getTableSearchGeneral().getValueAt(row, column).toString();
-                if(!table.getColumnName(column).equals("EMAIL"))
+                String value = view.getTableMenagementEvents().getValueAt(row, column).toString();
+                if(!view.getTableMenagementEvents().getColumnName(column).equals("EMAIL"))
                     value = value.toUpperCase();
                 value= value.replace(",",".");
-                table.setValueAt(value, row, column);
-                dao.updateAddetto(value,table.getColumnName(column),table.getModel().getValueAt(row,tab.getId_column()).toString());
+                view.getTableMenagementEvents().setValueAt(value, row, column);
+                //int updateTurn(int turn,String field,Object new_value) throws SQLException;
+                dao.updateTurn((Integer)(Integer.parseInt(table.getValueAt(row,tab.getId_column()).toString())),table.getColumnName(column),value);
                 row = -1;
                 column=-1;
             } catch (SQLException ex) {
                   String msg = ex.getMessage();
                   JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
                   resetValueTable(row, column,oldvalue);
+
   
             }
         }
@@ -66,7 +64,7 @@ public class ControllerTableAddetto extends ControllerTable{
             
            //se non premo invio,RESETTO LA CELLA AL VALORE PRECEDENTE
             //ROW = -1 E COL = -1 PERCHè UNA VOLTA QUI NON HO PIU LA CELLA EDITABILE,solo col doppio click è editabile
-            if(view.getTableSearchGeneral().getSelectedRow() != row || view.getTableSearchGeneral().getSelectedColumn() != column)
+            if(table.getSelectedRow() != row || table.getSelectedColumn() != column)
             {  
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);
@@ -75,14 +73,16 @@ public class ControllerTableAddetto extends ControllerTable{
                row = -1;
                column = -1;
                for(String s : comp.keySet())
-                   comp.get(s).setEnabled(true);
+                comp.get(s).setEnabled(true);
             }
             //sto cambiando casella senza invio,quindi setto la cella cliccata nuovamente non editabile.
             
             
         }
           //ho confermato update o ho abbandonato la,quindi setto la cella cliccata nuovamente non editabile.
-            
+        
     }
+    
+    
     
 }

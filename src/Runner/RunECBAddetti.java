@@ -8,7 +8,7 @@ package Runner;
 
 import Controller.ControllerAddetto;
 import DB.DAO.ImplAddettoDao;
-import GestioneTabella.ControllerTableAddetto;
+import Controller.ControllerTableAddetto;
 import View.AddettiPanel;
 
 

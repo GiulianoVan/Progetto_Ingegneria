@@ -10,7 +10,7 @@ import Controller.ControllerCustomer;
 import Controller.ControllerGeneral;
 import DB.DAO.CustomerDao;
 import DB.DAO.ImplCustomerDao;
-import GestioneTabella.ControllerTableCustomer;
+import Controller.ControllerTableCustomer;
 import View.CustomerPanel;
 
 

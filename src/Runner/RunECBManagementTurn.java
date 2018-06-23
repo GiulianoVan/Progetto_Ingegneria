@@ -8,7 +8,7 @@ package Runner;
 import Controller.ControllerCRUDTurn;
 import DB.DAO.ImpManagementTurnDao;
 import DB.DAO.ManagementTurnDao;
-import GestioneTabella.ControllerUpdateTurn;
+import Controller.ControllerUpdateTurn;
 import View.ManagementTurnView;
 
 /**

@@ -9,7 +9,7 @@ import Controller.ControllerEvent;
 import Controller.ControllerGeneral;
 import DB.DAO.EventDao;
 import DB.DAO.ImplEventDao;
-import GestioneTabella.ControllerTableEvent;
+import Controller.ControllerTableEvent;
 import View.EventPanel;
 
 

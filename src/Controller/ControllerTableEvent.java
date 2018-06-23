@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GestioneTabella;
+package Controller;
 
 import DB.DAO.EventDao;
+import GestioneTabella.MyDefaultTableModel;
 import View.GeneralPanel;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
