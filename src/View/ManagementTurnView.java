@@ -195,7 +195,11 @@ public class ManagementTurnView extends javax.swing.JPanel {
         add(buttonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 40, 30));
         add(textCodeEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 130, 30));
         add(textTaxCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 130, 30));
+
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
         add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 80, 30));
+
+        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
         add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 80, 30));
 
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
