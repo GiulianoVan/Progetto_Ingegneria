@@ -69,6 +69,7 @@ public class AddettiPanel extends GeneralPanel{
         comboGenereTypeSearch = getComboGenereType();
         tableSearchAddetto = getTableSearchGeneral();
         jPanelAdvSearch = getjPanelAdvSearch();
+        getButtonCreate().setText("CREATE S.OFFICER");
         
 
         jPanelAdvSearch.setVisible(false);

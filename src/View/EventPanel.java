@@ -74,7 +74,7 @@ public class EventPanel extends GeneralPanel {
         comboKind_event = getComboGenEventCreate();
         comboType_event = getComboTypeEventCreate();
         jPanelAdvSearch.setVisible(false);
-        
+        getButtonCreate().setText("CREATE EVENT");
         textCodeEventSearch.setVisible(false);
         textCfGeneral.setVisible(false);
         buttonAdvEvent.setText("Advanced Search");

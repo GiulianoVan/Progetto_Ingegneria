@@ -57,7 +57,7 @@ public class LoginView extends javax.swing.JFrame{
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        AccediButton.setBackground(new java.awt.Color(86, 170, 255));
+        AccediButton.setBackground(new java.awt.Color(255, 222, 177));
         AccediButton.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
         AccediButton.setText("Accedi");
         AccediButton.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +67,7 @@ public class LoginView extends javax.swing.JFrame{
         });
         getContentPane().add(AccediButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 100, 30));
 
-        ExitButton.setBackground(new java.awt.Color(86, 170, 255));
+        ExitButton.setBackground(new java.awt.Color(255, 222, 177));
         ExitButton.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
         ExitButton.setText("Exit");
         getContentPane().add(ExitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 100, 30));
