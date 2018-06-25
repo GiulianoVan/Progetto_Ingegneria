@@ -26,14 +26,14 @@ import javax.swing.JOptionPane;
  *
  * @author Pirozzi
  */
-public class ControllerEvent extends ControllerGeneral implements ItemListener{
+public class ControllerCRUDEvent extends ControllerGeneral implements ItemListener{
     
     private GeneralPanel view;
     private EventDao dao;
     private Set<Event> event;
     private int flag_errorDelete = 1;
     
-    public ControllerEvent(EventDao dao, GeneralPanel view) {
+    public ControllerCRUDEvent(EventDao dao, GeneralPanel view) {
         super(view);
         this.dao = dao;
         this.view = view;

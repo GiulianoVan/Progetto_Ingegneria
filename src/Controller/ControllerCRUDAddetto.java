@@ -22,7 +22,7 @@ import java.util.HashSet;
  *
  * @author Pirozzi
  */
-public class ControllerAddetto extends ControllerGeneral{ //o estende la generale ?
+public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la generale ?
 //UTILIZZANDOLA QUANDO ESTENDE,BASTA USARE UN SOLO CONTROLLER,CONTROLLERADDETTO. IL COLLEGAMENTI COL PADRE VENGONO
     //FATTI IN AUTOMATICO NEL COSTRUTTORE DEL APDRE
     private Set<Addetto> addetti;
@@ -30,7 +30,7 @@ public class ControllerAddetto extends ControllerGeneral{ //o estende la general
     private GeneralPanel view;
     private int flag_errorDelete = 1;
     
-    public ControllerAddetto(AddettoDao dao,GeneralPanel view)
+    public ControllerCRUDAddetto(AddettoDao dao,GeneralPanel view)
     {
         super(view);
         this.dao = dao;

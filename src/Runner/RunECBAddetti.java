@@ -6,7 +6,7 @@
 package Runner;
 
 
-import Controller.ControllerAddetto;
+import Controller.ControllerCRUDAddetto;
 import DB.DAO.ImplAddettoDao;
 import Controller.ControllerTableAddetto;
 import View.AddettiPanel;
@@ -19,7 +19,7 @@ import View.AddettiPanel;
 public class RunECBAddetti {
     
     AddettiPanel addettiView;
-    ControllerAddetto controller;
+    ControllerCRUDAddetto controller;
     ControllerTableAddetto controllerTable;
     ImplAddettoDao dao;
     
@@ -30,7 +30,7 @@ public class RunECBAddetti {
         // creo le addettiView passando il addettiModel
          addettiView = new AddettiPanel();
         //model registra un osservatore
-        controller = new ControllerAddetto(dao,addettiView);
+        controller = new ControllerCRUDAddetto(dao,addettiView);
         controllerTable = new ControllerTableAddetto(dao,addettiView);
         
         

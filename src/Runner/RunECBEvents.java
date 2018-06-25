@@ -5,7 +5,7 @@
  */
 package Runner;
 
-import Controller.ControllerEvent;
+import Controller.ControllerCRUDEvent;
 import Controller.ControllerGeneral;
 import DB.DAO.EventDao;
 import DB.DAO.ImplEventDao;
@@ -21,7 +21,7 @@ public class RunECBEvents {
     
     private EventDao dao;
     private EventPanel evtView;
-    private ControllerEvent controller;
+    private ControllerCRUDEvent controller;
     private ControllerTableEvent controllerTable;
 
     
@@ -41,7 +41,7 @@ public class RunECBEvents {
     {
         dao = new ImplEventDao();
         evtView = new EventPanel();
-        controller = new ControllerEvent(dao,evtView);
+        controller = new ControllerCRUDEvent(dao,evtView);
         controllerTable = new ControllerTableEvent(dao,evtView);
         /*evtControl = new ControllerGeneralButton();
         evtControl.setModel(evtModel);

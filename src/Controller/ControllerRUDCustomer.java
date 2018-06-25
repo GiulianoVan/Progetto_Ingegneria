@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Pirozzi
  */
-public class ControllerCustomer extends ControllerGeneral{
+public class ControllerRUDCustomer extends ControllerGeneral{
  
     
     private GeneralPanel view;
@@ -29,7 +29,7 @@ public class ControllerCustomer extends ControllerGeneral{
     private Set<Customer> customer;
     private int flag_errorDelete = 1;
     
-    public ControllerCustomer(CustomerDao dao, GeneralPanel view) {
+    public ControllerRUDCustomer(CustomerDao dao, GeneralPanel view) {
         
         super(view);
         this.dao = dao;

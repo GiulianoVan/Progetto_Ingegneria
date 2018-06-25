@@ -6,7 +6,7 @@
 package Runner;
 
 
-import Controller.ControllerCustomer;
+import Controller.ControllerRUDCustomer;
 import Controller.ControllerGeneral;
 import DB.DAO.CustomerDao;
 import DB.DAO.ImplCustomerDao;
@@ -21,14 +21,14 @@ import View.CustomerPanel;
 public class RunECBCustomer {
     
     private CustomerPanel customerView;
-    private ControllerCustomer controller;
+    private ControllerRUDCustomer controller;
     private ControllerTableCustomer controllerTable;
     private CustomerDao dao;
    public void startMVCCustomer()
    {
          dao= new ImplCustomerDao();
          customerView = new CustomerPanel();
-        controller = new ControllerCustomer(dao,customerView);
+        controller = new ControllerRUDCustomer(dao,customerView);
         controllerTable=new ControllerTableCustomer(dao,customerView);
         /*
         controllerButton = new ControllerButtonCustomer();
