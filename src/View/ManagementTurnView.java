@@ -10,6 +10,7 @@ import GestioneTabella.MyTableCellRenderer;
 import java.util.Set;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.TableRowSorter;
@@ -28,35 +29,51 @@ public class ManagementTurnView extends javax.swing.JPanel {
     public ManagementTurnView() {
         initComponents();
         jScrollPane1.getViewport().setOpaque(false);
-        buttonCreate.setActionCommand("CREATE");
-        buttonDelete.setActionCommand("DELETE");
-        buttonSearch.setActionCommand("SEARCH");
+        buttonCreateWork.setActionCommand("CREATE");
+        buttonDeleteWork.setActionCommand("DELETE");
+        buttonSearchWork.setActionCommand("SEARCH");
         tableMenagementEvents.setDefaultRenderer(Object.class,new MyTableCellRenderer());
-        buttonDelete.setEnabled(false);
+        buttonDeleteWork.setEnabled(false);
     }
 
     public JButton getButtonCreate() {
-        return buttonCreate;
+        return buttonCreateWork;
     }
 
     public void setButtonCreate(JButton buttonCreate) {
-        this.buttonCreate = buttonCreate;
+        this.buttonCreateWork = buttonCreate;
     }
 
     public JButton getButtonDelete() {
-        return buttonDelete;
+        return buttonDeleteWork;
     }
 
     public void setButtonDelete(JButton buttonDelete) {
-        this.buttonDelete = buttonDelete;
+        this.buttonDeleteWork = buttonDelete;
+    }
+
+    public JSpinner getSpinnerEnd() {
+        return spinnerEnd;
+    }
+
+    public void setSpinnerEnd(JSpinner spinnerEnd) {
+        this.spinnerEnd = spinnerEnd;
+    }
+
+    public JSpinner getSpinnerStart() {
+        return spinnerStart;
+    }
+
+    public void setSpinnerStart(JSpinner spinnerStart) {
+        this.spinnerStart = spinnerStart;
     }
 
     public JButton getButtonSearch() {
-        return buttonSearch;
+        return buttonSearchWork;
     }
 
     public void setButtonSearch(JButton buttonSearch) {
-        this.buttonSearch = buttonSearch;
+        this.buttonSearchWork = buttonSearch;
     }
 
     public JScrollPane getjScrollPane1() {
@@ -116,13 +133,13 @@ public class ManagementTurnView extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        buttonDelete = new javax.swing.JButton();
-        buttonCreate = new javax.swing.JButton();
-        buttonSearch = new javax.swing.JButton();
+        buttonDeleteWork = new javax.swing.JButton();
+        buttonCreateWork = new javax.swing.JButton();
+        buttonSearchWork = new javax.swing.JButton();
         textCodeEvent = new javax.swing.JTextField();
         textTaxCode = new javax.swing.JTextField();
-        jSpinner1 = new javax.swing.JSpinner();
-        jSpinner2 = new javax.swing.JSpinner();
+        spinnerStart = new javax.swing.JSpinner();
+        spinnerEnd = new javax.swing.JSpinner();
         sfondo = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(590, 600));
@@ -175,55 +192,55 @@ public class ManagementTurnView extends javax.swing.JPanel {
         jLabel8.setText("TAX CODE SECURITY");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 130, 20));
 
-        buttonDelete.setBackground(new java.awt.Color(255, 222, 177));
-        buttonDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
-        add(buttonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 40, 30));
+        buttonDeleteWork.setBackground(new java.awt.Color(255, 222, 177));
+        buttonDeleteWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
+        add(buttonDeleteWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 40, 30));
 
-        buttonCreate.setBackground(new java.awt.Color(255, 222, 177));
-        buttonCreate.setFont(new java.awt.Font("Dubai Medium", 1, 8)); // NOI18N
-        buttonCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/toWork.png"))); // NOI18N
-        buttonCreate.setText("SET WORK");
-        add(buttonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 110, 30));
+        buttonCreateWork.setBackground(new java.awt.Color(255, 222, 177));
+        buttonCreateWork.setFont(new java.awt.Font("Dubai Medium", 1, 8)); // NOI18N
+        buttonCreateWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/toWork.png"))); // NOI18N
+        buttonCreateWork.setText("SET WORK");
+        add(buttonCreateWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 110, 30));
 
-        buttonSearch.setBackground(new java.awt.Color(255, 222, 177));
-        buttonSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
-        buttonSearch.addActionListener(new java.awt.event.ActionListener() {
+        buttonSearchWork.setBackground(new java.awt.Color(255, 222, 177));
+        buttonSearchWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
+        buttonSearchWork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSearchActionPerformed(evt);
+                buttonSearchWorkActionPerformed(evt);
             }
         });
-        add(buttonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 40, 30));
+        add(buttonSearchWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 40, 30));
         add(textCodeEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 130, 30));
         add(textTaxCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 130, 30));
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
-        add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 80, 30));
+        spinnerStart.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
+        add(spinnerStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 80, 30));
 
-        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
-        add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 80, 30));
+        spinnerEnd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
+        add(spinnerEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 80, 30));
 
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
         sfondo.setOpaque(true);
         add(sfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 690));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
+    private void buttonSearchWorkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchWorkActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonSearchActionPerformed
+    }//GEN-LAST:event_buttonSearchWorkActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonCreate;
-    private javax.swing.JButton buttonDelete;
-    private javax.swing.JButton buttonSearch;
+    private javax.swing.JButton buttonCreateWork;
+    private javax.swing.JButton buttonDeleteWork;
+    private javax.swing.JButton buttonSearchWork;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JLabel sfondo;
+    private javax.swing.JSpinner spinnerEnd;
+    private javax.swing.JSpinner spinnerStart;
     private javax.swing.JTable tableMenagementEvents;
     private javax.swing.JTextField textCodeEvent;
     private javax.swing.JTextField textTaxCode;

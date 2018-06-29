@@ -27,10 +27,7 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
    private PreparedStatement ps;
    private ResultSet rs;
     
-    @Override
-    public Set<ManagementTurn> getTurnAddetto(Addetto addetto) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
  /*   @Override
     public Set<ManagementTurn> getTurnAddetto(String idAddetto) throws SQLException {
@@ -59,23 +56,32 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
        return result;
     }
 */
-    @Override
-    public Set<ManagementTurn> getTurnEvent(Event event) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
- 
 
     @Override
-    public int insertTurn(Addetto addetto, Event event, Time start, Time end) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int insertTurn(String CF, Integer codEvent, Time start, Time end) throws SQLException {
+        
+        Integer idSecurity = -1;
+        String sqlID = "SELECT IDSICUREZZA FROM ADDSICUREZZA WHERE TAX_CODE = ?";
+        con = DB.Database.DBConnect.getConnection();
+        ps = con.prepareStatement(sqlID);
+        ps.setString(1, CF);
+        rs = ps.executeQuery();
+        if(rs.next())
+            idSecurity = rs.getInt(1);
+            
+        String sql = "INSERT INTO GESTIONE_TURNO VALUES(?,?,?,?)";
+        ps = con.prepareStatement(sql);
+        ps.setInt(1, codEvent);
+        ps.setInt(2, idSecurity);
+        ps.setTime(3, start);
+        ps.setTime(4, end);
+        int x = ps.executeUpdate();
+        con.close();
+        return x;
     }
 
-    @Override
-    public int deleteTurn(Addetto addetto, Event event, Time start, Time end) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
+   @Override
     public int deleteTurn(Integer idTurn) throws SQLException
     {
         String sql = "DELETE FROM GESTIONE_TURNO WHERE TURN_NUMBER = ?";

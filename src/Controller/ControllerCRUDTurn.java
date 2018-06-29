@@ -16,6 +16,7 @@ import java.awt.event.MouseListener;
 import DB.DAO.ManagementTurnDao;
 import GestioneTabella.MyDefaultTableModel;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
@@ -85,9 +86,9 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
             String deleteMessage;
             int rowCount = view.getTableMenagementEvents().getSelectedRowCount();
             if(rowCount > 1)
-                deleteMessage = "Hai selezionato "+rowCount+" righe, sei sicuro di volerle eliminare tutte?";
+                deleteMessage = "You selected "+rowCount+" rows, do you want delete them?";
             else
-                deleteMessage = "Sei sicuro di voler eliminare la riga selezionata?";
+                deleteMessage = "Do you want delete it?";
             int answer  = JOptionPane.showConfirmDialog(view,deleteMessage,"DELETE",JOptionPane.YES_NO_OPTION);
             if(answer == 0) // ha cliccato si
             {
@@ -107,7 +108,7 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
                     {
                           if(flag_errorDelete==1)
                           {
-                              JOptionPane.showMessageDialog(view, "Errore : "+errorDelete.getMessage(), "ERRORE", JOptionPane.ERROR_MESSAGE);
+                              JOptionPane.showMessageDialog(view, "Error : "+errorDelete.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
                               flag_errorDelete = 0;
                           }
                     }
@@ -119,6 +120,25 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
             }
             //JTable tab = view.getTableSearchGeneral();
             
+        }
+        else if(action.equalsIgnoreCase("CREATE"))
+        {
+            try {
+                String CF = view.getTextTaxCode().getText();
+                Integer codeEvent = Integer.parseInt(view.getTextCodeEvent().getText());
+                Time start = new Time((int) view.getSpinnerStart().getValue(), 0, 0);
+                Time end = new Time((int) view.getSpinnerEnd().getValue(), 0, 0);
+                
+                dao.insertTurn(CF, codeEvent, start, end);
+                
+            } catch (SQLException ex) 
+            {
+                JOptionPane.showMessageDialog(view, "Error : "+ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            catch (Exception ex)
+            {
+                JOptionPane.showMessageDialog(view, "Error : "+ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 

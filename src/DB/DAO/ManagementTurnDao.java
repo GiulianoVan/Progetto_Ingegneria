@@ -18,17 +18,12 @@ import java.util.Set;
  */
 public interface ManagementTurnDao {
     
-    //ritorna tutti i turni di quell'addetto.
-    Set<ManagementTurn> getTurnAddetto(Addetto addetto) throws SQLException;
     //ritorna tutti i turni per l'evento
     //Set<ManagementTurn> getTurnAddetto(String idAddetto) throws SQLException;
     Set<ManagementTurn> getTurnAddetto(String cf) throws SQLException;
-
-    Set<ManagementTurn> getTurnEvent(Event event) throws SQLException;
     Set<ManagementTurn> getTurnEvent(String idEvent) throws SQLException;
     //inserimento turno.
-    int insertTurn(Addetto addetto,Event event,Time start,Time end)throws SQLException;
-    int deleteTurn(Addetto addetto,Event event,Time start,Time end) throws SQLException;
+    int insertTurn(String CF, Integer codEvent, Time start,Time end)throws SQLException;
     int updateTurn(int turn,String field,Object new_value) throws SQLException;
     int deleteTurn(Integer idTurn) throws SQLException;
 
