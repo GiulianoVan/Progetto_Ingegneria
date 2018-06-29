@@ -16,7 +16,7 @@ import View.ManagementTurnView;
  * @author giuli
  */
 public class RunECBManagementTurn {
-
+//turno
     public ManagementTurnView getView() {
         return view;
     }
