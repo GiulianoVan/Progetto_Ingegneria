@@ -284,7 +284,11 @@ public class ManagementTurnView extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("SURNAME OFFICER");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 20));
+
+        buttonLoadTaxWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/loading.png"))); // NOI18N
         add(buttonLoadTaxWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 40, 30));
+
+        buttonLoadEventWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/loading.png"))); // NOI18N
         add(buttonLoadEventWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 40, 30));
 
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
