@@ -170,66 +170,6 @@ INSERT INTO `amministratore` VALUES ('1','TOMMASO','PIROZZI','CANON21','TOMMI','
 /*!40000 ALTER TABLE `amministratore` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `biglietto`
---
-
-DROP TABLE IF EXISTS `biglietto`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `biglietto` (
-  `IDBIGLIETTO` varchar(20) NOT NULL,
-  `BARCODE` varchar(200) DEFAULT NULL,
-  `PREZZO` double DEFAULT NULL,
-  `NOMEPOSTO` varchar(10) DEFAULT NULL,
-  `REPARTO` varchar(20) DEFAULT NULL,
-  `DATAEVENTO` date NOT NULL,
-  `EVENTO` int(11) DEFAULT NULL,
-  `CLIENTE` int(11) DEFAULT NULL,
-  `TITOLOEVENTO` varchar(30) NOT NULL,
-  `ADDSICUREZZA` int(11) DEFAULT NULL,
-  PRIMARY KEY (`IDBIGLIETTO`),
-  KEY `EVENTO` (`EVENTO`),
-  KEY `FK_POSTO2` (`REPARTO`,`NOMEPOSTO`),
-  KEY `biglietto_clientefk_idx` (`CLIENTE`),
-  KEY `biglietto_sicurezza_idx` (`ADDSICUREZZA`),
-  CONSTRAINT `FK_POSTO2` FOREIGN KEY (`REPARTO`, `NOMEPOSTO`) REFERENCES `posto` (`reparto`, `nomeposto`),
-  CONSTRAINT `biglietto_clientefk` FOREIGN KEY (`CLIENTE`) REFERENCES `cliente` (`idcliente`),
-  CONSTRAINT `biglietto_eventofk` FOREIGN KEY (`EVENTO`) REFERENCES `evento` (`idevento`),
-  CONSTRAINT `biglietto_sicurezza` FOREIGN KEY (`ADDSICUREZZA`) REFERENCES `addsicurezza` (`idsicurezza`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `biglietto`
---
-
-LOCK TABLES `biglietto` WRITE;
-/*!40000 ALTER TABLE `biglietto` DISABLE KEYS */;
-INSERT INTO `biglietto` VALUES ('1','dmfkn',10,'C1','1','2018-05-05',5,4,'BELLO',3),('2','CMDM',10,'C2','1','2018-06-04',5,5,'BELLO',3),('3','DNCJDNJ',10,'C3','1','2018-05-06',5,4,'BELLO',3);
-/*!40000 ALTER TABLE `biglietto` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `biglietto_AFTER_INSERT` AFTER INSERT ON `biglietto` FOR EACH ROW BEGIN
-
-SELECT COUNT(*) FROM BIGLIETTO WHERE CLIENTE= NEW.CLIENTE INTO @BIGLIETTI;
- 
-UPDATE CLIENTE SET ACQUISTI = @BIGLIETTI WHERE IDCLIENTE = NEW.CLIENTE;
-
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `cliente`
@@ -739,6 +679,67 @@ LOCK TABLES `tariffa` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `biglietto`
+--
+
+DROP TABLE IF EXISTS `biglietto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `biglietto` (
+  `IDBIGLIETTO` varchar(20) NOT NULL,
+  `BARCODE` varchar(200) DEFAULT NULL,
+  `PREZZO` double DEFAULT NULL,
+  `NOMEPOSTO` varchar(10) DEFAULT NULL,
+  `REPARTO` varchar(20) DEFAULT NULL,
+  `DATAEVENTO` date NOT NULL,
+  `EVENTO` int(11) DEFAULT NULL,
+  `CLIENTE` int(11) DEFAULT NULL,
+  `TITOLOEVENTO` varchar(30) NOT NULL,
+  `ADDSICUREZZA` int(11) DEFAULT NULL,
+  PRIMARY KEY (`IDBIGLIETTO`),
+  KEY `EVENTO` (`EVENTO`),
+  KEY `FK_POSTO2` (`REPARTO`,`NOMEPOSTO`),
+  KEY `biglietto_clientefk_idx` (`CLIENTE`),
+  KEY `biglietto_sicurezza_idx` (`ADDSICUREZZA`),
+  CONSTRAINT `FK_POSTO2` FOREIGN KEY (`REPARTO`, `NOMEPOSTO`) REFERENCES `posto` (`reparto`, `nomeposto`),
+  CONSTRAINT `biglietto_clientefk` FOREIGN KEY (`CLIENTE`) REFERENCES `cliente` (`idcliente`),
+  CONSTRAINT `biglietto_eventofk` FOREIGN KEY (`EVENTO`) REFERENCES `evento` (`idevento`),
+  CONSTRAINT `biglietto_sicurezza` FOREIGN KEY (`ADDSICUREZZA`) REFERENCES `addsicurezza` (`idsicurezza`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `biglietto`
+--
+
+LOCK TABLES `biglietto` WRITE;
+/*!40000 ALTER TABLE `biglietto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `biglietto` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `biglietto_AFTER_INSERT` AFTER INSERT ON `biglietto` FOR EACH ROW BEGIN
+
+SELECT COUNT(*) FROM BIGLIETTO WHERE CLIENTE= NEW.CLIENTE INTO @BIGLIETTI;
+ 
+UPDATE CLIENTE SET ACQUISTI = @BIGLIETTI WHERE IDCLIENTE = NEW.CLIENTE;
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+
+--
 -- Dumping events for database 'em17'
 --
 
@@ -755,4 +756,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-29 18:31:54
+-- Dump completed on 2018-06-29 18:40:03
