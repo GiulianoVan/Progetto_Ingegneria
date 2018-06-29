@@ -9,6 +9,7 @@ import GestioneTabella.MyDefaultTableModel;
 import GestioneTabella.MyTableCellRenderer;
 import java.util.Set;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
@@ -32,8 +33,13 @@ public class ManagementTurnView extends javax.swing.JPanel {
         buttonCreateWork.setActionCommand("CREATE");
         buttonDeleteWork.setActionCommand("DELETE");
         buttonSearchWork.setActionCommand("SEARCH");
+        buttonLoadEventWork.setActionCommand("LOADEVENT");
+        buttonLoadTaxWork.setActionCommand("LOADTAX");
         tableMenagementEvents.setDefaultRenderer(Object.class,new MyTableCellRenderer());
         buttonDeleteWork.setEnabled(false);
+        comboEventWork.setEnabled(false);
+        comboTaxCodeWork.setEnabled(false);
+        
     }
 
     public JButton getButtonCreate() {
@@ -92,20 +98,52 @@ public class ManagementTurnView extends javax.swing.JPanel {
         this.tableMenagementEvents = tableMenagementEvents;
     }
 
-    public JTextField getTextCodeEvent() {
-        return textCodeEvent;
+    public JComboBox<String> getComboEventWork() {
+        return comboEventWork;
     }
 
-    public void setTextCodeEvent(JTextField textCodeEvent) {
-        this.textCodeEvent = textCodeEvent;
+    public void setComboEventWork(JComboBox<String> comboEventWork) {
+        this.comboEventWork = comboEventWork;
     }
 
-    public JTextField getTextTaxCode() {
-        return textTaxCode;
+    public JComboBox<String> getComboTaxCodeWork() {
+        return comboTaxCodeWork;
     }
 
-    public void setTextTaxCode(JTextField textTaxCode) {
-        this.textTaxCode = textTaxCode;
+    public void setComboTaxCodeWork(JComboBox<String> comboTaxCodeWork) {
+        this.comboTaxCodeWork = comboTaxCodeWork;
+    }
+
+    public JTextField getTextSurnameSecurityWork() {
+        return textSurnameSecurityWork;
+    }
+
+    public void setTextSurnameSecurityWork(JTextField textSurnameSecurityWork) {
+        this.textSurnameSecurityWork = textSurnameSecurityWork;
+    }
+
+    public JTextField getTextTitleEventWork() {
+        return textTitleEventWork;
+    }
+
+    public JButton getButtonLoadEventWork() {
+        return buttonLoadEventWork;
+    }
+
+    public void setButtonLoadEventWork(JButton buttonLoadEventWork) {
+        this.buttonLoadEventWork = buttonLoadEventWork;
+    }
+
+    public JButton getButtonLoadTaxWork() {
+        return buttonLoadTaxWork;
+    }
+
+    public void setButtonLoadTaxWork(JButton buttonLoadTaxWork) {
+        this.buttonLoadTaxWork = buttonLoadTaxWork;
+    }
+
+    public void setTextTitleEventWork(JTextField textTitleEventWork) {
+        this.textTitleEventWork = textTitleEventWork;
     }
 
     public void updateTable(Set obj)
@@ -136,10 +174,16 @@ public class ManagementTurnView extends javax.swing.JPanel {
         buttonDeleteWork = new javax.swing.JButton();
         buttonCreateWork = new javax.swing.JButton();
         buttonSearchWork = new javax.swing.JButton();
-        textCodeEvent = new javax.swing.JTextField();
-        textTaxCode = new javax.swing.JTextField();
         spinnerStart = new javax.swing.JSpinner();
         spinnerEnd = new javax.swing.JSpinner();
+        textSurnameSecurityWork = new javax.swing.JTextField();
+        textTitleEventWork = new javax.swing.JTextField();
+        comboTaxCodeWork = new javax.swing.JComboBox<>();
+        comboEventWork = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        buttonLoadTaxWork = new javax.swing.JButton();
+        buttonLoadEventWork = new javax.swing.JButton();
         sfondo = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(590, 600));
@@ -175,12 +219,12 @@ public class ManagementTurnView extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("CODE EVENT");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 130, 20));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 160, 20));
 
         jLabel6.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("FROM HOUR");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 80, 20));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 80, 20));
 
         jLabel7.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -190,7 +234,7 @@ public class ManagementTurnView extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("TAX CODE SECURITY");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 130, 20));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 160, 20));
 
         buttonDeleteWork.setBackground(new java.awt.Color(255, 222, 177));
         buttonDeleteWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
@@ -200,7 +244,7 @@ public class ManagementTurnView extends javax.swing.JPanel {
         buttonCreateWork.setFont(new java.awt.Font("Dubai Medium", 1, 8)); // NOI18N
         buttonCreateWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/toWork.png"))); // NOI18N
         buttonCreateWork.setText("SET WORK");
-        add(buttonCreateWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 110, 30));
+        add(buttonCreateWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 110, 30));
 
         buttonSearchWork.setBackground(new java.awt.Color(255, 222, 177));
         buttonSearchWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
@@ -209,15 +253,39 @@ public class ManagementTurnView extends javax.swing.JPanel {
                 buttonSearchWorkActionPerformed(evt);
             }
         });
-        add(buttonSearchWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 40, 30));
-        add(textCodeEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 130, 30));
-        add(textTaxCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 130, 30));
+        add(buttonSearchWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 40, 30));
 
         spinnerStart.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
-        add(spinnerStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 80, 30));
+        add(spinnerStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 80, 30));
 
         spinnerEnd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
         add(spinnerEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 80, 30));
+
+        textSurnameSecurityWork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSurnameSecurityWorkActionPerformed(evt);
+            }
+        });
+        add(textSurnameSecurityWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, 30));
+        add(textTitleEventWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 130, 30));
+
+        comboTaxCodeWork.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        add(comboTaxCodeWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 160, 30));
+
+        comboEventWork.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        add(comboEventWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 160, 30));
+
+        jLabel1.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("EVENT TITLE");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 130, 20));
+
+        jLabel2.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("SURNAME OFFICER");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 20));
+        add(buttonLoadTaxWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 40, 30));
+        add(buttonLoadEventWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 40, 30));
 
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
         sfondo.setOpaque(true);
@@ -228,11 +296,21 @@ public class ManagementTurnView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonSearchWorkActionPerformed
 
+    private void textSurnameSecurityWorkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSurnameSecurityWorkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSurnameSecurityWorkActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCreateWork;
     private javax.swing.JButton buttonDeleteWork;
+    private javax.swing.JButton buttonLoadEventWork;
+    private javax.swing.JButton buttonLoadTaxWork;
     private javax.swing.JButton buttonSearchWork;
+    private javax.swing.JComboBox<String> comboEventWork;
+    private javax.swing.JComboBox<String> comboTaxCodeWork;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -242,7 +320,7 @@ public class ManagementTurnView extends javax.swing.JPanel {
     private javax.swing.JSpinner spinnerEnd;
     private javax.swing.JSpinner spinnerStart;
     private javax.swing.JTable tableMenagementEvents;
-    private javax.swing.JTextField textCodeEvent;
-    private javax.swing.JTextField textTaxCode;
+    private javax.swing.JTextField textSurnameSecurityWork;
+    private javax.swing.JTextField textTitleEventWork;
     // End of variables declaration//GEN-END:variables
 }

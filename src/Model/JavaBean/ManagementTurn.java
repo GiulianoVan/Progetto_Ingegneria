@@ -6,6 +6,7 @@
 package Model.JavaBean;
 
 import java.sql.Time;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -63,6 +64,31 @@ public class ManagementTurn {
 
     public Time getEndTurn() {
         return endTurn;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.idTurn);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ManagementTurn other = (ManagementTurn) obj;
+        if (!Objects.equals(this.idTurn, other.idTurn)) {
+            return false;
+        }
+        return true;
     }
 
     public void setEndTurn(Time endTurn) {

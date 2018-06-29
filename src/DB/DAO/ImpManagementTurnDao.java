@@ -69,7 +69,7 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
         if(rs.next())
             idSecurity = rs.getInt(1);
             
-        String sql = "INSERT INTO GESTIONE_TURNO VALUES(?,?,?,?)";
+        String sql = "INSERT INTO GESTIONE_TURNO (EVENTO, ADDSICUREZZA, START, END) VALUES(?,?,?,?)";
         ps = con.prepareStatement(sql);
         ps.setInt(1, codEvent);
         ps.setInt(2, idSecurity);

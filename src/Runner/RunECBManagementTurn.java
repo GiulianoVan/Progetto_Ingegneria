@@ -24,12 +24,12 @@ public class RunECBManagementTurn {
     ControllerCRUDTurn controller;
     ManagementTurnDao dao;
     ManagementTurnView view;
-    ControllerUpdateTurn controllerUpdate;
+    //ControllerUpdateTurn controllerUpdate;
     public void start()
     {
         dao = new ImpManagementTurnDao();
         view = new ManagementTurnView();
         controller = new ControllerCRUDTurn(dao,view);
-        controllerUpdate = new ControllerUpdateTurn(dao,view);
+        //controllerUpdate = new ControllerUpdateTurn(dao,view);
     }
 }

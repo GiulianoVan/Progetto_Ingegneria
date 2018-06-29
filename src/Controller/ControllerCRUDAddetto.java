@@ -207,7 +207,6 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
                              addetti.addAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
                            else
                              addetti.retainAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
-
                         }
                         catch(SQLException err)
                         {

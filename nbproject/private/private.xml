@@ -3,18 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/LoginView.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/DB/DAO/AddettoDao.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/AddettiPanel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/EventPanel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/DB/DAO/ImplEventDao.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Controller/ControllerCRUDTurn.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/DB/DAO/ImplAddettoDao.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Controller/ControllerCRUDEvent.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/ManagementTurnView.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/GeneralPanel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Controller/ControllerCRUDAddetto.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/DB/DAO/EventDao.java</file>
+            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Runner/RunECBManagementTurn.java</file>
         </group>
     </open-files>
 </project-private>

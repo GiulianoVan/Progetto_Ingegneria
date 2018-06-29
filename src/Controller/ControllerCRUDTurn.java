@@ -5,6 +5,10 @@
  */
 package Controller;
 
+import DB.DAO.AddettoDao;
+import DB.DAO.EventDao;
+import DB.DAO.ImplAddettoDao;
+import DB.DAO.ImplEventDao;
 import Model.JavaBean.ManagementTurn;
 import View.ManagementTurnView;
 import java.awt.event.ActionEvent;
@@ -15,10 +19,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import DB.DAO.ManagementTurnDao;
 import GestioneTabella.MyDefaultTableModel;
+import Model.JavaBean.Addetto;
+import Model.JavaBean.Event;
+import View.MenagementCustomers;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,8 +46,13 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
         this.dao = dao;
         this.view.getButtonSearch().addActionListener(this);
         this.view.getButtonDelete().addActionListener(this);
-        this.view.getTextCodeEvent().addKeyListener(this);
-        this.view.getTextTaxCode().addKeyListener(this);
+        //this.view.getTextCodeEvent().addKeyListener(this);
+        //this.view.getTextTaxCode().addKeyListener(this);
+        this.view.getTextTitleEventWork().addKeyListener(this);
+        this.view.getTextSurnameSecurityWork().addKeyListener(this);
+        this.view.getButtonCreate().addActionListener(this);
+        this.view.getButtonLoadEventWork().addActionListener(this);
+        this.view.getButtonLoadTaxWork().addActionListener(this);
     }
 
     @Override
@@ -48,15 +62,14 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
         
         if(action.equals("SEARCH"))
         {
-            Set<ManagementTurn> turn = new HashSet<>();
-            
-            if(view.getTextCodeEvent().getText().trim().length()!= 0)
+            Set<ManagementTurn> turn = new HashSet<>(); 
+            if(view.getComboEventWork().getSelectedItem() != null)
             {
                 try{
                     if(turn.isEmpty())
-                        turn.addAll(dao.getTurnEvent(view.getTextCodeEvent().getText()));
+                        turn.addAll(dao.getTurnEvent(view.getComboEventWork().getSelectedItem().toString()));
                     else
-                        turn.retainAll(dao.getTurnEvent(view.getTextCodeEvent().getText()));
+                        turn.retainAll(dao.getTurnEvent(view.getComboEventWork().getSelectedItem().toString()));
                 }
                 catch(SQLException err)
                 {
@@ -64,23 +77,23 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
 
                 }
             }
-            if(view.getTextTaxCode().getText().trim().length()!= 0)
+            if(view.getComboTaxCodeWork().getSelectedItem()!= null)
             {
                 try{
                     if(turn.isEmpty())
-                        turn.addAll(dao.getTurnAddetto(view.getTextTaxCode().getText()));
+                        turn.addAll(dao.getTurnAddetto(view.getComboTaxCodeWork().getSelectedItem().toString()));
                     else
-                        turn.retainAll(dao.getTurnAddetto(view.getTextTaxCode().getText()));
+                        turn.retainAll(dao.getTurnAddetto(view.getComboTaxCodeWork().getSelectedItem().toString()));
                 }
                 catch(SQLException err)
                 {
                     JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-
                 }
             }
-            view.updateTable(turn);
-            
+            view.updateTable(turn); 
         }
+        
+        
         else if(action.equalsIgnoreCase("DELETE"))
         {
             String deleteMessage;
@@ -123,22 +136,36 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
         }
         else if(action.equalsIgnoreCase("CREATE"))
         {
-            try {
-                String CF = view.getTextTaxCode().getText();
-                Integer codeEvent = Integer.parseInt(view.getTextCodeEvent().getText());
+            if(view.getComboEventWork().isEnabled())
+            {
+                try {
+                String CF = view.getComboTaxCodeWork().getSelectedItem().toString();
+                Integer codeEvent = Integer.parseInt(view.getComboEventWork().getSelectedItem().toString());
                 Time start = new Time((int) view.getSpinnerStart().getValue(), 0, 0);
                 Time end = new Time((int) view.getSpinnerEnd().getValue(), 0, 0);
                 
                 dao.insertTurn(CF, codeEvent, start, end);
+                JOptionPane.showMessageDialog(view, "Successfull Insert", "INSERT", JOptionPane.INFORMATION_MESSAGE);
                 
-            } catch (SQLException ex) 
-            {
-                JOptionPane.showMessageDialog(view, "Error : "+ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                } catch (SQLException ex) 
+                {
+                    JOptionPane.showMessageDialog(view, "Error : "+ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+                catch (Exception ex)
+                {
+                    JOptionPane.showMessageDialog(view, "Error : "+ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
             }
-            catch (Exception ex)
-            {
-                JOptionPane.showMessageDialog(view, "Error : "+ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
+            else
+                JOptionPane.showMessageDialog(view, "Error : Tax code or ID Event are not selected", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(action.equalsIgnoreCase("LOADEVENT"))
+        {
+            loadEvent();
+        }
+        else if(action.equalsIgnoreCase("LOADTAX"))
+        {
+            loadTaxCode();
         }
     }
 
@@ -152,8 +179,19 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
 
     @Override
     public void keyReleased(KeyEvent e) {
-            if(e.getKeyChar() == '\n')
-                view.getButtonSearch().doClick();//clicca il pulsante da solo xD.. risparmio codice
+            /*if(e.getKeyChar() == '\n')
+                view.getButtonSearch().doClick();//clicca il pulsante da solo xD.. risparmio codice*/
+            if(e.getKeyChar()=='\n')
+            {
+                if(e.getComponent().equals(view.getTextSurnameSecurityWork()))
+                {
+                    loadTaxCode();
+                }
+                if(e.getComponent().equals(view.getTextTitleEventWork()))
+                {
+                    loadEvent();
+                }
+            }
        }
 
     @Override
@@ -176,5 +214,53 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
     public void mouseExited(MouseEvent e) {
     }
     
+    public void loadEvent()
+    {
+        EventDao eventDao = new ImplEventDao();
+        Set<Event> evt = null;
+        try {
+            evt = eventDao.searchByTitle(view.getTextTitleEventWork().getText());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(view, "Error : load combo event failed", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        if(!evt.isEmpty())
+        {
+            for(Event tmp : evt)
+            {
+               view.getComboEventWork().addItem(tmp.getIdEvent());
+            }
+            view.getComboEventWork().setEnabled(true);
+        }
+        else
+        {
+            view.getComboEventWork().setEnabled(false);
+            view.getComboEventWork().removeAllItems();
+        }         
+    }
+    
+    public void loadTaxCode()
+    {
+        AddettoDao addettoDao = new ImplAddettoDao();
+        Set<Addetto> addetto = null;
+        try {
+            addetto = addettoDao.searchBySurname(view.getTextSurnameSecurityWork().getText());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(view, "Error : Load combo tax code failed", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        if(!addetto.isEmpty())
+        {
+            for(Addetto tmp : addetto)
+            {
+               view.getComboTaxCodeWork().addItem(tmp.getCf());
+            }
+            view.getComboTaxCodeWork().setEnabled(true);
+        }
+        else
+        {
+            view.getComboTaxCodeWork().setEnabled(false);   
+            view.getComboTaxCodeWork().removeAllItems();
+        }
+             
+    }
     
 }
