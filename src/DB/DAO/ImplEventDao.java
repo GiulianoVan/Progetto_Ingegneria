@@ -96,7 +96,15 @@ public class ImplEventDao implements EventDao{
         ps.setString(1,event.getTitle());
         ps.setString(2, event.getTypeEvent());
         ps.setString(3,event.getTypeGender());
-        ps.setTimestamp(4, new Timestamp(event.getDataEvent().getTime()));
+        if(event.getDataEvent()!=null)
+        {
+            ps.setTimestamp(4, new Timestamp(event.getDataEvent().getTime()));
+        }
+        else
+        {
+            ps.setTimestamp(4, null);
+        }
+        
         ps.setString(5,event.getPlaceName());
         ps.setString(6,event.getDescription());
         

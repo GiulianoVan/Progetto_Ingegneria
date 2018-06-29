@@ -63,7 +63,7 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
                       }
                    catch(SQLException ex)
                    {
-                      JOptionPane.showMessageDialog(view, "Mancata comunicazione col database.\nImpossibile effetuare la ricerca.", "ERRORE", JOptionPane.ERROR_MESSAGE);
+                      JOptionPane.showMessageDialog(view, "Connection failed to Database.\nCannot do search.", "ERROR", JOptionPane.ERROR_MESSAGE);
                    }
          
             }
@@ -97,9 +97,9 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
             String deleteMessage;
             int rowCount = view.getTableSearchGeneral().getSelectedRowCount();
             if(rowCount > 1)
-                deleteMessage = "Hai selezionato "+rowCount+" righe, sei sicuro di volerle eliminare tutte?";
+                deleteMessage = "You selected "+rowCount+" rows, are you sure that you want delete them?";
             else
-                deleteMessage = "Sei sicuro di voler eliminare la riga selezionata?";
+                deleteMessage = "Are you sure that you want delete it?";
             int answer  = JOptionPane.showConfirmDialog(view,deleteMessage,"DELETE",JOptionPane.YES_NO_OPTION);
             if(answer == 0) // ha cliccato si
             {
@@ -152,12 +152,15 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
                  salary= Double.parseDouble(salar);
                  Addetto security = new Addetto(name,surname,code,email,phone, salary,birth,username,password);
                  dao.aggiungiAddetto(security);
-                 JOptionPane.showMessageDialog(view,"Inserimento avvenuto con successo","INSERT",JOptionPane.INFORMATION_MESSAGE);
+                 JOptionPane.showMessageDialog(view,"Successfull insert","INSERT",JOptionPane.INFORMATION_MESSAGE);
                  clearAllTextCreate();
             }
             catch(NumberFormatException err)
             {
-                JOptionPane.showMessageDialog(view,"Error : Impossibile convertire lo stipendio","ERROR", JOptionPane.ERROR_MESSAGE);
+                if(view.getTextSalaryCreate().getText().trim().length()!=0)
+                    JOptionPane.showMessageDialog(view,"Error : Cannot convert salary","ERROR", JOptionPane.ERROR_MESSAGE);
+                else
+                    JOptionPane.showMessageDialog(view,"Error : Salary field empty","ERROR", JOptionPane.ERROR_MESSAGE);
             }
             catch(SQLException err)
             {

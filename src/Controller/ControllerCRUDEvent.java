@@ -149,6 +149,7 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
             {
                 JOptionPane.showMessageDialog(view,"Error : "+ex.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
             }
+            
         }
         else if(action.equalsIgnoreCase("SEARCH_ADVANCED"))
         {

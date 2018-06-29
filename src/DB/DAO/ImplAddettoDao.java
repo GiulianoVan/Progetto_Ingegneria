@@ -44,7 +44,10 @@ public class ImplAddettoDao implements AddettoDao {
             ps.setString(6,addetto.getEmail());
             ps.setString(7,addetto.getUsername());
             ps.setString(8,addetto.getPassword());
-            ps.setTimestamp(9,new Timestamp(addetto.getDnascita().getTime()));
+            if(addetto.getDnascita()!=null)
+                ps.setTimestamp(9,new Timestamp(addetto.getDnascita().getTime()));
+            else
+                ps.setTimestamp(9,null);
             int insert=  ps.executeUpdate(); //ritorna 1 se l'inserimento va a buon fine.
             con.close();
             ps.close();
