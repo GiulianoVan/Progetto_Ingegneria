@@ -198,23 +198,43 @@ public class StatisticsView extends javax.swing.JPanel {
         else if(choise.equals("Tickets sold over the years"))
         {
             Charts chart = charts.getChart("LINE");
-            ChartFrame frame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            //ame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
             JFreeChart k = chart.drawChart(map);
-            
+            LineChart lineChart = (LineChart) chart;
+            lineChart.setAsseX("Year");
+            lineChart.setAsseY("Ticket");
+            ChartFrame frame = new ChartFrame("Bar Chart for Parameters", chart.drawChart(map));
+            //frame.setVisible(true);
+            frame.setSize(450,500);
             frame.setSize(450,500);
             frame.setVisible(true);
         }
         else if(choise.equals("Presences over the years by event"))
         {
              Charts chart = charts.getChart("LINE");
-            ChartFrame frame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            //ame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            JFreeChart k = chart.drawChart(map);
+            LineChart lineChart = (LineChart) chart;
+            lineChart.setAsseX("Year");
+            lineChart.setAsseY("Presence");
+            ChartFrame frame = new ChartFrame("Bar Chart for Parameters", chart.drawChart(map));
+            //frame.setVisible(true);
+            frame.setSize(450,500);
             frame.setSize(450,500);
             frame.setVisible(true);
+             
         }
         else if(choise.equals("Earnings over the years"))
         {
-            Charts chart = charts.getChart("LINE");
-            ChartFrame frame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+          Charts chart = charts.getChart("LINE");
+            //ame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            JFreeChart k = chart.drawChart(map);
+            LineChart lineChart = (LineChart) chart;
+            lineChart.setAsseX("Year");
+            lineChart.setAsseY("Cash");
+            ChartFrame frame = new ChartFrame("Bar Chart for Parameters", chart.drawChart(map));
+            //frame.setVisible(true);
+            frame.setSize(450,500);
             frame.setSize(450,500);
             frame.setVisible(true);
         }
