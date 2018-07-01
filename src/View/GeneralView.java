@@ -57,19 +57,19 @@ public class GeneralView extends javax.swing.JFrame{
         jTabbedMenu = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(850, 600));
-        setMinimumSize(new java.awt.Dimension(850, 600));
+        setMaximumSize(new java.awt.Dimension(830, 570));
+        setMinimumSize(new java.awt.Dimension(830, 570));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedMenu.setBackground(new java.awt.Color(140, 207, 255));
         jTabbedMenu.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         jTabbedMenu.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
-        jTabbedMenu.setMaximumSize(new java.awt.Dimension(850, 600));
-        jTabbedMenu.setMinimumSize(new java.awt.Dimension(850, 600));
+        jTabbedMenu.setMaximumSize(new java.awt.Dimension(830, 570));
+        jTabbedMenu.setMinimumSize(new java.awt.Dimension(830, 570));
         jTabbedMenu.setOpaque(true);
-        jTabbedMenu.setPreferredSize(new java.awt.Dimension(850, 600));
-        getContentPane().add(jTabbedMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 600));
+        jTabbedMenu.setPreferredSize(new java.awt.Dimension(830, 570));
+        getContentPane().add(jTabbedMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -123,9 +123,10 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         buttonDeleteSearch = new javax.swing.JButton();
         SfondoGeneralPanel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(590, 600));
+        setMaximumSize(new java.awt.Dimension(600, 800));
+        setMinimumSize(new java.awt.Dimension(600, 800));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(590, 600));
+        setPreferredSize(new java.awt.Dimension(600, 800));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         textSearchGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
@@ -147,15 +148,15 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         });
         add(textSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 160, 30));
 
-        buttonOkSearchGeneral.setBackground(new java.awt.Color(255, 222, 177));
+        buttonOkSearchGeneral.setBackground(new java.awt.Color(255, 204, 104));
         buttonOkSearchGeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
         add(buttonOkSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 40, 30));
 
-        buttonAdvGeneral.setBackground(new java.awt.Color(255, 222, 177));
+        buttonAdvGeneral.setBackground(new java.awt.Color(255, 204, 104));
         buttonAdvGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
-        add(buttonAdvGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 130, 30));
+        add(buttonAdvGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 140, 30));
 
-        buttonCreateGeneral.setBackground(new java.awt.Color(255, 222, 177));
+        buttonCreateGeneral.setBackground(new java.awt.Color(255, 204, 104));
         buttonCreateGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         buttonCreateGeneral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,8 +165,10 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         });
         add(buttonCreateGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 150, 30));
 
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(700, 800));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(700, 800));
         jScrollPane1.setOpaque(false);
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(452, 600));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(700, 800));
 
         tableSearchGeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -179,12 +182,12 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         tableSearchGeneral.setOpaque(false);
         jScrollPane1.setViewportView(tableSearchGeneral);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 710, 560));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 690, 600));
 
         jPanelAdvSearch.setOpaque(false);
         jPanelAdvSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        comboTypeGeneralSearch.setBackground(new java.awt.Color(255, 222, 177));
+        comboTypeGeneralSearch.setBackground(new java.awt.Color(255, 204, 104));
         comboTypeGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         comboTypeGeneralSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tipo" }));
         jPanelAdvSearch.add(comboTypeGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, 30));
@@ -205,7 +208,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         textCfGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         jPanelAdvSearch.add(textCfGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 120, 30));
 
-        buttonBackSearchGeneral.setBackground(new java.awt.Color(255, 222, 177));
+        buttonBackSearchGeneral.setBackground(new java.awt.Color(255, 204, 104));
         buttonBackSearchGeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/backIcon.png"))); // NOI18N
         jPanelAdvSearch.add(buttonBackSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 40, 30));
 
@@ -223,16 +226,16 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         toAdvSearch.setText("TO");
         jPanelAdvSearch.add(toAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 20, 30));
 
-        buttonDeleteAdvSearch.setBackground(new java.awt.Color(255, 222, 177));
+        buttonDeleteAdvSearch.setBackground(new java.awt.Color(255, 204, 104));
         buttonDeleteAdvSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
         jPanelAdvSearch.add(buttonDeleteAdvSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 40, 30));
 
-        comboGenereType.setBackground(new java.awt.Color(255, 222, 177));
+        comboGenereType.setBackground(new java.awt.Color(255, 204, 104));
         comboGenereType.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         comboGenereType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "genere", " " }));
         jPanelAdvSearch.add(comboGenereType, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 120, 30));
 
-        buttonOkAdvSearchGeneral.setBackground(new java.awt.Color(255, 222, 177));
+        buttonOkAdvSearchGeneral.setBackground(new java.awt.Color(255, 204, 104));
         buttonOkAdvSearchGeneral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
         jPanelAdvSearch.add(buttonOkAdvSearchGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 40, 30));
 
@@ -254,11 +257,11 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         createPanel.setPreferredSize(new java.awt.Dimension(590, 600));
         createPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        buttonBackCreate.setBackground(new java.awt.Color(255, 222, 177));
+        buttonBackCreate.setBackground(new java.awt.Color(255, 204, 104));
         buttonBackCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/backIcon.png"))); // NOI18N
         createPanel.add(buttonBackCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 50, 40));
 
-        buttonCreate.setBackground(new java.awt.Color(255, 222, 177));
+        buttonCreate.setBackground(new java.awt.Color(255, 204, 104));
         buttonCreate.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
         buttonCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,11 +278,13 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         descriptionArea.setText("\n");
         panelCreateEvent.add(descriptionArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 400, 110));
 
-        comboGenEventCreate.setBackground(new java.awt.Color(255, 222, 177));
+        comboGenEventCreate.setBackground(new java.awt.Color(255, 204, 104));
         panelCreateEvent.add(comboGenEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 150, 30));
+
+        dateCreateEvent.setBackground(new java.awt.Color(255, 204, 104));
         panelCreateEvent.add(dateCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 150, 30));
 
-        comboTypeEventCreate.setBackground(new java.awt.Color(255, 222, 177));
+        comboTypeEventCreate.setBackground(new java.awt.Color(255, 204, 104));
         comboTypeEventCreate.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         comboTypeEventCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CINEMA", "SPORT", "CONCERT", "THEATER" }));
         comboTypeEventCreate.addItemListener(new java.awt.event.ItemListener() {
@@ -356,7 +361,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         panelCreateSecurity.add(textNameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 150, 30));
         panelCreateSecurity.add(textSurnameCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 150, 30));
 
-        DateCreateAddetto.setBackground(new java.awt.Color(255, 222, 177));
+        DateCreateAddetto.setBackground(new java.awt.Color(255, 204, 104));
         DateCreateAddetto.setDateFormatString("yyyy-MM-dd");
         panelCreateSecurity.add(DateCreateAddetto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 140, 30));
 
@@ -409,7 +414,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
         add(createPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 590, 600));
 
-        buttonDeleteSearch.setBackground(new java.awt.Color(255, 222, 177));
+        buttonDeleteSearch.setBackground(new java.awt.Color(255, 204, 104));
         buttonDeleteSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
         buttonDeleteSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -419,7 +424,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         add(buttonDeleteSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 107, 40, 30));
 
         SfondoGeneralPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
-        add(SfondoGeneralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 650));
+        add(SfondoGeneralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 750));
     }// </editor-fold>//GEN-END:initComponents
 
     private void textSearchGeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textSearchGeneralMouseClicked

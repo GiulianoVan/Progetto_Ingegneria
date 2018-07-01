@@ -70,12 +70,12 @@ public class StatisticsView extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(590, 490));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        comboStatisticType.setBackground(new java.awt.Color(255, 222, 177));
+        comboStatisticType.setBackground(new java.awt.Color(255, 204, 104));
         comboStatisticType.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         comboStatisticType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Statistic Type", "Average age for events", "Tickets sold over the years", "Presences over the years by event", "Earnings over the years" }));
         add(comboStatisticType, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 270, 40));
 
-        buttonGenerateGraph.setBackground(new java.awt.Color(255, 222, 177));
+        buttonGenerateGraph.setBackground(new java.awt.Color(255, 204, 104));
         buttonGenerateGraph.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         buttonGenerateGraph.setText("Generate Chart");
         buttonGenerateGraph.addActionListener(new java.awt.event.ActionListener() {
@@ -85,11 +85,11 @@ public class StatisticsView extends javax.swing.JPanel {
         });
         add(buttonGenerateGraph, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 160, 50));
 
-        comboDateStatisticTo.setBackground(new java.awt.Color(255, 222, 177));
+        comboDateStatisticTo.setBackground(new java.awt.Color(255, 204, 104));
         comboDateStatisticTo.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         add(comboDateStatisticTo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 120, 30));
 
-        comboDateStatisticFrom.setBackground(new java.awt.Color(255, 222, 177));
+        comboDateStatisticFrom.setBackground(new java.awt.Color(255, 204, 104));
         comboDateStatisticFrom.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         comboDateStatisticFrom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +98,7 @@ public class StatisticsView extends javax.swing.JPanel {
         });
         add(comboDateStatisticFrom, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 120, 30));
 
-        comboStatisticEventType.setBackground(new java.awt.Color(255, 222, 177));
+        comboStatisticEventType.setBackground(new java.awt.Color(255, 204, 104));
         comboStatisticEventType.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         comboStatisticEventType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Event Type", "Sport", "Cinema", "Concert", "Theater" }));
         add(comboStatisticEventType, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 160, 40));

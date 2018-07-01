@@ -236,17 +236,19 @@ public class ManagementTurnView extends javax.swing.JPanel {
         jLabel8.setText("TAX CODE SECURITY");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 160, 20));
 
-        buttonDeleteWork.setBackground(new java.awt.Color(255, 222, 177));
+        buttonDeleteWork.setBackground(new java.awt.Color(255, 204, 104));
+        buttonDeleteWork.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         buttonDeleteWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/delete.png"))); // NOI18N
         add(buttonDeleteWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 40, 30));
 
-        buttonCreateWork.setBackground(new java.awt.Color(255, 222, 177));
+        buttonCreateWork.setBackground(new java.awt.Color(255, 204, 104));
         buttonCreateWork.setFont(new java.awt.Font("Dubai Medium", 1, 8)); // NOI18N
         buttonCreateWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/toWork.png"))); // NOI18N
         buttonCreateWork.setText("SET WORK");
         add(buttonCreateWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 110, 30));
 
-        buttonSearchWork.setBackground(new java.awt.Color(255, 222, 177));
+        buttonSearchWork.setBackground(new java.awt.Color(255, 204, 104));
+        buttonSearchWork.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         buttonSearchWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/okButton.png"))); // NOI18N
         buttonSearchWork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,9 +271,11 @@ public class ManagementTurnView extends javax.swing.JPanel {
         add(textSurnameSecurityWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, 30));
         add(textTitleEventWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 130, 30));
 
+        comboTaxCodeWork.setBackground(new java.awt.Color(255, 204, 104));
         comboTaxCodeWork.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         add(comboTaxCodeWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 160, 30));
 
+        comboEventWork.setBackground(new java.awt.Color(255, 204, 104));
         comboEventWork.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         add(comboEventWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 160, 30));
 
@@ -285,9 +289,13 @@ public class ManagementTurnView extends javax.swing.JPanel {
         jLabel2.setText("SURNAME OFFICER");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 20));
 
+        buttonLoadTaxWork.setBackground(new java.awt.Color(255, 204, 104));
+        buttonLoadTaxWork.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         buttonLoadTaxWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/loading.png"))); // NOI18N
         add(buttonLoadTaxWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 40, 30));
 
+        buttonLoadEventWork.setBackground(new java.awt.Color(255, 204, 104));
+        buttonLoadEventWork.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         buttonLoadEventWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/loading.png"))); // NOI18N
         add(buttonLoadEventWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 40, 30));
 
