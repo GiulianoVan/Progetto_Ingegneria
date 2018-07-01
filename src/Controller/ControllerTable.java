@@ -56,8 +56,8 @@ public abstract class ControllerTable implements MouseListener,KeyListener,Focus
                 {
                     //SE CLICCO DUE VOLTE.MI SALVO I VALORI DELLA RIGA E COLONNA SELEZIONATA E LA RENDO EDITABILE
                    //--------->CAMBIATO QUA IN CONVERT INVECE DI GETSELECTED.
-                    row = table.convertRowIndexToModel(table.getSelectedRow());
-                    column = table.convertColumnIndexToModel(table.getSelectedColumn());
+                    row = table.getSelectedRow();
+                    column = table.getSelectedColumn();
                     tab.setColumnEditable(column);
                     tab.setRowEditable(row);
                     //---> edit cell resta per una questione grafica alla cella selezionata

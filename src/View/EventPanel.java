@@ -130,7 +130,6 @@ public class EventPanel extends GeneralPanel {
         tableSearchEvent.getColumnModel().getColumn(4).setHeaderValue("PLACE");
         tableSearchEvent.getColumnModel().getColumn(5).setHeaderValue("ZIP CODE");
         tableSearchEvent.getColumnModel().getColumn(id).setHeaderValue("ID CODE");
-        tableSearchEvent.setRowSorter(new TableRowSorter(tab));
 
 
        // int id_column = tab.getId_column();

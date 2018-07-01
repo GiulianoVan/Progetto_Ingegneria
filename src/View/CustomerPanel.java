@@ -131,7 +131,6 @@ public class CustomerPanel extends GeneralPanel {
          tableSearchCustomer.getColumnModel().getColumn(id).setHeaderValue("ID CODE");
          int purch= tableSearchCustomer.getColumnModel().getColumnIndex("ACQUISTI"); //setHeaderValue("ID CODE");
          tableSearchCustomer.getColumnModel().getColumn(purch).setHeaderValue("PURCHASED");
-         tableSearchCustomer.setRowSorter(new TableRowSorter(tab));
 
 
          //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello

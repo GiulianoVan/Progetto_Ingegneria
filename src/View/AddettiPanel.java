@@ -112,7 +112,6 @@ public class AddettiPanel extends GeneralPanel{
          tableSearchAddetto.getColumnModel().getColumn(2).setHeaderValue("TAX CODE");
         
          tableSearchAddetto.getColumnModel().getColumn(7).setHeaderValue("ID CODE");
-         tableSearchAddetto.setRowSorter(new TableRowSorter(tab));
          
          //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
          //ultimo indice contiene sempre id.
