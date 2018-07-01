@@ -11,7 +11,6 @@ package Factory;
  */
 public class GenerateChart {
     
-    Charts chart;
     
     public Charts getChart(String chart)
     {

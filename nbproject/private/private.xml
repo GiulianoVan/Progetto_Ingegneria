@@ -3,13 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/LoginView.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/EventPanel.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/MenagementSecurity.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/StatisticsView.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Factory/PieChart.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Controller/ControllerStatistics.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Factory/LineChart.java</file>
+=======
+>>>>>>> 479890eb10d927e5d7901c3d3f43d71485850775
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/GeneralView.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/StatisticsView.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/ManagementTurnView.java</file>
+<<<<<<< HEAD
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/GeneralPanel.java</file>
+=======
+>>>>>>> ef79c14d3bb908b4f98422f34cda5191b1fce2eb
+>>>>>>> 479890eb10d927e5d7901c3d3f43d71485850775
         </group>
     </open-files>
 </project-private>
