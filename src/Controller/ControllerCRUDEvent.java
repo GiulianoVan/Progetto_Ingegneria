@@ -136,7 +136,7 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
             String event_type = view.getComboTypeEventCreate().getSelectedItem().toString();
             String kind_type = view.getComboGenEventCreate().getSelectedItem().toString();
             String description = view.getDescriptionArea().getText();
-            String luogo = null;
+            String luogo = view.getTextLuogoCreateEvent().getText();
             
             try
             {

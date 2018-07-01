@@ -52,6 +52,14 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     public void setDateCreateAddetto(JDateChooser DateCreateAddetto) {
         this.DateCreateAddetto = DateCreateAddetto;
     }
+
+    public JTextField getTextLuogoCreateEvent() {
+        return textLuogoCreateEvent;
+    }
+
+    public void setTextLuogoCreateEvent(JTextField textLuogoCreateEvent) {
+        this.textLuogoCreateEvent = textLuogoCreateEvent;
+    }
     
     
     /**
@@ -99,7 +107,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        textLuogoCreateEvent = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         panelCreateSecurity = new javax.swing.JPanel();
         textPasswordCreate = new javax.swing.JTextField();
@@ -323,7 +331,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Dubai Medium", 1, 10)); // NOI18N
         jLabel14.setText("Description and Details");
         panelCreateEvent.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 140, -1));
-        panelCreateEvent.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 140, 30));
+        panelCreateEvent.add(textLuogoCreateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 140, 30));
 
         jLabel15.setFont(new java.awt.Font("Dubai Medium", 1, 10)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -884,7 +892,6 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanelAdvSearch;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelFirst;
     private javax.swing.JLabel labelSecond;
     private javax.swing.JLabel labelTirth;
@@ -894,6 +901,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private javax.swing.JTextField textCFCreate;
     private javax.swing.JTextField textCfGeneralSearch;
     private javax.swing.JTextField textEmailCreate;
+    private javax.swing.JTextField textLuogoCreateEvent;
     private javax.swing.JTextField textNameCreate;
     private javax.swing.JTextField textNameEventCreate;
     private javax.swing.JTextField textNameGeneralSearch;

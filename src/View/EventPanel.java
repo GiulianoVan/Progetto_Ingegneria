@@ -184,8 +184,9 @@ public class EventPanel extends GeneralPanel {
     @Override
     public void clearAllTextCreate() {
        
-         getTextNameCreate().setText("");
+         getTextNameEventCreate().setText("");
          getDescriptionArea().setText("");
+         getTextLuogoCreateEvent().setText("");
          getDateCreateEvent().setDate(null);
          
     }
