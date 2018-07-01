@@ -84,7 +84,6 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
      @Override
     public boolean isCellEditable(int row, int column) {
            
-           System.out.println("ROWED : "+row+"  COLED: "+column);
            if(this.row==row && this.column==column)
            {
                   return true;
