@@ -51,15 +51,17 @@ public abstract class ControllerTable implements MouseListener,KeyListener,Focus
     public void mouseClicked(MouseEvent e) {
         MyDefaultTableModel tab = (MyDefaultTableModel) table.getModel();
             if(e.getClickCount()==2 && table.getSelectedColumn()!= tab.getId_column())
-            {   
+            {
                if(table.getSelectedColumn()!= tab.getId_column())
                 {
                     //SE CLICCO DUE VOLTE.MI SALVO I VALORI DELLA RIGA E COLONNA SELEZIONATA E LA RENDO EDITABILE
-                    row = table.getSelectedRow();
-                    column = table.getSelectedColumn();
+                   //--------->CAMBIATO QUA IN CONVERT INVECE DI GETSELECTED.
+                    row = table.convertRowIndexToModel(table.getSelectedRow());
+                    column = table.convertColumnIndexToModel(table.getSelectedColumn());
                     tab.setColumnEditable(column);
                     tab.setRowEditable(row);
-                    table.editCellAt(row, column);
+                    //---> edit cell resta per una questione grafica alla cella selezionata
+                    table.editCellAt(table.getSelectedRow(), table.getSelectedColumn());
                     if(tab.getValueAt(row, column)!=null)
                     oldvalue=tab.getValueAt(row, column).toString();
                 }

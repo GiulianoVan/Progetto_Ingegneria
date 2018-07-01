@@ -68,7 +68,8 @@ public class ControllerTableCustomer extends ControllerTable {
             
            //se non premo invio,RESETTO LA CELLA AL VALORE PRECEDENTE
             //ROW = -1 E COL = -1 PERCHè UNA VOLTA QUI NON HO PIU LA CELLA EDITABILE
-            if(table.getSelectedRow() != row || table.getSelectedColumn() != column)
+            //--> cambiato qua da selected a convert.
+             if(view.getTableSearchGeneral().convertRowIndexToModel( view.getTableSearchGeneral().getSelectedRow()) != row || view.getTableSearchGeneral().convertColumnIndexToModel(view.getTableSearchGeneral().getSelectedColumn()) != column)
             {  
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);
