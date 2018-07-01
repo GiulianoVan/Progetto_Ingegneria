@@ -66,8 +66,9 @@ public class StatisticsView extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(590, 490));
-        setPreferredSize(new java.awt.Dimension(590, 490));
+        setMaximumSize(new java.awt.Dimension(600, 800));
+        setMinimumSize(new java.awt.Dimension(600, 800));
+        setPreferredSize(new java.awt.Dimension(600, 800));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comboStatisticType.setBackground(new java.awt.Color(255, 204, 104));
@@ -114,9 +115,7 @@ public class StatisticsView extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 120, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
-        jLabel1.setMinimumSize(new java.awt.Dimension(590, 490));
-        jLabel1.setPreferredSize(new java.awt.Dimension(590, 490));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 680));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 1000));
     }// </editor-fold>//GEN-END:initComponents
 
     public JButton getButtonGenerateGraph() {

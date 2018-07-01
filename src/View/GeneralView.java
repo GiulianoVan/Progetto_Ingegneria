@@ -78,7 +78,7 @@ private void setEventsTabbed(RunECBEvents runEvents)
 {
     jTabbedMenu.add("Events",runEvents.getEvtView());
     jTabbedMenu.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Picture/popularParty.png")));
-    jTabbedMenu.setBackgroundAt(0, new java.awt.Color(255, 222, 177));
+    jTabbedMenu.setBackgroundAt(0, new java.awt.Color(255, 204, 104));
 }
 
 private void setCustomersTabbed(RunECBCustomer runCustomer)
@@ -86,21 +86,21 @@ private void setCustomersTabbed(RunECBCustomer runCustomer)
     
     jTabbedMenu.add("Customers",runCustomer.getCustomerView());  
     jTabbedMenu.setIconAt(1, new javax.swing.ImageIcon(getClass().getResource("/Picture/clients.png")));
-    jTabbedMenu.setBackgroundAt(1, new java.awt.Color(255, 222, 177));
+    jTabbedMenu.setBackgroundAt(1, new java.awt.Color(255, 204, 104));
 }
 
 private void setSecurityTabbed(RunECBAddetti runSecurity)
 {
     jTabbedMenu.add("Security",runSecurity.getAddettiView());
     jTabbedMenu.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Picture/securityOfficer.png")));
-    jTabbedMenu.setBackgroundAt(2, new java.awt.Color(255, 222, 177));
+    jTabbedMenu.setBackgroundAt(2, new java.awt.Color(255, 204, 104));
 }
 
 private void setManagementTabbed(RunECBManagementTurn runManagementTurn)
 {
     jTabbedMenu.add("Man. Turn",runManagementTurn.getView());
     jTabbedMenu.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Picture/work.png")));
-    jTabbedMenu.setBackgroundAt(3, new java.awt.Color(255, 222, 177));
+    jTabbedMenu.setBackgroundAt(3, new java.awt.Color(255, 204, 104));
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -110,7 +110,7 @@ private void setManagementTabbed(RunECBManagementTurn runManagementTurn)
     private void setStaticsTabbel(RunStatistics runStat) {
         jTabbedMenu.add("Statistics",runStat.getView());
         jTabbedMenu.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Picture/statistic.png")));
-        jTabbedMenu.setBackgroundAt(4, new java.awt.Color(255, 222, 177));
+        jTabbedMenu.setBackgroundAt(4, new java.awt.Color(255, 204, 104));
     }
 
     

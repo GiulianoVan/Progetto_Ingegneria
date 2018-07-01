@@ -186,10 +186,10 @@ public class ManagementTurnView extends javax.swing.JPanel {
         buttonLoadEventWork = new javax.swing.JButton();
         sfondo = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(590, 600));
-        setMinimumSize(new java.awt.Dimension(590, 600));
+        setMaximumSize(new java.awt.Dimension(600, 800));
+        setMinimumSize(new java.awt.Dimension(600, 800));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(590, 600));
+        setPreferredSize(new java.awt.Dimension(600, 800));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setOpaque(false);
@@ -214,7 +214,7 @@ public class ManagementTurnView extends javax.swing.JPanel {
         tableMenagementEvents.setOpaque(false);
         jScrollPane1.setViewportView(tableMenagementEvents);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 710, 450));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 690, 450));
 
         jLabel3.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -301,7 +301,7 @@ public class ManagementTurnView extends javax.swing.JPanel {
 
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
         sfondo.setOpaque(true);
-        add(sfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 690));
+        add(sfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 1000));
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSearchWorkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchWorkActionPerformed

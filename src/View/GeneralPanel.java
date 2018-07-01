@@ -424,7 +424,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         add(buttonDeleteSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 107, 40, 30));
 
         SfondoGeneralPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/pastello.jpg"))); // NOI18N
-        add(SfondoGeneralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 750));
+        add(SfondoGeneralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 1000));
     }// </editor-fold>//GEN-END:initComponents
 
     private void textSearchGeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textSearchGeneralMouseClicked
