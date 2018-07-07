@@ -62,6 +62,7 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
         
         if(action.equals("SEARCH"))
         {
+            view.getButtonDelete().setEnabled(true);
             Set<ManagementTurn> turn = new HashSet<>(); 
             if(view.getComboEventWork().getSelectedItem() != null)
             {
@@ -89,8 +90,9 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
                 {
                     JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
                 }
-            }
+            }         
             view.updateTable(turn); 
+            view.getTableMenagementEvents().setRowSelectionInterval(0, 0);
         }
         
         
@@ -129,7 +131,8 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
                 }
                  flag_errorDelete=1;
                  //se cancello le righe,risetto a false il button.
-                 view.getButtonDelete().setEnabled(false);
+                 //view.getButtonDelete().setEnabled(false);
+                 view.getTableMenagementEvents().setRowSelectionInterval(0, 0);
             }
             //JTable tab = view.getTableSearchGeneral();
             
@@ -216,6 +219,7 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
     
     public void loadEvent()
     {
+        view.getComboEventWork().removeAllItems();
         EventDao eventDao = new ImplEventDao();
         Set<Event> evt = null;
         try {
@@ -240,6 +244,7 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
     
     public void loadTaxCode()
     {
+        view.getComboTaxCodeWork().removeAllItems();
         AddettoDao addettoDao = new ImplAddettoDao();
         Set<Addetto> addetto = null;
         try {
