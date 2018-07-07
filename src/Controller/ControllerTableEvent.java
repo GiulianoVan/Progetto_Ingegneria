@@ -101,7 +101,8 @@ public class ControllerTableEvent extends ControllerTable{
             
            //se non premo invio,RESETTO LA CELLA AL VALORE PRECEDENTE
             //ROW = -1 E COL = -1 PERCHè UNA VOLTA QUI NON HO PIU LA CELLA EDITABILE
-            if(table.getSelectedRow() != row || view.getTableSearchGeneral().getSelectedColumn() != column)
+            //---------->QUA DA SELECTED A CONVERT
+            if(view.getTableSearchGeneral().getSelectedRow() != row || view.getTableSearchGeneral().getSelectedColumn() != column)
             {  
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);

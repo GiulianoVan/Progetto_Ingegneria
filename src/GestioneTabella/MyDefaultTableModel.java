@@ -188,7 +188,7 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        this.addColumn("START");
        this.addColumn("END");
        this.addColumn("TURN_NUMBER");
-
+       
        for(ManagementTurn manTurn : turn)
        {
            if(manTurn != null)
@@ -196,27 +196,13 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        }   
        
     }
-    /*
-    public  void createModelBySetCustomer(Set<Customer> customer)
-    {
-       //SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,LIVELLO 
-              
-       this.addColumn("USERNAME");
-       this.addColumn("NAME");
-       this.addColumn("SURNAME");
-       this.addColumn("TAX_CODE");
-       this.addColumn("EMAIL");
-       this.addColumn("PHONE");
-       this.addColumn("BIRTH");
-       this.addColumn("ID");
-       for(Customer add : customer)
+  
+   public void SetColumnName(String [] nameColumn)
+   {
+       for(String name : nameColumn)
        {
-           if(add != null)
-           this.addRow(new String[]{add.getUsername(),add.getName(),add.getSurname(),add.getTax_code(),add.getEmail(),add.getPhone(),add.getDate_born().toString(),add.getIdCustomer()});
-       }   
-       //ID SEMPRE SU ULTIMA COLONNA,XKè COLONNE IN MEZZO NON POSSONO ESSERE NASCOSTE.
-       this.id_column = this.getColumnCount()-1;
-        
-    }
-  */
+           this.addColumn(name);
+           
+       }
+   }
 }

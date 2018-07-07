@@ -11,8 +11,8 @@ import java.awt.event.KeyListener;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Set;
+import javax.swing.DefaultRowSorter;
 import javax.swing.JOptionPane;
-import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 /**
@@ -110,11 +110,13 @@ public class AddettiPanel extends GeneralPanel{
          tab.setId_column(id);
          //Aggiorno i nomi delle colonne nella view 
          tableSearchAddetto.getColumnModel().getColumn(2).setHeaderValue("TAX CODE");
+        
          tableSearchAddetto.getColumnModel().getColumn(7).setHeaderValue("ID CODE");
-         tableSearchAddetto.setRowSorter(new TableRowSorter(tab));
+         
          //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
          //ultimo indice contiene sempre id.
        //  int id_column = tab.getId_column();
+       
          //tableSearchAddetto.removeColumn(tableSearchAddetto.getColumnModel().getColumn(id_column));
         }
             

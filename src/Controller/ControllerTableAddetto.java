@@ -64,9 +64,9 @@ public class ControllerTableAddetto extends ControllerTable{
         }
         else
         {
-            
            //se non premo invio,RESETTO LA CELLA AL VALORE PRECEDENTE
             //ROW = -1 E COL = -1 PERCHè UNA VOLTA QUI NON HO PIU LA CELLA EDITABILE,solo col doppio click è editabile
+            //-------------------------------->CAMBIATO QUA DA SELECTED A CONVERT.
             if(view.getTableSearchGeneral().getSelectedRow() != row || view.getTableSearchGeneral().getSelectedColumn() != column)
             {  
                 tab.setColumnEditable(-1);
