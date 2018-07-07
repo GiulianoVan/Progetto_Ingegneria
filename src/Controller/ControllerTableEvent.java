@@ -58,18 +58,19 @@ public class ControllerTableEvent extends ControllerTable{
                         dao.updateEvent(value,table.getColumnName(column),table.getModel().getValueAt(row,tab.getId_column()).toString());
                         if(table.getModel().getColumnName(column).equals("EVENT_TYPE") )
                         {
-                               table.setValueAt(null,row,2);
+                               table.setValueAt("OTHER",row,2);
+                               oldvalue = "OTHER";
                                flagEvent=1;
                         }
                         row = -1;
                         column=-1;
-                         tab.setColumnEditable(-1);
-                          tab.setRowEditable(-1);
+                        tab.setColumnEditable(-1);
+                        tab.setRowEditable(-1);
                     } catch (SQLException ex) {
                         String event_type = table.getModel().getValueAt(row,1).toString();
                         if(flagEvent == 1)
                         {
-                            oldvalue=null;
+                            oldvalue="OTHER";
                             flagEvent=0;
                         }
                         if(ex.getErrorCode() == 1265)
@@ -90,7 +91,7 @@ public class ControllerTableEvent extends ControllerTable{
                              String msg = ex.getMessage();
                              JOptionPane.showMessageDialog(view,msg, "Errore :" + ex.getErrorCode(),JOptionPane.ERROR_MESSAGE);
                         }
-                        resetValueTable(row, column,oldvalue);
+                       resetValueTable(row, column,oldvalue);
                        tab.setColumnEditable(-1);
                        tab.setRowEditable(-1);
                     }

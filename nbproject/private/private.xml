@@ -6,11 +6,14 @@
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/LoginView.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/AddettiPanel.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/EventPanel.java</file>
+            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/DB/DAO/ImplEventDao.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Controller/ControllerCRUDTurn.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/GeneralView.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/StatisticsView.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/ManagementTurnView.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/View/GeneralPanel.java</file>
+            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Controller/ControllerTable.java</file>
+            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Controller/ControllerTableEvent.java</file>
+            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/DB/DAO/EventDao.java</file>
             <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/DB/Database/DBConnect.java</file>
         </group>
     </open-files>
