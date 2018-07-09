@@ -85,22 +85,18 @@ public class EventPanel extends GeneralPanel {
         textSearchEvent.setText("Insert Name Here...");
     
         tableSearchEvent.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-            },
-            new String [] {
-                "TITLE", "TYPE", "KIND", "DATE", "PLACE", "ZIP CODE", "DESCRIPTION","ID"
-            }
-          )
-            {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            @Override
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-            
-        });
+                                                                            new Object [][] {},
+                                                                            new String [] {"TITLE", "TYPE", "KIND", "DATE", "PLACE", "ZIP CODE", "DESCRIPTION","ID CODE"}
+                                                                          )
+                                {
+                                    Class[] types = new Class [] {
+                                        java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                                    };
+                                    @Override
+                                    public Class getColumnClass(int columnIndex) {
+                                        return types [columnIndex];
+                                    }
+                                });
         
     }
     

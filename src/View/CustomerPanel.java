@@ -85,7 +85,7 @@ public class CustomerPanel extends GeneralPanel {
             new Object [][] {
             },
             new String [] {
-               "USERNAME" ,"NAME", "SURNAME", "TAX CODE", "EMAIL", "PHONE", "BIRTH","PURCHASED","ID"
+               "USERNAME" ,"NAME", "SURNAME", "TAX CODE", "EMAIL", "PHONE", "BIRTH","PURCHASED","ID CODE"
             }
          ) {
             Class[] types = new Class [] {
