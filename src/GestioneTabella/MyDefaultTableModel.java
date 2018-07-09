@@ -25,7 +25,7 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
     private  int row;
     private  int column;
     private String oldvalue;
-    private int id_column; // l'ultima colonna contiene sempre id.
+    private int id_column;// l'ultima colonna contiene sempre id.
     private int row_changed;
     private int column_changed;
 

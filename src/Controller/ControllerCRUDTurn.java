@@ -92,7 +92,8 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
                 }
             }         
             view.updateTable(turn); 
-            view.getTableMenagementEvents().setRowSelectionInterval(0, 0);
+            if(view.getTableMenagementEvents().getRowCount()>0)
+               view.getTableMenagementEvents().setRowSelectionInterval(0, 0);
         }
         
         
@@ -132,6 +133,7 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
                  flag_errorDelete=1;
                  //se cancello le righe,risetto a false il button.
                  //view.getButtonDelete().setEnabled(false);
+                 if(view.getTableMenagementEvents().getRowCount()>0)
                  view.getTableMenagementEvents().setRowSelectionInterval(0, 0);
             }
             //JTable tab = view.getTableSearchGeneral();
