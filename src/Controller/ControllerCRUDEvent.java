@@ -196,6 +196,7 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
     {
             
             Set<Event> event = new HashSet<>();
+            
             if(title.trim().length()!=0)
                 {
                     
@@ -240,7 +241,7 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
             else
             {
                     if((from == null &&  to!= null) || (from!= null &&  to== null))       
-                         JOptionPane.showMessageDialog(view,"Error : Riempire entrambi i campi della data o lasciarli entrambi vuoti. ","ERROR", JOptionPane.ERROR_MESSAGE);
+                         JOptionPane.showMessageDialog(view,"Fill both date fields. The search will not consider the date fields.","INFO", JOptionPane.INFORMATION_MESSAGE);
 
             }
                
