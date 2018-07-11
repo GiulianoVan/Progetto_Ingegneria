@@ -162,6 +162,11 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
         buttonAdvGeneral.setBackground(new java.awt.Color(255, 204, 104));
         buttonAdvGeneral.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
+        buttonAdvGeneral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAdvGeneralActionPerformed(evt);
+            }
+        });
         add(buttonAdvGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 140, 30));
 
         buttonCreateGeneral.setBackground(new java.awt.Color(255, 204, 104));
@@ -482,6 +487,10 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private void comboTypeEventCreateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboTypeEventCreateItemStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_comboTypeEventCreateItemStateChanged
+
+    private void buttonAdvGeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdvGeneralActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAdvGeneralActionPerformed
 
     public JButton getButtonCreate() {
         return buttonCreate;

@@ -153,76 +153,75 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
         }
         else if(action.equalsIgnoreCase("SEARCH_ADVANCED"))
         {
+            String title = view.getTextNameGeneralSearch().getText();
+            String type = view.getComboTypeGeneralSearch().getSelectedItem().toString();
+            Date from = view.getDateFromGeneral().getDate();
+            Date to = view.getDateToGeneral().getDate();
+            String kind = view.getComboGenereType().getSelectedItem().toString();
             event = new HashSet<>();
-            if(view.getTextNameGeneralSearch().getText().trim().length()!=0)
+            if(title.trim().length()!=0)
                 {
                     
                     try
                     {
                          if(event.isEmpty())
-                           event.addAll(dao.searchByTitle(view.getTextNameGeneralSearch().getText()));
+                           event.addAll(dao.searchByTitle(title));
                          else
-                            event.retainAll(dao.searchByTitle(view.getTextNameGeneralSearch().getText()));
-                         System.out.println(view.getTextNameGeneralSearch().getText());
+                            event.retainAll(dao.searchByTitle(title));
                     }
                     catch(SQLException err)
                     {
                          JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-            if(!view.getComboTypeGeneralSearch().getSelectedItem().toString().equalsIgnoreCase("Select Type Event..."))
+            if(!type.equalsIgnoreCase("Select Type Event..."))
              {
                     try{
                        if(event.isEmpty()) 
-                         event.addAll(dao.searchByTypeEvent(view.getComboTypeGeneralSearch().getSelectedItem().toString().toUpperCase()));
+                         event.addAll(dao.searchByTypeEvent(type.toUpperCase()));
                        else
-                         event.retainAll(dao.searchByTypeEvent(view.getComboTypeGeneralSearch().getSelectedItem().toString().toUpperCase()));
+                         event.retainAll(dao.searchByTypeEvent(type.toUpperCase()));
                     }
                     catch(SQLException err)
                     {
                           JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
                     }
              }
-            if(view.getDateFromGeneral().getDate()!= null && view.getDateToGeneral().getDate()!= null)
-             {
-                    try{
-                       if(event.isEmpty())  
-                          event.addAll(dao.searchByDate(view.getDateFromGeneral().getDate(),view.getDateToGeneral().getDate()));
-                       else
-                         event.retainAll(dao.searchByDate(view.getDateFromGeneral().getDate(),view.getDateToGeneral().getDate()));
-                    }
-                    catch(SQLException err)
-                    {
-                       JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-                    }
+            if(from != null && to != null)
+            {
+                try{
+                   if(event.isEmpty())  
+                      event.addAll(dao.searchByDate(from,to));
+                   else
+                     event.retainAll(dao.searchByDate(from,to));
+                }
+                catch(SQLException err)
+                {
+                   JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                }
             }
-
             else
             {
-                    if((view.getDateFromGeneral().getDate()== null &&  view.getDateToGeneral().getDate()!= null) || (view.getDateFromGeneral().getDate()!= null &&  view.getDateToGeneral().getDate()== null))       
+                    if((from == null &&  to!= null) || (from!= null &&  to== null))       
                          JOptionPane.showMessageDialog(view,"Error : Riempire entrambi i campi della data o lasciarli entrambi vuoti. ","ERROR", JOptionPane.ERROR_MESSAGE);
 
             }
                
-            if(!view.getComboGenereType().getSelectedItem().toString().equalsIgnoreCase("Genere"))
+            if(!kind.equalsIgnoreCase("Genere"))
              {
                     try{
                             if(event.isEmpty()) 
-                               event.addAll(dao.searchByKindEvent(view.getComboGenereType().getSelectedItem().toString()));
+                               event.addAll(dao.searchByKindEvent(kind));
                             else
-                               event.retainAll(dao.searchByKindEvent(view.getComboGenereType().getSelectedItem().toString()));
+                               event.retainAll(dao.searchByKindEvent(kind));
                        }
                     catch(SQLException err)
                     {
                          JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
                     }
              }
-            
-            
-              
             view.updateTable(event);
         }
-        
     }
     
     @Override
