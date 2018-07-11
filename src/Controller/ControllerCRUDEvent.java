@@ -158,7 +158,44 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
             Date from = view.getDateFromGeneral().getDate();
             Date to = view.getDateToGeneral().getDate();
             String kind = view.getComboGenereType().getSelectedItem().toString();
-            event = new HashSet<>();
+           
+            event = advancedSearch(title,type,from,to,kind);
+            view.updateTable(event);
+        }
+    }
+    
+    @Override
+    public void keyReleased(KeyEvent e) 
+    {
+          
+         if(e.getKeyChar()=='\n')
+        { 
+
+            if(view.getTextSearchGeneral().getText().trim().length() > 0)
+                {
+                   try {
+                     String testo = view.getTextSearchGeneral().getText();
+                     ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);
+                     event = dao.searchEventKeysWords(parolechiavi);
+                     view.updateTable(event);
+                   } catch (SQLException ex) {
+                      JOptionPane.showMessageDialog(view, "Mancata comunicazione col database.\nImpossibile effetuare la ricerca.", "ERRORE", JOptionPane.ERROR_MESSAGE);
+                     } 
+               }
+               
+        }
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        
+        view.loadCombo();
+    }
+    
+    public Set<Event> advancedSearch(String title,String type,Date from,Date to,String kind)
+    {
+            
+            Set<Event> event = new HashSet<>();
             if(title.trim().length()!=0)
                 {
                     
@@ -220,37 +257,6 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
                          JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
                     }
              }
-            view.updateTable(event);
-        }
+            return event;
     }
-    
-    @Override
-    public void keyReleased(KeyEvent e) 
-    {
-          
-         if(e.getKeyChar()=='\n')
-        { 
-
-            if(view.getTextSearchGeneral().getText().trim().length() > 0)
-                {
-                   try {
-                     String testo = view.getTextSearchGeneral().getText();
-                     ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);
-                     event = dao.searchEventKeysWords(parolechiavi);
-                     view.updateTable(event);
-                   } catch (SQLException ex) {
-                      JOptionPane.showMessageDialog(view, "Mancata comunicazione col database.\nImpossibile effetuare la ricerca.", "ERRORE", JOptionPane.ERROR_MESSAGE);
-                     } 
-               }
-               
-        }
-    }
-
-    @Override
-    public void itemStateChanged(ItemEvent e) {
-        
-        view.loadCombo();
-    }
-    
-    
 }

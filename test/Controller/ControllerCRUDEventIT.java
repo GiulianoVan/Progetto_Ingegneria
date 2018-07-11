@@ -54,19 +54,30 @@ public class ControllerCRUDEventIT {
     public void tearDown() {
     }
     
-    private void testCaseSearch(String title, Date from, Date to) throws Exception
+    private void testAdvancedSearch(String title,String type, Date from, Date to,String kind,ControllerCRUDEvent evt) 
     {
-        System.out.println(from);
-        Set<Event> event = searchAdvEvent(title, from, to);
-        try {
-            for(Event tmp : event)
-            {
-                assertEquals(tmp.getTitle(), title);
-                assertEquals((tmp.getDataEvent().after(from)), true);
-                assertEquals((tmp.getDataEvent().before(to)), true);
-            }             
-        }
-        catch(Exception e) {throw new Exception();}
+        
+        
+                Set<Event> event = evt.advancedSearch(title, type, from, to, kind);
+                for(Event tmp : event)
+                {
+                    assertEquals(tmp.getTitle(), title);
+                    if(tmp.getDataEvent().equals(from))
+                    {
+                       assertEquals( tmp.getDataEvent().equals(from), true);
+                    }
+                    else if(tmp.getDataEvent().equals(to))
+                    {
+                        assertEquals( tmp.getDataEvent().equals(to), true);
+                    }
+                    else
+                    {
+                        assertEquals((tmp.getDataEvent().after(from)), true);
+                        assertEquals((tmp.getDataEvent().before(to)), true);
+                    }
+                }       
+                
+                
     }
 
     /**
@@ -75,12 +86,11 @@ public class ControllerCRUDEventIT {
     @Test
     public void testActionPerformed() throws Exception {
         System.out.println("actionPerformed");
-        testCaseSearch("", new Date("2018-lug-10"), new Date(2018,07,12));
-        /*view = new EventPanel();
+        view = new EventPanel();
         dao = new ImplEventDao();
-        //ControllerCRUDEvent controllerEvt = new ControllerCRUDEvent(dao, view);
-        ActionEvent e = new ActionEvent(view.getButtonOkAdvSearchGeneral(), 0, "SEARCH_ADVANCED");
-        //controllerEvt.actionPerformed(e);*/
+        ControllerCRUDEvent controllerEvt = new ControllerCRUDEvent(dao, view);
+        //controllerEvt.advancedSearch("Harry","Select Type Event...",new Date(2018,8,20),new Date(2018,10,15),"genere");
+        testAdvancedSearch("Harry","Select Type Event...",new Date(2018,8,20),new Date(2018,10,15),"genere",controllerEvt);
         
         // TODO review the generated test code and remove the default call to fail.
     }
@@ -111,72 +121,4 @@ public class ControllerCRUDEventIT {
         fail("The test case is a prototype.");
     }*/
 
-public Set<Event> searchAdvEvent(String title, Date from, Date to)
-{
-    Set<Event> event = new HashSet<>();
-    String type = "Select Type Event...";
-    String kind = "genere";
-    
-    if(title.trim().length()!=0)
-    {
-        try
-        {
-             if(event.isEmpty())
-               event.addAll(dao.searchByTitle(title));
-             else
-                event.retainAll(dao.searchByTitle(title));
-        }
-        catch(SQLException err)
-        {
-             JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    if(!type.equalsIgnoreCase("Select Type Event..."))
-     {
-            try{
-               if(event.isEmpty()) 
-                 event.addAll(dao.searchByTypeEvent(type.toUpperCase()));
-               else
-                 event.retainAll(dao.searchByTypeEvent(type.toUpperCase()));
-            }
-            catch(SQLException err)
-            {
-                  JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-     }
-    if(from != null && to != null)
-    {
-        try{
-           if(event.isEmpty())  
-              event.addAll(dao.searchByDate(from,to));
-           else
-             event.retainAll(dao.searchByDate(from,to));
-        }
-        catch(SQLException err)
-        {
-           JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    else
-    {
-            if((from == null &&  to!= null) || (from!= null &&  to== null))       
-                 JOptionPane.showMessageDialog(view,"Error : Riempire entrambi i campi della data o lasciarli entrambi vuoti. ","ERROR", JOptionPane.ERROR_MESSAGE);
-
-    }
-
-    if(!kind.equalsIgnoreCase("Genere"))
-     {
-            try{
-                    if(event.isEmpty()) 
-                       event.addAll(dao.searchByKindEvent(kind));
-                    else
-                       event.retainAll(dao.searchByKindEvent(kind));
-               }
-            catch(SQLException err)
-            {
-                 JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-     }
-        return event;
-    }
 }
