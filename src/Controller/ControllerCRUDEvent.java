@@ -218,10 +218,7 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
                     }
              }
             
-            if(new String("Luogo").equals("Luogo"))//sul luogo
-            {
-                        
-            }
+            
               
             view.updateTable(event);
         }
