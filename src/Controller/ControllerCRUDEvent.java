@@ -153,7 +153,6 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
         }
         else if(action.equalsIgnoreCase("SEARCH_ADVANCED"))
         {
-            System.out.println("CIAO");
             event = new HashSet<>();
             if(view.getTextNameGeneralSearch().getText().trim().length()!=0)
                 {
