@@ -29,6 +29,7 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
     private AddettoDao dao;
     private GeneralPanel view;
     private int flag_errorDelete = 1;
+    private int flagtesting=0;
     
     public ControllerCRUDAddetto(AddettoDao dao,GeneralPanel view)
     {
@@ -52,15 +53,17 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
         String action = e.getActionCommand();
         if(action.equals("CERCA"))
         {
-            if(view.getTextSearchGeneral().getText().trim().length() > 0)
+            String testo = view.getTextSearchGeneral().getText();
+            if(testo.trim().length() > 0)
             {
                    ArrayList<String> parolechiavi;
-                   String testo = view.getTextSearchGeneral().getText();
                    parolechiavi = EstraiParoleChiavi(testo);
+                   
                    try{
                         addetti = dao.getAddettiParolaChiave(parolechiavi);  
                         view.updateTable(addetti);
                       }
+                   
                    catch(SQLException ex)
                    {
                       JOptionPane.showMessageDialog(view, "Connection failed to Database.\nCannot do search.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -71,25 +74,14 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
         else if(action.equals("CREATEPANEL"))
         {
             //view.getjPanelAdvSearch().setVisible(false);
-            view.getDeleteSearch().setVisible(false);
-            view.getjScrollPane1().setVisible(false);
-            view.getButtonAdvGeneral().setVisible(false);
-            view.getButtonCreateGeneral().setVisible(false);
-            view.getTextSearchGeneral().setVisible(false);
-            view.getButtonOkSearchGeneral().setVisible(false);
-            view.getPanelCreateEvent().setVisible(false);
-            view.getCreatePanel().setVisible(true);
+            updateViewForCreatepanel();
+           
         }
         else if(action.equals("BACKSECURITY"))
         {
             //view.getjPanelAdvSearch().setVisible(false);
-            view.getDeleteSearch().setVisible(true);
-            view.getjScrollPane1().setVisible(true);
-            view.getButtonAdvGeneral().setVisible(true);
-            view.getButtonCreateGeneral().setVisible(true);
-            view.getTextSearchGeneral().setVisible(true);
-            view.getButtonOkSearchGeneral().setVisible(true);
-            view.getCreatePanel().setVisible(false);
+            updateViewForBackSecurity();
+            
         }
         else if(action.equals("DELETE"))
         {
@@ -103,28 +95,7 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
             int answer  = JOptionPane.showConfirmDialog(view,deleteMessage,"DELETE",JOptionPane.YES_NO_OPTION);
             if(answer == 0) // ha cliccato si
             {
-                MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
-                int start_selection = view.getTableSearchGeneral().getSelectedRow();
-                int end_selection = rowCount+start_selection-1;
-                
-                for(int i = end_selection ; i>= start_selection;--i)
-                {
-                    try
-                    {
-                        dao.deleteAddetto((tab.getValueAt(i,tab.getId_column()).toString()));
-                        tab.removeRow(i);
-                    }
-                    catch(SQLException errorDelete)
-                    {
-                          if(flag_errorDelete==1)
-                          {
-                              JOptionPane.showMessageDialog(view, "Errore : "+errorDelete.getMessage(), "ERRORE", JOptionPane.ERROR_MESSAGE);
-                              flag_errorDelete = 0;
-                          }
-                    }
-                     
-                }
-                 flag_errorDelete=1;
+                 doDeleteEvent(rowCount);
                  //se cancello le righe,risetto a false il button.
                  view.getButtonDeleteAdvSearch().setEnabled(false);
                  view.getButtonDeleteSearch().setEnabled(false);
@@ -145,96 +116,51 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
             //Timestamp birth = new Timestamp(birth.getTime());
             String salar = view.getTextSalaryCreate().getText();
             salar = salar.replace(",", ".");
-            Double salary;
+            Double salary = null;
+            int errorSalary = 0;
             
             try
             {
-                 salary= Double.parseDouble(salar);
-                 Addetto security = new Addetto(name,surname,code,email,phone, salary,birth,username,password);
-                 dao.aggiungiAddetto(security);
-                 JOptionPane.showMessageDialog(view,"Successfull insert","INSERT",JOptionPane.INFORMATION_MESSAGE);
-                 clearAllTextCreate();
+                salary= Double.parseDouble(salar);
             }
             catch(NumberFormatException err)
             {
                 if(view.getTextSalaryCreate().getText().trim().length()!=0)
-                    JOptionPane.showMessageDialog(view,"Error : Cannot convert salary","ERROR", JOptionPane.ERROR_MESSAGE);
+                  JOptionPane.showMessageDialog(view,"Error : Cannot convert salary","ERROR", JOptionPane.ERROR_MESSAGE);
                 else
-                    JOptionPane.showMessageDialog(view,"Error : Salary field empty","ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-            catch(SQLException err)
-            {
-               JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-            }   
-        }
-        else if(action.equalsIgnoreCase("SEARCH_ADVANCED"))
-        {
-            addetti = new HashSet<>();
-            
-            if(view.getTextCfGeneralSearch().getText().trim().length() != 0)
-            {
-                try
                 {
-                    addetti.add(dao.searchByTaxCode(view.getTextCfGeneralSearch().getText()));
-
+                    JOptionPane.showMessageDialog(view,"Error : Salary field empty","ERROR", JOptionPane.ERROR_MESSAGE);
+                    
+                }
+                //se va in eccezion,mettimi errore sul salary
+                errorSalary = 1;
+            }
+             if(errorSalary != 1) // non continua se ci sta un errore sul salary
+             {
+                 try
+                {
+                     Addetto security = new Addetto(name,surname,code,email,phone, salary,birth,username,password);
+                     dao.aggiungiAddetto(security);
+                     JOptionPane.showMessageDialog(view,"Successfull insert","INSERT",JOptionPane.INFORMATION_MESSAGE);
+                     clearAllTextCreate();
                 }
                 catch(SQLException err)
                 {
                    JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
                 }
-            }
-            else
-            {
-                    if(view.getTextNameGeneralSearch().getText().trim().length()!=0)
-                    {
-                        
-                        try
-                        {
-                             if(addetti.isEmpty())
-                               addetti.addAll(dao.searchByName(view.getTextNameGeneralSearch().getText()));
-                             else
-                                addetti.retainAll(dao.searchByName(view.getTextNameGeneralSearch().getText()));
-                        }
-                        catch(SQLException err)
-                        {
-                             JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
-                    if(view.getTextSurnameGeneralSearch().getText().trim().length() != 0)
-                    {
-                        try{
-                           if(addetti.isEmpty()) 
-                             addetti.addAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
-                           else
-                             addetti.retainAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
-                        }
-                        catch(SQLException err)
-                        {
-                              JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
-                    if(view.getDateFromGeneral().getDate()!= null && view.getDateToGeneral().getDate()!= null)
-                    {
-                        try{
-                           if(addetti.isEmpty())  
-                              addetti.addAll(dao.searchByBirth(view.getDateFromGeneral().getDate(),view.getDateToGeneral().getDate()));
-                           else
-                             addetti.retainAll(dao.searchByBirth(view.getDateFromGeneral().getDate(),view.getDateToGeneral().getDate()));
-                        }
-                        catch(SQLException err)
-                        {
-                           JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
-                   
-                    else
-                    {
-                        if((view.getDateFromGeneral().getDate()== null &&  view.getDateToGeneral().getDate()!= null) || (view.getDateFromGeneral().getDate()!= null &&  view.getDateToGeneral().getDate()== null))       
-                             JOptionPane.showMessageDialog(view,"Error : Riempire entrambi i campi della data o lasciarli entrambi vuoti. ","ERROR", JOptionPane.ERROR_MESSAGE);
-
-                    }
-            }
-             
+             }
+             errorSalary=0;
+        }
+        else if(action.equalsIgnoreCase("SEARCH_ADVANCED"))
+        {
+            String cf =view.getTextCfGeneralSearch().getText();
+            String name = view.getTextNameGeneralSearch().getText();
+            String surname = view.getTextSurnameGeneralSearch().getText();
+            Date from = view.getDateFromGeneral().getDate();
+            Date to = view.getDateToGeneral().getDate();
+            addetti = doAdvancedSearch(cf, name,surname,from,to);
+            
+            
              view.updateTable(addetti);
         }
     }
@@ -286,4 +212,120 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
      view.getDateCreateAddetto().setDate(null);
      view.getTextNumberCreate().setText("");
  }
+
+    private void updateViewForCreatepanel() {
+            view.getDeleteSearch().setVisible(false);
+            view.getjScrollPane1().setVisible(false);
+            view.getButtonAdvGeneral().setVisible(false);
+            view.getButtonCreateGeneral().setVisible(false);
+            view.getTextSearchGeneral().setVisible(false);
+            view.getButtonOkSearchGeneral().setVisible(false);
+            view.getPanelCreateEvent().setVisible(false);
+            view.getCreatePanel().setVisible(true);
+    }
+
+    private void updateViewForBackSecurity() {
+            view.getDeleteSearch().setVisible(true);
+            view.getjScrollPane1().setVisible(true);
+            view.getButtonAdvGeneral().setVisible(true);
+            view.getButtonCreateGeneral().setVisible(true);
+            view.getTextSearchGeneral().setVisible(true);
+            view.getButtonOkSearchGeneral().setVisible(true);
+            view.getCreatePanel().setVisible(false);
+    }
+
+    private void doDeleteEvent(int rowCount) {
+        
+             MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();
+                int start_selection = view.getTableSearchGeneral().getSelectedRow();
+                int end_selection = rowCount+start_selection-1;
+                
+                for(int i = end_selection ; i>= start_selection;--i)
+                {
+                    try
+                    {
+                        dao.deleteAddetto((tab.getValueAt(i,tab.getId_column()).toString()));
+                        tab.removeRow(i);
+                    }
+                    catch(SQLException errorDelete)
+                    {
+                          if(flag_errorDelete==1)
+                          {
+                              JOptionPane.showMessageDialog(view, "Errore : "+errorDelete.getMessage(), "ERRORE", JOptionPane.ERROR_MESSAGE);
+                              flag_errorDelete = 0;
+                          }
+                    }
+                     
+                }
+                 flag_errorDelete=1;
+    }
+
+    private Set<Addetto> doAdvancedSearch(String cf, String name, String surname, Date from, Date to) {
+        {
+            Set<Addetto> addetti = new HashSet<>();
+            
+            if(cf.trim().length() != 0)
+            {
+                try
+                {
+                    addetti.add(dao.searchByTaxCode(cf));
+                }
+                catch(SQLException err)
+                {
+                   JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            else
+            {
+                    if(name.trim().length()!=0)
+                    {
+                        try
+                        {
+                             if(addetti.isEmpty())
+                               addetti.addAll(dao.searchByName(name));
+                             else
+                                addetti.retainAll(dao.searchByName(name));
+                        }
+                        catch(SQLException err)
+                        {
+                             JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    if(surname.trim().length() != 0)
+                    {
+                        try{
+                           if(addetti.isEmpty()) 
+                             addetti.addAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
+                           else
+                             addetti.retainAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
+                        }
+                        catch(SQLException err)
+                        {
+                              JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    if(from!= null && to != null)
+                    {
+                        try{
+                           if(addetti.isEmpty())  
+                              addetti.addAll(dao.searchByBirth(from,to));
+                           else
+                             addetti.retainAll(dao.searchByBirth(from,to));
+                        }
+                        catch(SQLException err)
+                        {
+                           JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                   
+                    else
+                    {
+                        if((from== null &&  to!= null) || (from!= null &&  to== null))       
+                           JOptionPane.showMessageDialog(view,"Fill both date fields. The search will not consider the date fields.","INFO", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
+            }
+          return addetti;
+        }
+    }
 }

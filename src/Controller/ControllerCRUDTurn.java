@@ -59,41 +59,32 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
     public void actionPerformed(ActionEvent e) {
 
         String action = e.getActionCommand();
+      
         
         if(action.equals("SEARCH"))
         {
-            view.getButtonDelete().setEnabled(true);
-            Set<ManagementTurn> turn = new HashSet<>(); 
+            String event = null;
+            String tax_code = null;
+            
             if(view.getComboEventWork().getSelectedItem() != null)
-            {
-                try{
-                    if(turn.isEmpty())
-                        turn.addAll(dao.getTurnEvent(view.getComboEventWork().getSelectedItem().toString()));
-                    else
-                        turn.retainAll(dao.getTurnEvent(view.getComboEventWork().getSelectedItem().toString()));
-                }
-                catch(SQLException err)
-                {
-                    JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+               event = view.getComboEventWork().getSelectedItem().toString();
+            
+            if(view.getComboTaxCodeWork().getSelectedItem() != null)
+              tax_code = view.getComboTaxCodeWork().getSelectedItem().toString();
+            
+            
+            Set<ManagementTurn> turn;
+            turn  = doSearch(event,tax_code);
 
-                }
-            }
-            if(view.getComboTaxCodeWork().getSelectedItem()!= null)
+            if(turn.size()>0)
             {
-                try{
-                    if(turn.isEmpty())
-                        turn.addAll(dao.getTurnAddetto(view.getComboTaxCodeWork().getSelectedItem().toString()));
-                    else
-                        turn.retainAll(dao.getTurnAddetto(view.getComboTaxCodeWork().getSelectedItem().toString()));
-                }
-                catch(SQLException err)
-                {
-                    JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-                }
-            }         
-            view.updateTable(turn); 
+               view.getButtonDelete().setEnabled(true);
+            }
+            
+            view.updateTable(turn);
+            
             if(view.getTableMenagementEvents().getRowCount()>0)
-               view.getTableMenagementEvents().setRowSelectionInterval(0, 0);
+                view.getTableMenagementEvents().setRowSelectionInterval(0, 0);
         }
         
         
@@ -164,10 +155,12 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
             else
                 JOptionPane.showMessageDialog(view, "Error : Tax code or ID Event are not selected", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+        
         else if(action.equalsIgnoreCase("LOADEVENT"))
         {
             loadEvent();
         }
+        
         else if(action.equalsIgnoreCase("LOADTAX"))
         {
             loadTaxCode();
@@ -268,6 +261,38 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
             view.getComboTaxCodeWork().removeAllItems();
         }
              
+    }
+
+    private Set<ManagementTurn> doSearch(String event, String tax_code) {
+        
+       Set<ManagementTurn> turn = new HashSet<>();
+        if(event != null)
+            {
+                try{
+                    if(turn.isEmpty())
+                        turn.addAll(dao.getTurnEvent(event));
+                    else
+                        turn.retainAll(dao.getTurnEvent(event));
+                }
+                catch(SQLException err)
+                {
+                    JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            if(tax_code != null)
+            {
+                try{
+                    if(turn.isEmpty())
+                        turn.addAll(dao.getTurnAddetto(tax_code));
+                    else
+                        turn.retainAll(dao.getTurnAddetto(tax_code));
+                }
+                catch(SQLException err)
+                {
+                    JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+            }         
+            return turn;
     }
     
 }
