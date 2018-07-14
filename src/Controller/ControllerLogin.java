@@ -51,25 +51,26 @@ public class ControllerLogin implements ActionListener,KeyListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
-        if(action.equals("ACCEDI"))
+        if(action.equalsIgnoreCase("ACCEDI"))
         {
             try {
-                DBConnect.setUser(action);
                 String user = viewLog.getUsernameText();
                 String password = viewLog.getPasswordText();
-               // DBConnect.setUser(user);
-                //DBConnect.setPassword(password);
-                
-               /* try
-                {
-                    DBConnect.getConnection();
-                }
+                DBConnect.setUser(user);
+                DBConnect.setPassword(password);
+                DBConnect.getConnection();
+                viewLog.accessApp();
+               }
                 catch(SQLException ex)
                 {
-                   JOptionPane.showMessageDialog(null,"Errore connessione : "+ex.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
-                   
-                }*/
-                
+
+                   if(ex.getErrorCode() == 1045)
+                    flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Errore connessione : Accesso Negato per l'user inserito","ERROR",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
+                   else
+                    flag_joptionpane= JOptionPane.showOptionDialog(viewLog,"Errore connessione : "+ex.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
+   
+                }
+                /*
                 admin = dao.searchbyUserAndPassword(user, password);
                 viewLog.accessApp(admin);
                 if(admin == null )
@@ -78,7 +79,7 @@ public class ControllerLogin implements ActionListener,KeyListener{
                 }
             } catch (SQLException ex) {
                 flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
-            }
+            }*/
         }
         else
         {
@@ -104,13 +105,16 @@ public class ControllerLogin implements ActionListener,KeyListener{
         
             if(flag_joptionpane  == JOptionPane.OK_OPTION)
                 flag_joptionpane = 1;
+            
             else if(e.getKeyChar()=='\n' && e.getComponent()!= viewLog.getExitButton() )
             {
+                viewLog.getAccediButton().doClick();
+                /*
                   try {
                         String user = viewLog.getUsernameText();
                         String password = viewLog.getPasswordText();
                         admin = dao.searchbyUserAndPassword(user, password);
-                        viewLog.accessApp(admin);
+                       // viewLog.accessApp(admin);
                         
                         if(admin == null )
                          {
@@ -120,12 +124,13 @@ public class ControllerLogin implements ActionListener,KeyListener{
                           //flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
                             flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso:"+ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
                     }
+                */
             }
             else
             {
                 if(e.getKeyChar()=='\n' && e.getComponent() == viewLog.getExitButton())
                 {
-                    System.exit(0);
+                    viewLog.getExitButton().doClick();
                 }
             }
     }

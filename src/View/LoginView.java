@@ -113,7 +113,7 @@ public class LoginView extends javax.swing.JFrame{
      * @param args the command line arguments
      */
     
-    public void accessApp(Object admin) {
+ /*   public void accessApp(Object admin) {
            
             
             if(admin != null){
@@ -124,7 +124,15 @@ public class LoginView extends javax.swing.JFrame{
                 home.setVisible(true);   
             }
     }  
-
+*/
+     public void accessApp() {
+           
+        this.dispose();
+        GeneralView home = new GeneralView();
+        home.setLocationRelativeTo(null);
+        home.setVisible(true);   
+            
+    }  
     public JButton getAccediButton() {
         return AccediButton;
     }

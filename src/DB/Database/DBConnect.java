@@ -29,7 +29,9 @@ public class DBConnect {
 
     //private static String url = "jdbc:mysql://localhost/em17?useSSL=false&serverTimezone=Europe/Rome";
     private static String url = "jdbc:mysql://hostingmysql331.register.it/registeringws?useSSL=false&serverTimezone=Europe/Rome";
-
+    private static  String user = "";
+    private static String password = "";
+    
     public static String getUser() {
         return user;
     }
@@ -45,11 +47,10 @@ public class DBConnect {
     public static void setPassword(String password) {
         DBConnect.password = password;
     }
-    private static  String user = "cognomen";
-    private static String password = "progettoing";
+  
    
-    
-    public static Connection getConnection() throws SQLException
+  /*  
+    public static Connection getConnection() 
     {
         if(password.equals("") || user.equals(""))
             System.out.println("Password o user vuoti");
@@ -69,6 +70,20 @@ public class DBConnect {
                  JOptionPane.showMessageDialog(null,"Errore connessione : verificare username e password","ERROR",JOptionPane.ERROR_MESSAGE);
              }
         }
+       return con;
+    }
+*/
+    
+    public static Connection getConnection() throws SQLException
+    {
+           try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            
+            } catch (ClassNotFoundException ex) {
+            System.out.println("Driver Connector non funzionante");
+            }
+             con = DriverManager.getConnection(url,user,password);
+             
        return con;
     }
     public static void closeConnection()
