@@ -93,9 +93,9 @@ public class ImplEventDao implements EventDao{
         String sql = "INSERT INTO EVENTO(TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,DESCRIPTION) VALUES (?,?,?,?,?,?);";
         con = DBConnect.getConnection();
         ps=con.prepareStatement(sql);
-        ps.setString(1,event.getTitle());
-        ps.setString(2, event.getTypeEvent());
-        ps.setString(3,event.getTypeGender());
+        ps.setString(1,event.getTitle().toUpperCase());
+        ps.setString(2, event.getTypeEvent().toUpperCase());
+        ps.setString(3,event.getTypeGender().toUpperCase());
         if(event.getDataEvent()!=null)
         {
             ps.setTimestamp(4, new Timestamp(event.getDataEvent().getTime()));

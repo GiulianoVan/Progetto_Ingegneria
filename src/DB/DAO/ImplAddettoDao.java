@@ -36,13 +36,13 @@ public class ImplAddettoDao implements AddettoDao {
             String sql ="INSERT INTO ADDSICUREZZA(NAME,SURNAME,TAX_CODE,PHONE,SALARY,EMAIL,USERNAME,PASSWORD,BIRTH) VALUES (?,?,?,?,?,?,?,?,?)";
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setString(1,addetto.getNome());
-            ps.setString(2,addetto.getCognome());
-            ps.setString(3,addetto.getCf());
+            ps.setString(1,addetto.getNome().toUpperCase());
+            ps.setString(2,addetto.getCognome().toUpperCase());
+            ps.setString(3,addetto.getCf().toUpperCase());
             ps.setString(4,addetto.getTel());
             ps.setDouble(5,addetto.getStipendio());
             ps.setString(6,addetto.getEmail());
-            ps.setString(7,addetto.getUsername());
+            ps.setString(7,addetto.getUsername().toUpperCase());
             ps.setString(8,addetto.getPassword());
             if(addetto.getDnascita()!=null)
                 ps.setTimestamp(9,new Timestamp(addetto.getDnascita().getTime()));

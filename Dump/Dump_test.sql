@@ -57,7 +57,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`sql7247627`@`sql7.freemysqlhosting.net`*/ /*!50003 TRIGGER `addsicurezza_BEFORE_INSERT` BEFORE INSERT ON `addsicurezza` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `addsicurezza_BEFORE_INSERT` BEFORE INSERT ON `addsicurezza` FOR EACH ROW BEGIN
 	IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
 	THEN
 		SIGNAL SQLSTATE '45000'
@@ -102,7 +102,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`sql7247627`@`sql7.freemysqlhosting.net`*/ /*!50003 TRIGGER `addsicurezza_BEFORE_UPDATE` BEFORE UPDATE ON `addsicurezza` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `addsicurezza_BEFORE_UPDATE` BEFORE UPDATE ON `addsicurezza` FOR EACH ROW BEGIN
 	IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
 	THEN
 		SIGNAL SQLSTATE '45000'
@@ -212,7 +212,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`sql7247627`@`sql7.freemysqlhosting.net`*/ /*!50003 TRIGGER `cliente_BEFORE_INSERT` BEFORE INSERT ON `cliente` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `cliente_BEFORE_INSERT` BEFORE INSERT ON `cliente` FOR EACH ROW BEGIN
 	IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
 	THEN
 		SIGNAL SQLSTATE '45000'
@@ -262,7 +262,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`sql7247627`@`sql7.freemysqlhosting.net`*/ /*!50003 TRIGGER `cliente_BEFORE_UPDATE` BEFORE UPDATE ON `cliente` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `cliente_BEFORE_UPDATE` BEFORE UPDATE ON `cliente` FOR EACH ROW BEGIN
 	IF(NOT REGEXP_LIKE(NEW.NAME,'^[a-z]+(['']?[a-z ]+)*$','i'))
 	THEN
 		SIGNAL SQLSTATE '45000'
@@ -349,7 +349,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`sql7247627`@`sql7.freemysqlhosting.net`*/ /*!50003 TRIGGER `evento_BEFORE_INSERT` BEFORE INSERT ON `evento` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `evento_BEFORE_INSERT` BEFORE INSERT ON `evento` FOR EACH ROW BEGIN
 	IF(NOT REGEXP_LIKE(NEW.DESCRIPTION,'^[a-z0-9 \n,.;''"/_#?!-]+$','i'))
 	THEN
 		SIGNAL SQLSTATE '45007'
@@ -411,7 +411,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`sql7247627`@`sql7.freemysqlhosting.net`*/ /*!50003 TRIGGER `evento_BEFORE_UPDATE` BEFORE UPDATE ON `evento` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `evento_BEFORE_UPDATE` BEFORE UPDATE ON `evento` FOR EACH ROW BEGIN
 	
 	IF(NOT REGEXP_LIKE(NEW.DESCRIPTION,'^[a-z0-9,.;''"/-_#?! ]+$','i'))
 	THEN
@@ -560,7 +560,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`sql7247627`@`sql7.freemysqlhosting.net`*/ /*!50003 TRIGGER `gestione_turno_BEFORE_INSERT` BEFORE INSERT ON `gestione_turno` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `gestione_turno_BEFORE_INSERT` BEFORE INSERT ON `gestione_turno` FOR EACH ROW BEGIN
 	/*IF(NEW.END < NEW.START) THEN
 		IF((NEW.START - NEW.END) > TO_TIME(12:00:00) THEN
 			SIGNAL SQLSTATE '45016'
@@ -624,7 +624,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`sql7247627`@`%`*/ /*!50003 TRIGGER `biglietto_AFTER_INSERT` AFTER INSERT ON `biglietto` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`cognomen`@`%`*/ /*!50003 TRIGGER `biglietto_AFTER_INSERT` AFTER INSERT ON `biglietto` FOR EACH ROW BEGIN
 
 SELECT COUNT(*) FROM BIGLIETTO WHERE CLIENTE= NEW.CLIENTE INTO @BIGLIETTI;
  
