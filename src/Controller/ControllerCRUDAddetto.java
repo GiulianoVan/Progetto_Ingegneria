@@ -137,17 +137,8 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
             }
              if(errorSalary != 1) // non continua se ci sta un errore sul salary
              {
-                 try
-                {
-                     Addetto security = new Addetto(name,surname,code,email,phone, salary,birth,username,password);
-                     dao.aggiungiAddetto(security);
-                     JOptionPane.showMessageDialog(view,"Successfull insert","INSERT",JOptionPane.INFORMATION_MESSAGE);
-                     clearAllTextCreate();
-                }
-                catch(SQLException err)
-                {
-                   JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-                }
+                 createAddetto(name, surname, username, password, code, birth, phone, email, salary);
+                 
              }
              errorSalary=0;
         }
@@ -327,5 +318,19 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
             }
           return addetti;
         }
+    }
+
+    private void createAddetto(String name, String surname, String username, String password, String code, Date birth, String phone, String email, Double salary) {
+        try
+                {
+                     Addetto security = new Addetto(name,surname,code,email,phone, salary,birth,username,password);
+                     dao.aggiungiAddetto(security);
+                     JOptionPane.showMessageDialog(view,"Successfull insert","INSERT",JOptionPane.INFORMATION_MESSAGE);
+                     clearAllTextCreate();
+                }
+                catch(SQLException err)
+                {
+                   JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+                }
     }
 }

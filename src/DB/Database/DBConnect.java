@@ -27,9 +27,9 @@ public class DBConnect {
     //private static String password = "bd12";
 
     //private static String url = "jdbc:mysql://localhost/em17?useSSL=false&serverTimezone=Europe/Rome";
-    private static String url = "jdbc:mysql://sql7.freemysqlhosting.net/sql7247627";
-    private static  String user = "sql7247627";
-    private static String password = "LKUk8hnlmn";
+    private static String url = "jdbc:mysql://hostingmysql331.register.it/registeringws?useSSL=false&serverTimezone=Europe/Rome";
+    private static  String user = "cognomen";
+    private static String password = "progettoing";
    
     
     public static Connection getConnection()
