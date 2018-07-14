@@ -58,17 +58,8 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
             {
                    ArrayList<String> parolechiavi;
                    parolechiavi = EstraiParoleChiavi(testo);
-                   
-                   try{
-                        addetti = dao.getAddettiParolaChiave(parolechiavi);  
-                        view.updateTable(addetti);
-                      }
-                   
-                   catch(SQLException ex)
-                   {
-                      JOptionPane.showMessageDialog(view, "Connection failed to Database.\nCannot do search.", "ERROR", JOptionPane.ERROR_MESSAGE);
-                   }
-         
+                   doSearch(parolechiavi); //ricerca
+                          
             }
         }
         else if(action.equals("CREATEPANEL"))
@@ -85,21 +76,8 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
         }
         else if(action.equals("DELETE"))
         {
-            
-            String deleteMessage;
-            int rowCount = view.getTableSearchGeneral().getSelectedRowCount();
-            if(rowCount > 1)
-                deleteMessage = "You selected "+rowCount+" rows, are you sure that you want delete them?";
-            else
-                deleteMessage = "Are you sure that you want delete it?";
-            int answer  = JOptionPane.showConfirmDialog(view,deleteMessage,"DELETE",JOptionPane.YES_NO_OPTION);
-            if(answer == 0) // ha cliccato si
-            {
-                 doDeleteEvent(rowCount);
-                 //se cancello le righe,risetto a false il button.
-                 view.getButtonDeleteAdvSearch().setEnabled(false);
-                 view.getButtonDeleteSearch().setEnabled(false);
-            }
+             doDelete();
+           
             //JTable tab = view.getTableSearchGeneral();
             
         }
@@ -332,5 +310,35 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
                 {
                    JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
                 }
+    }
+
+    private void doSearch(ArrayList<String> parolechiavi) {
+             
+       try {
+                addetti = dao.getAddettiParolaChiave(parolechiavi);  
+                view.updateTable(addetti);
+           }
+
+           catch(SQLException ex)
+           {
+              JOptionPane.showMessageDialog(view, "Connection failed to Database.\nCannot do search.", "ERROR", JOptionPane.ERROR_MESSAGE);
+           }
+    }
+
+    private void doDelete() {
+             String deleteMessage;
+            int rowCount = view.getTableSearchGeneral().getSelectedRowCount();
+            if(rowCount > 1)
+                deleteMessage = "You selected "+rowCount+" rows, are you sure that you want delete them?";
+            else
+                deleteMessage = "Are you sure that you want delete it?";
+            int answer  = JOptionPane.showConfirmDialog(view,deleteMessage,"DELETE",JOptionPane.YES_NO_OPTION);
+            if(answer == 0) // ha cliccato si
+            {
+                 doDeleteEvent(rowCount);
+                 //se cancello le righe,risetto a false il button.
+                 view.getButtonDeleteAdvSearch().setEnabled(false);
+                 view.getButtonDeleteSearch().setEnabled(false);
+            }
     }
 }

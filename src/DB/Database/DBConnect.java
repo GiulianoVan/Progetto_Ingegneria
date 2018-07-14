@@ -8,6 +8,7 @@ package DB.Database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -28,11 +29,27 @@ public class DBConnect {
 
     //private static String url = "jdbc:mysql://localhost/em17?useSSL=false&serverTimezone=Europe/Rome";
     private static String url = "jdbc:mysql://hostingmysql331.register.it/registeringws?useSSL=false&serverTimezone=Europe/Rome";
+
+    public static String getUser() {
+        return user;
+    }
+
+    public static void setUser(String user) {
+        DBConnect.user = user;
+    }
+
+    public static String getPassword() {
+        return password;
+    }
+
+    public static void setPassword(String password) {
+        DBConnect.password = password;
+    }
     private static  String user = "cognomen";
     private static String password = "progettoing";
    
     
-    public static Connection getConnection()
+    public static Connection getConnection() throws SQLException
     {
         if(password.equals("") || user.equals(""))
             System.out.println("Password o user vuoti");
@@ -49,7 +66,7 @@ public class DBConnect {
                 con = DriverManager.getConnection(url,user,password);
             
              } catch (SQLException ex) {
-                 System.out.println("Errore connessione");
+                 JOptionPane.showMessageDialog(null,"Errore connessione : verificare username e password","ERROR",JOptionPane.ERROR_MESSAGE);
              }
         }
        return con;

@@ -63,6 +63,7 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
         
         if(action.equals("SEARCH"))
         {
+           
             String event = null;
             String tax_code = null;
             
@@ -90,45 +91,8 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
         
         else if(action.equalsIgnoreCase("DELETE"))
         {
-            String deleteMessage;
-            int rowCount = view.getTableMenagementEvents().getSelectedRowCount();
-            if(rowCount > 1)
-                deleteMessage = "You selected "+rowCount+" rows, do you want delete them?";
-            else
-                deleteMessage = "Do you want delete it?";
-            int answer  = JOptionPane.showConfirmDialog(view,deleteMessage,"DELETE",JOptionPane.YES_NO_OPTION);
-            if(answer == 0) // ha cliccato si
-            {
-                MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableMenagementEvents().getModel();
-                int start_selection = view.getTableMenagementEvents().getSelectedRow();
-                int end_selection = rowCount+start_selection-1;
-                
-                for(int i = end_selection ; i>= start_selection;--i)
-                {
-                    try
-                    {
-                        dao.deleteTurn(Integer.parseInt(view.getTableMenagementEvents().getValueAt(i,tab.getId_column()).toString()));
-                        //dao.deleteTurn((tab.getValueAt(i,tab.getId_column()).toString()));
-                        tab.removeRow(i);
-                    }
-                    catch(SQLException errorDelete)
-                    {
-                          if(flag_errorDelete==1)
-                          {
-                              JOptionPane.showMessageDialog(view, "Error : "+errorDelete.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
-                              flag_errorDelete = 0;
-                          }
-                    }
-                     
-                }
-                 flag_errorDelete=1;
-                 //se cancello le righe,risetto a false il button.
-                 //view.getButtonDelete().setEnabled(false);
-                 if(view.getTableMenagementEvents().getRowCount()>0)
-                 view.getTableMenagementEvents().setRowSelectionInterval(0, 0);
-            }
-            //JTable tab = view.getTableSearchGeneral();
-            
+            doDelete();
+            //JTable tab = view.getTableSearchGeneral();  
         }
         else if(action.equalsIgnoreCase("CREATE"))
         {
@@ -293,6 +257,46 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
                 }
             }         
             return turn;
+    }
+
+    private void doDelete() {
+         String deleteMessage;
+            int rowCount = view.getTableMenagementEvents().getSelectedRowCount();
+            if(rowCount > 1)
+                deleteMessage = "You selected "+rowCount+" rows, do you want delete them?";
+            else
+                deleteMessage = "Do you want delete it?";
+            int answer  = JOptionPane.showConfirmDialog(view,deleteMessage,"DELETE",JOptionPane.YES_NO_OPTION);
+            if(answer == 0) // ha cliccato si
+            {
+                MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableMenagementEvents().getModel();
+                int start_selection = view.getTableMenagementEvents().getSelectedRow();
+                int end_selection = rowCount+start_selection-1;
+                
+                for(int i = end_selection ; i>= start_selection;--i)
+                {
+                    try
+                    {
+                        dao.deleteTurn(Integer.parseInt(view.getTableMenagementEvents().getValueAt(i,tab.getId_column()).toString()));
+                        //dao.deleteTurn((tab.getValueAt(i,tab.getId_column()).toString()));
+                        tab.removeRow(i);
+                    }
+                    catch(SQLException errorDelete)
+                    {
+                          if(flag_errorDelete==1)
+                          {
+                              JOptionPane.showMessageDialog(view, "Error : "+errorDelete.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                              flag_errorDelete = 0;
+                          }
+                    }
+                     
+                }
+                 flag_errorDelete=1;
+                 //se cancello le righe,risetto a false il button.
+                 //view.getButtonDelete().setEnabled(false);
+                 if(view.getTableMenagementEvents().getRowCount()>0)
+                 view.getTableMenagementEvents().setRowSelectionInterval(0, 0);
+            }
     }
     
 }

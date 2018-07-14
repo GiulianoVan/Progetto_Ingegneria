@@ -39,7 +39,27 @@ public class ControllerUpdateTurn extends ControllerTable{
         //ROW E COLUMN = -1 POICHE SE ENTRO QUI ,NON HO + LA CELLA EDITABILE
         if(e.getKeyChar()=='\n' && table.isCellEditable(row, column) && row != -1 && column != -1) 
         {
-            try {
+            
+            doUpdate(tab);
+            
+        }
+        else
+        {
+            
+           //se non premo invio,RESETTO LA CELLA AL VALORE PRECEDENTE
+            //ROW = -1 E COL = -1 PERCHè UNA VOLTA QUI NON HO PIU LA CELLA EDITABILE,solo col doppio click è editabile
+            doNotUpdate(tab);
+            //sto cambiando casella senza invio,quindi setto la cella cliccata nuovamente non editabile.
+            
+            
+        }
+          //ho confermato update o ho abbandonato la,quindi setto la cella cliccata nuovamente non editabile.
+        
+    }
+
+    private void doUpdate(MyDefaultTableModel tab) {
+            
+        try {
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);
                 String value = view.getTableMenagementEvents().getValueAt(row, column).toString();
@@ -58,13 +78,10 @@ public class ControllerUpdateTurn extends ControllerTable{
 
   
             }
-        }
-        else
-        {
-            
-           //se non premo invio,RESETTO LA CELLA AL VALORE PRECEDENTE
-            //ROW = -1 E COL = -1 PERCHè UNA VOLTA QUI NON HO PIU LA CELLA EDITABILE,solo col doppio click è editabile
-            if(table.getSelectedRow() != row || table.getSelectedColumn() != column)
+    }
+
+    private void doNotUpdate(MyDefaultTableModel tab) {
+           if(table.getSelectedRow() != row || table.getSelectedColumn() != column)
             {  
                 tab.setColumnEditable(-1);
                 tab.setRowEditable(-1);
@@ -75,12 +92,6 @@ public class ControllerUpdateTurn extends ControllerTable{
                for(String s : comp.keySet())
                 comp.get(s).setEnabled(true);
             }
-            //sto cambiando casella senza invio,quindi setto la cella cliccata nuovamente non editabile.
-            
-            
-        }
-          //ho confermato update o ho abbandonato la,quindi setto la cella cliccata nuovamente non editabile.
-        
     }
     
     

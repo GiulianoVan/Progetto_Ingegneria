@@ -7,6 +7,7 @@ package Controller;
 
 import DB.DAO.AmministratoreDao;
 import DB.DAO.ImplAdminDao;
+import DB.Database.DBConnect;
 import Main.StartProject;
 import Model.JavaBean.Admin;
 import View.LoginView;
@@ -53,8 +54,22 @@ public class ControllerLogin implements ActionListener,KeyListener{
         if(action.equals("ACCEDI"))
         {
             try {
+                DBConnect.setUser(action);
                 String user = viewLog.getUsernameText();
                 String password = viewLog.getPasswordText();
+               // DBConnect.setUser(user);
+                //DBConnect.setPassword(password);
+                
+               /* try
+                {
+                    DBConnect.getConnection();
+                }
+                catch(SQLException ex)
+                {
+                   JOptionPane.showMessageDialog(null,"Errore connessione : "+ex.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
+                   
+                }*/
+                
                 admin = dao.searchbyUserAndPassword(user, password);
                 viewLog.accessApp(admin);
                 if(admin == null )
