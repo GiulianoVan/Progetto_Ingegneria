@@ -102,7 +102,8 @@ public class ControllerLogin implements ActionListener,KeyListener{
                             flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Attenzione : username o password errati","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
                          }
                       }catch (SQLException ex) {
-                          flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
+                          //flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
+                            flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso:"+ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
                     }
             }
             else
