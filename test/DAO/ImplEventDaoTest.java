@@ -6,6 +6,7 @@
 package DAO;
 
 import DB.DAO.ImplEventDao;
+import DB.Database.DBConnect;
 import Model.JavaBean.Event;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,6 +25,9 @@ import static org.junit.Assert.*;
 public class ImplEventDaoTest {
     
     public ImplEventDaoTest() {
+            DBConnect.setUser("cognomen");
+            DBConnect.setPassword("progettoing");
+           
     }
     
     @BeforeClass
@@ -57,7 +61,6 @@ public class ImplEventDaoTest {
         Event result = instance.advancedSearchEvent(evtName, codEvt, dateEvt, typeEvt);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -201,5 +204,7 @@ public class ImplEventDaoTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+    
+    
     
 }
