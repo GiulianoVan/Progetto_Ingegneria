@@ -83,7 +83,9 @@ public class DBConnect {
             System.out.println("Driver Connector non funzionante");
             }
              //con = DriverManager.getConnection(url,user,password);
-             con = DriverManager.getConnection(url,"cognomen","progettoing");
+             //con = DriverManager.getConnection(url,"cognomen","progettoing");
+             //con = DriverManager.getConnection(url,"security","progettoing");
+             con = DriverManager.getConnection(url,"systemadmin","progettoing");
        return con;
     }
     public static void closeConnection()
