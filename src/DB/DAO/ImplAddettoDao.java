@@ -250,4 +250,25 @@ public class ImplAddettoDao implements AddettoDao {
                   
         return null;
     }
+
+    @Override
+    public int updateAddetto(Addetto addetto) throws SQLException {
+        
+        String sql = "UPDATE ADDSICUREZZA "
+                + "SET NAME = "+addetto.getNome()+" "
+                +",SET SURNAME = "+addetto.getCognome()
+                +",SET TAX_CODE = "+addetto.getCf()
+                +",SET EMAIL = " +addetto.getEmail()
+                +",SET PHONE = "+ addetto.getTel()
+                +",SET BIRTH = "+ addetto.getDnascita()
+                +",SET SALARY = "+addetto.getStipendio()
+                +" WHERE IDSICUREZZA = ?;";
+        
+                con = DBConnect.getConnection();
+                ps = con.prepareStatement(sql);
+                ps.setString(1,addetto.getId());
+                
+                return ps.executeUpdate();
+        
+    }
 }

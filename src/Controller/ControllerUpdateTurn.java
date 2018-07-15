@@ -7,6 +7,7 @@ package Controller;
 
 import DB.DAO.ManagementTurnDao;
 import GestioneTabella.MyDefaultTableModel;
+import Model.JavaBean.ManagementTurn;
 import View.ManagementTurnView;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
@@ -68,6 +69,10 @@ public class ControllerUpdateTurn extends ControllerTable{
                 value= value.replace(",",".");
                 view.getTableMenagementEvents().setValueAt(value, row, column);
                 //int updateTurn(int turn,String field,Object new_value) throws SQLException;
+                /*
+                 ManagementTurn x  = new ManagementTurn(startTurn, endTurn, idTurn);
+                 dao.updateTurn(x);
+                */
                 dao.updateTurn((Integer)(Integer.parseInt(table.getValueAt(row,tab.getId_column()).toString())),table.getColumnName(column),value);
                 row = -1;
                 column=-1;

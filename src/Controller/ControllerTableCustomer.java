@@ -7,6 +7,8 @@ package Controller;
 
 import DB.DAO.CustomerDao;
 import GestioneTabella.MyDefaultTableModel;
+import Model.JavaBean.Customer;
+import Model.JavaBean.Event;
 import View.GeneralPanel;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
@@ -52,6 +54,10 @@ public class ControllerTableCustomer extends ControllerTable {
                 
                 value= value.replace(",",".");
                 table.setValueAt(value, row, column);
+              /* 
+                Customer cust = new Customer(id,user,name,surname,email,cf,, phone,date_born,tick);
+                  chiamo il dao con (customer cust )
+              */  
                 dao.updateCustomer(value,table.getColumnName(column),table.getModel().getValueAt(row,tab.getId_column()).toString());
                 row = -1;
                 column=-1;

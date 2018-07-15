@@ -23,6 +23,7 @@ public interface AddettoDao {
     public int deleteAddetto(String idaddetto) throws SQLException;
     public int updateAddetto(String new_value,String attribute_to_change,String id) throws SQLException;
     public int deleteAddetto(Addetto employee) throws SQLException;
+    public int updateAddetto(Addetto addetto) throws SQLException;
  // public Addetto cercaAddettoStipendioMax(double stipendio);
  // public List<Addetto> cercaAddettoStipendioMaggioredi(double stipendio);
  // public List<Addetto> cercaAddettoStipendioMinidoredi(double stipendio); 

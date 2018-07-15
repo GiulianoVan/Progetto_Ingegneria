@@ -83,12 +83,13 @@ public class ImplEventDaoTest {
    @Test
     public void testUpdateEvent() throws Exception {
         System.out.println("updateEvent");
-        String new_value = "PROVAXX";
+        String new_value = "PROVAXXX";
         String attribute_to_change = "TITLE";
         String id = "5";
         ImplEventDao instance = new ImplEventDao();
         int expResult = 1;
         int result = instance.updateEvent(new_value, attribute_to_change, id);
+        System.out.println(result);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
