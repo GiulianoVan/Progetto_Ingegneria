@@ -70,6 +70,7 @@ public class ImplEventDaoTest {
     public void testCreateEvent() throws Exception {
         System.out.println("createEvent");
         Event event = null;
+        
         ImplEventDao instance = new ImplEventDao();
         instance.createEvent(event);
         // TODO review the generated test code and remove the default call to fail.
@@ -79,18 +80,18 @@ public class ImplEventDaoTest {
     /**
      * Test of updateEvent method, of class ImplEventDao.
      */
-    @Test
+   @Test
     public void testUpdateEvent() throws Exception {
         System.out.println("updateEvent");
-        String new_value = "";
-        String attribute_to_change = "";
-        String id = "";
+        String new_value = "PROVAXX";
+        String attribute_to_change = "TITLE";
+        String id = "5";
         ImplEventDao instance = new ImplEventDao();
-        int expResult = 0;
+        int expResult = 1;
         int result = instance.updateEvent(new_value, attribute_to_change, id);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -165,29 +166,23 @@ public class ImplEventDaoTest {
     @Test
     public void testSearchByPlace() throws Exception {
         System.out.println("searchByPlace");
-        String place = "";
+       
+        String place = "Napoli";
+                
         ImplEventDao instance = new ImplEventDao();
-        Set<Event> expResult = null;
+        //Set<Event> expResult = null;
         Set<Event> result = instance.searchByPlace(place);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for(Event e : result)
+        {
+          assertEquals(place.toUpperCase(),e.getPlaceName().toUpperCase());
+        }
+// TODO review the generated test code and remove the default call to fail.
     }
 
     /**
      * Test of searchByProvince method, of class ImplEventDao.
      */
-    @Test
-    public void testSearchByProvince() throws Exception {
-        System.out.println("searchByProvince");
-        String province = "";
-        ImplEventDao instance = new ImplEventDao();
-        Set<Event> expResult = null;
-        Set<Event> result = instance.searchByProvince(province);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
 
     /**
      * Test of searchByDate method, of class ImplEventDao.

@@ -154,7 +154,11 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
         }
         
         else if( e.getItemSelectable().equals(view.getComboTypeGeneralSearch()))
-          view.loadComboTypeEvent(view.getComboTypeGeneralSearch(),view.getComboGenereType());
+        {
+            view.loadComboTypeEvent(view.getComboTypeGeneralSearch(),view.getComboGenereType());
+             
+        }
+          
 
     }
     
