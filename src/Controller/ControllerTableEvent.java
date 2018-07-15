@@ -53,7 +53,7 @@ public class ControllerTableEvent extends ControllerTable{
                 
                     try {
                         flag=false;
-                        value= value.replace(",",".");
+                        //value= value.replace(",",".");
                         table.setValueAt(value, row, column);
                         dao.updateEvent(value,table.getColumnName(column),table.getModel().getValueAt(row,tab.getId_column()).toString());
                         if(table.getModel().getColumnName(column).equals("EVENT_TYPE") )

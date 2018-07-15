@@ -202,7 +202,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
         comboTypeGeneralSearch.setBackground(new java.awt.Color(255, 204, 104));
         comboTypeGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
-        comboTypeGeneralSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tipo" }));
+        comboTypeGeneralSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type Event..." }));
         jPanelAdvSearch.add(comboTypeGeneralSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, 30));
 
         textSurnameGeneralSearch.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
@@ -245,7 +245,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
         comboGenereType.setBackground(new java.awt.Color(255, 204, 104));
         comboGenereType.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
-        comboGenereType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "genere", " " }));
+        comboGenereType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOT SELECTED" }));
         jPanelAdvSearch.add(comboGenereType, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 120, 30));
 
         buttonOkAdvSearchGeneral.setBackground(new java.awt.Color(255, 204, 104));
@@ -292,6 +292,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         panelCreateEvent.add(descriptionArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 400, 110));
 
         comboGenEventCreate.setBackground(new java.awt.Color(255, 204, 104));
+        comboGenEventCreate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         panelCreateEvent.add(comboGenEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 150, 30));
 
         dateCreateEvent.setBackground(new java.awt.Color(255, 204, 104));
@@ -858,7 +859,9 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
             tableSearchGeneral.getModel().setValueAt((String) oldvalue, row, column);
      }  
 
-    public  void loadCombo(){};
+    public  void loadComboTypeEvent(JComboBox comboType,JComboBox comboKind){};
+     
+   
      
      public abstract void clearAllTextCreate();
  
@@ -923,6 +926,8 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private javax.swing.JTextField textUsernameCreate;
     private javax.swing.JLabel toAdvSearch;
     // End of variables declaration//GEN-END:variables
+
+   
 
 
    

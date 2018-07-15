@@ -9,6 +9,7 @@ import GestioneTabella.MyDefaultTableModel;
 import java.awt.event.FocusListener;
 import java.util.Observable;
 import java.util.Set;
+import javax.swing.JComboBox;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 
@@ -44,8 +45,8 @@ public class EventPanel extends GeneralPanel {
         super();
         this.setComponentsPanel();
         buttonBackCreateEvent.setActionCommand("BACKCREATEEVENT");
-        this.loadCombo();
-        
+        this.loadComboTypeEvent(comboType_event,comboKind_event);
+        this.loadComboTypeEvent(comboType_event,comboKind_event);
         
     }
     
@@ -79,7 +80,7 @@ public class EventPanel extends GeneralPanel {
         textCfGeneral.setVisible(false);
         buttonAdvEvent.setText("Advanced Search");
         buttonCreateEvent.setText("Create Event");
-        comboTypeEventSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type Event...", "Sport", "Concert", "Theater", "Cinema" }));
+        comboTypeEventSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOT SELECTED", "SPORT", "CONCERT", "THEATER", "CINEMA" }));
         
         //textNameEventSearch.setText("Insert Name Here...");
         textSearchEvent.setText("Insert Name Here...");
@@ -138,43 +139,48 @@ public class EventPanel extends GeneralPanel {
     }
     
     @Override
-    public void loadCombo()
+    public void loadComboTypeEvent(JComboBox comboType,JComboBox comboKind)
     {
-        comboKind_event.removeAllItems();
+        comboKind.removeAllItems();
         
-        if(comboType_event.getSelectedItem().equals("CINEMA"))
+        if(comboType.getSelectedItem().equals("CINEMA"))
         {
-            comboKind_event.addItem("COMEDY");
-            comboKind_event.addItem("DRAMATIC");
-            comboKind_event.addItem("HORROR");
-            comboKind_event.addItem("OTHER");
+            comboKind.addItem("COMEDY");
+            comboKind.addItem("DRAMATIC");
+            comboKind.addItem("HORROR");
+            comboKind.addItem("OTHER");
         }
-       else if(comboType_event.getSelectedItem().equals("SPORT"))
+       else if(comboType.getSelectedItem().equals("SPORT"))
        {
-            comboKind_event.addItem("FOOTBALL");
-            comboKind_event.addItem("TENNES");
-            comboKind_event.addItem("BASKET");
-            comboKind_event.addItem("VOLLEYBALL");
-            comboKind_event.addItem("SWIMMING");
-            comboKind_event.addItem("OTHER");
+            comboKind.addItem("FOOTBALL");
+            comboKind.addItem("TENNES");
+            comboKind.addItem("BASKET");
+            comboKind.addItem("VOLLEYBALL");
+            comboKind.addItem("SWIMMING");
+            comboKind.addItem("OTHER");
        }
-       else if(comboType_event.getSelectedItem().equals("CONCERT"))
-       {
-           //EW.KIND_TYPE != 'OTHER' AND NEW.KIND_TYPE != 'POP AND ROCK' AND NEW.KIND_TYPE != 'METAL'
-            comboKind_event.addItem("POP AND ROCK");
-            comboKind_event.addItem("METAL");
-            comboKind_event.addItem("OTHER");
-       }
-        else if(comboType_event.getSelectedItem().equals("THEATER"))
+       else if(comboType.getSelectedItem().equals("CONCERT"))
        {
            //EW.KIND_TYPE != 'OTHER' AND NEW.KIND_TYPE != 'POP AND ROCK' AND NEW.KIND_TYPE != 'METAL'
-            comboKind_event.addItem("MUSICAL");
-            comboKind_event.addItem("CABARET");
-            comboKind_event.addItem("OTHER");
+            comboKind.addItem("POP AND ROCK");
+            comboKind.addItem("METAL");
+            comboKind.addItem("OTHER");
        }
-
+        else if(comboType.getSelectedItem().equals("THEATER"))
+       {
+           //EW.KIND_TYPE != 'OTHER' AND NEW.KIND_TYPE != 'POP AND ROCK' AND NEW.KIND_TYPE != 'METAL'
+            comboKind.addItem("MUSICAL");
+            comboKind.addItem("CABARET");
+            comboKind.addItem("OTHER");
+       }
+        else
+        {
+            comboKind.addItem("NOT SELECTED");
+        }
+                    
         
     }
+   
 
     @Override
     public void clearAllTextCreate() {

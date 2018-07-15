@@ -18,7 +18,7 @@ import Runner.RunECBEvents;
  */
 public class StartProject {
 
-    public static Admin admin;
+   // public static Admin admin;
     public StartProject()
     {
        RunECBLogin log = new RunECBLogin();

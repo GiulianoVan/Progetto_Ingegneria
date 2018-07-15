@@ -44,7 +44,7 @@ public class ControllerLogin implements ActionListener,KeyListener{
         viewLog.JTextUsername().addKeyListener(this);
         viewLog.getAccediButton().addKeyListener(this);
         viewLog.getExitButton().addKeyListener(this);
-        this.admin =  StartProject.admin;
+    //    this.admin =  StartProject.admin;
     }
     
     

@@ -42,7 +42,7 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
         this.view.getButtonCreate().addActionListener(this);
         this.view.getComboTypeEventCreate().addItemListener(this);
         this.view.getButtonOkAdvSearchGeneral().addActionListener(this);//button ricerca avanzata
-
+        this.view.getComboTypeGeneralSearch().addItemListener(this);
     }
     
     @Override
@@ -147,7 +147,15 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
     @Override
     public void itemStateChanged(ItemEvent e) {
         
-        view.loadCombo();
+        if(e.getItemSelectable() == view.getComboTypeEventCreate())
+        {
+            
+           view.loadComboTypeEvent(view.getComboTypeEventCreate(),view.getComboGenEventCreate());
+        }
+        
+        else if( e.getItemSelectable().equals(view.getComboTypeGeneralSearch()))
+          view.loadComboTypeEvent(view.getComboTypeGeneralSearch(),view.getComboGenereType());
+
     }
     
     public Set<Event> advancedSearch(String title,String type,Date from,Date to,String kind)
