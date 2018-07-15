@@ -19,8 +19,9 @@ public interface EventDao
 {
     //public Set<Event> searchEvent(String evtName);
     public Event advancedSearchEvent(String evtName, String codEvt, String dateEvt, String typeEvt) throws SQLException;
-    public void createEvent(Event event) throws SQLException;
+    public int createEvent(Event event) throws SQLException;
     public int updateEvent(String new_value,String attribute_to_change,String id) throws SQLException;
+    public int updateEvent(Event e) throws SQLException;
     public int deleteEvent(Event event) throws SQLException;  
     public Set<Event> searchEventKeysWords(ArrayList<String> words ) throws SQLException;
     public int deleteEvent(String idEvent) throws SQLException;  

@@ -23,6 +23,7 @@ public interface CustomerDao {
     public Set<Customer> searchCustomerKeysWords(ArrayList<String> words) throws SQLException;
     public int updateCustomer(String new_value,String attribute_to_change,String id) throws SQLException;
     public int deleteCustomer(String idcustomer) throws SQLException;
+    public int updateCustomer(Customer customer) throws SQLException;
     public Set<Customer> searchByName(String name) throws SQLException;
     public Set<Customer> searchBySurname(String surname) throws SQLException;
     public Set<Customer> searchByBirth(Date from,Date to) throws SQLException;

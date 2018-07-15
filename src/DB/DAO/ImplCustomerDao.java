@@ -174,6 +174,27 @@ public class ImplCustomerDao implements CustomerDao{
         }
         return null;
     }
+
+    @Override
+    public int updateCustomer(Customer customer) throws SQLException {
+        
+         String sql = "UPDATE ADDSICUREZZA "
+                + "SET NAME = "+customer.getName()+" "
+                +",SET SURNAME = "+customer.getSurname()
+                +",SET EMAIL = " +customer.getEmail()
+                +",SET PHONE = "+ customer.getPhone()
+                +",SET BIRTH = "+ new Timestamp(customer.getDate_born().getTime())
+                +",SET USERNAME = "+customer.getUsername()
+                +",SET ACQUISTI = "+customer.getTickets_purchased()
+                +",SET TAX_CODE = "+customer.getTax_code()
+                +" WHERE IDSICUREZZA = ?;";
+        
+                con = DBConnect.getConnection();
+                ps = con.prepareStatement(sql);
+                ps.setString(1,customer.getIdCustomer());
+                
+                return ps.executeUpdate();
+    }
     
 
     

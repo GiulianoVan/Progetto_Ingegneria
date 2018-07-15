@@ -7,6 +7,7 @@ package Controller;
 
 import DB.DAO.AddettoDao;
 import GestioneTabella.MyDefaultTableModel;
+import Model.JavaBean.Addetto;
 import View.GeneralPanel;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
@@ -52,6 +53,9 @@ public class ControllerTableAddetto extends ControllerTable{
                     value = value.toUpperCase();
                 value= value.replace(",",".");
                 table.setValueAt(value, row, column);
+               /* Addetto add = new Addetto(name, cogn, cf, email,tel,stip, datnasc, id)
+                  chiamo dao.update(AddeddoDao);
+                */
                 dao.updateAddetto(value,table.getColumnName(column),table.getModel().getValueAt(row,tab.getId_column()).toString());
                 row = -1;
                 column=-1;
