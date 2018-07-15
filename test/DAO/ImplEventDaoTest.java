@@ -8,6 +8,8 @@ package DAO;
 import DB.DAO.ImplEventDao;
 import DB.Database.DBConnect;
 import Model.JavaBean.Event;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
@@ -49,6 +51,7 @@ public class ImplEventDaoTest {
     /**
      * Test of advancedSearchEvent method, of class ImplEventDao.
      */
+    /*
     @Test
     public void testAdvancedSearchEvent() throws Exception {
         System.out.println("advancedSearchEvent");
@@ -62,25 +65,43 @@ public class ImplEventDaoTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
     }
-
+*/
     /**
      * Test of createEvent method, of class ImplEventDao.
      */
+    
+    
     @Test
     public void testCreateEvent() throws Exception {
+      
         System.out.println("createEvent");
-        Event event = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         
+        //WECT1 Event e = new Event("Prova1","test", "Cinema", "Comedy",sdf.parse("5/06/1990"),"test"); //sql exception on date,ok
+        //WECT2 Event e = new Event("","test", "Cinema", "Comedy",sdf.parse("5/06/2020"),"test"); //sql exception on title,ok
+        //WECT3 Event e = new Event("******","test", "Cinema", "Comedy",sdf.parse("5/06/2020"),"test"); //sql exception on title,ok
+        //WECT4 Event e = new Event("Harry Potter","test","Ciao","",sdf.parse("16/07/2018"),"test"); //sql exception on type_event,ok
+      /*WECT5*/ Event e = new Event("Harry Potter 3","test","Cinema","Other",sdf.parse("7/06/2020"),"test"); //insert ok,ok
+        //WECT6 Event e = new Event("Napoli-Juve","test","Sport","Football",sdf.parse("06/03/2019"),"test"); //insert ok,ok
+        //WECT7 Event e = new Event("Napoli-Juve","test","Sport","Comedy",sdf.parse("16/07/2018"),"test"); //sql exception kind,ok
+        //WECT8 Event e = new Event("Pino Daniele","test","Concert","",sdf.parse("16/07/2018"),"test"); //sql exception kind,ok
+        //WECT9 Event e = new Event("Ingegneria*_*","test","","",sdf.parse("20/07/2018"),"test"); //SQL exception on type Event  enumeration,ok
         ImplEventDao instance = new ImplEventDao();
-        instance.createEvent(event);
+        int res = instance.createEvent(e);
+        
+        assertEquals(1,res);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
-
+    
+    
+    
     /**
      * Test of updateEvent method, of class ImplEventDao.
      */
-   @Test
+   
+    /*
+    @Test
     public void testUpdateEvent() throws Exception {
         System.out.println("updateEvent");
         String new_value = "PROVAXXX";
@@ -94,24 +115,29 @@ public class ImplEventDaoTest {
         // TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
     }
-
+    */
+    
     /**
      * Test of deleteEvent method, of class ImplEventDao.
      */
+    
+    
     @Test
     public void testDeleteEvent_String() throws Exception {
         System.out.println("deleteEvent");
-        String idEvent = "";
+        //SECT1 String idEvent = "Aaaaaaabbbccc";
+        //SECT2 String idEvent = "";
+        String idEvent= "24";
         ImplEventDao instance = new ImplEventDao();
-        int expResult = 0;
+        
         int result = instance.deleteEvent(idEvent);
-        assertEquals(expResult, result);
+        //SECT1-SECT2 assertEquals(0,result);
+        /*SECT3*/ assertEquals(1,result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
     
-
+    
+    
     /**
      * Test of deleteEvent method, of class ImplEventDao.
      */
@@ -119,6 +145,8 @@ public class ImplEventDaoTest {
     /**
      * Test of searchByTypeEvent method, of class ImplEventDao.
      */
+    
+    /*
     @Test
     public void testSearchByTypeEvent() throws Exception {
         System.out.println("searchByTypeEvent");
@@ -130,10 +158,13 @@ public class ImplEventDaoTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
+    */
+    
     /**
      * Test of searchByKindEvent method, of class ImplEventDao.
      */
+    
+    /*
     @Test
     public void testSearchByKindEvent() throws Exception {
         System.out.println("searchByKindEvent");
@@ -145,25 +176,38 @@ public class ImplEventDaoTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
+*/
+    
+    
     /**
      * Test of searchByTitle method, of class ImplEventDao.
      */
     @Test
     public void testSearchByTitle() throws Exception {
         System.out.println("searchByTitle");
-        String title = "";
+        //String title = "Harry Potter";
+        //String title = "XXX";
+        //String title = "";
+        //String title = "*****";
+        String title = "Da paura";
         ImplEventDao instance = new ImplEventDao();
-        Set<Event> expResult = null;
         Set<Event> result = instance.searchByTitle(title);
-        assertEquals(expResult, result);
+         
+        for(Event e : result)
+        {
+            assertEquals(title.toUpperCase(),e.getTitle().toUpperCase());
+        }
+        
+            
+        
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of searchByPlace method, of class ImplEventDao.
      */
+    
+    /*
     @Test
     public void testSearchByPlace() throws Exception {
         System.out.println("searchByPlace");
@@ -180,6 +224,8 @@ public class ImplEventDaoTest {
 // TODO review the generated test code and remove the default call to fail.
     }
 
+     */
+    
     /**
      * Test of searchByProvince method, of class ImplEventDao.
      */
@@ -188,6 +234,8 @@ public class ImplEventDaoTest {
     /**
      * Test of searchByDate method, of class ImplEventDao.
      */
+    
+    /*
     @Test
     public void testSearchByDate() throws Exception {
         System.out.println("searchByDate");
@@ -201,6 +249,6 @@ public class ImplEventDaoTest {
         fail("The test case is a prototype.");
     }
     
-    
+    */
     
 }

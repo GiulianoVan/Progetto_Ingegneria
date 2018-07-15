@@ -88,14 +88,14 @@ public class ImplEventDao implements EventDao{
     }
 
     @Override
-    public void createEvent(Event event) throws SQLException{
+    public int createEvent(Event event) throws SQLException{
         
         String sql = "INSERT INTO EVENTO(TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,DESCRIPTION) VALUES (?,?,?,?,?,?);";
         con = DBConnect.getConnection();
         ps=con.prepareStatement(sql);
-        ps.setString(1,event.getTitle().toUpperCase());
-        ps.setString(2, event.getTypeEvent().toUpperCase());
-        ps.setString(3,event.getTypeGender().toUpperCase());
+        ps.setString(1,event.getTitle());
+        ps.setString(2, event.getTypeEvent());
+        ps.setString(3,event.getTypeGender());
         if(event.getDataEvent()!=null)
         {
             ps.setTimestamp(4, new Timestamp(event.getDataEvent().getTime()));
@@ -108,10 +108,10 @@ public class ImplEventDao implements EventDao{
         ps.setString(5,event.getPlaceName());
         ps.setString(6,event.getDescription());
         
-        ps.executeUpdate();
+        int res = ps.executeUpdate();
         con.close();
         ps.close();
-        
+        return res;
     }
 
     @Override

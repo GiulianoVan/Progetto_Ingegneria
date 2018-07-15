@@ -75,9 +75,9 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 726.97900390625,
+											"left": 726,
 											"top": 13,
-											"width": 115.9052734375,
+											"width": 107,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -102,7 +102,7 @@
 											"containerExtending": false,
 											"left": 661,
 											"top": 13,
-											"width": 60.97900390625,
+											"width": 60,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -3447,7 +3447,7 @@
 											"left": 211,
 											"top": 520,
 											"width": 14,
-											"height": 385,
+											"height": 393,
 											"autoResize": false
 										}
 									],
@@ -3614,7 +3614,7 @@
 											"left": 491,
 											"top": 561,
 											"width": 14,
-											"height": 328,
+											"height": 352,
 											"autoResize": false
 										}
 									],
@@ -4139,7 +4139,7 @@
 									"containerExtending": false,
 									"left": 752,
 									"top": 240,
-									"width": 83.91455078125,
+									"width": 85,
 									"height": 194,
 									"autoResize": false,
 									"text": "Se Click != 2 e la cella è ancora impostata su Editable. Riportala a non editable e aggiorna La cella all'oldvalue",
