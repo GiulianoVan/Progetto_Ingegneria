@@ -86,6 +86,8 @@ public class ImplEventDaoTest {
         //WECT7 Event e = new Event("Napoli-Juve","test","Sport","Comedy",sdf.parse("16/07/2018"),"test"); //sql exception kind,ok
         //WECT8 Event e = new Event("Pino Daniele","test","Concert","",sdf.parse("16/07/2018"),"test"); //sql exception kind,ok
         //WECT9 Event e = new Event("Ingegneria*_*","test","","",sdf.parse("20/07/2018"),"test"); //SQL exception on type Event  enumeration,ok
+       //WECT11 Event e = new Event("Jovanotti","test","","Concert","PopAndRock","test"); //sqlException on date.
+       //WECT10 Event e = new Event("Jovanotti","test","Concert","xxxxx",sdf.parse("25/07/2022"),"test"); //SqlException on KindEvent
         ImplEventDao instance = new ImplEventDao();
         int res = instance.createEvent(e);
         
