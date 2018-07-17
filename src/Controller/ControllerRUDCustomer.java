@@ -114,13 +114,13 @@ public class ControllerRUDCustomer extends ControllerGeneral{
         else if(action.equalsIgnoreCase("SEARCH_ADVANCED"))
         {
             customer = new HashSet<>();
-            
+            int intersect = 0;
             if(view.getTextCfGeneralSearch().getText().trim().length() != 0)
             {
                 try
                 {
                     customer.add(dao.searchByTaxCode(view.getTextCfGeneralSearch().getText()));
-
+                    intersect = 1;
                 }
                 catch(SQLException err)
                 {
@@ -134,10 +134,12 @@ public class ControllerRUDCustomer extends ControllerGeneral{
                         
                         try
                         {
-                             if(customer.isEmpty())
+                             if(customer.isEmpty() && intersect == 0)
                                customer.addAll(dao.searchByName(view.getTextNameGeneralSearch().getText()));
                              else
                                 customer.retainAll(dao.searchByName(view.getTextNameGeneralSearch().getText()));
+                        
+                             intersect = 1;
                         }
                         catch(SQLException err)
                         {
@@ -147,11 +149,12 @@ public class ControllerRUDCustomer extends ControllerGeneral{
                     if(view.getTextSurnameGeneralSearch().getText().trim().length() != 0)
                     {
                         try{
-                           if(customer.isEmpty()) 
+                           if(customer.isEmpty() && intersect == 0) 
                              customer.addAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
                            else
                              customer.retainAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
 
+                            intersect = 1;
                         }
                         catch(SQLException err)
                         {
@@ -161,10 +164,12 @@ public class ControllerRUDCustomer extends ControllerGeneral{
                     if(view.getDateFromGeneral().getDate()!= null && view.getDateToGeneral().getDate()!= null)
                     {
                         try{
-                           if(customer.isEmpty())  
+                           if(customer.isEmpty() && intersect == 0)  
                               customer.addAll(dao.searchByBirth(view.getDateFromGeneral().getDate(),view.getDateToGeneral().getDate()));
                            else
                              customer.retainAll(dao.searchByBirth(view.getDateFromGeneral().getDate(),view.getDateToGeneral().getDate()));
+                           
+                           intersect = 1;
                         }
                         catch(SQLException err)
                         {

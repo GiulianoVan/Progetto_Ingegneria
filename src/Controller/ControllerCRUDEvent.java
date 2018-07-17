@@ -32,6 +32,7 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
     private EventDao dao;
     private Set<Event> event;
     private int flag_errorDelete = 1;
+    private String flag_search = "";
     
     public ControllerCRUDEvent(EventDao dao, GeneralPanel view) {
         super(view);
@@ -52,6 +53,7 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
         String action = e.getActionCommand();
         if(action.equals("CERCA"))
         {
+            flag_search = "cerca";
             if(view.getTextSearchGeneral().getText().trim().length() > 0)
             {
                 
@@ -101,6 +103,11 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
                 Event event = new Event(titolo,description,event_type, kind_type, data, luogo);
                 dao.createEvent(event);
                 JOptionPane.showMessageDialog(view,"Inserimento avvenuto con successo","INSERT",JOptionPane.INFORMATION_MESSAGE);
+                
+                if(flag_search.equalsIgnoreCase("cerca"))
+                    view.getButtonOkSearchGeneral().doClick();
+                else if(flag_search.equalsIgnoreCase("search_advanced"))
+                    view.getButtonOkAdvSearchGeneral().doClick();
                 view.clearAllTextCreate();
             }
             catch(SQLException ex)
@@ -111,6 +118,7 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
         }
         else if(action.equalsIgnoreCase("SEARCH_ADVANCED"))
         {
+            flag_search="search_advanced";
             String title = view.getTextNameGeneralSearch().getText();
             String type = view.getComboTypeGeneralSearch().getSelectedItem().toString();
             Date from = view.getDateFromGeneral().getDate();
@@ -166,16 +174,15 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
     {
             
             Set<Event> event = new HashSet<>();
-            
+            int intersect = 0;
             if(title.trim().length()!=0)
                 {
                     
                     try
                     {
-                         if(event.isEmpty())
+                         
                            event.addAll(dao.searchByTitle(title));
-                         else
-                            event.retainAll(dao.searchByTitle(title));
+                           intersect = 1;
                     }
                     catch(SQLException err)
                     {
@@ -185,10 +192,12 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
             if(!type.equalsIgnoreCase("Select Type Event..."))
              {
                     try{
-                       if(event.isEmpty()) 
+                       if(event.isEmpty() && intersect == 0) 
                          event.addAll(dao.searchByTypeEvent(type.toUpperCase()));
                        else
                          event.retainAll(dao.searchByTypeEvent(type.toUpperCase()));
+                       
+                       intersect = 1;
                     }
                     catch(SQLException err)
                     {
@@ -198,10 +207,12 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
             if(from != null && to != null)
             {
                 try{
-                   if(event.isEmpty())  
+                   if(event.isEmpty() && intersect ==0)  
                       event.addAll(dao.searchByDate(from,to));
                    else
                      event.retainAll(dao.searchByDate(from,to));
+                
+                   intersect = 1;
                 }
                 catch(SQLException err)
                 {
@@ -218,11 +229,13 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
             if(!kind.equalsIgnoreCase("Genere"))
              {
                     try{
-                            if(event.isEmpty()) 
+                            if(event.isEmpty() && intersect ==0) 
                                event.addAll(dao.searchByKindEvent(kind));
                             else
                                event.retainAll(dao.searchByKindEvent(kind));
-                       }
+                            
+                            intersect = 1;
+                    }
                     catch(SQLException err)
                     {
                          JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);

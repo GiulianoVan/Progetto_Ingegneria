@@ -30,6 +30,7 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
     private GeneralPanel view;
     private int flag_errorDelete = 1;
     private int flagtesting=0;
+    private String flag_search= "";
     
     public ControllerCRUDAddetto(AddettoDao dao,GeneralPanel view)
     {
@@ -53,6 +54,7 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
         String action = e.getActionCommand();
         if(action.equals("CERCA"))
         {
+            flag_search="cerca";
             String testo = view.getTextSearchGeneral().getText();
             if(testo.trim().length() > 0)
             {
@@ -108,7 +110,10 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
                 else
                 {
                     JOptionPane.showMessageDialog(view,"Error : Salary field empty","ERROR", JOptionPane.ERROR_MESSAGE);
-                    
+                     if(flag_search.equalsIgnoreCase("cerca"))
+                          view.getButtonOkSearchGeneral().doClick();
+                    else if(flag_search.equalsIgnoreCase("search_advanced"))
+                          view.getButtonOkAdvSearchGeneral().doClick();
                 }
                 //se va in eccezion,mettimi errore sul salary
                 errorSalary = 1;
@@ -116,12 +121,13 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
              if(errorSalary != 1) // non continua se ci sta un errore sul salary
              {
                  createAddetto(name, surname, username, password, code, birth, phone, email, salary);
-                 
+                      
              }
              errorSalary=0;
         }
         else if(action.equalsIgnoreCase("SEARCH_ADVANCED"))
         {
+             flag_search="search_advanced";
             String cf =view.getTextCfGeneralSearch().getText();
             String name = view.getTextNameGeneralSearch().getText();
             String surname = view.getTextSurnameGeneralSearch().getText();
@@ -232,6 +238,7 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
     private Set<Addetto> doAdvancedSearch(String cf, String name, String surname, Date from, Date to) {
         {
             Set<Addetto> addetti = new HashSet<>();
+            int intersect = 0;
             
             if(cf.trim().length() != 0)
             {
@@ -247,13 +254,16 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
             else
             {
                     if(name.trim().length()!=0)
-                    {
+                    { 
+                        
                         try
                         {
-                             if(addetti.isEmpty())
+                             if(addetti.isEmpty() && intersect == 0)
                                addetti.addAll(dao.searchByName(name));
                              else
                                 addetti.retainAll(dao.searchByName(name));
+                             
+                             intersect = 1;
                         }
                         catch(SQLException err)
                         {
@@ -263,10 +273,12 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
                     if(surname.trim().length() != 0)
                     {
                         try{
-                           if(addetti.isEmpty()) 
+                           if(addetti.isEmpty() && intersect == 0) 
                              addetti.addAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
                            else
                              addetti.retainAll(dao.searchBySurname(view.getTextSurnameGeneralSearch().getText()));
+                       
+                           intersect = 1;
                         }
                         catch(SQLException err)
                         {
@@ -276,10 +288,12 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
                     if(from!= null && to != null)
                     {
                         try{
-                           if(addetti.isEmpty())  
+                           if(addetti.isEmpty() && intersect == 0)  
                               addetti.addAll(dao.searchByBirth(from,to));
                            else
                              addetti.retainAll(dao.searchByBirth(from,to));
+                        
+                           intersect = 1;
                         }
                         catch(SQLException err)
                         {

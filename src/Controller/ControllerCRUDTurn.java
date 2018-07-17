@@ -64,8 +64,8 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
         if(action.equals("SEARCH"))
         {
            
-            String event = null;
-            String tax_code = null;
+            String event = "";
+            String tax_code = "";
             
             if(view.getComboEventWork().getSelectedItem() != null)
                event = view.getComboEventWork().getSelectedItem().toString();
@@ -74,15 +74,15 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
               tax_code = view.getComboTaxCodeWork().getSelectedItem().toString();
             
             
-            Set<ManagementTurn> turn;
-            turn  = doSearch(event,tax_code);
+            Set<ManagementTurn> turns;
+            turns  = doSearch(event,tax_code);
 
-            if(turn.size()>0)
+            if(turns.size()>0)
             {
                view.getButtonDelete().setEnabled(true);
             }
             
-            view.updateTable(turn);
+            view.updateTable(turns);
             
             if(view.getTableMenagementEvents().getRowCount()>0)
                 view.getTableMenagementEvents().setRowSelectionInterval(0, 0);
@@ -106,7 +106,7 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
                 
                 dao.insertTurn(CF, codeEvent, start, end);
                 JOptionPane.showMessageDialog(view, "Successfull Insert", "INSERT", JOptionPane.INFORMATION_MESSAGE);
-                
+                view.getButtonSearch().doClick(); //aggiorno tabella.
                 } catch (SQLException ex) 
                 {
                     JOptionPane.showMessageDialog(view, "Error : "+ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -230,27 +230,33 @@ public class ControllerCRUDTurn implements ActionListener,KeyListener,MouseListe
     private Set<ManagementTurn> doSearch(String event, String tax_code) {
         
        Set<ManagementTurn> turn = new HashSet<>();
-        if(event != null)
+       int intersect = 0;
+       
+        if(!event.equals(""))
             {
+                intersect = 1;
                 try{
-                    if(turn.isEmpty())
                         turn.addAll(dao.getTurnEvent(event));
-                    else
-                        turn.retainAll(dao.getTurnEvent(event));
                 }
                 catch(SQLException err)
                 {
                     JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
                 }
             }
-            if(tax_code != null)
+            if(!tax_code.equals(""))
             {
                 try{
-                    if(turn.isEmpty())
+                    if(turn.isEmpty() && intersect==0)
+                    {
                         turn.addAll(dao.getTurnAddetto(tax_code));
+                    }
                     else
+                    {
                         turn.retainAll(dao.getTurnAddetto(tax_code));
-                }
+                    }
+                    
+                     intersect = 1;
+                    }
                 catch(SQLException err)
                 {
                     JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);

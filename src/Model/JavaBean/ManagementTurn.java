@@ -29,14 +29,7 @@ public class ManagementTurn {
         this.idTurn = idTurn;
     }
     
-    /*
-    DateFormat formatter = new SimpleDateFormat("HH:mm");
-    try {
-    Time start = new java.sql.Time(formatter.parse(fajr_prayertime).getTime());
-    } catch (ParseException ex) {
-    Logger.getLogger(JavaFXApplication4.class.getName()).log(Level.SEVERE, null, ex);
-}
-    */
+    
     
     public Addetto getAddetto() {
         return addetto;
@@ -66,11 +59,21 @@ public class ManagementTurn {
         return endTurn;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 19 * hash + Objects.hashCode(this.idTurn);
-        return hash;
+
+   
+    public void setEndTurn(Time endTurn) {
+        this.endTurn = endTurn;
+    }
+    Time startTurn;
+    Time endTurn;
+    
+    public ManagementTurn(Addetto addetto,Event event,Time startTurn,Time endTurn,int idturn)
+    {
+        this.addetto=addetto;
+        this.event = event;
+        this.startTurn = startTurn;
+        this.endTurn = endTurn;
+        this.idTurn=new Integer(idturn);
     }
 
     @Override
@@ -91,19 +94,12 @@ public class ManagementTurn {
         return true;
     }
 
-    public void setEndTurn(Time endTurn) {
-        this.endTurn = endTurn;
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 31 * hash + Objects.hashCode(this.idTurn);
+        return hash;
     }
-    Time startTurn;
-    Time endTurn;
     
-    public ManagementTurn(Addetto addetto,Event event,Time startTurn,Time endTurn,int idturn)
-    {
-        this.addetto=addetto;
-        this.event = event;
-        this.startTurn = startTurn;
-        this.endTurn = endTurn;
-        this.idTurn=new Integer(idturn);
-    }
     
 }
