@@ -5,11 +5,11 @@
  */
 package Controller;
 
-import DB.DAO.AmministratoreDao;
-import DB.DAO.ImplAdminDao;
+//import DB.DAO.AmministratoreDao;
+//import DB.DAO.ImplAdminDao;
 import DB.Database.DBConnect;
 import Main.StartProject;
-import Model.JavaBean.Admin;
+//import Model.JavaBean.Admin;
 import View.LoginView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,15 +28,15 @@ import javax.swing.JOptionPane;
 public class ControllerLogin implements ActionListener,KeyListener{
     
 
-      AmministratoreDao dao;
+      //AmministratoreDao dao;
       private LoginView viewLog;
-      Admin admin;
+      //Admin admin;
       private int flag_joptionpane = 1;//flag che controlla lo stato del bottone JOptionPane
       private Object[] ok_options = {"OK"};//setto 'Ok' come unica opzione dei JOptionPane.showOptionDialog
       
-    public ControllerLogin(AmministratoreDao dao, LoginView view)
+    public ControllerLogin(/*AmministratoreDao dao,*/ LoginView view)
     {
-        this.dao = dao;
+        //this.dao = dao;
         viewLog = view;
         viewLog.getAccediButton().addActionListener(this);
         viewLog.getExitButton().addActionListener(this);

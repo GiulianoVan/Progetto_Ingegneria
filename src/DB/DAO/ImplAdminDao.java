@@ -4,16 +4,17 @@
  * and open the template in the editor.
  */
 package DB.DAO;
-
+/*
 import DB.Database.DBConnect;
 import Model.JavaBean.Admin;
 import java.sql.*;
-
+*/
 
 /**
  *
  * @author Pirozzi
  */
+/*
 public class ImplAdminDao implements AmministratoreDao {
     
     private Connection con;
@@ -46,3 +47,4 @@ public class ImplAdminDao implements AmministratoreDao {
     }
     
 }
+*/

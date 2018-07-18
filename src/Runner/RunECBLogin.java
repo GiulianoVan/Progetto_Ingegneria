@@ -6,8 +6,8 @@
 package Runner;
 
 import Controller.ControllerLogin;
-import DB.DAO.AmministratoreDao;
-import DB.DAO.ImplAdminDao;
+/*import DB.DAO.AmministratoreDao;
+import DB.DAO.ImplAdminDao;*/
 import View.LoginView;
 
 /**
@@ -20,9 +20,9 @@ public class RunECBLogin {
     public void startRunMVCLogin()
     {
 
-        AmministratoreDao dao = new ImplAdminDao();
+       // AmministratoreDao dao = new ImplAdminDao();
         LoginView loginview = new LoginView();
-        ControllerLogin controlLogin = new ControllerLogin(dao, loginview);
+        ControllerLogin controlLogin = new ControllerLogin(/*dao,*/ loginview);
         loginview.setLocationRelativeTo(null);//apre la finestra al centro dello schermo
         loginview.setVisible(true);
     }

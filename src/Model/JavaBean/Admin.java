@@ -9,6 +9,7 @@ package Model.JavaBean;
  *
  * @author Pirozzi
  */
+/*
 public class Admin {
  
     
@@ -59,3 +60,4 @@ public class Admin {
     }
     
 }
+*/

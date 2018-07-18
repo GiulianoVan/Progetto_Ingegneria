@@ -8,6 +8,7 @@ package Controller;
 import DB.DAO.AddettoDao;
 import GestioneTabella.MyDefaultTableModel;
 import Model.JavaBean.Addetto;
+import View.AddettiPanel;
 import View.GeneralPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -27,12 +28,12 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
     //FATTI IN AUTOMATICO NEL COSTRUTTORE DEL APDRE
     private Set<Addetto> addetti;
     private AddettoDao dao;
-    private GeneralPanel view;
+    private AddettiPanel view;
     private int flag_errorDelete = 1;
     private int flagtesting=0;
     private String flag_search= "";
     
-    public ControllerCRUDAddetto(AddettoDao dao,GeneralPanel view)
+    public ControllerCRUDAddetto(AddettoDao dao,AddettiPanel view)
     {
         super(view);
         this.dao = dao;
@@ -110,18 +111,23 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
                 else
                 {
                     JOptionPane.showMessageDialog(view,"Error : Salary field empty","ERROR", JOptionPane.ERROR_MESSAGE);
-                     if(flag_search.equalsIgnoreCase("cerca"))
-                          view.getButtonOkSearchGeneral().doClick();
-                    else if(flag_search.equalsIgnoreCase("search_advanced"))
-                          view.getButtonOkAdvSearchGeneral().doClick();
+                    
                 }
                 //se va in eccezion,mettimi errore sul salary
                 errorSalary = 1;
             }
              if(errorSalary != 1) // non continua se ci sta un errore sul salary
              {
-                 createAddetto(name, surname, username, password, code, birth, phone, email, salary);
-                      
+                 int createok = createAddetto(name, surname, username, password, code, birth, phone, email, salary);
+                 if(createok == 1)
+                 {
+                     if(flag_search.equalsIgnoreCase("cerca"))
+                          view.getButtonOkSearchGeneral().doClick();
+                    else if(flag_search.equalsIgnoreCase("search_advanced"))
+                          view.getButtonOkAdvSearchGeneral().doClick();  
+                     
+                     view.clearAllTextCreate();
+                 }
              }
              errorSalary=0;
         }
@@ -155,6 +161,7 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
             {
             if(view.getTextSearchGeneral().getText().trim().length() > 0)
                {
+                    flag_search = "search";
                     String testo = view.getTextSearchGeneral().getText();
                     ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);
                     try
@@ -171,22 +178,11 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
            }
         else if(e.getKeyChar() == '\n' && (e.getComponent()== view.getTextNameGeneralSearch() || e.getComponent()== view.getTextSurnameGeneralSearch() || e.getComponent()== view.getTextCfGeneralSearch()))
         {       
+           flag_search ="search_advanced";
            view.getButtonOkAdvSearchGeneral().doClick();
         }
     }
-   
- public void clearAllTextCreate()
- {
-     view.getTextNameCreate().setText("");
-     view.getTextSurnameCreate().setText("");
-     view.getTextSalaryCreate().setText("");
-     view.getTextEmailCreate().setText("");
-     view.getTextCFCreate().setText("");
-     view.getTextUsernameCreate().setText("");
-     view.getTextPasswordCreate().setText("");
-     view.getDateCreateAddetto().setDate(null);
-     view.getTextNumberCreate().setText("");
- }
+ 
 
     private void updateViewForCreatepanel() {
             view.getDeleteSearch().setVisible(false);
@@ -312,18 +308,21 @@ public class ControllerCRUDAddetto extends ControllerGeneral{ //o estende la gen
         }
     }
 
-    private void createAddetto(String name, String surname, String username, String password, String code, Date birth, String phone, String email, Double salary) {
-        try
-                {
-                     Addetto security = new Addetto(name,surname,code,email,phone, salary,birth,username,password);
-                     dao.aggiungiAddetto(security);
-                     JOptionPane.showMessageDialog(view,"Successfull insert","INSERT",JOptionPane.INFORMATION_MESSAGE);
-                     clearAllTextCreate();
-                }
-                catch(SQLException err)
-                {
-                   JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-                }
+    private int createAddetto(String name, String surname, String username, String password, String code, Date birth, String phone, String email, Double salary) {
+        
+            int ok = 0;
+            try
+            {
+                 Addetto security = new Addetto(name,surname,code,email,phone, salary,birth,username,password);
+                 dao.aggiungiAddetto(security);
+                 JOptionPane.showMessageDialog(view,"Successfull insert","INSERT",JOptionPane.INFORMATION_MESSAGE);
+                 ok=1;
+            }
+            catch(SQLException err)
+            {
+               JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            return ok;
     }
 
     private void doSearch(ArrayList<String> parolechiavi) {

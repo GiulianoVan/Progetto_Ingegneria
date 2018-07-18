@@ -87,13 +87,13 @@ public class ControllerCRUDEventIT {
         System.out.println("actionPerformed");
         view = new EventPanel();
         dao = new ImplEventDao();
-        ControllerCRUDEvent controllerEvt = new ControllerCRUDEvent(dao, view);
+       /* ControllerCRUDEvent controllerEvt = new ControllerCRUDEvent(dao, view);
         //controllerEvt.advancedSearch("Harry","Select Type Event...",new Date(2018,8,20),new Date(2018,10,15),"genere");
         testAdvancedSearch("Prova1","Select Type Event...",new Date(2018,0,10),new Date(2018,11,15),"genere",controllerEvt);
         testAdvancedSearch("Prova1","Select Type Event...",new Date(2018,0,10),null,"genere",controllerEvt);//JOPTION
         testAdvancedSearch("Prova1","Select Type Event...",null,null,"genere",controllerEvt);
         testAdvancedSearch("Prova1","Select Type Event...",null,new Date(2018,0,10),"genere",controllerEvt);//JOPTION
-        
+        */
 
         // TODO review the generated test code and remove the default call to fail.
     }

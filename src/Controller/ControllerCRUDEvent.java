@@ -8,6 +8,7 @@ package Controller;
 import DB.DAO.EventDao;
 import GestioneTabella.MyDefaultTableModel;
 import Model.JavaBean.Event;
+import View.EventPanel;
 import View.GeneralPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
@@ -28,13 +29,13 @@ import javax.swing.JOptionPane;
  */
 public class ControllerCRUDEvent extends ControllerGeneral implements ItemListener{
     
-    private GeneralPanel view;
+    private EventPanel view;
     private EventDao dao;
     private Set<Event> event;
     private int flag_errorDelete = 1;
     private String flag_search = "";
     
-    public ControllerCRUDEvent(EventDao dao, GeneralPanel view) {
+    public ControllerCRUDEvent(EventDao dao, EventPanel view) {
         super(view);
         this.dao = dao;
         this.view = view;
@@ -134,11 +135,12 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
     public void keyReleased(KeyEvent e) 
     {
           
-         if(e.getKeyChar()=='\n')
+         if(e.getKeyChar()=='\n' && e.getComponent().equals(view.getTextSearchGeneral()))
         { 
 
             if(view.getTextSearchGeneral().getText().trim().length() > 0)
                 {
+                    flag_search = "cerca";
                    try {
                      String testo = view.getTextSearchGeneral().getText();
                      ArrayList<String> parolechiavi = EstraiParoleChiavi(testo);
@@ -150,7 +152,8 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
                }
                
         }
-    }
+             
+     }
 
     @Override
     public void itemStateChanged(ItemEvent e) {

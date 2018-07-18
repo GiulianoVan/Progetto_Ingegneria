@@ -1,7 +1,7 @@
 package Main;
 
 
-import Model.JavaBean.Admin;
+//import Model.JavaBean.Admin;
 import Runner.RunECBLogin;
 import View.*;
 import Runner.RunECBEvents;

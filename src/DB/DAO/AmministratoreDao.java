@@ -4,15 +4,16 @@
  * and open the template in the editor.
  */
 package DB.DAO;
-
+/*
 import Model.JavaBean.Admin;
 import java.sql.SQLException;
-
+*/
 /**
  *
  * @author Pirozzi
  */
+/*
 public interface AmministratoreDao {
     
     public Admin searchbyUserAndPassword(String user,String password) throws SQLException;
-}
+} */

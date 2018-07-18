@@ -8,6 +8,7 @@ package Controller;
 import DB.DAO.CustomerDao;
 import GestioneTabella.MyDefaultTableModel;
 import Model.JavaBean.Customer;
+import View.CustomerPanel;
 import View.GeneralPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -24,12 +25,12 @@ import javax.swing.JOptionPane;
 public class ControllerRUDCustomer extends ControllerGeneral{
  
     
-    private GeneralPanel view;
+    private CustomerPanel view;
     private CustomerDao dao;
     private Set<Customer> customer;
     private int flag_errorDelete = 1;
     
-    public ControllerRUDCustomer(CustomerDao dao, GeneralPanel view) {
+    public ControllerRUDCustomer(CustomerDao dao, CustomerPanel view) {
         
         super(view);
         this.dao = dao;
