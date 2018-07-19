@@ -126,7 +126,6 @@ public class ImpManagementTurnDao implements ManagementTurnDao{
                + "E.TITLE,E.EVENT_TYPE,E.KIND_TYPE,E.PLACE_NAME,E.DESCRIPTION,E.IDEVENTO,E.DATE, "
                + "T.START,T.END,T.TURN_NUMBER"
                + " FROM GESTIONE_TURNO T JOIN EVENTO E ON E.IDEVENTO=T.EVENTO JOIN ADDSICUREZZA A  ON A.IDSICUREZZA=T.ADDSICUREZZA WHERE A.TAX_CODE = ? ";
-       System.out.println(sql);
        con = DBConnect.getConnection();
        ps = con.prepareStatement(sql);
        ps.setString(1,cf);

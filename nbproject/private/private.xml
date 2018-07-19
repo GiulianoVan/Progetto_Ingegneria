@@ -12,15 +12,7 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/DB/DAO/ImplAdminDao.java</file>
-            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Main/StartProject.java</file>
-            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Controller/ControllerCRUDEvent.java</file>
-            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Runner/RunECBLogin.java</file>
-            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Controller/ControllerLogin.java</file>
-            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/DB/DAO/AmministratoreDao.java</file>
-            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Model/JavaBean/Admin.java</file>
-            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/View/GeneralPanel.java</file>
-            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/test/Controller/ControllerCRUDEventIT.java</file>
+            <file>file:/C:/Users/Vincent/Desktop/INGSW_GitHub/Progetto_Ingegneria/src/DB/Database/DBConnect.java</file>
         </group>
     </open-files>
 </project-private>
