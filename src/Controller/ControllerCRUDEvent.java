@@ -192,7 +192,7 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
                          JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-            if(!type.equalsIgnoreCase("Select Type Event..."))
+            if(!type.equalsIgnoreCase("NOT SELECTED"))
              {
                     try{
                        if(event.isEmpty() && intersect == 0) 
@@ -229,7 +229,7 @@ public class ControllerCRUDEvent extends ControllerGeneral implements ItemListen
 
             }
                
-            if(!kind.equalsIgnoreCase("Genere"))
+            if(!kind.equalsIgnoreCase("NOT SELECTED"))
              {
                     try{
                             if(event.isEmpty() && intersect ==0) 

@@ -171,6 +171,7 @@ public class EventPanel extends GeneralPanel {
            //EW.KIND_TYPE != 'OTHER' AND NEW.KIND_TYPE != 'POP AND ROCK' AND NEW.KIND_TYPE != 'METAL'
             comboKind.addItem("MUSICAL");
             comboKind.addItem("CABARET");
+            comboKind.addItem("COMEDY");
             comboKind.addItem("OTHER");
        }
         else

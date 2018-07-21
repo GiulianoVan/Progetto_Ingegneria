@@ -219,7 +219,7 @@ public class ImplEventDao implements EventDao{
             
         Set<Event> result = new HashSet<>();
         
-        String sql = "SELECT TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,ZIP_CODE,DESCRIPTION,IDEVENTO FROM EVENTO WHERE KIND_EVENT = ?";
+        String sql = "SELECT TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,ZIP_CODE,DESCRIPTION,IDEVENTO FROM EVENTO WHERE KIND_TYPE = ?";
 
         con = DBConnect.getConnection();
         ps = con.prepareStatement(sql);
@@ -304,16 +304,24 @@ public class ImplEventDao implements EventDao{
 
         con = DBConnect.getConnection();
         ps = con.prepareStatement(sql);
-        ps.setTimestamp(1,new Timestamp(from.getTime()));
-        ps.setTimestamp(2,new Timestamp(to.getTime()));
-
-        rs = ps.executeQuery();
-      
-        while(rs.next())
+        
+        if(from != null && to != null)
         {
-             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+            ps.setTimestamp(1,new Timestamp(from.getTime()));
+            ps.setTimestamp(2,new Timestamp(to.getTime()));
+           
         }
-            
+        else
+        {
+            ps.setTimestamp(1,null);
+            ps.setTimestamp(2,null);        
+        }
+       
+             rs = ps.executeQuery();
+             while(rs.next())
+             {
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+             }
         return result;
     }
 
