@@ -73,7 +73,7 @@ public class StatisticsView extends javax.swing.JPanel {
 
         comboStatisticType.setBackground(new java.awt.Color(255, 204, 104));
         comboStatisticType.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
-        comboStatisticType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Statistic Type", "Average age for events", "Tickets sold over the years", "Presences over the years by event", "Earnings over the years" }));
+        comboStatisticType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Statistic Type", "Distibution of the events", "Tickets sold over the years", "Presences over the years by event", "Earnings over the years" }));
         add(comboStatisticType, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 270, 40));
 
         buttonGenerateGraph.setBackground(new java.awt.Color(255, 204, 104));
@@ -186,10 +186,10 @@ public class StatisticsView extends javax.swing.JPanel {
     {
         GenerateChart charts = new GenerateChart();
         //Average age for events, Tickets sold over the years, Presences over the years by event, Earnings over the years
-        if(choise.equals("Average age for events"))
+        if(choise.equals("Distibution of the events"))
         {
             Charts chart = charts.getChart("PIE");
-            ChartFrame frame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            ChartFrame frame = new ChartFrame("Distibution of the events and Average age ",chart.drawChart(map));
             frame.setSize(450,500);
             frame.setVisible(true);
             
@@ -202,7 +202,7 @@ public class StatisticsView extends javax.swing.JPanel {
             LineChart lineChart = (LineChart) chart;
             lineChart.setAsseX("Year");
             lineChart.setAsseY("Ticket");
-            ChartFrame frame = new ChartFrame("Bar Chart for Parameters", chart.drawChart(map));
+            ChartFrame frame = new ChartFrame("Tickets sold over the years", chart.drawChart(map));
             //frame.setVisible(true);
             frame.setSize(450,500);
             frame.setSize(450,500);
@@ -216,7 +216,7 @@ public class StatisticsView extends javax.swing.JPanel {
             LineChart lineChart = (LineChart) chart;
             lineChart.setAsseX("Year");
             lineChart.setAsseY("Presence");
-            ChartFrame frame = new ChartFrame("Bar Chart for Parameters", chart.drawChart(map));
+            ChartFrame frame = new ChartFrame("Presences over the years by event", chart.drawChart(map));
             //frame.setVisible(true);
             frame.setSize(450,500);
             frame.setSize(450,500);
@@ -231,7 +231,7 @@ public class StatisticsView extends javax.swing.JPanel {
             LineChart lineChart = (LineChart) chart;
             lineChart.setAsseX("Year");
             lineChart.setAsseY("Cash");
-            ChartFrame frame = new ChartFrame("Bar Chart for Parameters", chart.drawChart(map));
+            ChartFrame frame = new ChartFrame("Earnings over the years", chart.drawChart(map));
             //frame.setVisible(true);
             frame.setSize(450,500);
             frame.setSize(450,500);
