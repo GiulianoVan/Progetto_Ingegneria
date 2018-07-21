@@ -21,7 +21,6 @@ import DB.DAO.ManagementTurnDao;
 import GestioneTabella.MyDefaultTableModel;
 import Model.JavaBean.Addetto;
 import Model.JavaBean.Event;
-import View.MenagementCustomers;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.HashSet;
