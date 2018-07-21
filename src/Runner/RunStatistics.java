@@ -5,9 +5,9 @@
  */
 package Runner;
 
-import Controller.ControllerCRUDTurn;
-import DB.DAO.ImpManagementTurnDao;
-import DB.DAO.ImpStatisticsDao;
+import Controller.ControllerCRDTurn;
+import DB.DAO.ImpMySqlManagementTurnDao;
+import DB.DAO.ImpMySqlStatisticsDao;
 import DB.DAO.StatisticsDao;
 import Controller.ControllerStatistics;
 import Controller.ControllerUpdateTurn;
@@ -30,7 +30,7 @@ public class RunStatistics {
     
     public void start()
     {
-        dao = new ImpStatisticsDao();
+        dao = new ImpMySqlStatisticsDao();
         view = new StatisticsView();
         controller = new ControllerStatistics(dao, view);
     }

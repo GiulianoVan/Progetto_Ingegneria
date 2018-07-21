@@ -6,11 +6,11 @@
 package Runner;
 
 
-import Controller.ControllerRUDCustomer;
-import Controller.ControllerGeneral;
+import Controller.ControllerRDCustomer;
+import Controller.ListenerPanell;
 import DB.DAO.CustomerDao;
-import DB.DAO.ImplCustomerDao;
-import Controller.ControllerTableCustomer;
+import DB.DAO.ImplMySqlCustomerDao;
+import Controller.ControllerUpdateCustomer;
 import View.CustomerPanel;
 
 
@@ -21,15 +21,15 @@ import View.CustomerPanel;
 public class RunECBCustomer {
     
     private CustomerPanel customerView;
-    private ControllerRUDCustomer controller;
-    private ControllerTableCustomer controllerTable;
+    private ControllerRDCustomer controller;
+    private ControllerUpdateCustomer controllerTable;
     private CustomerDao dao;
    public void startMVCCustomer()
    {
-         dao= new ImplCustomerDao();
+         dao= new ImplMySqlCustomerDao();
          customerView = new CustomerPanel();
-        controller = new ControllerRUDCustomer(dao,customerView);
-        controllerTable=new ControllerTableCustomer(dao,customerView);
+        controller = new ControllerRDCustomer(dao,customerView);
+        controllerTable=new ControllerUpdateCustomer(dao,customerView);
         /*
         controllerButton = new ControllerButtonCustomer();
         controllerButton.setModel(model);

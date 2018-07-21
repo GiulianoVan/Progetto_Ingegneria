@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import DB.DAO.ImplEventDao;
+import DB.DAO.ImplMySqlEventDao;
 import DB.Database.DBConnect;
 import Model.JavaBean.Event;
 import java.text.SimpleDateFormat;
@@ -59,7 +59,7 @@ public class ImplEventDaoTest {
         String codEvt = "";
         String dateEvt = "";
         String typeEvt = "";
-        ImplEventDao instance = new ImplEventDao();
+        ImplMySqlEventDao instance = new ImplMySqlEventDao();
         Event expResult = null;
         Event result = instance.advancedSearchEvent(evtName, codEvt, dateEvt, typeEvt);
         assertEquals(expResult, result);
@@ -67,7 +67,7 @@ public class ImplEventDaoTest {
     }
 */
     /**
-     * Test of createEvent method, of class ImplEventDao.
+     * Test of createEvent method, of class ImplMySqlEventDao.
      */
     
     
@@ -88,7 +88,7 @@ public class ImplEventDaoTest {
         //WECT9 Event e = new Event("Ingegneria*_*","test","","",sdf.parse("20/07/2018"),"test"); //SQL exception on type Event  enumeration,ok
        //WECT11 Event e = new Event("Jovanotti","test","","Concert","PopAndRock","test"); //sqlException on date.
        //WECT10 Event e = new Event("Jovanotti","test","Concert","xxxxx",sdf.parse("25/07/2022"),"test"); //SqlException on KindEvent
-        ImplEventDao instance = new ImplEventDao();
+        ImplMySqlEventDao instance = new ImplMySqlEventDao();
         int res = instance.createEvent(e);
         
         assertEquals(1,res);
@@ -109,7 +109,7 @@ public class ImplEventDaoTest {
         String new_value = "PROVAXXX";
         String attribute_to_change = "TITLE";
         String id = "5";
-        ImplEventDao instance = new ImplEventDao();
+        ImplMySqlEventDao instance = new ImplMySqlEventDao();
         int expResult = 1;
         int result = instance.updateEvent(new_value, attribute_to_change, id);
         System.out.println(result);
@@ -120,7 +120,7 @@ public class ImplEventDaoTest {
     */
     
     /**
-     * Test of deleteEvent method, of class ImplEventDao.
+     * Test of deleteEvent method, of class ImplMySqlEventDao.
      */
     
     
@@ -130,7 +130,7 @@ public class ImplEventDaoTest {
         //SECT1 String idEvent = "Aaaaaaabbbccc";
         //SECT2 String idEvent = "";
         String idEvent= "24";
-        ImplEventDao instance = new ImplEventDao();
+        ImplMySqlEventDao instance = new ImplMySqlEventDao();
         
         int result = instance.deleteEvent(idEvent);
         //SECT1-SECT2 assertEquals(0,result);
@@ -153,7 +153,7 @@ public class ImplEventDaoTest {
     public void testSearchByTypeEvent() throws Exception {
         System.out.println("searchByTypeEvent");
         String type_event = "";
-        ImplEventDao instance = new ImplEventDao();
+        ImplMySqlEventDao instance = new ImplMySqlEventDao();
         Set<Event> expResult = null;
         Set<Event> result = instance.searchByTypeEvent(type_event);
         assertEquals(expResult, result);
@@ -171,7 +171,7 @@ public class ImplEventDaoTest {
     public void testSearchByKindEvent() throws Exception {
         System.out.println("searchByKindEvent");
         String kind_event = "";
-        ImplEventDao instance = new ImplEventDao();
+        ImplMySqlEventDao instance = new ImplMySqlEventDao();
         Set<Event> expResult = null;
         Set<Event> result = instance.searchByKindEvent(kind_event);
         assertEquals(expResult, result);
@@ -182,7 +182,7 @@ public class ImplEventDaoTest {
     
     
     /**
-     * Test of searchByTitle method, of class ImplEventDao.
+     * Test of searchByTitle method, of class ImplMySqlEventDao.
      */
     @Test
     public void testSearchByTitle() throws Exception {
@@ -192,7 +192,7 @@ public class ImplEventDaoTest {
         //String title = "";
         //String title = "*****";
         String title = "Da paura";
-        ImplEventDao instance = new ImplEventDao();
+        ImplMySqlEventDao instance = new ImplMySqlEventDao();
         Set<Event> result = instance.searchByTitle(title);
          
         for(Event e : result)
@@ -216,7 +216,7 @@ public class ImplEventDaoTest {
        
         String place = "Napoli";
                 
-        ImplEventDao instance = new ImplEventDao();
+        ImplMySqlEventDao instance = new ImplMySqlEventDao();
         //Set<Event> expResult = null;
         Set<Event> result = instance.searchByPlace(place);
         for(Event e : result)
@@ -243,7 +243,7 @@ public class ImplEventDaoTest {
         System.out.println("searchByDate");
         Date from = null;
         Date to = null;
-        ImplEventDao instance = new ImplEventDao();
+        ImplMySqlEventDao instance = new ImplMySqlEventDao();
         Set<Event> expResult = null;
         Set<Event> result = instance.searchByDate(from, to);
         assertEquals(expResult, result);

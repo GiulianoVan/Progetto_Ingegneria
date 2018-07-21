@@ -119,7 +119,7 @@ public class LoginView extends javax.swing.JFrame{
             if(admin != null){
  
                 this.dispose();
-                GeneralView home = new GeneralView();
+                MainView home = new MainView();
                 home.setLocationRelativeTo(null);
                 home.setVisible(true);   
             }
@@ -128,7 +128,7 @@ public class LoginView extends javax.swing.JFrame{
      public void accessApp() {
            
         this.dispose();
-        GeneralView home = new GeneralView();
+        MainView home = new MainView();
         home.setLocationRelativeTo(null);
         home.setVisible(true);   
             

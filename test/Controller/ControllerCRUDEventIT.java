@@ -6,7 +6,7 @@
 package Controller;
 
 import DB.DAO.EventDao;
-import DB.DAO.ImplEventDao;
+import DB.DAO.ImplMySqlEventDao;
 import Model.JavaBean.Event;
 import View.EventPanel;
 import View.GeneralPanel;
@@ -54,7 +54,7 @@ public class ControllerCRUDEventIT {
     public void tearDown() {
     }
     
-    private void testAdvancedSearch(String title,String type, Date from, Date to,String kind,ControllerCRUDEvent evt) 
+    private void testAdvancedSearch(String title,String type, Date from, Date to,String kind,ControllerCRDEvent evt) 
     {
         
         
@@ -80,14 +80,14 @@ public class ControllerCRUDEventIT {
     }
 
     /**
-     * Test of actionPerformed method, of class ControllerCRUDEvent.
+     * Test of actionPerformed method, of class CControllerCRDEvent
      */
     @Test
     public void testActionPerformed() throws Exception {
         System.out.println("actionPerformed");
         view = new EventPanel();
-        dao = new ImplEventDao();
-       /* ControllerCRUDEvent controllerEvt = new ControllerCRUDEvent(dao, view);
+        dao = new ImplMySqlEventDao();
+       /* CoControllerCRDEventontrollerEvt = new ConControllerCRDEvento, view);
         //controllerEvt.advancedSearch("Harry","Select Type Event...",new Date(2018,8,20),new Date(2018,10,15),"genere");
         testAdvancedSearch("Prova1","Select Type Event...",new Date(2018,0,10),new Date(2018,11,15),"genere",controllerEvt);
         testAdvancedSearch("Prova1","Select Type Event...",new Date(2018,0,10),null,"genere",controllerEvt);//JOPTION
@@ -105,20 +105,19 @@ public class ControllerCRUDEventIT {
     public void testKeyReleased() {
         System.out.println("keyReleased");
         KeyEvent e = null;
-        ControllerCRUDEvent instance = null;
+        ContControllerCRDEventtance = null;
         instance.keyReleased(e);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of itemStateChanged method, of class ControllerCRUDEvent.
-     */
+     * Test of itemStateChanged method, of class ContrControllerCRDEvent  */
     /*@Test
     public void testItemStateChanged() {
         System.out.println("itemStateChanged");
         ItemEvent e = null;
-        ControllerCRUDEvent instance = null;
+        ControControllerCRDEventnce = null;
         instance.itemStateChanged(e);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

@@ -5,11 +5,11 @@
  */
 package Runner;
 
-import Controller.ControllerCRUDEvent;
-import Controller.ControllerGeneral;
+import Controller.ControllerCRDEvent;
+import Controller.ListenerPanell;
 import DB.DAO.EventDao;
-import DB.DAO.ImplEventDao;
-import Controller.ControllerTableEvent;
+import DB.DAO.ImplMySqlEventDao;
+import Controller.ControllerUpdateEvent;
 import View.EventPanel;
 
 
@@ -21,8 +21,8 @@ public class RunECBEvents {
     
     private EventDao dao;
     private EventPanel evtView;
-    private ControllerCRUDEvent controller;
-    private ControllerTableEvent controllerTable;
+    private ControllerCRDEvent controller;
+    private ControllerUpdateEvent controllerTable;
 
     
     public EventPanel getEvtView() {
@@ -39,10 +39,10 @@ public class RunECBEvents {
     
     public void startRunMVCEvents()
     {
-        dao = new ImplEventDao();
+        dao = new ImplMySqlEventDao();
         evtView = new EventPanel();
-        controller = new ControllerCRUDEvent(dao,evtView);
-        controllerTable = new ControllerTableEvent(dao,evtView);
+        controller = new ControllerCRDEvent(dao,evtView);
+        controllerTable = new ControllerUpdateEvent(dao,evtView);
         /*evtControl = new ControllerGeneralButton();
         evtControl.setModel(evtModel);
         evtControl.setView(evtView);

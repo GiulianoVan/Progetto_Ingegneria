@@ -5,8 +5,8 @@
  */
 package Runner;
 
-import Controller.ControllerCRUDTurn;
-import DB.DAO.ImpManagementTurnDao;
+import Controller.ControllerCRDTurn;
+import DB.DAO.ImpMySqlManagementTurnDao;
 import DB.DAO.ManagementTurnDao;
 import Controller.ControllerUpdateTurn;
 import View.ManagementTurnView;
@@ -21,15 +21,15 @@ public class RunECBManagementTurn {
         return view;
     }
     
-    ControllerCRUDTurn controller;
+    ControllerCRDTurn controller;
     ManagementTurnDao dao;
     ManagementTurnView view;
     //ControllerUpdateTurn controllerUpdate;
     public void start()
     {
-        dao = new ImpManagementTurnDao();
+        dao = new ImpMySqlManagementTurnDao();
         view = new ManagementTurnView();
-        controller = new ControllerCRUDTurn(dao,view);
+        controller = new ControllerCRDTurn(dao,view);
         //controllerUpdate = new ControllerUpdateTurn(dao,view);
     }
 }

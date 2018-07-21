@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author Pirozzi
  */
-public class ControllerUpdateTurn extends ControllerTable{
+public class ControllerUpdateTurn extends ListenerTable{
     
     private ManagementTurnDao dao;
     private ManagementTurnView view;

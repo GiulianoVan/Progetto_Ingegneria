@@ -6,9 +6,9 @@
 package Runner;
 
 
-import Controller.ControllerCRUDAddetto;
-import DB.DAO.ImplAddettoDao;
-import Controller.ControllerTableAddetto;
+import Controller.ControllerCRDAddetto;
+import DB.DAO.ImplMySqlAddettoDao;
+import Controller.ControllerUpdateAddetto;
 import View.AddettiPanel;
 
 
@@ -19,19 +19,19 @@ import View.AddettiPanel;
 public class RunECBAddetti {
     
     AddettiPanel addettiView;
-    ControllerCRUDAddetto controller;
-    ControllerTableAddetto controllerTable;
-    ImplAddettoDao dao;
+    ControllerCRDAddetto controller;
+    ControllerUpdateAddetto controllerTable;
+    ImplMySqlAddettoDao dao;
     
    public void startMVCAddetti()
    {
     
-        dao = new ImplAddettoDao();
+        dao = new ImplMySqlAddettoDao();
         // creo le addettiView passando il addettiModel
          addettiView = new AddettiPanel();
         //model registra un osservatore
-        controller = new ControllerCRUDAddetto(dao,addettiView);
-        controllerTable = new ControllerTableAddetto(dao,addettiView);
+        controller = new ControllerCRDAddetto(dao,addettiView);
+        controllerTable = new ControllerUpdateAddetto(dao,addettiView);
         
         
         
