@@ -38,13 +38,16 @@ public class EventPanel extends GeneralPanel {
     private javax.swing.JButton buttonBackCreateEvent;
     private javax.swing.JComboBox<String> comboType_event;
     private javax.swing.JComboBox<String> comboKind_event;
-    
+    private javax.swing.JButton buttonPanelCreateEvent;
+
     
     public EventPanel()
     {
         super();
         this.setComponentsPanel();
         buttonBackCreateEvent.setActionCommand("BACKCREATEEVENT");
+        buttonPanelCreateEvent.setActionCommand("CREATEPANELEVENT");
+
         this.loadComboTypeEvent(comboType_event,comboKind_event);
         this.loadComboTypeEvent(comboType_event,comboKind_event);
         
@@ -81,7 +84,7 @@ public class EventPanel extends GeneralPanel {
         buttonAdvEvent.setText("Advanced Search");
         buttonCreateEvent.setText("Create Event");
         comboTypeEventSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOT SELECTED", "SPORT", "CONCERT", "THEATER", "CINEMA" }));
-        
+        buttonPanelCreateEvent = getButtonCreateGeneral();
         //textNameEventSearch.setText("Insert Name Here...");
         textSearchEvent.setText("Insert Name Here...");
     

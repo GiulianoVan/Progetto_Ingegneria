@@ -71,6 +71,7 @@ public class ControllerCRDEvent extends ListenerPanell implements ItemListener{
                 }
             }
         }
+        /*
         else if(action.equals("CREATEPANEL"))
         {
             //view.getjPanelAdvSearch().setVisible(false);
@@ -82,7 +83,7 @@ public class ControllerCRDEvent extends ListenerPanell implements ItemListener{
             //view.getjPanelAdvSearch().setVisible(false);
             showBackCreateEvent();
          }
-        
+        */
         else if(action.equals("DELETE"))
         {
             doDelete();
@@ -97,11 +98,11 @@ public class ControllerCRDEvent extends ListenerPanell implements ItemListener{
             String kind_type = view.getComboGenEventCreate().getSelectedItem().toString();
             String description = view.getDescriptionArea().getText();
             String luogo = view.getTextLuogoCreateEvent().getText();
-            
+            Event event = new Event(titolo,description,event_type, kind_type, data, luogo);
+
             
             try
             {
-                Event event = new Event(titolo,description,event_type, kind_type, data, luogo);
                 dao.createEvent(event);
                 JOptionPane.showMessageDialog(view,"Inserimento avvenuto con successo","INSERT",JOptionPane.INFORMATION_MESSAGE);
                 
@@ -283,7 +284,7 @@ public class ControllerCRDEvent extends ListenerPanell implements ItemListener{
                  view.getButtonDeleteSearch().setEnabled(false);
             }
     }
-
+/*
     private void showCreatePanel() {
             view.getjScrollPane1().setVisible(false);
             view.getDeleteSearch().setVisible(false);
@@ -304,5 +305,5 @@ public class ControllerCRDEvent extends ListenerPanell implements ItemListener{
             view.getButtonOkSearchGeneral().setVisible(true);
             view.getCreatePanel().setVisible(false);
 
-    }
+    } */
 }

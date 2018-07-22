@@ -29,7 +29,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         initComponents();
         buttonAdvGeneral.setActionCommand("ADVSEARCHPANEL");
         buttonBackSearchGeneral.setActionCommand("BACKSEARCH");
-        buttonCreateGeneral.setActionCommand("CREATEPANEL");
+       // buttonCreateGeneral.setActionCommand("CREATEPANEL");
         buttonOkSearchGeneral.setActionCommand("CERCA");
         buttonDeleteAdvSearch.setActionCommand("DELETE");
         buttonDeleteSearch.setActionCommand("DELETE");

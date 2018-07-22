@@ -55,6 +55,25 @@ public abstract class ListenerPanell implements ActionListener,MouseListener,Foc
         {
             view.backNormalSearch();
         }
+        else if(action.equalsIgnoreCase("CREATEPANELADDETTI"))
+        {
+            this.updateViewForCreatepanel();
+        }
+        else if(action.equalsIgnoreCase("CREATEPANELEVENT"))
+        {
+            this.showCreatePanel();
+        }
+         else if(action.equals("BACKSECURITY"))
+        {
+            //view.getjPanelAdvSearch().setVisible(false);
+            updateViewForBackSecurity();
+            
+        }
+        else if(action.equals("BACKCREATEEVENT"))
+        {
+            //view.getjPanelAdvSearch().setVisible(false);
+            showBackCreateEvent();
+         }
     };
 
     @Override
@@ -127,5 +146,44 @@ public abstract class ListenerPanell implements ActionListener,MouseListener,Foc
                   }//conterrà tutte le parole chiavi
              return parolechiavi;
     }
-   
+     private void updateViewForCreatepanel() {
+            view.getDeleteSearch().setVisible(false);
+            view.getjScrollPane1().setVisible(false);
+            view.getButtonAdvGeneral().setVisible(false);
+            view.getButtonCreateGeneral().setVisible(false);
+            view.getTextSearchGeneral().setVisible(false);
+            view.getButtonOkSearchGeneral().setVisible(false);
+            view.getPanelCreateEvent().setVisible(false);
+            view.getCreatePanel().setVisible(true);
+    }
+      private void showCreatePanel() {
+            view.getjScrollPane1().setVisible(false);
+            view.getDeleteSearch().setVisible(false);
+            view.getButtonAdvGeneral().setVisible(false);
+            view.getButtonCreateGeneral().setVisible(false);
+            view.getTextSearchGeneral().setVisible(false);
+            view.getButtonOkSearchGeneral().setVisible(false);
+            view.getPanelCreateSecurity().setVisible(false);
+            view.getCreatePanel().setVisible(true);
+    }
+       private void updateViewForBackSecurity() {
+            view.getDeleteSearch().setVisible(true);
+            view.getjScrollPane1().setVisible(true);
+            view.getButtonAdvGeneral().setVisible(true);
+            view.getButtonCreateGeneral().setVisible(true);
+            view.getTextSearchGeneral().setVisible(true);
+            view.getButtonOkSearchGeneral().setVisible(true);
+            view.getCreatePanel().setVisible(false);
+    }
+
+       private void showBackCreateEvent() {
+            view.getDeleteSearch().setVisible(true);
+            view.getjScrollPane1().setVisible(true);
+            view.getButtonAdvGeneral().setVisible(true);
+            view.getButtonCreateGeneral().setVisible(true);
+            view.getTextSearchGeneral().setVisible(true);
+            view.getButtonOkSearchGeneral().setVisible(true);
+            view.getCreatePanel().setVisible(false);
+
+    }
 }

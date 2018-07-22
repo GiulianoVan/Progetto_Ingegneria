@@ -42,6 +42,8 @@ public class MainView extends javax.swing.JFrame{
         setSecurityTabbed(runSecurity);
         setManagementTabbed(runManagementTurn);
         setStaticsTabbel(runStat);
+
+        
         
     }
     

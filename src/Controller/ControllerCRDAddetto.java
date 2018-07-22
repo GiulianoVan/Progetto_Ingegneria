@@ -65,18 +65,20 @@ public class ControllerCRDAddetto extends ListenerPanell{ //o estende la general
                           
             }
         }
+        /*
         else if(action.equals("CREATEPANEL"))
         {
             //view.getjPanelAdvSearch().setVisible(false);
             updateViewForCreatepanel();
            
         }
+        
         else if(action.equals("BACKSECURITY"))
         {
             //view.getjPanelAdvSearch().setVisible(false);
             updateViewForBackSecurity();
             
-        }
+        }*/
         else if(action.equals("DELETE"))
         {
              doDelete();
@@ -183,7 +185,7 @@ public class ControllerCRDAddetto extends ListenerPanell{ //o estende la general
         }
     }
  
-
+/*
     private void updateViewForCreatepanel() {
             view.getDeleteSearch().setVisible(false);
             view.getjScrollPane1().setVisible(false);
@@ -204,7 +206,7 @@ public class ControllerCRDAddetto extends ListenerPanell{ //o estende la general
             view.getButtonOkSearchGeneral().setVisible(true);
             view.getCreatePanel().setVisible(false);
     }
-
+*/
     private void doDeleteEvent(int rowCount) {
         
              MyDefaultTableModel tab = (MyDefaultTableModel) view.getTableSearchGeneral().getModel();

@@ -20,7 +20,7 @@ import javax.swing.table.TableRowSorter;
  * @author giuli
  */
 public class AddettiPanel extends GeneralPanel{
-    
+
     private javax.swing.JButton buttonAdvGeneral;
     private javax.swing.JButton buttonBackSearchGeneral;
     private javax.swing.JButton buttonCreateGeneral;
@@ -40,11 +40,14 @@ public class AddettiPanel extends GeneralPanel{
     private javax.swing.JTextField textSurnameAddetto;
     private javax.swing.JButton buttonBackCreateSecurity;
     private MyDefaultTableModel tab;
+    private javax.swing.JButton buttonPanelCreate;
+ 
     public AddettiPanel()
     {
         super();
         this.setComponentsPanel();
         buttonBackCreateSecurity.setActionCommand("BACKSECURITY");
+        buttonPanelCreate.setActionCommand("CREATEPANELADDETTI");
         tab = null;
     }
     
@@ -79,7 +82,7 @@ public class AddettiPanel extends GeneralPanel{
         buttonAdvGeneral.setText("Advanced Search");
         buttonCreateGeneral.setText("Create Security Officer");  
         textSearchAddetto.setText("Insert Something here");
-        
+        buttonPanelCreate = getButtonCreateGeneral();
         
         tableSearchAddetto.setModel(new javax.swing.table.DefaultTableModel(new Object [][] {},new String [] {"NAME", "SURNAME", "TAX CODE", "EMAIL", "PHONE", "SALARY", "BIRTH","ID CODE"})
             {
@@ -139,4 +142,6 @@ public class AddettiPanel extends GeneralPanel{
          getDateCreateAddetto().setDate(null);
          getTextNumberCreate().setText("");
      }
+
 }
+
