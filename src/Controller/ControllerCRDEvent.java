@@ -69,6 +69,11 @@ public class ControllerCRDEvent extends ListenerPanell implements ItemListener{
                     JOptionPane.showMessageDialog(view, "Mancata comunicazione col database.\nImpossibile effetuare la ricerca.", "ERRORE", JOptionPane.ERROR_MESSAGE);
 
                 }
+                  if(view.getTableSearchGeneral().getRowCount()==0)
+                     {
+                        view.getButtonDeleteSearch().setEnabled(false);
+                        view.getButtonDeleteAdvSearch().setEnabled(false);
+                     }
             }
         }
         /*
@@ -129,6 +134,11 @@ public class ControllerCRDEvent extends ListenerPanell implements ItemListener{
            
             event = advancedSearch(title,type,from,to,kind);
             view.updateTable(event);
+             if(view.getTableSearchGeneral().getRowCount()==0)
+                     {
+                        view.getButtonDeleteSearch().setEnabled(false);
+                        view.getButtonDeleteAdvSearch().setEnabled(false);
+                     }
         }
     }
     

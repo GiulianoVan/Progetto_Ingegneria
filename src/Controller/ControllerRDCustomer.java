@@ -66,6 +66,11 @@ public class ControllerRDCustomer extends ListenerPanell{
                      JOptionPane.showMessageDialog(view, "Mancata comunicazione col database.\nImpossibile effetuare la ricerca.", "ERRORE", JOptionPane.ERROR_MESSAGE);
 
                    }
+                    if(view.getTableSearchGeneral().getRowCount()==0)
+                     {
+                        view.getButtonDeleteSearch().setEnabled(false);
+                        view.getButtonDeleteAdvSearch().setEnabled(false);
+                     }
             }
         }
         else if(action.equals("DELETE"))
@@ -187,6 +192,11 @@ public class ControllerRDCustomer extends ListenerPanell{
             }
              
              view.updateTable(customer);
+              if(view.getTableSearchGeneral().getRowCount()==0)
+                     {
+                        view.getButtonDeleteSearch().setEnabled(false);
+                        view.getButtonDeleteAdvSearch().setEnabled(false);
+                     }
         }
      }
     
@@ -209,6 +219,11 @@ public class ControllerRDCustomer extends ListenerPanell{
                        {
                           JOptionPane.showMessageDialog(view, "Mancata comunicazione col database.\nImpossibile effetuare la ricerca.", "ERRORE", JOptionPane.ERROR_MESSAGE);
                        }
+                        if(view.getTableSearchGeneral().getRowCount()==0)
+                        {
+                            view.getButtonDeleteSearch().setEnabled(false);
+                            view.getButtonDeleteAdvSearch().setEnabled(false);
+                        }
                     }
              }
              else if(e.getKeyChar() == '\n' && (e.getComponent()== view.getTextNameGeneralSearch() || e.getComponent()== view.getTextSurnameGeneralSearch() || e.getComponent()== view.getTextCfGeneralSearch()))

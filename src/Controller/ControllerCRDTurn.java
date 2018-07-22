@@ -84,6 +84,10 @@ public class ControllerCRDTurn implements ActionListener,KeyListener,MouseListen
             
             if(view.getTableMenagementEvents().getRowCount()>0)
                 view.getTableMenagementEvents().setRowSelectionInterval(0, 0);
+            else
+            {
+                view.getButtonDelete().setEnabled(false);
+            }
         }
         
         

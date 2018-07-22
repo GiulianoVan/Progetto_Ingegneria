@@ -64,6 +64,11 @@ public class ControllerCRDAddetto extends ListenerPanell{ //o estende la general
                    doSearch(parolechiavi); //ricerca
                           
             }
+            if(view.getTableSearchGeneral().getRowCount()==0)
+            {
+                view.getButtonDeleteSearch().setEnabled(false);
+                view.getButtonDeleteAdvSearch().setEnabled(false);
+            }
         }
         /*
         else if(action.equals("CREATEPANEL"))
@@ -145,6 +150,11 @@ public class ControllerCRDAddetto extends ListenerPanell{ //o estende la general
             
             
              view.updateTable(addetti);
+              if(view.getTableSearchGeneral().getRowCount()==0)
+                     {
+                        view.getButtonDeleteSearch().setEnabled(false);
+                        view.getButtonDeleteAdvSearch().setEnabled(false);
+                     }
         }
     }
     @Override
@@ -175,6 +185,11 @@ public class ControllerCRDAddetto extends ListenerPanell{ //o estende la general
                     {
                        JOptionPane.showMessageDialog(view, "Mancata comunicazione col database.\nImpossibile effetuare la ricerca.", "ERRORE", JOptionPane.ERROR_MESSAGE);
                     }
+                    if(view.getTableSearchGeneral().getRowCount()==0)
+                     {
+                        view.getButtonDeleteSearch().setEnabled(false);
+                        view.getButtonDeleteAdvSearch().setEnabled(false);
+                     }
                }
                 
            }
