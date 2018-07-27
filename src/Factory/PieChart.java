@@ -33,16 +33,15 @@ public class PieChart implements Charts{
         }
        
         JFreeChart chart = ChartFactory.createPieChart("Result", pieDataset, true, true, true);
-        
         PiePlot P = (PiePlot) chart.getPlot();
-        chart.addLegend(new LegendTitle(new LegendItemSource() {
+        /*chart.addLegend(new LegendTitle(new LegendItemSource() {
             @Override
             public LegendItemCollection getLegendItems() {
                     LegendItemCollection x =  new LegendItemCollection();
-                    x.add(new LegendItem("(AverageYear,Distribution Event)"));
+                    x.add(new LegendItem("(AverageAge,Distribution Event)"));
                     return x;
             }
-        }));
+        }));*/
       /*
         ChartFrame frame = new ChartFrame("Pie Chart", chart);
         //frame.setVisible(true);
@@ -51,7 +50,4 @@ public class PieChart implements Charts{
         return frame; */
        return chart;
     }
-
-    
-    
 }

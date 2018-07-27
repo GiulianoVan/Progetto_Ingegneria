@@ -20,11 +20,10 @@ public class Event {
     private String eventType;
     private String kindType;
     private Date dateEvent;
-    private String zipCoce; // ("^[0-9]{3}[0-9xX]{2}$"));
     private String placeName; // ("^(([a-z]{1}[°]?)|([0-9]+[°]?))(([ '',."/-]{1}(([a-z]{1}[°]?)|([0-9]+[°]?)))*["'']?[,./-]?[a-z 0-9]+)*[.]?$",Pattern.CASE_INSENSITIVE);
     
     
-    public Event(String idEvent,String title, String description, String typeEvent, String typeGender, Date dataEvent, String cap, String placeName)
+    public Event(String idEvent,String title, String description, String typeEvent, String typeGender, Date dataEvent, String placeName)
     {
         this.idEvent = idEvent;
         this.title = title;
@@ -32,7 +31,6 @@ public class Event {
         this.eventType =  typeEvent;
         this.kindType = typeGender;
         this.dateEvent = dataEvent;
-        this.zipCoce = cap;
         this.placeName = placeName;
     }
 
@@ -92,14 +90,6 @@ public class Event {
 
     public void setDataEvent(Date dataEvent) {
         this.dateEvent = dataEvent;
-    }
-
-    public String getCap() {
-        return zipCoce;
-    }
-
-    public void setCap(String cap) {
-        this.zipCoce = cap;
     }
 
     public String getPlaceName() {

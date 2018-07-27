@@ -17,8 +17,12 @@ import javax.swing.JLabel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.LegendItem;
+import org.jfree.chart.LegendItemCollection;
+import org.jfree.chart.LegendItemSource;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot;
+import org.jfree.chart.title.LegendTitle;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
@@ -73,7 +77,7 @@ public class StatisticsView extends javax.swing.JPanel {
 
         comboStatisticType.setBackground(new java.awt.Color(255, 204, 104));
         comboStatisticType.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
-        comboStatisticType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Statistic Type", "Distibution of the events", "Tickets sold over the years", "Presences over the years by event", "Earnings over the years" }));
+        comboStatisticType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Statistic Type", "Distribution of the events and average age", "Tickets sold over the years", "Presences over the years by event", "Earnings over the years" }));
         add(comboStatisticType, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 270, 40));
 
         buttonGenerateGraph.setBackground(new java.awt.Color(255, 204, 104));
@@ -186,10 +190,21 @@ public class StatisticsView extends javax.swing.JPanel {
     {
         GenerateChart charts = new GenerateChart();
         //Average age for events, Tickets sold over the years, Presences over the years by event, Earnings over the years
-        if(choise.equals("Distibution of the events"))
+        if(choise.equals("Distribution of the events and average age"))
         {
             Charts chart = charts.getChart("PIE");
-            ChartFrame frame = new ChartFrame("Distibution of the events and Average age ",chart.drawChart(map));
+            JFreeChart Jchart = chart.drawChart(map);
+            Jchart.addLegend(new LegendTitle(new LegendItemSource() {
+            @Override
+            public LegendItemCollection getLegendItems() 
+            {
+                    LegendItemCollection x =  new LegendItemCollection();
+                    x.add(new LegendItem("(AverageAge,Distribution Event)"));
+                    return x;
+            }
+            }));
+            ChartFrame frame = new ChartFrame("Distribution of the events and average age",Jchart);
+           
             frame.setSize(450,500);
             frame.setVisible(true);
             

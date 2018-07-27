@@ -90,7 +90,7 @@ public class EventPanel extends GeneralPanel {
     
         tableSearchEvent.setModel(new javax.swing.table.DefaultTableModel(
                                                                             new Object [][] {},
-                                                                            new String [] {"TITLE", "TYPE", "KIND", "DATE", "PLACE", "ZIP CODE", "DESCRIPTION","ID CODE"}
+                                                                            new String [] {"TITLE", "TYPE", "KIND", "DATE", "PLACE", "DESCRIPTION","ID CODE"}
                                                                           )
                                 {
                                     Class[] types = new Class [] {
@@ -128,7 +128,6 @@ public class EventPanel extends GeneralPanel {
         tableSearchEvent.getColumnModel().getColumn(1).setHeaderValue("TYPE");
         tableSearchEvent.getColumnModel().getColumn(2).setHeaderValue("KIND");
         tableSearchEvent.getColumnModel().getColumn(4).setHeaderValue("PLACE");
-        tableSearchEvent.getColumnModel().getColumn(5).setHeaderValue("ZIP CODE");
         tableSearchEvent.getColumnModel().getColumn(id).setHeaderValue("ID CODE");
 
 

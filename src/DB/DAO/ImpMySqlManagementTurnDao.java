@@ -109,7 +109,7 @@ public class ImpMySqlManagementTurnDao implements ManagementTurnDao{
            
            result.add(new ManagementTurn( 
                    new Addetto(rs.getString("NAME"),rs.getString("SURNAME"),rs.getString("TAX_CODE"),rs.getString("EMAIL"),rs.getString("PHONE"),rs.getDouble("SALARY"),rs.getDate("BIRTH"), rs.getString("IDSICUREZZA"))
-                  ,new Event(rs.getString("IDEVENTO"),rs.getString("TITLE"),rs.getString("DESCRIPTION"),rs.getString("EVENT_TYPE"),rs.getString("KIND_TYPE"),rs.getDate("DATE"),"0000", rs.getString("PLACE_NAME"))
+                  ,new Event(rs.getString("IDEVENTO"),rs.getString("TITLE"),rs.getString("DESCRIPTION"),rs.getString("EVENT_TYPE"),rs.getString("KIND_TYPE"),rs.getDate("DATE"), rs.getString("PLACE_NAME"))
                   ,rs.getTime("START")
                   ,rs.getTime("END")
                   ,rs.getInt("TURN_NUMBER")
@@ -136,7 +136,7 @@ public class ImpMySqlManagementTurnDao implements ManagementTurnDao{
            
            result.add(new ManagementTurn( 
                    new Addetto(rs.getString("NAME"),rs.getString("SURNAME"),rs.getString("TAX_CODE"),rs.getString("EMAIL"),rs.getString("PHONE"),rs.getDouble("SALARY"),rs.getDate("BIRTH"), rs.getString("IDSICUREZZA"))
-                  ,new Event(rs.getString("IDEVENTO"),rs.getString("TITLE"),rs.getString("DESCRIPTION"),rs.getString("EVENT_TYPE"),rs.getString("KIND_TYPE"),rs.getDate("DATE"),"0000", rs.getString("PLACE_NAME"))
+                  ,new Event(rs.getString("IDEVENTO"),rs.getString("TITLE"),rs.getString("DESCRIPTION"),rs.getString("EVENT_TYPE"),rs.getString("KIND_TYPE"),rs.getDate("DATE"), rs.getString("PLACE_NAME"))
                   ,rs.getTime("START")
                   ,rs.getTime("END")
                   ,rs.getInt("TURN_NUMBER")));

@@ -142,14 +142,13 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
        this.addColumn("KIND_TYPE");
        this.addColumn("DATE");
        this.addColumn("PLACE_NAME");
-       this.addColumn("ZIP_CODE");
        this.addColumn("DESCRIPTION");
        this.addColumn("ID");
 
        for(Event event : events)
        {
            if(event != null)
-           this.addRow(new String[]{event.getTitle(),event.getTypeEvent(),event.getTypeGender(),event.getDataEvent().toString(),event.getPlaceName(),event.getCap(),event.getDescription(),event.getIdEvent()});
+           this.addRow(new String[]{event.getTitle(),event.getTypeEvent(),event.getTypeGender(),event.getDataEvent().toString(),event.getPlaceName(),event.getDescription(),event.getIdEvent()});
        }   
        //setto sempre l'id all'ultima colonna;
        this.id_column = this.getColumnCount()-1;

@@ -42,7 +42,7 @@ public class ControllerStatistics implements ActionListener,ItemListener{
         if(action.equalsIgnoreCase("GENERATE"))
         {
             //Average age for events, Tickets sold over the years, Presences over the years by event, Earnings over the years
-            if(view.getComboStatisticType().getSelectedItem().toString().equals("Distibution of the events"))
+            if(view.getComboStatisticType().getSelectedItem().toString().equals("Distribution of the events and average age"))
             {
                 Map<Comparable,Number> map = new HashMap<>();
                 
@@ -119,7 +119,7 @@ public class ControllerStatistics implements ActionListener,ItemListener{
     @Override
     public void itemStateChanged(ItemEvent e) {
         
-        if(view.getComboStatisticType().getSelectedItem().toString().equals("Distibution of the events"))
+        if(view.getComboStatisticType().getSelectedItem().toString().equals("Distribution of the events and average age"))
         {
             view.getjLabel2().setVisible(false);
             view.getjLabel3().setVisible(false);

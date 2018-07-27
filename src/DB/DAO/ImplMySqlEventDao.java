@@ -176,7 +176,7 @@ public class ImplMySqlEventDao implements EventDao{
                 rs = ps.executeQuery();
                 while(rs.next())
                 {
-                  result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+                  result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(5)));
                 }
                 con.close();
                 ps.close();
@@ -208,7 +208,7 @@ public class ImplMySqlEventDao implements EventDao{
       
         while(rs.next())
         {
-             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(5)));
         }
             
         return result;
@@ -228,7 +228,7 @@ public class ImplMySqlEventDao implements EventDao{
        
         while(rs.next())
         {
-             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(5)));
         }
             
         return result;
@@ -248,7 +248,7 @@ public class ImplMySqlEventDao implements EventDao{
         
         while(rs.next())
         {
-             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(5)));
         }
             
         return result;
@@ -268,7 +268,7 @@ public class ImplMySqlEventDao implements EventDao{
       
         while(rs.next())
         {
-             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(5)));
         }
             
         return result;
@@ -288,7 +288,7 @@ public class ImplMySqlEventDao implements EventDao{
       
         while(rs.next())
         {
-             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(5)));
         }
             
         return result;
@@ -320,7 +320,7 @@ public class ImplMySqlEventDao implements EventDao{
              rs = ps.executeQuery();
              while(rs.next())
              {
-             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(6),rs.getString(5)));
+             result.add(new Event(rs.getString(8),rs.getString(1),rs.getString(7),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(5)));
              }
         return result;
     }
