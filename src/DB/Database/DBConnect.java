@@ -28,7 +28,7 @@ public class DBConnect {
     //private static String password = "bd12";
 
     //private static String url = "jdbc:mysql://localhost/em17?useSSL=false&serverTimezone=Europe/Rome";
-    private static String url = "jdbc:mysql://hostingmysql331.register.it/registeringws?useSSL=false&serverTimezone=Europe/Rome";
+    private static String url = "jdbc:mysql://hostingmysql330.register.it/em17?useSSL=false&serverTimezone=Europe/Rome";
     private static  String user = "";
     private static String password = "";
     
@@ -85,7 +85,9 @@ public class DBConnect {
              //con = DriverManager.getConnection(url,user,password);
              //con = DriverManager.getConnection(url,"cognomen","progettoing");
              //con = DriverManager.getConnection(url,"security","progettoing");
-             con = DriverManager.getConnection(url,"systemadmin","progettoing");
+             //con = DriverManager.getConnection(url,"systemadmin","progettoing");
+             con = DriverManager.getConnection(url,"cognomen1","progettoing");
+             
        return con;
     }
     public static void closeConnection()
