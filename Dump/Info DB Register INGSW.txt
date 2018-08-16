@@ -1,0 +1,11 @@
+Creato il 14/08/2018
+
+dati email: https://www.gmx.com/
+	email: tmpingsw@gmx.com
+	pass: cognomen
+	risposta recupero password: cognomen
+
+register.it
+	email: tmpingsw@gmx.com
+	pass: cognomen@1
+
