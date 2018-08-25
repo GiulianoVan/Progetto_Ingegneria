@@ -5,8 +5,8 @@
  */
 package DAO;
 
-import DataStorage.DB.DAO.ImplMySqlEventDao;
-import DataStorage.DB.Database.DBConnect;
+import AccessDataStorage.DB.DAO.ImplMySqlEventDao;
+import AccessDataStorage.DB.Database.DBConnect;
 import BusinessComponent.Entity.Event;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;

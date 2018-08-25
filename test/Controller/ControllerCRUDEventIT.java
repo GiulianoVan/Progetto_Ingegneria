@@ -5,9 +5,9 @@
  */
 package Controller;
 
-import ControllerCopiaOLDVERSIONE.ControllerCRDEventCOPIA;
-import DataStorage.DB.DAO.EventDao;
-import DataStorage.DB.DAO.ImplMySqlEventDao;
+import ControllerCopiaOLDVERSION.ControllerCRDEventCOPIA;
+import AccessDataStorage.DB.DAO.EventDao;
+import AccessDataStorage.DB.DAO.ImplMySqlEventDao;
 import BusinessComponent.Entity.Event;
 import Presentation.EventPanel;
 import Presentation.GeneralPanel;

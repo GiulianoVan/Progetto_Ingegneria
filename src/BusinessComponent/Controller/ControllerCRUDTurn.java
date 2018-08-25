@@ -5,10 +5,10 @@
  */
 package BusinessComponent.Controller;
 
-import DataStorage.DB.DAO.EventDao;
-import DataStorage.DB.DAO.ImplMySqlAddettoDao;
-import DataStorage.DB.DAO.ImplMySqlEventDao;
-import DataStorage.DB.DAO.ManagementTurnDao;
+import AccessDataStorage.DB.DAO.EventDao;
+import AccessDataStorage.DB.DAO.ImplMySqlAddettoDao;
+import AccessDataStorage.DB.DAO.ImplMySqlEventDao;
+import AccessDataStorage.DB.DAO.ManagementTurnDao;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.Entity.Event;
 import BusinessComponent.Entity.ManagementTurn;

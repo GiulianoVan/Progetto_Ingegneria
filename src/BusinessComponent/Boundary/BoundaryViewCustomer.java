@@ -7,7 +7,7 @@ package BusinessComponent.Boundary;
 
 import BusinessComponent.Controller.ControllerRUDCustomer;
 import BusinessComponent.Boundary.BoundaryGeneralPanel;
-import DataStorage.DB.DAO.CustomerDao;
+import AccessDataStorage.DB.DAO.CustomerDao;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.Entity.Customer;
 import Presentation.CustomerPanel;

@@ -6,7 +6,7 @@
 package BusinessComponent.Boundary;
 
 import BusinessComponent.Controller.ControllerCRUDAddetto;
-import ControllerCopiaOLDVERSIONE.ControllerUpdateAddetto;
+import ControllerCopiaOLDVERSION.ControllerUpdateAddetto;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import Presentation.AddettiPanel;
 import java.awt.event.FocusEvent;

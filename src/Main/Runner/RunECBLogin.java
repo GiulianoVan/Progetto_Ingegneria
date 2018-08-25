@@ -5,7 +5,7 @@
  */
 package Main.Runner;
 
-import BusinessComponent.Controller.ControllerLogin;
+import BusinessComponent.Boundary.BoundaryViewLogin;
 /*import DB.DAO.AmministratoreDao;
 import DB.DAO.ImplAdminDao;*/
 import Presentation.LoginView;
@@ -22,7 +22,7 @@ public class RunECBLogin {
 
        // AmministratoreDao dao = new ImplAdminDao();
         LoginView loginview = new LoginView();
-        ControllerLogin controlLogin = new ControllerLogin(/*dao,*/ loginview);
+        BoundaryViewLogin controlLogin = new BoundaryViewLogin(/*dao,*/ loginview);
         loginview.setLocationRelativeTo(null);//apre la finestra al centro dello schermo
         loginview.setVisible(true);
     }

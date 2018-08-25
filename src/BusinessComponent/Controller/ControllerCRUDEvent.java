@@ -5,7 +5,7 @@
  */
 package BusinessComponent.Controller;
 
-import DataStorage.DB.DAO.EventDao;
+import AccessDataStorage.DB.DAO.EventDao;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.Entity.Event;
 import Presentation.EventPanel;

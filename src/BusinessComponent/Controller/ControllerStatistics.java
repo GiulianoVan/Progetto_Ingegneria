@@ -5,157 +5,122 @@
  */
 package BusinessComponent.Controller;
 
-import DataStorage.DB.DAO.StatisticsDao;
-import Presentation.StatisticsView;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import BusinessComponent.Factory.Charts;
+import BusinessComponent.Factory.GenerateChart;
+import BusinessComponent.Factory.LineChart;
+import AccessDataStorage.DB.DAO.StatisticsDao;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.LegendItem;
+import org.jfree.chart.LegendItemCollection;
+import org.jfree.chart.LegendItemSource;
+import org.jfree.chart.title.LegendTitle;
 
 /**
  *
  * @author Pirozzi
  */
-public class ControllerStatistics implements ActionListener,ItemListener{
 
-    StatisticsView view;
-    StatisticsDao dao;
+public class ControllerStatistics {
+
+    private StatisticsDao dao;
     
- public ControllerStatistics(StatisticsDao dao,StatisticsView view)
- {
-     this.dao = dao;
-     this.view = view;
-     view.getButtonGenerateGraph().addActionListener(this);
-     view.getComboStatisticType().addItemListener(this);
- }        
- 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-            
-        String action = e.getActionCommand();
+    public ControllerStatistics(StatisticsDao dao) 
+    {
+        this.dao = dao;
         
-        if(action.equalsIgnoreCase("GENERATE"))
-        {
-            //Average age for events, Tickets sold over the years, Presences over the years by event, Earnings over the years
-            if(view.getComboStatisticType().getSelectedItem().toString().equals("Distribution of the events and average age"))
-            {
-                Map<Comparable,Number> map = new HashMap<>();
-                
+    }
     
-                    try {
-                        map.put("SPORT",dao.etaMediaTipoEvento("SPORT"));
-                        map.put("CINEMA",dao.etaMediaTipoEvento("CINEMA"));
-                        map.put("THEATER",dao.etaMediaTipoEvento("THEATER"));
-                        map.put("CONCERT",dao.etaMediaTipoEvento("CONCERT"));
-                        view.generateGraph(map,view.getComboStatisticType().getSelectedItem().toString());
-                    } catch (SQLException ex) {
-                        Logger.getLogger(ControllerStatistics.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-            }
-            else if(view.getComboStatisticType().getSelectedItem().toString().equals("Tickets sold over the years"))
+    public double everageAgeTypeEvent(String type_Event) throws SQLException
+    {
+        return dao.etaMediaTipoEvento(type_Event);
+    }
+    
+    public int ticketSoldForYear(int year) throws SQLException
+    {
+       return  dao.bigliettiVendutiPerAnno(year);
+    }
+    
+    public int partecipationAtTypeEventInOneYear(int year,String type_event) throws SQLException
+    {
+       return dao.partecipazioneTipoEventoInUnAnno(year,type_event);
+    }
+    
+    public double EarnsInTheYear(int year) throws SQLException
+    {
+        return dao.incassiPerAnno(year);
+    }
+    
+    public void generateGraph(Map<Comparable,Number> map,String choise)
+    {
+        GenerateChart charts = new GenerateChart();
+        //Average age for events, Tickets sold over the years, Presences over the years by event, Earnings over the years
+        if(choise.equals("Distribution of the events and average age"))
+        {
+            Charts chart = charts.getChart("PIE");
+            JFreeChart Jchart = chart.drawChart(map);
+            Jchart.addLegend(new LegendTitle(new LegendItemSource() {
+            @Override
+            public LegendItemCollection getLegendItems() 
             {
-                int start = Integer.parseInt(view.getComboDateStatisticFrom().getSelectedItem().toString());
-                int end =  Integer.parseInt(view.getComboDateStatisticTo().getSelectedItem().toString());
-                Map<Comparable,Number> map = new HashMap<>();
-                
-                for(int i=start;i<=end;++i)
-                {
-                    try {
-                        map.put(i,dao.bigliettiVendutiPerAnno(i));
-                    } catch (SQLException ex) {
-                          
-                    }
-                    
-                }
-             view.generateGraph(map,view.getComboStatisticType().getSelectedItem().toString());
-
+                    LegendItemCollection x =  new LegendItemCollection();
+                    x.add(new LegendItem("(AverageAge,Distribution Event)"));
+                    return x;
             }
-            else if(view.getComboStatisticType().getSelectedItem().toString().equals("Presences over the years by event"))
-            {
-                String event = view.getComboStatisticEventType().getSelectedItem().toString();
-                int start = Integer.parseInt(view.getComboDateStatisticFrom().getSelectedItem().toString());
-                int end =  Integer.parseInt(view.getComboDateStatisticTo().getSelectedItem().toString());
-                Map<Comparable,Number> map = new HashMap<>();
-                
-                for(int i=start;i<=end;++i)
-                {
-                    try {
-                        map.put(i,dao.partecipazioneTipoEventoInUnAnno(i,event));
-                    } catch (SQLException ex) {
-                        Logger.getLogger(ControllerStatistics.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-               view.generateGraph(map,view.getComboStatisticType().getSelectedItem().toString());
-
-            }
-            else if(view.getComboStatisticType().getSelectedItem().toString().equals("Earnings over the years"))
-            {
-                int start = Integer.parseInt(view.getComboDateStatisticFrom().getSelectedItem().toString());
-                int end =  Integer.parseInt(view.getComboDateStatisticTo().getSelectedItem().toString());
-                Map<Comparable,Number> map = new HashMap<>();
-                
-                for(int i=start;i<=end;++i)
-                {
-                    try {
-                        map.put(i,dao.incassiPerAnno(i));
-                    } catch (SQLException ex) {
-                        Logger.getLogger(ControllerStatistics.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-                view.generateGraph(map,view.getComboStatisticType().getSelectedItem().toString());
-
-                
-            }
-                   
-               
+            }));
+            ChartFrame frame = new ChartFrame("Distribution of the events and average age",Jchart);
+           
+            frame.setSize(450,500);
+            frame.setVisible(true);
+            
         }
+        else if(choise.equals("Tickets sold over the years"))
+        {
+            Charts chart = charts.getChart("LINE");
+            //ame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            JFreeChart k = chart.drawChart(map);
+            LineChart lineChart = (LineChart) chart;
+            lineChart.setAsseX("Year");
+            lineChart.setAsseY("Ticket");
+            ChartFrame frame = new ChartFrame("Tickets sold over the years", chart.drawChart(map));
+            //frame.setVisible(true);
+            frame.setSize(450,500);
+            frame.setSize(450,500);
+            frame.setVisible(true);
+        }
+        else if(choise.equals("Presences over the years by event"))
+        {
+             Charts chart = charts.getChart("LINE");
+            //ame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            JFreeChart k = chart.drawChart(map);
+            LineChart lineChart = (LineChart) chart;
+            lineChart.setAsseX("Year");
+            lineChart.setAsseY("Presence");
+            ChartFrame frame = new ChartFrame("Presences over the years by event", chart.drawChart(map));
+            //frame.setVisible(true);
+            frame.setSize(450,500);
+            frame.setSize(450,500);
+            frame.setVisible(true);
+             
+        }
+        else if(choise.equals("Earnings over the years"))
+        {
+          Charts chart = charts.getChart("LINE");
+            //ame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            JFreeChart k = chart.drawChart(map);
+            LineChart lineChart = (LineChart) chart;
+            lineChart.setAsseX("Year");
+            lineChart.setAsseY("Cash");
+            ChartFrame frame = new ChartFrame("Earnings over the years", chart.drawChart(map));
+            //frame.setVisible(true);
+            frame.setSize(450,500);
+            frame.setSize(450,500);
+            frame.setVisible(true);
+        }
+        
     }
 
-    @Override
-    public void itemStateChanged(ItemEvent e) {
-        
-        if(view.getComboStatisticType().getSelectedItem().toString().equals("Distribution of the events and average age"))
-        {
-            view.getjLabel2().setVisible(false);
-            view.getjLabel3().setVisible(false);
-            view.getButtonGenerateGraph().setEnabled(true);
-            view.getComboDateStatisticFrom().setVisible(false);
-            view.getComboDateStatisticTo().setVisible(false);
-            view.getComboStatisticEventType().setVisible(false);
-            
-        }
-        else if(view.getComboStatisticType().getSelectedItem().toString().equals("Tickets sold over the years") || view.getComboStatisticType().getSelectedItem().toString().equals("Earnings over the years"))
- 
-        {
-            view.getjLabel2().setVisible(true);
-            view.getjLabel3().setVisible(true);
-            view.getButtonGenerateGraph().setEnabled(true);
-            view.getComboDateStatisticFrom().setVisible(true);
-            view.getComboDateStatisticTo().setVisible(true);
-            view.getComboStatisticEventType().setVisible(false);
-        }
-        else if(view.getComboStatisticType().getSelectedItem().toString().equals("Presences over the years by event"))
-        {
-            view.getjLabel2().setVisible(true);
-            view.getjLabel3().setVisible(true);
-            view.getButtonGenerateGraph().setEnabled(true);
-            view.getComboDateStatisticFrom().setVisible(true);
-            view.getComboDateStatisticTo().setVisible(true);
-            view.getComboStatisticEventType().setVisible(true);
-        }
-     else
-        {
-            view.getjLabel2().setVisible(false);
-            view.getjLabel3().setVisible(false);
-            view.getButtonGenerateGraph().setEnabled(false);
-            view.getComboDateStatisticFrom().setVisible(false);
-            view.getComboDateStatisticTo().setVisible(false);
-            view.getComboStatisticEventType().setVisible(false);
-        }
-   }
+    
 }

@@ -5,8 +5,8 @@
  */
 package BusinessComponent.Controller;
 
-import DataStorage.DB.DAO.AddettoDao;
-import DataStorage.DB.DAO.CustomerDao;
+import AccessDataStorage.DB.DAO.AddettoDao;
+import AccessDataStorage.DB.DAO.CustomerDao;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.Entity.Addetto;
 import BusinessComponent.Entity.Customer;

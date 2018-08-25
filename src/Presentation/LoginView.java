@@ -5,7 +5,7 @@
  */
 package Presentation;
 
-import BusinessComponent.Controller.ControllerLogin;
+import BusinessComponent.Boundary.BoundaryViewLogin;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JButton;

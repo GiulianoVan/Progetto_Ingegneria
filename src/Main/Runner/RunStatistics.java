@@ -6,11 +6,12 @@
 package Main.Runner;
 
 import BusinessComponent.Boundary.BoundaryViewTurn;
-import DataStorage.DB.DAO.ImpMySqlManagementTurnDao;
-import DataStorage.DB.DAO.ImpMySqlStatisticsDao;
-import DataStorage.DB.DAO.StatisticsDao;
+import AccessDataStorage.DB.DAO.ImpMySqlManagementTurnDao;
+import AccessDataStorage.DB.DAO.ImpMySqlStatisticsDao;
+import AccessDataStorage.DB.DAO.StatisticsDao;
+import BusinessComponent.Boundary.BoundaryViewStatistics;
 import BusinessComponent.Controller.ControllerStatistics;
-import BusinessComponent.Controller.ControllerUpdateTurn;
+import ControllerCopiaOLDVERSION.ControllerUpdateTurn;
 import Presentation.ManagementTurnView;
 import Presentation.StatisticsView;
 
@@ -20,10 +21,10 @@ import Presentation.StatisticsView;
  */
 public class RunStatistics {
   
-    ControllerStatistics controller;
-    StatisticsDao dao;
-    StatisticsView view;
-
+    private BoundaryViewStatistics boundary;
+    private StatisticsDao dao;
+    private StatisticsView view;
+    private ControllerStatistics controller;
     public StatisticsView getView() {
         return view;
     }
@@ -32,7 +33,8 @@ public class RunStatistics {
     {
         dao = new ImpMySqlStatisticsDao();
         view = new StatisticsView();
-        controller = new ControllerStatistics(dao, view);
+        controller = new ControllerStatistics(dao);
+        boundary = new BoundaryViewStatistics(controller, view);
     }
     
 }

@@ -9,8 +9,8 @@ package Main.Runner;
 import BusinessComponent.Boundary.BoundaryViewCustomer;
 import BusinessComponent.Controller.ControllerRUDCustomer;
 import BusinessComponent.Boundary.BoundaryGeneralPanel;
-import DataStorage.DB.DAO.CustomerDao;
-import DataStorage.DB.DAO.ImplMySqlCustomerDao;
+import AccessDataStorage.DB.DAO.CustomerDao;
+import AccessDataStorage.DB.DAO.ImplMySqlCustomerDao;
 import BusinessComponent.Boundary.BoundaryTableCustomer;
 import Presentation.CustomerPanel;
 

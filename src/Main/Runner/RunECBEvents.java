@@ -6,12 +6,12 @@
 package Main.Runner;
 
 import BusinessComponent.Boundary.BoundaryViewEvent;
-import ControllerCopiaOLDVERSIONE.ControllerCRDEventCOPIA;
+import ControllerCopiaOLDVERSION.ControllerCRDEventCOPIA;
 import BusinessComponent.Controller.ControllerCRUDEvent;
 import BusinessComponent.Boundary.BoundaryGeneralPanel;
-import DataStorage.DB.DAO.EventDao;
-import DataStorage.DB.DAO.ImplMySqlEventDao;
-import ControllerCopiaOLDVERSIONE.ControllerUpdateEvent;
+import AccessDataStorage.DB.DAO.EventDao;
+import AccessDataStorage.DB.DAO.ImplMySqlEventDao;
+import ControllerCopiaOLDVERSION.ControllerUpdateEvent;
 import Presentation.EventPanel;
 import BusinessComponent.Boundary.BoundaryTableEvent;
 
