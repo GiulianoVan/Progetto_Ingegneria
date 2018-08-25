@@ -5,9 +5,9 @@
  */
 package DAO;
 
-import DB.DAO.ImplMySqlEventDao;
-import DB.Database.DBConnect;
-import Model.JavaBean.Event;
+import DataStorage.DB.DAO.ImplMySqlEventDao;
+import DataStorage.DB.Database.DBConnect;
+import BusinessComponent.Entity.Event;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -2,9 +2,8 @@ package Main;
 
 
 //import Model.JavaBean.Admin;
-import Runner.RunECBLogin;
-import View.*;
-import Runner.RunECBEvents;
+import Main.Runner.RunECBLogin;
+import Main.Runner.RunECBEvents;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

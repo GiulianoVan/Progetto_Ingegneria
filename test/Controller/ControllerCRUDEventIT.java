@@ -5,11 +5,12 @@
  */
 package Controller;
 
-import DB.DAO.EventDao;
-import DB.DAO.ImplMySqlEventDao;
-import Model.JavaBean.Event;
-import View.EventPanel;
-import View.GeneralPanel;
+import ControllerCopiaOLDVERSIONE.ControllerCRDEventCOPIA;
+import DataStorage.DB.DAO.EventDao;
+import DataStorage.DB.DAO.ImplMySqlEventDao;
+import BusinessComponent.Entity.Event;
+import Presentazione.EventPanel;
+import Presentazione.GeneralPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
@@ -54,7 +55,7 @@ public class ControllerCRUDEventIT {
     public void tearDown() {
     }
     
-    private void testAdvancedSearch(String title,String type, Date from, Date to,String kind,ControllerCRDEvent evt) 
+    private void testAdvancedSearch(String title,String type, Date from, Date to,String kind,ControllerCRDEventCOPIA evt) 
     {
         
         
