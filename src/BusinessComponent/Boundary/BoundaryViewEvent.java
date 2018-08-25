@@ -9,12 +9,12 @@ package BusinessComponent.Boundary;
 
 import BusinessComponent.Controller.ControllerCRUDEvent;
 import DataStorage.DB.DAO.AddettoDao;
-import BusinessComponent.GestioneTabella.MyDefaultTableModel;
+import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.Entity.Addetto;
 import BusinessComponent.Entity.Event;
-import Presentazione.AddettiPanel;
-import Presentazione.EventPanel;
-import Presentazione.GeneralPanel;
+import Presentation.AddettiPanel;
+import Presentation.EventPanel;
+import Presentation.GeneralPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;

@@ -6,10 +6,10 @@
 package BusinessComponent.Controller;
 
 import DataStorage.DB.DAO.AddettoDao;
-import BusinessComponent.GestioneTabella.MyDefaultTableModel;
+import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.Entity.Addetto;
-import Presentazione.AddettiPanel;
-import Presentazione.GeneralPanel;
+import Presentation.AddettiPanel;
+import Presentation.GeneralPanel;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;

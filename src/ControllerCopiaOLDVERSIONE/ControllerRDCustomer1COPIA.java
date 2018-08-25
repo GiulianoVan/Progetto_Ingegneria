@@ -7,10 +7,10 @@ package ControllerCopiaOLDVERSIONE;
 
 import BusinessComponent.Boundary.BoundaryGeneralPanel;
 import DataStorage.DB.DAO.CustomerDao;
-import BusinessComponent.GestioneTabella.MyDefaultTableModel;
+import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.Entity.Customer;
-import Presentazione.CustomerPanel;
-import Presentazione.GeneralPanel;
+import Presentation.CustomerPanel;
+import Presentation.GeneralPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;

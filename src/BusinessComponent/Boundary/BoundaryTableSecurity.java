@@ -7,8 +7,8 @@ package BusinessComponent.Boundary;
 
 import BusinessComponent.Controller.ControllerCRUDAddetto;
 import ControllerCopiaOLDVERSIONE.ControllerUpdateAddetto;
-import BusinessComponent.GestioneTabella.MyDefaultTableModel;
-import Presentazione.AddettiPanel;
+import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
+import Presentation.AddettiPanel;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;

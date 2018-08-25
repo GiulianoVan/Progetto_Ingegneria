@@ -7,7 +7,7 @@ package BusinessComponent.Controller;
 
 import DataStorage.DB.DAO.AddettoDao;
 import DataStorage.DB.DAO.CustomerDao;
-import BusinessComponent.GestioneTabella.MyDefaultTableModel;
+import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.Entity.Addetto;
 import BusinessComponent.Entity.Customer;
 import java.sql.SQLException;

@@ -6,14 +6,14 @@
 package BusinessComponent.Boundary;
 
 import BusinessComponent.Controller.ControllerCRUDTurn;
-import Presentazione.ManagementTurnView;
+import Presentation.ManagementTurnView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import BusinessComponent.GestioneTabella.MyDefaultTableModel;
+import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.List;

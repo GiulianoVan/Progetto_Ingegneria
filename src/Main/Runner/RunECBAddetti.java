@@ -9,7 +9,7 @@ package Main.Runner;
 import BusinessComponent.Controller.ControllerCRUDAddetto;
 import DataStorage.DB.DAO.ImplMySqlAddettoDao;
 import ControllerCopiaOLDVERSIONE.ControllerUpdateAddetto;
-import Presentazione.AddettiPanel;
+import Presentation.AddettiPanel;
 import BusinessComponent.Boundary.BoundaryTableSecurity;
 import BusinessComponent.Boundary.BoundaryViewSecurity;
 

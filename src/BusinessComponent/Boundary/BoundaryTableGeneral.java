@@ -5,8 +5,8 @@
  */
 package BusinessComponent.Boundary;
 
-import BusinessComponent.GestioneTabella.MyDefaultTableModel;
-import Presentazione.GeneralPanel;
+import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
+import Presentation.GeneralPanel;
 import java.awt.Component;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;

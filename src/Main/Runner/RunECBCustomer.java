@@ -12,7 +12,7 @@ import BusinessComponent.Boundary.BoundaryGeneralPanel;
 import DataStorage.DB.DAO.CustomerDao;
 import DataStorage.DB.DAO.ImplMySqlCustomerDao;
 import BusinessComponent.Boundary.BoundaryTableCustomer;
-import Presentazione.CustomerPanel;
+import Presentation.CustomerPanel;
 
 
 /**

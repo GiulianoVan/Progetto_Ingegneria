@@ -7,8 +7,8 @@ package BusinessComponent.Boundary;
 
 import BusinessComponent.Controller.ControllerCRUDEvent;
 import DataStorage.DB.DAO.EventDao;
-import BusinessComponent.GestioneTabella.MyDefaultTableModel;
-import Presentazione.GeneralPanel;
+import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
+import Presentation.GeneralPanel;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;

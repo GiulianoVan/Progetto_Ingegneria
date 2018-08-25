@@ -6,10 +6,10 @@
 package BusinessComponent.Controller;
 
 import DataStorage.DB.DAO.EventDao;
-import BusinessComponent.GestioneTabella.MyDefaultTableModel;
+import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.Entity.Event;
-import Presentazione.EventPanel;
-import Presentazione.GeneralPanel;
+import Presentation.EventPanel;
+import Presentation.GeneralPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;

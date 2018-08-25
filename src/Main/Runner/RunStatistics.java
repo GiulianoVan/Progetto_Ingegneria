@@ -11,8 +11,8 @@ import DataStorage.DB.DAO.ImpMySqlStatisticsDao;
 import DataStorage.DB.DAO.StatisticsDao;
 import BusinessComponent.Controller.ControllerStatistics;
 import BusinessComponent.Controller.ControllerUpdateTurn;
-import Presentazione.ManagementTurnView;
-import Presentazione.StatisticsView;
+import Presentation.ManagementTurnView;
+import Presentation.StatisticsView;
 
 /**
  *

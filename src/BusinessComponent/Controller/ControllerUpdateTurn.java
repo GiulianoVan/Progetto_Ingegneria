@@ -7,10 +7,10 @@ package BusinessComponent.Controller;
 
 import BusinessComponent.Boundary.BoundaryTableGeneral;
 import DataStorage.DB.DAO.ManagementTurnDao;
-import BusinessComponent.GestioneTabella.MyDefaultTableModel;
+import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.Entity.ManagementTurn;
-import Presentazione.GeneralPanel;
-import Presentazione.ManagementTurnView;
+import Presentation.GeneralPanel;
+import Presentation.ManagementTurnView;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;

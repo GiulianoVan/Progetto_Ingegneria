@@ -6,7 +6,7 @@
 package BusinessComponent.Controller;
 
 import DataStorage.DB.DAO.StatisticsDao;
-import Presentazione.StatisticsView;
+import Presentation.StatisticsView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;

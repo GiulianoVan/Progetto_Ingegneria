@@ -10,7 +10,7 @@ import BusinessComponent.Controller.ControllerCRUDTurn;
 import DataStorage.DB.DAO.ImpMySqlManagementTurnDao;
 import DataStorage.DB.DAO.ManagementTurnDao;
 import BusinessComponent.Controller.ControllerUpdateTurn;
-import Presentazione.ManagementTurnView;
+import Presentation.ManagementTurnView;
 
 /**
  *

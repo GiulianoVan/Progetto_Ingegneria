@@ -10,7 +10,7 @@ package BusinessComponent.Controller;
 import DataStorage.DB.Database.DBConnect;
 import Main.StartProject;
 //import Model.JavaBean.Admin;
-import Presentazione.LoginView;
+import Presentation.LoginView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;

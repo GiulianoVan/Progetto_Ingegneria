@@ -12,7 +12,7 @@ import BusinessComponent.Boundary.BoundaryGeneralPanel;
 import DataStorage.DB.DAO.EventDao;
 import DataStorage.DB.DAO.ImplMySqlEventDao;
 import ControllerCopiaOLDVERSIONE.ControllerUpdateEvent;
-import Presentazione.EventPanel;
+import Presentation.EventPanel;
 import BusinessComponent.Boundary.BoundaryTableEvent;
 
 
