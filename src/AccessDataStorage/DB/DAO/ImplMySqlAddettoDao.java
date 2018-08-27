@@ -126,7 +126,6 @@ public class ImplMySqlAddettoDao implements AddettoDao {
             //SETTO TUTTI I ? CON I VALORI DINAMICAMENTE.
             //ps.setString(1,new_value.toUpperCase());
             
-            System.out.println(sql);
             ps.setString(1,id.toUpperCase());
             executeUpdate = ps.executeUpdate();
             con.close();
