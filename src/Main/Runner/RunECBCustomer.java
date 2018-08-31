@@ -8,7 +8,6 @@ package Main.Runner;
 
 import BusinessComponent.Boundary.BoundaryViewCustomer;
 import BusinessComponent.Controller.ControllerRUDCustomer;
-import BusinessComponent.Boundary.BoundaryGeneralPanel;
 import AccessDataStorage.DB.DAO.CustomerDao;
 import AccessDataStorage.DB.DAO.ImplMySqlCustomerDao;
 import BusinessComponent.Boundary.BoundaryTableCustomer;
@@ -26,7 +25,7 @@ public class RunECBCustomer {
     private BoundaryTableCustomer boundaryTab;
     private CustomerDao dao;
     private ControllerRUDCustomer controller;
-   public void startMVCCustomer()
+   public void startECBCustomer()
    {
           dao= new ImplMySqlCustomerDao();
           customerView = new CustomerPanel();

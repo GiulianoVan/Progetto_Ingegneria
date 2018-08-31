@@ -7,10 +7,6 @@ package BusinessComponent.ManagementModelTable;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Label;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;

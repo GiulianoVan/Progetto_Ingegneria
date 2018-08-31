@@ -7,15 +7,10 @@ package BusinessComponent.Boundary;
 
 import BusinessComponent.Controller.ControllerRUDCustomer;
 import BusinessComponent.Boundary.BoundaryTableGeneral;
-import AccessDataStorage.DB.DAO.CustomerDao;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
-import BusinessComponent.Entity.Customer;
-import BusinessComponent.Entity.Event;
 import Presentation.GeneralPanel;
-import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 /**

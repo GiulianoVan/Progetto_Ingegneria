@@ -6,12 +6,7 @@
 package Presentation;
 
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
-import java.util.HashSet;
-import java.util.Observable;
 import java.util.Set;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -116,29 +111,6 @@ public class CustomerPanel extends GeneralPanel {
       textSearchCustomer.setText("Insert Something Here...");
     }
 
-    
-    @Override
-    public void updateTable(Object arg) {
-           
-         tab = new MyDefaultTableModel();
-         tab.createModelBySetCustomer((Set) arg);
-        
-         tableSearchCustomer.setModel(tab);
-         int id = tableSearchCustomer.getColumnModel().getColumnIndex("ID");
-         tab.setId_column(id);
-         //Aggiorno i nomi delle colonne nella view 
-         tableSearchCustomer.getColumnModel().getColumn(3).setHeaderValue("TAX CODE");
-         tableSearchCustomer.getColumnModel().getColumn(id).setHeaderValue("ID CODE");
-         int purch= tableSearchCustomer.getColumnModel().getColumnIndex("ACQUISTI"); //setHeaderValue("ID CODE");
-         tableSearchCustomer.getColumnModel().getColumn(purch).setHeaderValue("PURCHASED");
-
-
-         //rimuovo la colonna dalla Jtable. Remove vuole una TableColumn che mi prendo dal modello
-         //ultimo indice contiene sempre id.
-         //nt id_column = tab.getId_column();
-         //SearchCustomer.removeColumn(tableSearchCustomer.getColumnModel().getColumn(id_column));
-       
-       }
 
     @Override
     public void clearAllTextCreate() {        

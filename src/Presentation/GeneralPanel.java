@@ -822,10 +822,6 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     String setTextButtonCreate() {
         return "CREATE";
     }
- 
-    public void updateTable(Object arg) {
-
-    }
     
     public void changeAdvGeneral()
     {

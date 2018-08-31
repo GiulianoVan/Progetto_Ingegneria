@@ -6,12 +6,9 @@
 package Main.Runner;
 
 import BusinessComponent.Boundary.BoundaryViewEvent;
-import ControllerCopiaOLDVERSION.ControllerCRDEventCOPIA;
 import BusinessComponent.Controller.ControllerCRUDEvent;
-import BusinessComponent.Boundary.BoundaryGeneralPanel;
 import AccessDataStorage.DB.DAO.EventDao;
 import AccessDataStorage.DB.DAO.ImplMySqlEventDao;
-import ControllerCopiaOLDVERSION.ControllerUpdateEvent;
 import Presentation.EventPanel;
 import BusinessComponent.Boundary.BoundaryTableEvent;
 
@@ -25,7 +22,6 @@ public class RunECBEvents {
     private EventDao dao;
     private EventPanel evtView;
     private ControllerCRUDEvent controller;
-    private ControllerUpdateEvent controllerTable;
     private BoundaryViewEvent boundary;
     private BoundaryTableEvent boundaryTab;
     public EventPanel getEvtView() {
@@ -40,12 +36,11 @@ public class RunECBEvents {
    // private ControllerMouseGeneral mouseController;
     //private ControllerGeneralFocus focusController;
     
-    public void startRunMVCEvents()
+    public void startRunECBEvents()
     {
         dao = new ImplMySqlEventDao();
         evtView = new EventPanel();
         controller = new ControllerCRUDEvent(dao);
-        //controllerTable = new ControllerUpdateEvent(dao,evtView);
         boundary = new BoundaryViewEvent(evtView,controller);
         boundaryTab = new BoundaryTableEvent(evtView, controller);
         /*

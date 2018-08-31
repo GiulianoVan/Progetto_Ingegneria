@@ -8,7 +8,6 @@ package Main.Runner;
 
 import BusinessComponent.Controller.ControllerCRUDAddetto;
 import AccessDataStorage.DB.DAO.ImplMySqlAddettoDao;
-import ControllerCopiaOLDVERSION.ControllerUpdateAddetto;
 import Presentation.AddettiPanel;
 import BusinessComponent.Boundary.BoundaryTableSecurity;
 import BusinessComponent.Boundary.BoundaryViewSecurity;
@@ -27,7 +26,7 @@ public class RunECBAddetti {
     BoundaryViewSecurity boundary;
     BoundaryTableSecurity boundaryTab;
     
-    public void startMVCAddetti()
+    public void startECBAddetti()
    {
          dao = new ImplMySqlAddettoDao();
          addettiView = new AddettiPanel();

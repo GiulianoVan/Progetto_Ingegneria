@@ -3,7 +3,6 @@ package Main;
 
 //import Model.JavaBean.Admin;
 import Main.Runner.RunECBLogin;
-import Main.Runner.RunECBEvents;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,7 +20,7 @@ public class StartProject {
     public StartProject()
     {
        RunECBLogin log = new RunECBLogin();
-       log.startRunMVCLogin();
+       log.startRunECBLogin();
        
     }
     /**

@@ -8,13 +8,8 @@ package BusinessComponent.Boundary;
 
 
 import BusinessComponent.Controller.ControllerCRUDEvent;
-import AccessDataStorage.DB.DAO.AddettoDao;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
-import BusinessComponent.Entity.Addetto;
-import BusinessComponent.Entity.Event;
-import Presentation.AddettiPanel;
 import Presentation.EventPanel;
-import Presentation.GeneralPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -22,11 +17,7 @@ import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Set;
 import javax.swing.JOptionPane;
-import java.util.HashSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JComboBox;
 
 /**

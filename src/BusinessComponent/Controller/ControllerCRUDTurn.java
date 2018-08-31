@@ -5,22 +5,16 @@
  */
 package BusinessComponent.Controller;
 
-import AccessDataStorage.DB.DAO.EventDao;
 import AccessDataStorage.DB.DAO.ImplMySqlAddettoDao;
 import AccessDataStorage.DB.DAO.ImplMySqlEventDao;
 import AccessDataStorage.DB.DAO.ManagementTurnDao;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
-import BusinessComponent.Entity.Event;
 import BusinessComponent.Entity.ManagementTurn;
-import Presentation.EventPanel;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import javax.swing.JOptionPane;
 
 /**
  *

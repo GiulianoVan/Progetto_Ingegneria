@@ -7,14 +7,12 @@ package BusinessComponent.Boundary;
 
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import Presentation.GeneralPanel;
-import java.awt.Component;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Map;
 import javax.swing.JTable;
 
 /**

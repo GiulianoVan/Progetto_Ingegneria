@@ -6,10 +6,6 @@
 package BusinessComponent.Boundary;
 
 import BusinessComponent.Controller.ControllerStatistics;
-import BusinessComponent.Factory.Charts;
-import BusinessComponent.Factory.GenerateChart;
-import BusinessComponent.Factory.LineChart;
-import AccessDataStorage.DB.DAO.StatisticsDao;
 import Presentation.StatisticsView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,15 +14,7 @@ import java.awt.event.ItemListener;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.LegendItem;
-import org.jfree.chart.LegendItemCollection;
-import org.jfree.chart.LegendItemSource;
-import org.jfree.chart.title.LegendTitle;
 
 /**
  *

@@ -5,10 +5,8 @@
  */
 package BusinessComponent.Controller;
 
-import AccessDataStorage.DB.DAO.AddettoDao;
 import AccessDataStorage.DB.DAO.CustomerDao;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
-import BusinessComponent.Entity.Addetto;
 import BusinessComponent.Entity.Customer;
 import java.sql.SQLException;
 import java.util.ArrayList;

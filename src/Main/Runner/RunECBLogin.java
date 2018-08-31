@@ -6,8 +6,6 @@
 package Main.Runner;
 
 import BusinessComponent.Boundary.BoundaryViewLogin;
-/*import DB.DAO.AmministratoreDao;
-import DB.DAO.ImplAdminDao;*/
 import Presentation.LoginView;
 
 /**
@@ -17,7 +15,7 @@ import Presentation.LoginView;
 public class RunECBLogin {
     
     
-    public void startRunMVCLogin()
+    public void startRunECBLogin()
     {
 
        // AmministratoreDao dao = new ImplAdminDao();

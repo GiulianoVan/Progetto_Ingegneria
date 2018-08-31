@@ -9,9 +9,7 @@ import BusinessComponent.Controller.ControllerCRUDEvent;
 import AccessDataStorage.DB.DAO.EventDao;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import Presentation.GeneralPanel;
-import java.awt.Component;
 import java.awt.event.KeyEvent;
-import java.util.HashMap;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 

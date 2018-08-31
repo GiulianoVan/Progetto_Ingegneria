@@ -6,7 +6,6 @@
 package AccessDataStorage.DB.DAO;
 
 import AccessDataStorage.DB.Database.DBConnect;
-import BusinessComponent.Entity.Addetto;
 import BusinessComponent.Entity.Event;
 import java.sql.*;
 import java.sql.Connection;

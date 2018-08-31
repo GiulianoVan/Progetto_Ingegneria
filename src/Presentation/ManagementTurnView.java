@@ -38,7 +38,6 @@ public class ManagementTurnView extends javax.swing.JPanel {
         buttonDeleteWork.setEnabled(false);
         comboEventWork.setEnabled(false);
         comboTaxCodeWork.setEnabled(false);
-        refreshNamesColumn();
     }
 
     public JButton getButtonCreate() {
@@ -144,24 +143,8 @@ public class ManagementTurnView extends javax.swing.JPanel {
     public void setTextTitleEventWork(JTextField textTitleEventWork) {
         this.textTitleEventWork = textTitleEventWork;
     }
-
-    public void refreshNamesColumn(){
-        //Aggiorno i nomi delle colonne nella view 
-         tableMenagementEvents.getColumnModel().getColumn(4).setHeaderValue("START TURN");
-         tableMenagementEvents.getColumnModel().getColumn(5).setHeaderValue("END TURN");
-         tableMenagementEvents.getColumnModel().getColumn(6).setHeaderValue("TURN NUMBER");
-    }
     
-    public void updateTable(Set obj)
-    {
-         tab = new MyDefaultTableModel();
-         tab.createModelBySetTurn((Set) obj);//da aggiungere nuovo metodo dentro a my default tabe model che carica questi.
-         
-         tableMenagementEvents.setModel(tab);
-         int id = tableMenagementEvents.getColumnModel().getColumnIndex("TURN_NUMBER");
-         tab.setId_column(id);
-         refreshNamesColumn();
-    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

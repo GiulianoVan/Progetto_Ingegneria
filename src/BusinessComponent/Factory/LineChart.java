@@ -7,15 +7,9 @@ package BusinessComponent.Factory;
 
 import java.awt.Color;
 import java.util.Map;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.Chart;
-import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 /**

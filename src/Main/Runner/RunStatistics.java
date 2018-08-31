@@ -5,14 +5,10 @@
  */
 package Main.Runner;
 
-import BusinessComponent.Boundary.BoundaryViewTurn;
-import AccessDataStorage.DB.DAO.ImpMySqlManagementTurnDao;
 import AccessDataStorage.DB.DAO.ImpMySqlStatisticsDao;
 import AccessDataStorage.DB.DAO.StatisticsDao;
 import BusinessComponent.Boundary.BoundaryViewStatistics;
 import BusinessComponent.Controller.ControllerStatistics;
-import ControllerCopiaOLDVERSION.ControllerUpdateTurn;
-import Presentation.ManagementTurnView;
 import Presentation.StatisticsView;
 
 /**

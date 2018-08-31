@@ -8,20 +8,12 @@ package BusinessComponent.Controller;
 import AccessDataStorage.DB.DAO.AddettoDao;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.Entity.Addetto;
-import Presentation.AddettiPanel;
-import Presentation.GeneralPanel;
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
-import javax.swing.JOptionPane;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import javax.swing.JTable;
 
 /**
  *

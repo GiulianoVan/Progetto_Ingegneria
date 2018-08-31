@@ -24,13 +24,13 @@ import javax.swing.JOptionPane;
 public class BoundaryViewLogin implements ActionListener,KeyListener{
     
 
-      //AmministratoreDao dao;
+      
       private LoginView viewLog;
-      //Admin admin;
+      
       private int flag_joptionpane = 1;//flag che controlla lo stato del bottone JOptionPane
       private Object[] ok_options = {"OK"};//setto 'Ok' come unica opzione dei JOptionPane.showOptionDialog
       
-    public BoundaryViewLogin(/*AmministratoreDao dao,*/ LoginView view)
+    public BoundaryViewLogin(LoginView view)
     {
         //this.dao = dao;
         viewLog = view;
@@ -40,7 +40,6 @@ public class BoundaryViewLogin implements ActionListener,KeyListener{
         viewLog.JTextUsername().addKeyListener(this);
         viewLog.getAccediButton().addKeyListener(this);
         viewLog.getExitButton().addKeyListener(this);
-    //    this.admin =  StartProject.admin;
     }
     
     
@@ -66,16 +65,7 @@ public class BoundaryViewLogin implements ActionListener,KeyListener{
                     flag_joptionpane= JOptionPane.showOptionDialog(viewLog,"Errore connessione : "+ex.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
    
                 }
-                /*
-                admin = dao.searchbyUserAndPassword(user, password);
-                viewLog.accessApp(admin);
-                if(admin == null )
-                {
-                   flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Attenzione : username o password errati","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
-                }
-            } catch (SQLException ex) {
-                flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
-            }*/
+                
         }
         else
         {
@@ -105,22 +95,6 @@ public class BoundaryViewLogin implements ActionListener,KeyListener{
             else if(e.getKeyChar()=='\n' && e.getComponent()!= viewLog.getExitButton() )
             {
                 viewLog.getAccediButton().doClick();
-                /*
-                  try {
-                        String user = viewLog.getUsernameText();
-                        String password = viewLog.getPasswordText();
-                        admin = dao.searchbyUserAndPassword(user, password);
-                       // viewLog.accessApp(admin);
-                        
-                        if(admin == null )
-                         {
-                            flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Attenzione : username o password errati","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
-                         }
-                      }catch (SQLException ex) {
-                          //flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso","Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
-                            flag_joptionpane = JOptionPane.showOptionDialog(viewLog,"Mancata connessione al database.Impossibile effettuare l'accesso:"+ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE,JOptionPane.OK_OPTION,null,ok_options,ok_options[0]);
-                    }
-                */
             }
             else
             {

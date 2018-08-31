@@ -11,7 +11,6 @@ import Main.Runner.RunECBCustomer;
 import Main.Runner.RunECBEvents;
 import Main.Runner.RunECBManagementTurn;
 import Main.Runner.RunStatistics;
-import java.awt.Color;
 
 
 /**
@@ -32,9 +31,9 @@ public class MainView extends javax.swing.JFrame{
         RunECBCustomer runCustomer = new RunECBCustomer();
         RunECBManagementTurn runManagementTurn = new RunECBManagementTurn();
         RunStatistics runStat  = new RunStatistics();
-        runEvents.startRunMVCEvents();
-        runSecurity.startMVCAddetti();
-        runCustomer.startMVCCustomer();
+        runEvents.startRunECBEvents();
+        runSecurity.startECBAddetti();
+        runCustomer.startECBCustomer();
         runManagementTurn.start();
         runStat.start();
         setEventsTabbed(runEvents);

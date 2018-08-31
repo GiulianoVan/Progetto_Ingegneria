@@ -6,14 +6,12 @@
 package BusinessComponent.Boundary;
 
 import BusinessComponent.Controller.ControllerCRUDAddetto;
-import ControllerCopiaOLDVERSION.ControllerUpdateAddetto;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import Presentation.AddettiPanel;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 
 /**
  *

@@ -5,8 +5,6 @@
  */
 package AccessDataStorage.DB.DAO;
 
-import BusinessComponent.Entity.Addetto;
-import BusinessComponent.Entity.Event;
 import BusinessComponent.Entity.ManagementTurn;
 import java.sql.SQLException;
 import java.sql.Time;
