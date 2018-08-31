@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Wed Aug 29 16:01:16 CEST 2018
-0.baseType=DIRECTORY
-0.base=C\:\\Users\\giuli\\Desktop\\Ingegneria del Software\\ProgettoCondiviso\\Progetto_Ingegneria\\EM17MobileScan\\app\\build\\intermediates\\assets\\debug
-0.path=crashlytics-build.properties
-0.set=ASSET
-count=1
