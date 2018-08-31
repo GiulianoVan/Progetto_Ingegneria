@@ -45,7 +45,7 @@ public class LoginView extends javax.swing.JFrame{
 
         AccediButton = new javax.swing.JButton();
         ExitButton = new javax.swing.JButton();
-        PasswordText = new javax.swing.JTextField();
+        PasswordText = new javax.swing.JPasswordField();
         UsernameText = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -154,7 +154,7 @@ public class LoginView extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AccediButton;
     private javax.swing.JButton ExitButton;
-    private javax.swing.JTextField PasswordText;
+    private javax.swing.JPasswordField PasswordText;
     private javax.swing.JTextField UsernameText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

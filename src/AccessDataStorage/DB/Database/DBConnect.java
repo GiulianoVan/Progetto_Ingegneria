@@ -82,11 +82,11 @@ public class DBConnect {
             } catch (ClassNotFoundException ex) {
             System.out.println("Driver Connector non funzionante");
             }
-             //con = DriverManager.getConnection(url,user,password);
+             con = DriverManager.getConnection(url,user,password);
              //con = DriverManager.getConnection(url,"cognomen","progettoing");
              //con = DriverManager.getConnection(url,"security","progettoing");
              //con = DriverManager.getConnection(url,"systemadmin","progettoing");
-             con = DriverManager.getConnection(url,"cognomen1","progettoing");
+             //con = DriverManager.getConnection(url,"cognomen1","progettoing");
              
        return con;
     }
