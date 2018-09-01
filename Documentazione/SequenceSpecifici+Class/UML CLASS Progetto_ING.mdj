@@ -46,11 +46,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFkLXva4bXM4Lk="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
-											"left": 1408,
-											"top": 496,
-											"height": 13
+											"left": 805,
+											"top": 429,
+											"width": 175,
+											"height": 13,
+											"text": "«Entity»"
 										},
 										{
 											"_type": "LabelView",
@@ -60,7 +61,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 805,
-											"top": 431,
+											"top": 444,
 											"width": 175,
 											"height": 13,
 											"text": "Event"
@@ -97,7 +98,7 @@
 									"left": 800,
 									"top": 424,
 									"width": 185,
-									"height": 25,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFkLXva4rXNt7Q="
 									},
@@ -132,7 +133,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 454,
+											"top": 467,
 											"width": 175,
 											"height": 13,
 											"text": "-Title: String",
@@ -149,7 +150,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 469,
+											"top": 482,
 											"width": 175,
 											"height": 13,
 											"text": "-EventType: String",
@@ -166,7 +167,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 484,
+											"top": 497,
 											"width": 175,
 											"height": 13,
 											"text": "-KindType: String",
@@ -183,7 +184,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 499,
+											"top": 512,
 											"width": 175,
 											"height": 13,
 											"text": "-Place: String",
@@ -200,7 +201,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 514,
+											"top": 527,
 											"width": 175,
 											"height": 13,
 											"text": "-Date: Date",
@@ -217,7 +218,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 529,
+											"top": 542,
 											"width": 175,
 											"height": 13,
 											"text": "-ZipCode: String",
@@ -226,7 +227,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 800,
-									"top": 449,
+									"top": 462,
 									"width": 185,
 									"height": 98
 								},
@@ -251,7 +252,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 552,
+											"top": 565,
 											"width": 175,
 											"height": 13,
 											"text": "+getTitle(): String",
@@ -268,7 +269,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 567,
+											"top": 580,
 											"width": 175,
 											"height": 13,
 											"text": "+setTitle()",
@@ -285,7 +286,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 582,
+											"top": 595,
 											"width": 175,
 											"height": 13,
 											"text": "+getDate(): Date",
@@ -302,7 +303,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 597,
+											"top": 610,
 											"width": 175,
 											"height": 13,
 											"text": "+setDate()",
@@ -311,7 +312,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 800,
-									"top": 547,
+									"top": 560,
 									"width": 185,
 									"height": 68
 								},
@@ -16613,6 +16614,7 @@
 							}
 						}
 					],
+					"stereotype": "Entity",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
@@ -20066,7 +20068,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFlJLFLNQ3LmSE="
 									},
-									"name": "int year"
+									"name": "int year",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -20102,7 +20105,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFlJLJcZxK4rfg="
 									},
-									"name": "int year"
+									"name": "int year",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -20110,7 +20114,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFlJLJcZxK4rfg="
 									},
-									"name": "String evt"
+									"name": "String evt",
+									"type": ""
 								}
 							]
 						},
@@ -20128,7 +20133,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFlJLReDDTyT1M="
 									},
-									"name": "int year"
+									"name": "int year",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -20164,7 +20170,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFlJLSvuzhdEOc="
 									},
-									"name": "String evt"
+									"name": "String evt",
+									"type": ""
 								}
 							]
 						}
@@ -20344,7 +20351,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFlfD7mNXBuLUY="
 									},
-									"name": "Int y"
+									"name": "Int y",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -20352,7 +20360,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFlfD7mNXBuLUY="
 									},
-									"name": "String tp"
+									"name": "String tp",
+									"type": ""
 								}
 							]
 						},
@@ -20389,7 +20398,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFlfEAqGoKSd3w="
 									},
-									"name": "Map m"
+									"name": "Map m",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
