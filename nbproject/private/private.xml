@@ -12,22 +12,8 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/StatisticsView.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/MainView.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/Runner/RunECBLogin.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryViewLogin.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/Runner/RunECBCustomer.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/ManagementTurnView.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/Runner/RunECBEvents.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/CustomerPanel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/StartProject.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/Runner/RunStatistics.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/Runner/RunECBManagementTurn.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/LoginView.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/Runner/RunECBAddetti.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/AddettiPanel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/GeneralPanel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/EventPanel.java</file>
+            <file>file:/C:/Users/Vincent/Desktop/INGSW_GitHub/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryViewTurn.java</file>
+            <file>file:/C:/Users/Vincent/Desktop/INGSW_GitHub/Progetto_Ingegneria/src/AccessDataStorage/DB/Database/DBConnect.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1,3 +1,23 @@
+Account definitivo
+
+Creato il 01/09/2018
+
+dati email: https://www.gmx.com/
+	email: defingsw@gmx.com
+	pass: cognomen
+	risposta recupero password: cognomen
+
+register.it
+	email: defingsw@gmx.com
+	pass: cognomen@1
+	cell: 3311111111
+
+
+
+
+----------------------------------
+Account temporaneo
+
 Creato il 14/08/2018
 
 dati email: https://www.gmx.com/
@@ -8,4 +28,4 @@ dati email: https://www.gmx.com/
 register.it
 	email: tmpingsw@gmx.com
 	pass: cognomen@1
-
+	cell: 3333333333
