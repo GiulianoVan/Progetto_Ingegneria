@@ -269,6 +269,10 @@ public class BoundaryViewEvent extends BoundaryGeneralPanel implements ItemListe
             comboKind.addItem("COMEDY");
             comboKind.addItem("OTHER");
        }
+        else if(comboType.getSelectedItem().equals("OTHER"))
+        {
+            comboKind.addItem("OTHER");
+        }
         else
         {
             comboKind.addItem("NOT SELECTED");

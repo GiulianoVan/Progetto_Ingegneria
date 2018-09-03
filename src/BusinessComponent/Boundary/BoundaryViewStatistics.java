@@ -75,21 +75,29 @@ public class BoundaryViewStatistics implements ActionListener,ItemListener{
             }
             else if(view.getComboStatisticType().getSelectedItem().toString().equals("Presences over the years by event"))
             {
-                String event = view.getComboStatisticEventType().getSelectedItem().toString();
-                int start = Integer.parseInt(view.getComboDateStatisticFrom().getSelectedItem().toString());
-                int end =  Integer.parseInt(view.getComboDateStatisticTo().getSelectedItem().toString());
-                Map<Comparable,Number> map = new HashMap<>();
                 
-                for(int i=start;i<=end;++i)
+                String event = view.getComboStatisticEventType().getSelectedItem().toString();
+                if(!event.equalsIgnoreCase("SELECT EVENT TYPE"))
                 {
-                    try {
-                        map.put(i,controller.partecipationAtTypeEventInOneYear(i,event));
-                    } catch (SQLException ex) {
-                          JOptionPane.showMessageDialog(view,"Error " + ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-                controller.generateGraph(map,view.getComboStatisticType().getSelectedItem().toString());
+                    int start = Integer.parseInt(view.getComboDateStatisticFrom().getSelectedItem().toString());
+                    int end =  Integer.parseInt(view.getComboDateStatisticTo().getSelectedItem().toString());
+                    Map<Comparable,Number> map = new HashMap<>();
 
+                    for(int i=start;i<=end;++i)
+                    {
+                        try {
+                            map.put(i,controller.partecipationAtTypeEventInOneYear(i,event));
+                        } catch (SQLException ex) {
+                              JOptionPane.showMessageDialog(view,"Error " + ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    controller.generateGraph(map,view.getComboStatisticType().getSelectedItem().toString());
+                }
+                else
+                {
+                  JOptionPane.showMessageDialog(view,"Type event not selected", "ERROR", JOptionPane.ERROR_MESSAGE);  
+                }
+                
             }
             else if(view.getComboStatisticType().getSelectedItem().toString().equals("Earnings over the years"))
             {

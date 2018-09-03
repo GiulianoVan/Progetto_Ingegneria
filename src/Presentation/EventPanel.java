@@ -115,7 +115,7 @@ public class EventPanel extends GeneralPanel {
     
     @Override
     public void loadComboTypeEvent(JComboBox comboType,JComboBox comboKind)
-    {
+    { /*
         comboKind.removeAllItems();
         
         if(comboType.getSelectedItem().equals("CINEMA"))
@@ -154,7 +154,7 @@ public class EventPanel extends GeneralPanel {
             comboKind.addItem("NOT SELECTED");
         }
                     
-        
+        */
     }
    
 

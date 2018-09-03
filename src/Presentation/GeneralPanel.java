@@ -293,6 +293,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
         comboGenEventCreate.setBackground(new java.awt.Color(255, 204, 104));
         comboGenEventCreate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        comboGenEventCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "COMEDY", "DRAMATIC", "HORROR", "OTHER" }));
         panelCreateEvent.add(comboGenEventCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 150, 30));
 
         dateCreateEvent.setBackground(new java.awt.Color(255, 204, 104));
@@ -300,7 +301,7 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
 
         comboTypeEventCreate.setBackground(new java.awt.Color(255, 204, 104));
         comboTypeEventCreate.setFont(new java.awt.Font("Dubai Medium", 1, 12)); // NOI18N
-        comboTypeEventCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CINEMA", "SPORT", "CONCERT", "THEATER" }));
+        comboTypeEventCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CINEMA", "SPORT", "CONCERT", "THEATER", "OTHER" }));
         comboTypeEventCreate.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comboTypeEventCreateItemStateChanged(evt);

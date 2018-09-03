@@ -465,7 +465,12 @@
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="0"/>
+                  <StringArray count="4">
+                    <StringItem index="0" value="COMEDY"/>
+                    <StringItem index="1" value="DRAMATIC"/>
+                    <StringItem index="2" value="HORROR"/>
+                    <StringItem index="3" value="OTHER"/>
+                  </StringArray>
                 </Property>
               </Properties>
               <AuxValues>
@@ -498,11 +503,12 @@
                   <Font name="Dubai Medium" size="12" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="5">
                     <StringItem index="0" value="CINEMA"/>
                     <StringItem index="1" value="SPORT"/>
                     <StringItem index="2" value="CONCERT"/>
                     <StringItem index="3" value="THEATER"/>
+                    <StringItem index="4" value="OTHER"/>
                   </StringArray>
                 </Property>
               </Properties>
