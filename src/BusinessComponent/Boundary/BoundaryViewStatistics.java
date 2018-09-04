@@ -62,16 +62,22 @@ public class BoundaryViewStatistics implements ActionListener,ItemListener{
                 int start = Integer.parseInt(view.getComboDateStatisticFrom().getSelectedItem().toString());
                 int end =  Integer.parseInt(view.getComboDateStatisticTo().getSelectedItem().toString());
                 Map<Comparable,Number> map = new HashMap<>();
-                
-                for(int i=start;i<=end;++i)
+                if(start<end)
                 {
-                    try {
-                        map.put(i,controller.ticketSoldForYear(i));
-                    } catch (SQLException ex) {
-                       JOptionPane.showMessageDialog(view,"Error " + ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                    for(int i=start;i<=end;++i)
+                    {
+                        try {
+                            map.put(i,controller.ticketSoldForYear(i));
+                        } catch (SQLException ex) {
+                           JOptionPane.showMessageDialog(view,"Error " + ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
                     }
+                    controller.generateGraph(map,view.getComboStatisticType().getSelectedItem().toString());
                 }
-                controller.generateGraph(map,view.getComboStatisticType().getSelectedItem().toString());
+                else
+                {
+                    JOptionPane.showMessageDialog(view,"Start date cannot be egual or greater than the end date ", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
             else if(view.getComboStatisticType().getSelectedItem().toString().equals("Presences over the years by event"))
             {
@@ -82,12 +88,38 @@ public class BoundaryViewStatistics implements ActionListener,ItemListener{
                     int start = Integer.parseInt(view.getComboDateStatisticFrom().getSelectedItem().toString());
                     int end =  Integer.parseInt(view.getComboDateStatisticTo().getSelectedItem().toString());
                     Map<Comparable,Number> map = new HashMap<>();
+                    if(start<end)
+                    {
+                        for(int i=start;i<=end;++i)
+                        {
+                            try {
+                                map.put(i,controller.partecipationAtTypeEventInOneYear(i,event));
+                            } catch (SQLException ex) {
+                                  JOptionPane.showMessageDialog(view,"Error " + ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                        controller.generateGraph(map,view.getComboStatisticType().getSelectedItem().toString());
+                    }
+                    else
+                    {
+                       JOptionPane.showMessageDialog(view,"Start date cannot be egual or greater than the end date ", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
 
+            }
+            else if(view.getComboStatisticType().getSelectedItem().toString().equals("Earnings over the years"))
+            {
+                int start = Integer.parseInt(view.getComboDateStatisticFrom().getSelectedItem().toString());
+                int end =  Integer.parseInt(view.getComboDateStatisticTo().getSelectedItem().toString());
+                Map<Comparable,Number> map = new HashMap<>();
+                if(start<end)
+                {
                     for(int i=start;i<=end;++i)
                     {
                         try {
-                            map.put(i,controller.partecipationAtTypeEventInOneYear(i,event));
-                        } catch (SQLException ex) {
+                            map.put(i,controller.EarnsInTheYear(i));
+                        } catch (SQLException ex) 
+                        {
                               JOptionPane.showMessageDialog(view,"Error " + ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
@@ -95,26 +127,9 @@ public class BoundaryViewStatistics implements ActionListener,ItemListener{
                 }
                 else
                 {
-                  JOptionPane.showMessageDialog(view,"Type event not selected", "ERROR", JOptionPane.ERROR_MESSAGE);  
+                  JOptionPane.showMessageDialog(view,"Start date cannot be egual or greater than the end date ", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 
-            }
-            else if(view.getComboStatisticType().getSelectedItem().toString().equals("Earnings over the years"))
-            {
-                int start = Integer.parseInt(view.getComboDateStatisticFrom().getSelectedItem().toString());
-                int end =  Integer.parseInt(view.getComboDateStatisticTo().getSelectedItem().toString());
-                Map<Comparable,Number> map = new HashMap<>();
-                
-                for(int i=start;i<=end;++i)
-                {
-                    try {
-                        map.put(i,controller.EarnsInTheYear(i));
-                    } catch (SQLException ex) 
-                    {
-                          JOptionPane.showMessageDialog(view,"Error " + ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-                controller.generateGraph(map,view.getComboStatisticType().getSelectedItem().toString());
             }
                   
         }
@@ -132,6 +147,7 @@ public class BoundaryViewStatistics implements ActionListener,ItemListener{
             view.getComboDateStatisticFrom().setVisible(false);
             view.getComboDateStatisticTo().setVisible(false);
             view.getComboStatisticEventType().setVisible(false);
+            
             
         }
         else if(view.getComboStatisticType().getSelectedItem().toString().equals("Tickets sold over the years") || view.getComboStatisticType().getSelectedItem().toString().equals("Earnings over the years"))
@@ -153,7 +169,7 @@ public class BoundaryViewStatistics implements ActionListener,ItemListener{
             view.getComboDateStatisticTo().setVisible(true);
             view.getComboStatisticEventType().setVisible(true);
         }
-     else
+        else 
         {
             view.getjLabel2().setVisible(false);
             view.getjLabel3().setVisible(false);
