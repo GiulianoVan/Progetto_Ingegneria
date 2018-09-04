@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class BoundaryTableSecurity extends BoundaryTableGeneral{
 
@@ -47,9 +47,7 @@ public class BoundaryTableSecurity extends BoundaryTableGeneral{
                     value = value.toUpperCase();
                 value= value.replace(",",".");
                 table.setValueAt(value, row, column);
-               /* Addetto add = new Addetto(name, cogn, cf, email,tel,stip, datnasc, id)
-                  chiamo dao.update(AddeddoDao);
-                */
+               
                 controller.doUpdateAddetto(value,table.getColumnName(column),table.getModel().getValueAt(row,tab.getId_column()).toString());
                 row = -1;
                 column=-1;

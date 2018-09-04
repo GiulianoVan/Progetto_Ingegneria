@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class ControllerCRUDEvent{
     
@@ -136,21 +136,5 @@ public class ControllerCRUDEvent{
         
        return idEvent;
     }
-    
-    
-    
-    /*
-    private void updateTable(JTable table) {
-         
-         MyDefaultTableModel tab = new MyDefaultTableModel();
-         tab.createModelBySetAddetto(addetti);
-         table.setModel(tab);
-         int id = table.getColumnModel().getColumnIndex("ID");
-         tab.setId_column(id);
-         //Aggiorno i nomi delle colonne nella view 
-         table.getColumnModel().getColumn(2).setHeaderValue("TAX CODE");
-        
-         table.getColumnModel().getColumn(7).setHeaderValue("ID CODE");
-        }
-      */         
+      
 }

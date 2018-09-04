@@ -13,7 +13,7 @@ import javax.swing.table.TableCellRenderer;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class MyTableCellRenderer extends JLabel implements TableCellRenderer{
 
@@ -53,7 +53,4 @@ public class MyTableCellRenderer extends JLabel implements TableCellRenderer{
        
        return this;
     }
-    
-    
-  
 }

@@ -17,7 +17,7 @@ import javax.swing.JTable;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public abstract class BoundaryTableGeneral implements MouseListener,KeyListener,FocusListener {
    

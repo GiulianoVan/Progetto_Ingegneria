@@ -15,7 +15,7 @@ import BusinessComponent.Boundary.BoundaryTableEvent;
 
 /**
  *
- * @author giuli
+ * @author INGSW2017_22
  */
 public class RunECBEvents {
     
@@ -32,10 +32,6 @@ public class RunECBEvents {
         this.evtView = evtView;
     }
     
-    //private ControllerGeneralButton evtControl;
-   // private ControllerMouseGeneral mouseController;
-    //private ControllerGeneralFocus focusController;
-    
     public void startRunECBEvents()
     {
         dao = new ImplMySqlEventDao();
@@ -43,31 +39,6 @@ public class RunECBEvents {
         controller = new ControllerCRUDEvent(dao);
         boundary = new BoundaryViewEvent(evtView,controller);
         boundaryTab = new BoundaryTableEvent(evtView, controller);
-        /*
-        dao = new ImplMySqlAddettoDao();
-         addettiView = new AddettiPanel();
-         controller = new ControllerCRUDAddetto(dao);
-         controllerTable = new ControllerUpdateAddetto(dao,addettiView);
-         boundary = new BoundaryViewSecurity(addettiView,controller);
-        */
+        
     }
-/*
-    public EventModel getEvtModel() {
-        return evtModel;
-    }
-
-    public void setEvtModel(EventModel evtModel) {
-        this.evtModel = evtModel;
-    }
-
-    public GeneralPanel getEvtView() {
-        return evtView;
-    }
-
-    public void setEvtView(EventPanel evtView) {
-        this.evtView = evtView;
-    }
-
-  */  
-    
 }

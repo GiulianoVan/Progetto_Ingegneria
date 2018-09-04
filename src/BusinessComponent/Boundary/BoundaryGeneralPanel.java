@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public abstract class BoundaryGeneralPanel implements ActionListener,MouseListener,FocusListener,KeyListener{
 
@@ -64,13 +64,13 @@ public abstract class BoundaryGeneralPanel implements ActionListener,MouseListen
         }
          else if(action.equals("BACKSECURITY"))
         {
-            //view.getjPanelAdvSearch().setVisible(false);
+            
             updateViewForBackSecurity();
             
         }
         else if(action.equals("BACKCREATEEVENT"))
         {
-            //view.getjPanelAdvSearch().setVisible(false);
+            
             showBackCreateEvent();
          }
     };

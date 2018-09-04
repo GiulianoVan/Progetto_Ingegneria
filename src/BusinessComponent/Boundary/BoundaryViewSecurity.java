@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class BoundaryViewSecurity extends BoundaryGeneralPanel
 {
@@ -50,7 +50,6 @@ public class BoundaryViewSecurity extends BoundaryGeneralPanel
                         
             if(action.equalsIgnoreCase("CERCA"))
             {
-                //flag_search="cerca";
                 doSearch();        
             }
             
@@ -157,7 +156,6 @@ public class BoundaryViewSecurity extends BoundaryGeneralPanel
         Date birth =view.getDateCreateAddetto().getDate();
         String phone = view.getTextNumberCreate().getText();
         String email = view.getTextEmailCreate().getText();
-        //Timestamp birth = new Timestamp(birth.getTime());
         String salary = view.getTextSalaryCreate().getText();
         salary = salary.replace(",", ".");
         Double salar = null;

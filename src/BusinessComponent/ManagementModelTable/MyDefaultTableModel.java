@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 
 public class  MyDefaultTableModel<T>  extends DefaultTableModel {
@@ -102,13 +102,7 @@ public class  MyDefaultTableModel<T>  extends DefaultTableModel {
     {
         this.column=column;
     }
-    /*
-    public void resetCellEditable()
-    {
-        this.row = -1;
-        this.column=-1;
-    }
-    */
+    
     public  void createModelBySetAddetto(Set<Addetto> addetti)
     {
        //SELECT NOME,COGNOME,CF,EMAIL,TEL,STIPENDIO,LIVELLO 

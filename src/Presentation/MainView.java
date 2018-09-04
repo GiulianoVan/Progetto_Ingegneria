@@ -15,7 +15,7 @@ import Main.Runner.RunStatistics;
 
 /**
  *
- * @author giuli
+ * @author INGSW2017_22
  */
 public class MainView extends javax.swing.JFrame{
 

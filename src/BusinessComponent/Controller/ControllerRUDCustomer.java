@@ -15,7 +15,7 @@ import java.util.Set;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class ControllerRUDCustomer {
     

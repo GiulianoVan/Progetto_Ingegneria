@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class BoundaryViewTurn implements ActionListener,KeyListener,MouseListener {
     
@@ -35,8 +35,6 @@ public class BoundaryViewTurn implements ActionListener,KeyListener,MouseListene
         this.controller = contr;
         this.view.getButtonSearch().addActionListener(this);
         this.view.getButtonDelete().addActionListener(this);
-        //this.view.getTextCodeEvent().addKeyListener(this);
-        //this.view.getTextTaxCode().addKeyListener(this);
         this.view.getTextTitleEventWork().addKeyListener(this);
         this.view.getTextSurnameSecurityWork().addKeyListener(this);
         this.view.getButtonCreate().addActionListener(this);
@@ -61,8 +59,7 @@ public class BoundaryViewTurn implements ActionListener,KeyListener,MouseListene
         
         else if(action.equalsIgnoreCase("DELETE"))
         {
-            doDelete();
-            //JTable tab = view.getTableSearchGeneral();  
+            doDelete(); 
         }
         else if(action.equalsIgnoreCase("CREATE"))
         {
@@ -96,8 +93,7 @@ public class BoundaryViewTurn implements ActionListener,KeyListener,MouseListene
 
     @Override
     public void keyReleased(KeyEvent e) {
-            /*if(e.getKeyChar() == '\n')
-                view.getButtonSearch().doClick();//clicca il pulsante da solo xD.. risparmio codice*/
+            
             if(e.getKeyChar()=='\n')
             {
                 if(e.getComponent().equals(view.getTextSurnameSecurityWork()))
@@ -204,45 +200,7 @@ public class BoundaryViewTurn implements ActionListener,KeyListener,MouseListene
         }
              
     }
-/*
-    private Set<ManagementTurn> doSearch(String event, String tax_code) {
-        
-       Set<ManagementTurn> turn = new HashSet<>();
-       int intersect = 0;
-       
-        if(!event.equals(""))
-            {
-                intersect = 1;
-                try{
-                        turn.addAll(dao.getTurnEvent(event));
-                }
-                catch(SQLException err)
-                {
-                    JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-            if(!tax_code.equals(""))
-            {
-                try{
-                    if(turn.isEmpty() && intersect==0)
-                    {
-                        turn.addAll(dao.getTurnAddetto(tax_code));
-                    }
-                    else
-                    {
-                        turn.retainAll(dao.getTurnAddetto(tax_code));
-                    }
-                    
-                     intersect = 1;
-                    }
-                catch(SQLException err)
-                {
-                    JOptionPane.showMessageDialog(view,"Error : "+err.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
-                }
-            }         
-            return turn;
-    }
-*/
+
     private void doDelete() {
          String deleteMessage;
             int rowCount = view.getTableMenagementEvents().getSelectedRowCount();
@@ -280,8 +238,7 @@ public class BoundaryViewTurn implements ActionListener,KeyListener,MouseListene
                  flag_errorDelete=1;
                  //se cancello le righe,risetto a false il button.
                  view.getButtonDelete().setEnabled(false);
-                /* if(view.getTableMenagementEvents().getRowCount()>0)
-                 view.getTableMenagementEvents().setRowSelectionInterval(0, 0);*/
+                
             }
     }
 
@@ -310,13 +267,7 @@ public class BoundaryViewTurn implements ActionListener,KeyListener,MouseListene
         {
            view.getButtonDelete().setEnabled(false);
         }
-        /*            
-        if(view.getTableMenagementEvents().getRowCount()>0)
-            view.getTableMenagementEvents().setRowSelectionInterval(0, 0);
-        else
-        {
-            view.getButtonDelete().setEnabled(false);
-        }*/
+        
     }
 
     private void doCreate()
@@ -330,7 +281,7 @@ public class BoundaryViewTurn implements ActionListener,KeyListener,MouseListene
 
             controller.createTurn(CF, codeEvent, start, end);
             JOptionPane.showMessageDialog(view, "Successfull Insert", "INSERT", JOptionPane.INFORMATION_MESSAGE);
-           // view.getButtonSearch().doClick(); //aggiorno tabella.
+           
             } 
         catch (SQLException ex) 
         {

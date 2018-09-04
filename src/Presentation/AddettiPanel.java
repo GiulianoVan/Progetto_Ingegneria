@@ -10,7 +10,7 @@ import java.util.Set;
 
 /**
  *
- * @author giuli
+ * @author INGSW2017_22
  */
 public class AddettiPanel extends GeneralPanel{
 
@@ -20,11 +20,9 @@ public class AddettiPanel extends GeneralPanel{
     private javax.swing.JButton buttonOkAdvSearchGeneral;
     private javax.swing.JButton buttonOkSearchAddetto;
     private javax.swing.JComboBox<String> comboTypeGeneralSearch;
-    private javax.swing.JComboBox<String> comboGenereTypeSearch;
-    
+    private javax.swing.JComboBox<String> comboGenereTypeSearch; 
     private com.toedter.calendar.JDateChooser dateGeneral;
     private javax.swing.JPanel jPanelAdvSearch;
-    //private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableSearchAddetto;
     private javax.swing.JTextField textPlaceGeneralSearch;
     private javax.swing.JTextField textCFGeneralSearch;
@@ -71,7 +69,7 @@ public class AddettiPanel extends GeneralPanel{
         jPanelAdvSearch.setVisible(false);
         comboGenereTypeSearch.setVisible(false);    
         comboTypeGeneralSearch.setVisible(false);
-        //buttonCreateGeneral.setVisible(false);
+
         buttonAdvGeneral.setText("Advanced Search");
         buttonCreateGeneral.setText("Create Security Officer");  
         textSearchAddetto.setText("Insert Something here");

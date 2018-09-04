@@ -15,7 +15,7 @@ import java.util.Set;
 
 /**
  *
- * @author Pirozzi
+ * @author gruppo 22
  */
 public interface AddettoDao {
     
@@ -24,10 +24,6 @@ public interface AddettoDao {
     public int updateAddetto(String new_value,String attribute_to_change,String id) throws SQLException;
     public int deleteAddetto(Addetto employee) throws SQLException;
     public int updateAddetto(Addetto addetto) throws SQLException;
- // public Addetto cercaAddettoStipendioMax(double stipendio);
- // public List<Addetto> cercaAddettoStipendioMaggioredi(double stipendio);
- // public List<Addetto> cercaAddettoStipendioMinidoredi(double stipendio); 
- // public Addetto cercaAddettoNomeCognomeCf(String nome,String cognome,String cf);
     public List<Addetto> getAllAddetti();
     public Set<Addetto> advancedSearch(Map<String,String> campo_value) throws SQLException; //ogni chiave della mappa è un campo,ed ogni campo ha un valore associato.
     public Set<Addetto> getAddettiParolaChiave(ArrayList<String> parola) throws SQLException;

@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class BoundaryTableEvent extends BoundaryTableGeneral{
     
@@ -52,14 +52,10 @@ public class BoundaryTableEvent extends BoundaryTableGeneral{
                 
                     try {
                         flag=false;
-                        //value= value.replace(",",".");
+                        
                         table.setValueAt(value, row, column);
                         controller.doUpdateEvent(value,table.getColumnName(column),table.getModel().getValueAt(row,tab.getId_column()).toString());
-                        /*
-                         Event e = new Event(title,decr,typeEv,kindEv,date,place,id)
-                         chiamo il dao con (event )
-                
-                        */
+   
                         if(table.getModel().getColumnName(column).equals("EVENT_TYPE") )
                         {
                                table.setValueAt("OTHER",row,2);

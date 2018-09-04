@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author giuli
+ * @author INGSW2017_22
  */
 public class Event {
     

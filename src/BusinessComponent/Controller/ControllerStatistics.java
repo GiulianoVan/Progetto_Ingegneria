@@ -20,7 +20,7 @@ import org.jfree.chart.title.LegendTitle;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 
 public class ControllerStatistics {
@@ -79,13 +79,12 @@ public class ControllerStatistics {
         else if(choise.equals("Tickets sold over the years"))
         {
             Charts chart = charts.getChart("LINE");
-            //ame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            
             JFreeChart k = chart.drawChart(map);
             LineChart lineChart = (LineChart) chart;
             lineChart.setAsseX("Year");
             lineChart.setAsseY("Ticket");
             ChartFrame frame = new ChartFrame("Tickets sold over the years", chart.drawChart(map));
-            //frame.setVisible(true);
             frame.setSize(450,500);
             frame.setSize(450,500);
             frame.setVisible(true);
@@ -93,13 +92,11 @@ public class ControllerStatistics {
         else if(choise.equals("Presences over the years by event"))
         {
              Charts chart = charts.getChart("LINE");
-            //ame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
             JFreeChart k = chart.drawChart(map);
             LineChart lineChart = (LineChart) chart;
             lineChart.setAsseX("Year");
             lineChart.setAsseY("Presence");
             ChartFrame frame = new ChartFrame("Presences over the years by event", chart.drawChart(map));
-            //frame.setVisible(true);
             frame.setSize(450,500);
             frame.setSize(450,500);
             frame.setVisible(true);
@@ -108,19 +105,16 @@ public class ControllerStatistics {
         else if(choise.equals("Earnings over the years"))
         {
           Charts chart = charts.getChart("LINE");
-            //ame = new ChartFrame("Bar Chart for Parameters",chart.drawChart(map));
+            
             JFreeChart k = chart.drawChart(map);
             LineChart lineChart = (LineChart) chart;
             lineChart.setAsseX("Year");
             lineChart.setAsseY("Cash");
             ChartFrame frame = new ChartFrame("Earnings over the years", chart.drawChart(map));
-            //frame.setVisible(true);
             frame.setSize(450,500);
             frame.setSize(450,500);
             frame.setVisible(true);
         }
         
     }
-
-    
 }

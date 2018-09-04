@@ -6,7 +6,6 @@
 package BusinessComponent.Boundary;
 
 import BusinessComponent.Controller.ControllerRUDCustomer;
-import BusinessComponent.Boundary.BoundaryTableGeneral;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import Presentation.GeneralPanel;
 import java.awt.event.KeyEvent;
@@ -15,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class BoundaryTableCustomer extends BoundaryTableGeneral {
   
@@ -48,10 +47,7 @@ public class BoundaryTableCustomer extends BoundaryTableGeneral {
                 
                 value= value.replace(",",".");
                 table.setValueAt(value, row, column);
-              /* 
-                Customer cust = new Customer(id,user,name,surname,email,cf,, phone,date_born,tick);
-                  chiamo il dao con (customer cust )
-              */  
+              
                 controller.doUpdateAddetto(value,table.getColumnName(column),table.getModel().getValueAt(row,tab.getId_column()).toString());
                 row = -1;
                 column=-1;
@@ -79,16 +75,11 @@ public class BoundaryTableCustomer extends BoundaryTableGeneral {
                column = -1;
                activeButtonDelete();
             }
-            //sto cambiando casella senza invio,quindi setto la cella cliccata nuovamente non editabile.
-            
-            
+            //sto cambiando casella senza invio,quindi setto la cella cliccata nuovamente non editabile.   
         }
-          //ho confermato update o ho abbandonato la,quindi setto la cella cliccata nuovamente non editabile.
-            
     }
 
    
-
     @Override
     public void disactiveButtonDelete()
     {

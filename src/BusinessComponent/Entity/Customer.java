@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Vincent
+ * @author INGSW2017_22
  */
 public class Customer extends Observable{
     
@@ -174,49 +174,49 @@ public class Customer extends Observable{
         this.date_born = date_born;
     }
     
-public void setValoreIdCustomer(String idCustomer) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI idCustomer
+public void setValoreIdCustomer(String idCustomer) { 
     this.idCustomer = idCustomer;
     setChanged();
     notifyObservers(this.idCustomer);
     }
 
-public void setValoreUsername(String username) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI username
+public void setValoreUsername(String username) { 
     this.username = username;
     setChanged();
     notifyObservers(this.username);
     }
 	
-public void setValoreName(String name) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI name
+public void setValoreName(String name) {
     this.name = name;
     setChanged();
     notifyObservers(this.name);
     }
 	
-public void setValoreSurname(String surname) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI surname
+public void setValoreSurname(String surname) { 
     this.surname = surname;
     setChanged();
     notifyObservers(this.surname);
     }
 	
-public void setValoreEmail(String email) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI email
+public void setValoreEmail(String email) { 
     this.email = email;
     setChanged();
     notifyObservers(this.email);
     }
 	
-public void setValoreTax_code(String tax_code) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI tax_code
+public void setValoreTax_code(String tax_code) { 
     this.tax_code = tax_code;
     setChanged();
     notifyObservers(this.tax_code);
     }
 	
-public void setValorePhone(String phone) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI phone
+public void setValorePhone(String phone) { 
     this.phone = phone;
     setChanged();
     notifyObservers(this.phone);
     }
 	
-public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIEW) IL VALORE DI date_born
+public void setValoreDate_born(Date date_born) { 
     this.date_born = date_born;
     setChanged();
     notifyObservers(this.date_born);
@@ -246,8 +246,7 @@ public void setValoreDate_born(Date date_born) { //NOTIFICA AGLI OSSERVATORI(VIE
         }
         return true;
     }
-
-    
+ 
 }
 
     

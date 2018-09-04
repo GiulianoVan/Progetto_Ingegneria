@@ -13,7 +13,7 @@ import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class PieChart implements Charts{
 
@@ -30,20 +30,7 @@ public class PieChart implements Charts{
        
         JFreeChart chart = ChartFactory.createPieChart("Result", pieDataset, true, true, true);
         PiePlot P = (PiePlot) chart.getPlot();
-        /*chart.addLegend(new LegendTitle(new LegendItemSource() {
-            @Override
-            public LegendItemCollection getLegendItems() {
-                    LegendItemCollection x =  new LegendItemCollection();
-                    x.add(new LegendItem("(AverageAge,Distribution Event)"));
-                    return x;
-            }
-        }));*/
-      /*
-        ChartFrame frame = new ChartFrame("Pie Chart", chart);
-        //frame.setVisible(true);
-        frame.setSize(450,500);
         
-        return frame; */
        return chart;
     }
 }

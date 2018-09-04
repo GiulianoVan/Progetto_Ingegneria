@@ -7,7 +7,6 @@ package Presentation;
 
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.ManagementModelTable.MyTableCellRenderer;
-import java.util.Set;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
@@ -17,7 +16,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author giuli
+ * @author INGSW2017_22
  */
 public class ManagementTurnView extends javax.swing.JPanel {
 

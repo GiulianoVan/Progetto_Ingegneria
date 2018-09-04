@@ -20,7 +20,7 @@ import java.util.Set;
 
 /**
  *
- * @author Vincent
+ * @author gruppo 22
  */
 public class ImplMySqlCustomerDao implements CustomerDao{
     
@@ -31,7 +31,6 @@ public class ImplMySqlCustomerDao implements CustomerDao{
     @Override
     public int deleteCustomer(Customer customer) {
             
-        //fare interrogazione;
         return 0;
     }
     
@@ -194,9 +193,5 @@ public class ImplMySqlCustomerDao implements CustomerDao{
                 
                 return ps.executeUpdate();
     }
-    
-
-    
-    
     
 }

@@ -14,7 +14,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class LineChart implements Charts{
 
@@ -50,11 +50,7 @@ public class LineChart implements Charts{
         CategoryPlot p = chart.getCategoryPlot();
         p.setRangeGridlinePaint(Color.BLUE);             
         return chart;
-        /*
-        ChartFrame frame = new ChartFrame("Bar Chart for Parameters", chart);
-        //frame.setVisible(true);
-        frame.setSize(450,500);
-        return frame; */ 
+        
     }
     
    

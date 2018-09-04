@@ -10,7 +10,7 @@ import org.jfree.chart.JFreeChart;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public interface Charts
 {    

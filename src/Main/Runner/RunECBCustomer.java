@@ -16,7 +16,7 @@ import Presentation.CustomerPanel;
 
 /**
  *
- * @author Vincent
+ * @author INGSW2017_22
  */
 public class RunECBCustomer {
     
@@ -33,14 +33,6 @@ public class RunECBCustomer {
           boundary = new BoundaryViewCustomer(controller,customerView);
           boundaryTab = new BoundaryTableCustomer(controller,customerView);
 
-          /*
-          dao = new ImplMySqlAddettoDao();
-         addettiView = new AddettiPanel();
-         controller = new ControllerCRUDAddetto(dao);
-         //controllerTable = new ControllerUpdateAddetto(dao,addettiView);
-         boundary = new BoundaryViewSecurity(addettiView,controller);
-         boundaryTab = new BoundaryTableSecurity(addettiView,controller);
-          */ 
     }
 
 

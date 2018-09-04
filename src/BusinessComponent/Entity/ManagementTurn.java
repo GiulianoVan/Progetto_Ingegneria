@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class ManagementTurn {
     
@@ -98,7 +98,5 @@ public class ManagementTurn {
         int hash = 7;
         hash = 31 * hash + Objects.hashCode(this.idTurn);
         return hash;
-    }
-    
-    
+    }  
 }

@@ -12,11 +12,10 @@ import Main.Runner.RunECBLogin;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class StartProject {
 
-   // public static Admin admin;
     public StartProject()
     {
        RunECBLogin log = new RunECBLogin();

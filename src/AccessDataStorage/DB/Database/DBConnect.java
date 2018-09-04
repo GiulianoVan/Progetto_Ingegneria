@@ -12,21 +12,12 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class DBConnect {
 
     private static Connection con;
-    //progettoingprivate static  String user = "Marcello";
-    //private static String password = "progettoing";
-    //private static  String user = "cognomen1";
-    //private static String password = "pippo";
-    //private static  String user = "cognomen";
-    //private static String password = "progettoing";
-    //private static  String user = "Vincenzo";
-    //private static String password = "bd12";
-
-    //private static String url = "jdbc:mysql://localhost/em17?useSSL=false&serverTimezone=Europe/Rome";
+    
     private static String url = "jdbc:mysql://hostingmysql330.register.it/ingsw_em17?useSSL=false&serverTimezone=Europe/Rome";
     private static  String user = "";
     private static String password = "";
@@ -46,32 +37,6 @@ public class DBConnect {
     public static void setPassword(String password) {
         DBConnect.password = password;
     }
-  
-   
-  /*  
-    public static Connection getConnection() 
-    {
-        if(password.equals("") || user.equals(""))
-            System.out.println("Password o user vuoti");
-        else
-        {
-           try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            
-            } catch (ClassNotFoundException ex) {
-            System.out.println("Driver Connector non funzionante");
-             }
-           try {
-            
-                con = DriverManager.getConnection(url,user,password);
-            
-             } catch (SQLException ex) {
-                 JOptionPane.showMessageDialog(null,"Errore connessione : verificare username e password","ERROR",JOptionPane.ERROR_MESSAGE);
-             }
-        }
-       return con;
-    }
-*/
     
     public static Connection getConnection() throws SQLException
     {
@@ -82,13 +47,6 @@ public class DBConnect {
             System.out.println("Driver Connector non funzionante");
             }
              con = DriverManager.getConnection(url,user,password);
-             //con = DriverManager.getConnection(url,"cognomen","progettoing");
-             //con = DriverManager.getConnection(url,"security","progettoing");
-             //con = DriverManager.getConnection(url,"systemadmin","progettoing");
-             //con = DriverManager.getConnection(url,"cognomen1","progettoing");
-             //con = DriverManager.getConnection(url,"Admin_1","progettoing");
-             //con = DriverManager.getConnection(url,"Admin_2","progettoing");
-             //con = DriverManager.getConnection(url,"Security_1","progettoing");
              
        return con;
     }

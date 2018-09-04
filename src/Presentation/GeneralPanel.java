@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author giuli
+ * @author INGSW2017_22
  */
 public abstract class GeneralPanel extends javax.swing.JPanel {
     String textButtonCreate = setTextButtonCreate();
@@ -29,7 +29,6 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
         initComponents();
         buttonAdvGeneral.setActionCommand("ADVSEARCHPANEL");
         buttonBackSearchGeneral.setActionCommand("BACKSEARCH");
-       // buttonCreateGeneral.setActionCommand("CREATEPANEL");
         buttonOkSearchGeneral.setActionCommand("CERCA");
         buttonDeleteAdvSearch.setActionCommand("DELETE");
         buttonDeleteSearch.setActionCommand("DELETE");
@@ -923,13 +922,5 @@ public abstract class GeneralPanel extends javax.swing.JPanel {
     private javax.swing.JTextField textUsernameCreate;
     private javax.swing.JLabel toAdvSearch;
     // End of variables declaration//GEN-END:variables
-
-   
-
-
-   
-
-
-    
 
 }

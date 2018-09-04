@@ -22,7 +22,7 @@ import javax.swing.JComboBox;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class BoundaryViewEvent extends BoundaryGeneralPanel implements ItemListener{ //o estende la generale ?
 
@@ -91,8 +91,7 @@ public class BoundaryViewEvent extends BoundaryGeneralPanel implements ItemListe
         }
         else if(e.getKeyChar() == '\n' && (e.getComponent()== view.getTextNameGeneralSearch() || e.getComponent()== view.getTextSurnameGeneralSearch() || e.getComponent()== view.getTextCfGeneralSearch()))
         {       
-            //flag_search ="search_advanced";
-             doAdvancedSearch();
+            doAdvancedSearch();
         }
     }
    
@@ -176,12 +175,7 @@ public class BoundaryViewEvent extends BoundaryGeneralPanel implements ItemListe
                 
                 controller.createEvent(titolo, description, event_type, kind_type, data, luogo);
                 JOptionPane.showMessageDialog(view,"Inserimento avvenuto con successo","INSERT",JOptionPane.INFORMATION_MESSAGE);
-                /*
-                if(flag_search.equalsIgnoreCase("cerca"))
-                    view.getButtonOkSearchGeneral().doClick();
-                else if(flag_search.equalsIgnoreCase("search_advanced"))
-                    view.getButtonOkAdvSearchGeneral().doClick();
-                */
+                
                 clearAllTextCreate();
             }
             catch(SQLException ex)

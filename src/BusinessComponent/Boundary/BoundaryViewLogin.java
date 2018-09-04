@@ -5,10 +5,8 @@
  */
 package BusinessComponent.Boundary;
 
-//import DB.DAO.AmministratoreDao;
-//import DB.DAO.ImplAdminDao;
+
 import AccessDataStorage.DB.Database.DBConnect;
-//import Model.JavaBean.Admin;
 import Presentation.LoginView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +17,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class BoundaryViewLogin implements ActionListener,KeyListener{
     
@@ -32,7 +30,6 @@ public class BoundaryViewLogin implements ActionListener,KeyListener{
       
     public BoundaryViewLogin(LoginView view)
     {
-        //this.dao = dao;
         viewLog = view;
         viewLog.getAccediButton().addActionListener(this);
         viewLog.getExitButton().addActionListener(this);

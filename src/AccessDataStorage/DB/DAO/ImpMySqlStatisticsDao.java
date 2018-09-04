@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Pirozzi
+ * @author gruppo 22
  */
 public class ImpMySqlStatisticsDao implements StatisticsDao{
 

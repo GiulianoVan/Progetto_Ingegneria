@@ -13,7 +13,7 @@ import java.util.Set;
 
 /**
  *
- * @author Vincent
+ * @author gruppo 22
  */
 
 public interface CustomerDao {
@@ -27,6 +27,5 @@ public interface CustomerDao {
     public Set<Customer> searchBySurname(String surname) throws SQLException;
     public Set<Customer> searchByBirth(Date from,Date to) throws SQLException;
     public Customer searchByTaxCode(String tax_code) throws SQLException;
-    //public int delete(clientModel x);
 
 }

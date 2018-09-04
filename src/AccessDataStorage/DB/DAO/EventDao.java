@@ -13,11 +13,11 @@ import java.util.Set;
 
 /**
  *
- * @author MarcelloQuattromani
+ * @author gruppo 22
  */
 public interface EventDao
 {
-    //public Set<Event> searchEvent(String evtName);
+
     public Event advancedSearchEvent(String evtName, String codEvt, String dateEvt, String typeEvt) throws SQLException;
     public int createEvent(Event event) throws SQLException;
     public int updateEvent(String new_value,String attribute_to_change,String id) throws SQLException;

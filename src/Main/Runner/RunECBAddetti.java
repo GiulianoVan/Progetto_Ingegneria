@@ -15,13 +15,12 @@ import BusinessComponent.Boundary.BoundaryViewSecurity;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class RunECBAddetti {
     
     AddettiPanel addettiView;
     ControllerCRUDAddetto controller;
-    //ControllerUpdateAddetto controllerTable;
     ImplMySqlAddettoDao dao;
     BoundaryViewSecurity boundary;
     BoundaryTableSecurity boundaryTab;
@@ -31,7 +30,6 @@ public class RunECBAddetti {
          dao = new ImplMySqlAddettoDao();
          addettiView = new AddettiPanel();
          controller = new ControllerCRUDAddetto(dao);
-         //controllerTable = new ControllerUpdateAddetto(dao,addettiView);
          boundary = new BoundaryViewSecurity(addettiView,controller);
          boundaryTab = new BoundaryTableSecurity(addettiView,controller);
       }

@@ -10,17 +10,15 @@ import Presentation.LoginView;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class RunECBLogin {
     
     
     public void startRunECBLogin()
     {
-
-       // AmministratoreDao dao = new ImplAdminDao();
         LoginView loginview = new LoginView();
-        BoundaryViewLogin controlLogin = new BoundaryViewLogin(/*dao,*/ loginview);
+        BoundaryViewLogin controlLogin = new BoundaryViewLogin(loginview);
         loginview.setLocationRelativeTo(null);//apre la finestra al centro dello schermo
         loginview.setVisible(true);
     }

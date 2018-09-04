@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author giuli
+ * @author INGSW2017_22
  */
 public class LoginView extends javax.swing.JFrame{
 
@@ -109,18 +109,7 @@ public class LoginView extends javax.swing.JFrame{
      * @param args the command line arguments
      */
     
- /*   public void accessApp(Object admin) {
-           
-            
-            if(admin != null){
  
-                this.dispose();
-                MainView home = new MainView();
-                home.setLocationRelativeTo(null);
-                home.setVisible(true);   
-            }
-    }  
-*/
      public void accessApp() {
            
         this.dispose();
@@ -129,6 +118,7 @@ public class LoginView extends javax.swing.JFrame{
         home.setVisible(true);   
             
     }  
+     
     public JButton getAccediButton() {
         return AccediButton;
     }

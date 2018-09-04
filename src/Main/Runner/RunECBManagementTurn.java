@@ -13,7 +13,7 @@ import Presentation.ManagementTurnView;
 
 /**
  *
- * @author giuli
+ * @author INGSW2017_22
  */
 public class RunECBManagementTurn {
 //turno
@@ -25,7 +25,6 @@ public class RunECBManagementTurn {
     ControllerCRUDTurn controller;
     ManagementTurnDao dao;
     ManagementTurnView view;
-    //ControllerUpdateTurn controllerUpdate;
     public void start()
     {
         dao = new ImpMySqlManagementTurnDao();

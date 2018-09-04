@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public interface StatisticsDao  {
    

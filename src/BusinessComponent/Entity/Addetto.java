@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class Addetto {
     
@@ -170,6 +170,4 @@ public class Addetto {
         return true;
     }
 
-
-  
 }

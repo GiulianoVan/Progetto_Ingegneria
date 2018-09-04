@@ -19,7 +19,7 @@ import java.util.Set;
 
 /**
  *
- * @author Pirozzi
+ * @author gruppo 22
  */
 public class ImpMySqlManagementTurnDao implements ManagementTurnDao{
 

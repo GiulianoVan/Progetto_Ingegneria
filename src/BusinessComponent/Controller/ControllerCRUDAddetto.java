@@ -17,9 +17,9 @@ import java.util.List;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
-public class ControllerCRUDAddetto{ //o estende la generale ?
+public class ControllerCRUDAddetto{
 //UTILIZZANDOLA QUANDO ESTENDE,BASTA USARE UN SOLO CONTROLLER,CONTROLLERADDETTO. IL COLLEGAMENTI COL PADRE VENGONO
     //FATTI IN AUTOMATICO NEL COSTRUTTORE DEL APDRE
     private Set<Addetto> addetti;
@@ -131,20 +131,5 @@ public class ControllerCRUDAddetto{ //o estende la generale ?
         
        return surn_Add;
     }
-    
-    
-    /*
-    private void updateTable(JTable table) {
-         
-         MyDefaultTableModel tab = new MyDefaultTableModel();
-         tab.createModelBySetAddetto(addetti);
-         table.setModel(tab);
-         int id = table.getColumnModel().getColumnIndex("ID");
-         tab.setId_column(id);
-         //Aggiorno i nomi delle colonne nella view 
-         table.getColumnModel().getColumn(2).setHeaderValue("TAX CODE");
-        
-         table.getColumnModel().getColumn(7).setHeaderValue("ID CODE");
-        }
-      */         
+      
 }

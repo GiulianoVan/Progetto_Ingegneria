@@ -6,11 +6,9 @@
 package Presentation;
 
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
-import java.util.Set;
-
 /**
  *
- * @author Vincent
+ * @author INGSW2017_22
  */
 public class CustomerPanel extends GeneralPanel {
     
@@ -94,17 +92,7 @@ public class CustomerPanel extends GeneralPanel {
         });
     
     }
- /*   
-    @Override
-    public void backNormalSearch()
-    {
-            getButtonAdvGeneral().setVisible(true);
-            getButtonCreateGeneral().setVisible(false);
-            getTextSearchGeneral().setVisible(true);
-            getButtonOkSearchGeneral().setVisible(true);
-            getjPanelAdvSearch().setVisible(false);
-    }
-   */ 
+ 
     @Override
     public void setNameSearch()
     {
@@ -115,6 +103,5 @@ public class CustomerPanel extends GeneralPanel {
     @Override
     public void clearAllTextCreate() {        
      }
-    
-    
+
 }

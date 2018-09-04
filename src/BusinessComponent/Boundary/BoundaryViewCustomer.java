@@ -6,7 +6,6 @@
 package BusinessComponent.Boundary;
 
 import BusinessComponent.Controller.ControllerRUDCustomer;
-import BusinessComponent.Boundary.BoundaryGeneralPanel;
 import AccessDataStorage.DB.DAO.CustomerDao;
 import BusinessComponent.ManagementModelTable.MyDefaultTableModel;
 import BusinessComponent.Entity.Customer;
@@ -21,7 +20,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Pirozzi
+ * @author INGSW2017_22
  */
 public class BoundaryViewCustomer extends BoundaryGeneralPanel{
  
@@ -57,8 +56,7 @@ public class BoundaryViewCustomer extends BoundaryGeneralPanel{
         }
         else if(action.equals("DELETE"))
         {
-            doDelete();
-            //JTable tab = view.getTableSearchGeneral();         
+            doDelete();      
         }
         else if(action.equals("BACKSEARCH"))
         {
