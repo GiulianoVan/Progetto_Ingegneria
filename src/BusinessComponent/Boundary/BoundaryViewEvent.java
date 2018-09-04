@@ -131,9 +131,9 @@ public class BoundaryViewEvent extends BoundaryGeneralPanel implements ItemListe
         int start_selection = view.getTableSearchGeneral().getSelectedRow();
         int end_selection = rowCount+start_selection-1;
         if(rowCount > 1)
-            deleteMessage = "You selected "+rowCount+" rows, are you sure that you want delete them?";
+            deleteMessage = "You selected "+rowCount+" rows, are you sure that you want delete them? \nThe associated tickets will also be deleted";
         else
-            deleteMessage = "Are you sure that you want delete it?";
+            deleteMessage = "Are you sure that you want delete it?\nThe associated tickets will also be deleted";
 
         int answer  = JOptionPane.showConfirmDialog(view,deleteMessage,"DELETE",JOptionPane.YES_NO_OPTION);
         if(answer == 0) // ha cliccato si
