@@ -221,7 +221,7 @@ public class ImplEventDaoTest {
     @Test
     public void testDeleteEvent() throws Exception {
         System.out.println("deleteEvent");
-        //sect test case
+        
          String idEvent1 = "Aaaaaaabbbccc";
          String idEvent2 = "";
          String idEvent3 = "24";
