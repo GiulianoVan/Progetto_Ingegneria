@@ -12,46 +12,14 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Controller/ControllerRUDCustomer.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Entity/Customer.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/Runner/RunECBCustomer.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryViewCustomer.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/ManagementTurnView.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/Runner/RunECBEvents.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryViewTurn.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Entity/Addetto.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Entity/ManagementTurn.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/CustomerPanel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Controller/ControllerCRUDAddetto.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Controller/ControllerCRUDTurn.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Factory/Charts.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/StartProject.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Factory/GenerateChart.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/Runner/RunStatistics.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryTableSecurity.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryViewEvent.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Factory/LineChart.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryTableGeneral.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/AddettiPanel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/GeneralPanel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/AccessDataStorage/DB/DAO/ImplMySqlEventDao.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/EventPanel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/StatisticsView.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryViewLogin.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/Runner/RunECBLogin.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/MainView.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryViewSecurity.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryViewStatistics.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Controller/ControllerCRUDEvent.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Entity/Event.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Factory/PieChart.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/ManagementModelTable/MyDefaultTableModel.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/Runner/RunECBManagementTurn.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Presentation/LoginView.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/Main/Runner/RunECBAddetti.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/test/DAO/ImplEventDaoTest.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/Controller/ControllerStatistics.java</file>
-            <file>file:/C:/Users/giuli/Desktop/Ingegneria%20del%20Software/ProgettoCondiviso/Progetto_Ingegneria/src/BusinessComponent/ManagementModelTable/MyTableCellRenderer.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Presentation/EventPanel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryViewStatistics.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/BusinessComponent/Controller/ControllerStatistics.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/Presentation/GeneralPanel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/AccessDataStorage/DB/DAO/ImplMySqlEventDao.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryGeneralPanel.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/test/DAO/ImplEventDaoTest.java</file>
+            <file>file:/C:/Users/Pirozzi/Desktop/ProgettoCondivisoEM/Progetto_Ingegneria/src/BusinessComponent/Boundary/BoundaryViewEvent.java</file>
         </group>
     </open-files>
 </project-private>
