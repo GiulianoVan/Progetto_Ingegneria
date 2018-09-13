@@ -52,6 +52,4 @@ public class LineChart implements Charts{
         return chart;
         
     }
-    
-   
 }

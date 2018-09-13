@@ -24,7 +24,7 @@ import javax.swing.JComboBox;
  *
  * @author INGSW2017_22
  */
-public class BoundaryViewEvent extends BoundaryGeneralPanel implements ItemListener{ //o estende la generale ?
+public class BoundaryViewEvent extends BoundaryGeneralPanel implements ItemListener{
 
 
     private EventPanel view;
@@ -172,7 +172,6 @@ public class BoundaryViewEvent extends BoundaryGeneralPanel implements ItemListe
             String luogo = view.getTextLuogoCreateEvent().getText();            
             try
             {
-                
                 controller.createEvent(titolo, description, event_type, kind_type, data, luogo);
                 JOptionPane.showMessageDialog(view,"Inserimento avvenuto con successo","INSERT",JOptionPane.INFORMATION_MESSAGE);
                 

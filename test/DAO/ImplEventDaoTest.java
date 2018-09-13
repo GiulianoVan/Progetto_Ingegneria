@@ -28,9 +28,6 @@ import org.junit.rules.ExpectedException;
  */
 public class ImplEventDaoTest {
     
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
-    
     
     public ImplEventDaoTest() {
             DBConnect.setUser("Admin_1");
@@ -55,12 +52,12 @@ public class ImplEventDaoTest {
         PreparedStatement ps;
         try
         {
-        String sql = "INSERT INTO EVENTO(IDEVENTO,TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,DESCRIPTION) VALUES ('24','test','SPORT','FOOTBALL','2018-12-07','NAPOLI','RIGA TEST');";
-        con = DBConnect.getConnection();
-        ps=con.prepareStatement(sql);
-        int res = ps.executeUpdate();
-        con.close();
-        ps.close();
+            String sql = "INSERT INTO EVENTO(IDEVENTO,TITLE,EVENT_TYPE,KIND_TYPE,DATE,PLACE_NAME,DESCRIPTION) VALUES ('24','test','SPORT','FOOTBALL','2018-12-07','NAPOLI','RIGA TEST');";
+            con = DBConnect.getConnection();
+            ps=con.prepareStatement(sql);
+            int res = ps.executeUpdate();
+            con.close();
+            ps.close();
         }
         catch(SQLException e)
         {
